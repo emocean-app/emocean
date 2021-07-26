@@ -72,6 +72,90 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86DA0ABE26AF0E6600FA2C53 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				86DA0ABF26AF0E7A00FA2C53 /* Extensions */,
+				86DA0AC126AF0E8A00FA2C53 /* Services */,
+				86DA0AC026AF0E8000FA2C53 /* Networking */,
+				86DA0AC426AF0EB300FA2C53 /* ResultState */,
+				86DA0AC326AF0E9E00FA2C53 /* FileManager */,
+				86DA0AC226AF0E9A00FA2C53 /* Error */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		86DA0ABF26AF0E7A00FA2C53 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		86DA0AC026AF0E8000FA2C53 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		86DA0AC126AF0E8A00FA2C53 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		86DA0AC226AF0E9A00FA2C53 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		86DA0AC326AF0E9E00FA2C53 /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
+		86DA0AC426AF0EB300FA2C53 /* ResultState */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ResultState;
+			sourceTree = "<group>";
+		};
+		86DA0AC526AF0F3500FA2C53 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		86DA0AC626AF0F4000FA2C53 /* Cores */ = {
+			isa = PBXGroup;
+			children = (
+				86DA0AC726AF0F5E00FA2C53 /* Components */,
+			);
+			path = Cores;
+			sourceTree = "<group>";
+		};
+		86DA0AC726AF0F5E00FA2C53 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		86DA0AC826AF0F6F00FA2C53 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		EFDC624F26A7E4A200E4D068 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +179,10 @@
 		EFDC625A26A7E4A200E4D068 /* emocean */ = {
 			isa = PBXGroup;
 			children = (
+				86DA0ABE26AF0E6600FA2C53 /* Util */,
+				86DA0AC526AF0F3500FA2C53 /* Models */,
+				86DA0AC626AF0F4000FA2C53 /* Cores */,
+				86DA0AC826AF0F6F00FA2C53 /* Resources */,
 				EFDC625B26A7E4A200E4D068 /* emoceanApp.swift */,
 				EFDC625D26A7E4A200E4D068 /* ContentView.swift */,
 				EFDC625F26A7E4A400E4D068 /* Assets.xcassets */,
