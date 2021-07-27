@@ -5,6 +5,12 @@
 //  Created by Christian Adiputra on 27/07/21.
 //
 
+/// CheckinObservation
+///
+///
+/// - Parameter question: The question for CheckinObservationView
+///
+
 import SwiftUI
 
 struct CheckinObservationView: View {
@@ -18,7 +24,7 @@ struct CheckinObservationView: View {
         
         ZStack { // START: ZTACK
             
-            Image("dummy1")
+            Image("dummy1") /// - Background Image
                 .resizable()
                 .ignoresSafeArea()
             
