@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86A6D7F026B04DFA001C19E1 /* dummy1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7EF26B04DFA001C19E1 /* dummy1.swift */; };
+		86A6D7F226B04E02001C19E1 /* dummy2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F126B04E02001C19E1 /* dummy2.swift */; };
+		86A6D7F426B04E0B001C19E1 /* dummy3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F326B04E0B001C19E1 /* dummy3.swift */; };
+		86A6D7F626B04E13001C19E1 /* dummy4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F526B04E13001C19E1 /* dummy4.swift */; };
+		86A6D7F826B04E1C001C19E1 /* dummy5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F726B04E1C001C19E1 /* dummy5.swift */; };
+		86A6D7FA26B04E25001C19E1 /* dummy6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F926B04E25001C19E1 /* dummy6.swift */; };
+		86A6D7FC26B04E2F001C19E1 /* dummy7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7FB26B04E2F001C19E1 /* dummy7.swift */; };
+		86A6D7FE26B04E38001C19E1 /* dummy8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7FD26B04E38001C19E1 /* dummy8.swift */; };
+		86A6D80026B04E40001C19E1 /* dummy9.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7FF26B04E40001C19E1 /* dummy9.swift */; };
+		86A6D80226B04E48001C19E1 /* dummy10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D80126B04E48001C19E1 /* dummy10.swift */; };
 		EFDC625C26A7E4A200E4D068 /* emoceanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC625B26A7E4A200E4D068 /* emoceanApp.swift */; };
 		EFDC625E26A7E4A200E4D068 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC625D26A7E4A200E4D068 /* ContentView.swift */; };
 		EFDC626026A7E4A400E4D068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFDC625F26A7E4A400E4D068 /* Assets.xcassets */; };
@@ -33,6 +43,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		86A6D7EF26B04DFA001C19E1 /* dummy1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy1.swift; sourceTree = "<group>"; };
+		86A6D7F126B04E02001C19E1 /* dummy2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy2.swift; sourceTree = "<group>"; };
+		86A6D7F326B04E0B001C19E1 /* dummy3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy3.swift; sourceTree = "<group>"; };
+		86A6D7F526B04E13001C19E1 /* dummy4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy4.swift; sourceTree = "<group>"; };
+		86A6D7F726B04E1C001C19E1 /* dummy5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy5.swift; sourceTree = "<group>"; };
+		86A6D7F926B04E25001C19E1 /* dummy6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy6.swift; sourceTree = "<group>"; };
+		86A6D7FB26B04E2F001C19E1 /* dummy7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy7.swift; sourceTree = "<group>"; };
+		86A6D7FD26B04E38001C19E1 /* dummy8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = dummy8.swift; path = emocean/Models/dummy8.swift; sourceTree = SOURCE_ROOT; };
+		86A6D7FF26B04E40001C19E1 /* dummy9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = dummy9.swift; path = emocean/Models/dummy9.swift; sourceTree = SOURCE_ROOT; };
+		86A6D80126B04E48001C19E1 /* dummy10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy10.swift; sourceTree = "<group>"; };
 		EFDC625826A7E4A200E4D068 /* emocean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = emocean.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDC625B26A7E4A200E4D068 /* emoceanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emoceanApp.swift; sourceTree = "<group>"; };
 		EFDC625D26A7E4A200E4D068 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +108,7 @@
 		86DA0ABF26AF0E7A00FA2C53 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				86A6D7EF26B04DFA001C19E1 /* dummy1.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -95,6 +116,7 @@
 		86DA0AC026AF0E8000FA2C53 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				86A6D7F326B04E0B001C19E1 /* dummy3.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -102,6 +124,7 @@
 		86DA0AC126AF0E8A00FA2C53 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				86A6D7F126B04E02001C19E1 /* dummy2.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -109,6 +132,7 @@
 		86DA0AC226AF0E9A00FA2C53 /* Error */ = {
 			isa = PBXGroup;
 			children = (
+				86A6D7F926B04E25001C19E1 /* dummy6.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -116,6 +140,7 @@
 		86DA0AC326AF0E9E00FA2C53 /* FileManager */ = {
 			isa = PBXGroup;
 			children = (
+				86A6D7F726B04E1C001C19E1 /* dummy5.swift */,
 			);
 			path = FileManager;
 			sourceTree = "<group>";
@@ -123,6 +148,7 @@
 		86DA0AC426AF0EB300FA2C53 /* ResultState */ = {
 			isa = PBXGroup;
 			children = (
+				86A6D7F526B04E13001C19E1 /* dummy4.swift */,
 			);
 			path = ResultState;
 			sourceTree = "<group>";
@@ -130,6 +156,7 @@
 		86DA0AC526AF0F3500FA2C53 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				86A6D7FB26B04E2F001C19E1 /* dummy7.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -138,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				86DA0AC726AF0F5E00FA2C53 /* Components */,
+				86A6D7FF26B04E40001C19E1 /* dummy9.swift */,
 			);
 			path = Cores;
 			sourceTree = "<group>";
@@ -145,6 +173,7 @@
 		86DA0AC726AF0F5E00FA2C53 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				86A6D7FD26B04E38001C19E1 /* dummy8.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -152,6 +181,7 @@
 		86DA0AC826AF0F6F00FA2C53 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				86A6D80126B04E48001C19E1 /* dummy10.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -347,7 +377,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A6D7FC26B04E2F001C19E1 /* dummy7.swift in Sources */,
+				86A6D80226B04E48001C19E1 /* dummy10.swift in Sources */,
+				86A6D7F026B04DFA001C19E1 /* dummy1.swift in Sources */,
+				86A6D7FA26B04E25001C19E1 /* dummy6.swift in Sources */,
+				86A6D7FE26B04E38001C19E1 /* dummy8.swift in Sources */,
+				86A6D7F226B04E02001C19E1 /* dummy2.swift in Sources */,
 				EFDC625E26A7E4A200E4D068 /* ContentView.swift in Sources */,
+				86A6D7F626B04E13001C19E1 /* dummy4.swift in Sources */,
+				86A6D7F826B04E1C001C19E1 /* dummy5.swift in Sources */,
+				86A6D7F426B04E0B001C19E1 /* dummy3.swift in Sources */,
+				86A6D80026B04E40001C19E1 /* dummy9.swift in Sources */,
 				EFDC625C26A7E4A200E4D068 /* emoceanApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
