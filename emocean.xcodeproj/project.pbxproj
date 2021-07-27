@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE373326B06D440006FE66 /* PrimaryButton.swift */; };
+		4E22EC8C26B0715F002CD2C7 /* CheckinObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22EC8B26B0715F002CD2C7 /* CheckinObservationView.swift */; };
 		86A6D7F026B04DFA001C19E1 /* dummy1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7EF26B04DFA001C19E1 /* dummy1.swift */; };
 		86A6D7F226B04E02001C19E1 /* dummy2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F126B04E02001C19E1 /* dummy2.swift */; };
 		86A6D7F426B04E0B001C19E1 /* dummy3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F326B04E0B001C19E1 /* dummy3.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		0CDE373326B06D440006FE66 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		4E22EC8B26B0715F002CD2C7 /* CheckinObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinObservationView.swift; sourceTree = "<group>"; };
 		86A6D7EF26B04DFA001C19E1 /* dummy1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy1.swift; sourceTree = "<group>"; };
 		86A6D7F126B04E02001C19E1 /* dummy2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy2.swift; sourceTree = "<group>"; };
 		86A6D7F326B04E0B001C19E1 /* dummy3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy3.swift; sourceTree = "<group>"; };
@@ -96,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E22EC8A26B07145002CD2C7 /* CheckinObservation */ = {
+			isa = PBXGroup;
+			children = (
+				4E22EC8B26B0715F002CD2C7 /* CheckinObservationView.swift */,
+			);
+			name = CheckinObservation;
+			path = ../Resources/CheckinObservation;
+			sourceTree = "<group>";
+		};
 		86DA0ABE26AF0E6600FA2C53 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +179,7 @@
 		86DA0AC626AF0F4000FA2C53 /* Cores */ = {
 			isa = PBXGroup;
 			children = (
+				4E22EC8A26B07145002CD2C7 /* CheckinObservation */,
 				86DA0AC726AF0F5E00FA2C53 /* Components */,
 				86A6D80726B0521C001C19E1 /* dummy8.swift */,
 			);
@@ -383,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E22EC8C26B0715F002CD2C7 /* CheckinObservationView.swift in Sources */,
 				86A6D80A26B05224001C19E1 /* dummy9.swift in Sources */,
 				86A6D7FC26B04E2F001C19E1 /* dummy7.swift in Sources */,
 				86A6D80826B0521C001C19E1 /* dummy8.swift in Sources */,
