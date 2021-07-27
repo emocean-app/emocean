@@ -27,9 +27,6 @@ struct CheckinObservationView: View {
             Image("dummy1") /// - Background Image
                 .resizable()
                 .ignoresSafeArea()
-            
-            
-            GeometryReader { geo in // START: GEOMETRYREADER
                 
                 VStack(alignment: .center) { // START: VSTACK
                     
@@ -53,11 +50,8 @@ struct CheckinObservationView: View {
                         PrimaryButton(content: {
                             Text("Yes")
                         }, maxWidth: 65, action: {})
-
-                    }.padding(.bottom,27) // END: HSTACK
+                    }.padding(.bottom, 30) // END: HSTACK
                 } // END: VSTACK
-                .frame(width: geo.size.width , height: geo.size.height, alignment: .center)
-            } // END: GEOMETRYREADER
         } // END: ZTACK
     } 
 }
