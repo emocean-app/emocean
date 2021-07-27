@@ -50,10 +50,8 @@ struct CheckinObservationView: View {
                         PrimaryButton(content: {
                             Text("Yes")
                         }, maxWidth: 65, action: {})
-
                     }.padding(.bottom, 30) // END: HSTACK
                 } // END: VSTACK
-
         } // END: ZTACK
     } 
 }
