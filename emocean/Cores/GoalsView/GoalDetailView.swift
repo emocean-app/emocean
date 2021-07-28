@@ -4,6 +4,22 @@
 //
 //  Created by Christian Adiputra on 28/07/21.
 //
+/// Detail View for Goal.
+///
+/// You have to define give padding.
+///
+/// ```
+/// GoalCell(
+///     goal: "I Want to Focus on myself more so one day I’llachive the things I want...",
+///     date: "January 30th 2021",
+///     edit: false
+/// )
+/// ```
+///
+/// - Parameter goal: The goal string
+/// - Parameter date: The date string
+/// - Parameter isShow: is the modal show bool
+///
 
 import SwiftUI
 

@@ -4,7 +4,22 @@
 //
 //  Created by Christian Adiputra on 28/07/21.
 //
-
+/// Cell for Goal page.
+///
+/// You have to define give padding.
+///
+/// ```
+/// GoalCell(
+///     category: "Relationship",
+///     goal: "I Want to Focus on myself more so one day I’llachive the things I want...",
+///     date: "January 30th 2021",
+/// )
+/// ```
+///
+/// - Parameter category: The segment category string
+/// - Parameter goal: The goal string
+/// - Parameter date: The date String
+///
 import SwiftUI
 
 struct GoalCell: View {
