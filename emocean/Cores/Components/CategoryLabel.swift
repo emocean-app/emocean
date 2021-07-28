@@ -26,12 +26,12 @@ struct CategoryLabel: View {
     private let mainColor = Color(red: 16/255, green: 28/255, blue: 56/255)
     private let bgColor = Color(red: 232/255, green: 234/255, blue: 237/255)
     var body: some View {
-        Text(labelCategory)
-            .font(.caption2)
-            .foregroundColor(mainColor)
-            .padding(2)
-            .padding(.horizontal,5)
-            .background(bgColor.clipShape(Capsule()))
+            Text(labelCategory)
+                .font(.caption2)
+                .foregroundColor(mainColor)
+                .padding(2)
+                .padding(.horizontal,5)
+                .background(mainColor.clipShape(Capsule()).opacity(0.15))
     }
 }
 
@@ -39,6 +39,5 @@ struct CategoryLabel_Previews: PreviewProvider {
     static var previews: some View {
         CategoryLabel(labelCategory: "Relationship")
             .previewLayout(.sizeThatFits)
-            .background(Color.black)
     }
 }
