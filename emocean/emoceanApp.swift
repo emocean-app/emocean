@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct emoceanApp: App {
+struct EmoceanApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
