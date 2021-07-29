@@ -48,6 +48,7 @@ struct ButtonOutlined: View {
         }, label: {
             Text(text)
                 .foregroundColor(isLight ? .white : .black)
+                .frame(maxWidth: .infinity)
                 .padding()
                 .padding(.horizontal)
                 .background( // START: BACKGROUND

@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "NightSky.svg",
-      "idiom" : "universal"
+      "filename" : "NightSky.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "NightSky@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "NightSky@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

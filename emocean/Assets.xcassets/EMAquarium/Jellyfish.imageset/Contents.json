@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "NoonSky.png",
+      "filename" : "Jellyfish.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "NoonSky@2x.png",
+      "filename" : "Jellyfish@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "NoonSky@3x.png",
+      "filename" : "Jellyfish@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

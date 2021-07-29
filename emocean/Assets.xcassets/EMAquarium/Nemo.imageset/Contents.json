@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "NoonSky.png",
+      "filename" : "Nemo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "NoonSky@2x.png",
+      "filename" : "Nemo@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "NoonSky@3x.png",
+      "filename" : "Nemo@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
