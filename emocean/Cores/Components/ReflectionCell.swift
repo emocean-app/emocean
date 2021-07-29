@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WrappingHStack
 /// Cell for Reflection page.
 ///
 /// This cell has width of .infinity.
@@ -34,56 +35,52 @@ struct ReflectionCell: View {
     let image: String
     let bgColor: Color
     let categories: [String]
-    
+
     // MARK: BODY
     var body: some View {
         HStack(spacing: 0) { // START: HSTACK
             Image(image)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
-                .padding(5)
-                .frame(maxWidth: 90, maxHeight: .infinity)
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: 75, alignment: .trailing)
+                .padding(.trailing, 5)
                 .background(bgColor)
 
             VStack(alignment: .leading) { // START: VSTACK
                 Text(time)
                     .font(.footnote)
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color.theme.grayThird)
                 Text(mood)
                     .font(.system(size: 17, weight: .heavy, design: .default))
+                    .foregroundColor(Color.theme.primary)
                 Spacer()
-                ScrollView(.horizontal, showsIndicators: false, content: { // START: SCROLLVIEW
-                    HStack { // START: HSTACK
-                        ForEach(categories, id: \.self) { category in
-                            if category == categories.last {
-                                CategoryLabel(labelCategory: category)
-                                    .padding(.trailing, 10)
-                            } else {
-                                CategoryLabel(labelCategory: category)
-                            }
-                        }
-                    } // END: HSTACK
-                }) // END: SCROLLVIEW
-                .padding(.trailing, 0)
-            } // END: VSTACK
+                WrappingHStack(categories, id: \.self, spacing: .constant(3)) { category in // START: HSTACK
+                    CategoryLabel(labelCategory: category)
+                        .padding(.vertical, 3)
+                }
+                .padding(.trailing, 3)
+                // END: HSTACK
+            }
             .padding(.vertical, 5)
             .padding(.leading, 10)
             .background(Color.white)
+            // END: VSTACK
 
             Image(systemName: "chevron.right")
                 .frame(maxWidth: 25, maxHeight: .infinity)
                 .foregroundColor(Color(.displayP3, red: 26/255, green: 41/255, blue: 76/255, opacity: 0.15))
                 .background(Color(red: 230/255, green: 230/255, blue: 230/255))
-        } // END: HSTACK
-        .frame(height: 90, alignment: .center)
+        }
+        .frame(height: 100, alignment: .center)
         .cornerRadius(15)
+        // END: HSTACK
     }
 }
 
 // MARK: PREVIEW
 struct ReflectionCell_Previews: PreviewProvider {
     static var previews: some View {
-        ReflectionCell(time: "Morning", mood: "Disgusted", image: "Bawal", bgColor: .blue, categories: ["Work", "Relationship", "Games", "Family"])
+        ReflectionCell(time: "Morning", mood: "Angry", image: "Jellyfish", bgColor: Color.theme.redQuadrant, categories: ["News", "Relationship", "Coronavirus"])
             .previewLayout(.sizeThatFits)
     }
 }
