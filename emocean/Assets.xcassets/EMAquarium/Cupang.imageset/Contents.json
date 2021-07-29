@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "NoonSky.png",
+      "filename" : "Cupang.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "NoonSky@2x.png",
+      "filename" : "Cupang@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "NoonSky@3x.png",
+      "filename" : "Cupang@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

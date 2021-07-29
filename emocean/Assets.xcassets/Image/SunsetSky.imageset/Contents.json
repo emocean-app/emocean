@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "SunsetSky.svg",
-      "idiom" : "universal"
+      "filename" : "SunsetSky.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "SunsetSky@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "SunsetSky@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
