@@ -49,7 +49,7 @@ app
 └── info.plist
 ```
 
-## Contributors
+## Our Team
 
 - [@mughieams](github.com/mughieams)
 - [@handharr](github.com/handharr)
