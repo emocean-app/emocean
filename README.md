@@ -2,7 +2,6 @@
 
 An application to journaling your emotion
 
-
 ## Folder Structure
 ```
 app
@@ -48,6 +47,8 @@ app
 ├── ProjectApp.swift
 └── info.plist
 ```
+## Prerequisite
+- XCode 12.4 version or later  
 
 ## Our Team
 
