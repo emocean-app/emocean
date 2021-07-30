@@ -68,8 +68,8 @@ struct ReflectionCell: View {
 
             Image(systemName: "chevron.right")
                 .frame(maxWidth: 25, maxHeight: .infinity)
-                .foregroundColor(Color(.displayP3, red: 26/255, green: 41/255, blue: 76/255, opacity: 0.15))
-                .background(Color(red: 230/255, green: 230/255, blue: 230/255))
+                .foregroundColor(Color.theme.graySecondary)
+                .background(Color.theme.grayPrimary)
         }
         .frame(height: 100, alignment: .center)
         .cornerRadius(15)
