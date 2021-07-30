@@ -17,21 +17,18 @@
 ///
 /// - Parameter labelCategory: The category for the label
 
-
 import SwiftUI
 
 struct CategoryLabel: View {
     // MARK: - PROPERTIES
     var labelCategory: String
-    private let mainColor = Color(red: 16/255, green: 28/255, blue: 56/255)
-    private let bgColor = Color(red: 232/255, green: 234/255, blue: 237/255)
     var body: some View {
             Text(labelCategory)
                 .font(.caption2)
-                .foregroundColor(mainColor)
+                .foregroundColor(Color.theme.primary)
                 .padding(2)
                 .padding(.horizontal,5)
-                .background(mainColor.clipShape(Capsule()).opacity(0.15))
+                .background(Color.theme.primary.clipShape(Capsule()).opacity(0.15))
     }
 }
 

@@ -12,6 +12,8 @@
 		0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284526B1AEB800672AEA /* ProgressBubble.swift */; };
 		0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE373326B06D440006FE66 /* PrimaryButton.swift */; };
 		4E22EC8C26B0715F002CD2C7 /* CheckinObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22EC8B26B0715F002CD2C7 /* CheckinObservationView.swift */; };
+		4E67393226B28D680037583E /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67393126B28D680037583E /* TabBar.swift */; };
+		4E67393626B2DA1D0037583E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67393526B2DA1D0037583E /* TabBarView.swift */; };
 		4E91CA1D26B1730500387EE4 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA1C26B1730500387EE4 /* GoalDetailView.swift */; };
 		4E91CA1F26B1802C00387EE4 /* CategoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA1E26B1802C00387EE4 /* CategoryLabel.swift */; };
 		4E91CA2226B1BA9100387EE4 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA2126B1BA9100387EE4 /* GoalCell.swift */; };
@@ -56,6 +58,8 @@
 		0C62284526B1AEB800672AEA /* ProgressBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBubble.swift; sourceTree = "<group>"; };
 		0CDE373326B06D440006FE66 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		4E22EC8B26B0715F002CD2C7 /* CheckinObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinObservationView.swift; sourceTree = "<group>"; };
+		4E67393126B28D680037583E /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		4E67393526B2DA1D0037583E /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		4E91CA1C26B1730500387EE4 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
 		4E91CA1E26B1802C00387EE4 /* CategoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLabel.swift; sourceTree = "<group>"; };
 		4E91CA2126B1BA9100387EE4 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
@@ -117,6 +121,15 @@
 			);
 			name = CheckinObservation;
 			path = ../Resources/CheckinObservation;
+			sourceTree = "<group>";
+		};
+		4E67392D26B28A710037583E /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				4E67393126B28D680037583E /* TabBar.swift */,
+				4E67393526B2DA1D0037583E /* TabBarView.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		4E91CA2026B1BA3000387EE4 /* GoalsView */ = {
@@ -201,6 +214,7 @@
 		86DA0AC626AF0F4000FA2C53 /* Cores */ = {
 			isa = PBXGroup;
 			children = (
+				4E67392D26B28A710037583E /* TabBar */,
 				4E91CA2026B1BA3000387EE4 /* GoalsView */,
 				4E22EC8A26B07145002CD2C7 /* CheckinObservation */,
 				86DA0AC726AF0F5E00FA2C53 /* Components */,
@@ -456,6 +470,7 @@
 				86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */,
 				86A6D7FA26B04E25001C19E1 /* dummy6.swift in Sources */,
 				86A6D7F226B04E02001C19E1 /* dummy2.swift in Sources */,
+				4E67393626B2DA1D0037583E /* TabBarView.swift in Sources */,
 				EFDC625E26A7E4A200E4D068 /* ContentView.swift in Sources */,
 				4E91CA2226B1BA9100387EE4 /* GoalCell.swift in Sources */,
 				86A6D7F626B04E13001C19E1 /* dummy4.swift in Sources */,
@@ -468,6 +483,7 @@
 				0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */,
 				868B0C2B26B26C7E0019A2B0 /* ThemeExtension.swift in Sources */,
 				868B0C2926B25DF70019A2B0 /* ColorExtension.swift in Sources */,
+				4E67393226B28D680037583E /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
