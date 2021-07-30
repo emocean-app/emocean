@@ -3,14 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0D672E26B2E8C2005925E4 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 0C0D672D26B2E8C2005925E4 /* WrappingHStack */; };
 		0C62284426B18ECA00672AEA /* ReflectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284326B18ECA00672AEA /* ReflectionCell.swift */; };
 		0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284526B1AEB800672AEA /* ProgressBubble.swift */; };
 		0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE373326B06D440006FE66 /* PrimaryButton.swift */; };
 		4E22EC8C26B0715F002CD2C7 /* CheckinObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22EC8B26B0715F002CD2C7 /* CheckinObservationView.swift */; };
+		4E67393226B28D680037583E /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67393126B28D680037583E /* TabBar.swift */; };
+		4E67393626B2DA1D0037583E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67393526B2DA1D0037583E /* TabBarView.swift */; };
 		4E91CA1D26B1730500387EE4 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA1C26B1730500387EE4 /* GoalDetailView.swift */; };
 		4E91CA1F26B1802C00387EE4 /* CategoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA1E26B1802C00387EE4 /* CategoryLabel.swift */; };
 		4E91CA2226B1BA9100387EE4 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA2126B1BA9100387EE4 /* GoalCell.swift */; };
@@ -56,6 +59,8 @@
 		0C62284526B1AEB800672AEA /* ProgressBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBubble.swift; sourceTree = "<group>"; };
 		0CDE373326B06D440006FE66 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		4E22EC8B26B0715F002CD2C7 /* CheckinObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinObservationView.swift; sourceTree = "<group>"; };
+		4E67393126B28D680037583E /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		4E67393526B2DA1D0037583E /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		4E91CA1C26B1730500387EE4 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
 		4E91CA1E26B1802C00387EE4 /* CategoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLabel.swift; sourceTree = "<group>"; };
 		4E91CA2126B1BA9100387EE4 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
@@ -90,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C0D672E26B2E8C2005925E4 /* WrappingHStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +123,15 @@
 			);
 			name = CheckinObservation;
 			path = ../Resources/CheckinObservation;
+			sourceTree = "<group>";
+		};
+		4E67392D26B28A710037583E /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				4E67393126B28D680037583E /* TabBar.swift */,
+				4E67393526B2DA1D0037583E /* TabBarView.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		4E91CA2026B1BA3000387EE4 /* GoalsView */ = {
@@ -202,6 +217,7 @@
 		86DA0AC626AF0F4000FA2C53 /* Cores */ = {
 			isa = PBXGroup;
 			children = (
+				4E67392D26B28A710037583E /* TabBar */,
 				4E91CA2026B1BA3000387EE4 /* GoalsView */,
 				4E22EC8A26B07145002CD2C7 /* CheckinObservation */,
 				86DA0AC726AF0F5E00FA2C53 /* Components */,
@@ -309,6 +325,9 @@
 			dependencies = (
 			);
 			name = emocean;
+			packageProductDependencies = (
+				0C0D672D26B2E8C2005925E4 /* WrappingHStack */,
+			);
 			productName = emocean;
 			productReference = EFDC625826A7E4A200E4D068 /* emocean.app */;
 			productType = "com.apple.product-type.application";
@@ -380,6 +399,9 @@
 				Base,
 			);
 			mainGroup = EFDC624F26A7E4A200E4D068;
+			packageReferences = (
+				0C0D672C26B2E8C2005925E4 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+			);
 			productRefGroup = EFDC625926A7E4A200E4D068 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -451,6 +473,7 @@
 				86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */,
 				86A6D7FA26B04E25001C19E1 /* dummy6.swift in Sources */,
 				86A6D7F226B04E02001C19E1 /* dummy2.swift in Sources */,
+				4E67393626B2DA1D0037583E /* TabBarView.swift in Sources */,
 				EFDC625E26A7E4A200E4D068 /* ContentView.swift in Sources */,
 				4E91CA2226B1BA9100387EE4 /* GoalCell.swift in Sources */,
 				86A6D7F626B04E13001C19E1 /* dummy4.swift in Sources */,
@@ -464,6 +487,7 @@
 				868B0C2B26B26C7E0019A2B0 /* ThemeExtension.swift in Sources */,
 				4EB48B0926B39900004F04DD /* GoalView.swift in Sources */,
 				868B0C2926B25DF70019A2B0 /* ColorExtension.swift in Sources */,
+				4E67393226B28D680037583E /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,6 +807,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0C0D672C26B2E8C2005925E4 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0C0D672D26B2E8C2005925E4 /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C0D672C26B2E8C2005925E4 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EFDC625026A7E4A200E4D068 /* Project object */;
 }

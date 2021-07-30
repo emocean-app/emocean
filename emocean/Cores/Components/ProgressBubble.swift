@@ -41,7 +41,7 @@ struct ProgressBubble: View {
         self.isSelected = isToday
 
         if isDone {
-            self.strokeColor = Color(red: 26/255, green: 41/255, blue: 76/255)
+            self.strokeColor = Color.theme.primary
             self.backgroundColor = .white
         } else {
             self.strokeColor = .white
@@ -53,10 +53,7 @@ struct ProgressBubble: View {
     var body: some View {
         VStack { // START: VSTACK
             if isSelected {
-                Triangle()
-                    .foregroundColor(.white)
-                    .frame(width: 25, height: 10)
-                    .rotationEffect(.degrees(180))
+                Image("SelectedDay")
             }
             ZStack { // START: ZSTACK
                 if isDone {

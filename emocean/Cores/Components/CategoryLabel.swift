@@ -17,7 +17,6 @@
 ///
 /// - Parameter labelCategory: The category for the label
 
-
 import SwiftUI
 
 struct CategoryLabel: View {

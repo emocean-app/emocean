@@ -51,7 +51,7 @@ struct PrimaryButton<Content: View>: View {
                 .frame(maxWidth: maxWidth)
                 .padding()
                 .padding(.horizontal, 20)
-                .background(Color(red: 16/255, green: 28/255, blue: 56/255))
+                .background(Color.theme.primary)
                 .clipShape(Capsule())
         }) // END: BUTTON
     }
