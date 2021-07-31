@@ -12,6 +12,13 @@ struct GoalView: View {
     @State var category: String = "Work"
     @State var goal: String =  "Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd "
     @State var date: String = "25 January 2020"
+    init() {
+        
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.theme.grayPrimary)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor(Color.theme.primary)], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor(Color.theme.grayPrimary)], for: .normal)
+    }
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -26,14 +33,17 @@ struct GoalView: View {
                         .foregroundColor(Color.theme.grayPrimary)
                     Spacer()
                     Image(systemName: "plus")
-                        .frame(maxWidth: 30, maxHeight: 30, alignment: .center)
+                        .frame(maxWidth: 25, maxHeight: 25, alignment: .center)
+                        .cornerRadius(30)
+                        .overlay(RoundedRectangle(cornerRadius: 25)
+                                    .stroke(Color.theme.grayPrimary, lineWidth: 2))
                         .foregroundColor(Color.theme.grayPrimary)
                 }
-                .padding(.horizontal)
+                .padding(.horizontal,20)
                 Picker("Status", selection: $selection) {
-                     Text("On-Going").tag(0)
-                     Text("Completed").tag(1)
-                 }
+                    Text("On-Going").tag(0)
+                    Text("Completed").tag(1)
+                }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                 ScrollView {
@@ -47,7 +57,6 @@ struct GoalView: View {
                         GoalDetailView(goal: $goal, date: $date, isShow: .constant(false))
                             .padding(.horizontal,20)
                             .padding(.bottom, 10)
-
                     }
                 }
             }

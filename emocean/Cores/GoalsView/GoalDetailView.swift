@@ -52,15 +52,7 @@ struct GoalDetailView: View {
                 .frame(width: .infinity)
             Spacer()
             HStack { // START: HSTACK
-                CompleteButton()
-//                PrimaryButton(content: {
-//                    HStack {
-//                        Text("Complete")
-//                            .font(.subheadline)
-//                        Image(systemName: "pencil")
-//                            .foregroundColor(.white)
-//                    }
-//                }, maxWidth: 100, action: {})
+                CompleteButton(action: {})
                 EditButton(action: {})
                 Image("Trash")
                     .resizable()
@@ -94,7 +86,7 @@ struct EditButton: View {
     private let mainColor = Color(red: 16/255, green: 28/255, blue: 56/255)
     private let clearColor = Color.clear
     var body: some View {
-        Button(action: {}) {
+        Button(action: action) {
             HStack {
                 Text("Edit")
                     .font(.subheadline)
@@ -122,12 +114,13 @@ struct EditButton: View {
 }
 
 struct CompleteButton: View {
+    var action: () -> Void
     var body: some View {
-        Button(action: {}) {
+        Button(action: action) {
             HStack {
                 Text("Complete")
                     .font(.subheadline)
-                Image(systemName: "pencil")
+                Image(systemName: "checkmark")
                     .foregroundColor(Color.theme.grayPrimary)
             }.frame(width: 100)
         }
