@@ -22,13 +22,14 @@ import SwiftUI
 struct CategoryLabel: View {
     // MARK: - PROPERTIES
     var labelCategory: String
+    private let primary = Color.theme.primary
     var body: some View {
             Text(labelCategory)
                 .font(.caption2)
-                .foregroundColor(Color.theme.primary)
+                .foregroundColor(primary)
                 .padding(2)
                 .padding(.horizontal,5)
-                .background(Color.theme.primary.clipShape(Capsule()).opacity(0.15))
+                .background(primary.clipShape(Capsule()).opacity(0.15))
     }
 }
 
