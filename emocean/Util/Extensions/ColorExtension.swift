@@ -14,6 +14,7 @@ extension Color {
 
 struct EMColorTheme {
     let blueQuadrant = Color("BlueQuadrant")
+    let calendarBullet3 = Color("CalendarBullet3")
     let greenQuadrant = Color("GreenQuadrant")
     let morningTopGradient = Color("MorningTopGradient")
     let morningBottomGradient = Color("MorningBottomGradient")
