@@ -111,10 +111,10 @@ extension EMCalendar {
                         // Background
                         if vm.isSelectedDate(cellNumber: item) {
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.gray.opacity(0.5))
+                                .fill(Color.theme.calendarCell1)
                         } else if vm.isTodayDate(cellNumber: item) {
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.gray.opacity(0.2))
+                                .fill(Color.theme.calendarCell2)
                         }
                         
                         
