@@ -23,6 +23,7 @@ struct CheckinSucessView: View {
             }
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
+            .ignoresSafeArea()
             
             
             
@@ -32,36 +33,12 @@ struct CheckinSucessView: View {
                     Spacer()
                     Spacer()
                     PrimaryButton(content: {
-                            Text("Thanks!")
+                        Text("Thanks!")
                     }, maxWidth: 100, action: {})
                     Spacer()
                 }
             }
         }
-        //        ZStack{
-        //            Rectangle()
-        //                .fill(
-        //                    LinearGradient(gradient: Gradient(colors: [Color.theme.sunsetTopGradient, Color.theme.sunsetBottomGradient]), startPoint: .top, endPoint: .bottom)
-        //                )
-        //                .ignoresSafeArea()
-        //            VStack {
-        //                ScrollView(.horizontal){
-        //                    HStack{
-        //                        Image("SunsetEnd")
-        //                            .resizable()
-        //                            .scaledToFill()
-        //                            .ignoresSafeArea()
-        //                    }.ignoresSafeArea()
-        //                }
-        //            }
-        //
-        //            TabView(){
-        //                Text("HELLO")
-        //                Text("HELLOoooo")
-        //            }
-        //            .tabViewStyle(PageTabViewStyle())
-        //            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
-        //        }
     }
 }
 
@@ -72,56 +49,43 @@ struct CheckinSucessView_Previews: PreviewProvider {
     }
 }
 
-//struct Test: View {
-//    var body: some View {
-//        Group{
-//            Rectangle()
-//                .fill(
-//                    LinearGradient(gradient: Gradient(colors: [Color.theme.sunsetTopGradient, Color.theme.sunsetBottomGradient]), startPoint: .top, endPoint: .bottom)
-//                )
-//                .ignoresSafeArea()
-//            VStack{
-//                Image("SunsetEnd")
-//                    .resizable()
-//                    .scaledToFill()
-//                    .ignoresSafeArea()
-//            }
-//        }
-//    }
-//}
-//
 struct Page1: View {
     var body: some View {
-        VStack (alignment: .leading){
-            Spacer()
-            Text("Thank you for Sharing your thoughts with me!")
-                .font(.title2)
-                .fontWeight(.medium)
-                .frame(width: 250)
-                .padding(.leading)
-            Spacer()
-            Image("test1")
+        ZStack{
+            VStack(alignment: .leading){
+                Spacer()
+                Text("Thank you for sharing your thoughts with me!")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .frame(width: 300)
+                    .padding(.leading,0)
+                Spacer()
+                Spacer()
+            }.padding(.trailing, 30)
+            
+            Image("LMorning")
                 .resizable()
-                .ignoresSafeArea()
-                .scaledToFit()
-        }.ignoresSafeArea()
+                .scaledToFill()
+        }
     }
 }
 struct Page2: View {
     var body: some View {
-        VStack (alignment: .leading) {
-            Spacer()
-            Text("“Do what you can, with what you’ve got, where you are.”")
-                .font(.title2)
-                .fontWeight(.medium)
-                .frame(width: 250)
-                .padding(.leading)
-            Spacer()
-            Image("test2")
+        ZStack{
+            VStack(alignment: .leading, spacing: 20){
+                Spacer()
+                Text("“Do what you can, with what you’ve got, where you are.”")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .frame(width: 300)
+                    .padding(.leading,0)
+                Text("—Theodore Roosevelt")
+                Spacer()
+                Spacer()
+            }
+            Image("RMorning")
                 .resizable()
-                .ignoresSafeArea()
-                .scaledToFit()
-            
+                .scaledToFill()
         }
     }
 }
