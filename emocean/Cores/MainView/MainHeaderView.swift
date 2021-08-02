@@ -19,7 +19,7 @@ struct MainHeaderView: View {
                 Image("\(backgroundImage)Sky")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .offset(y: -getOffset(reader, multiplier: 2))
+                    .offset(y: -getOffset(reader, multiplier: 1.5))
                     .frame(width: reader.size.width, height: getOffset(reader, multiplier: 2) + 480)
                     .modifier(ParallaxMotionModifier(manager: manager, magnitude: 10, orientation: .vertical))
 
@@ -28,14 +28,14 @@ struct MainHeaderView: View {
                     .aspectRatio(contentMode: .fill)
                     .offset(y: -getOffset(reader, multiplier: 3))
                     .frame(width: reader.size.width, height: getOffset(reader, multiplier: 3) + 480)
-                    .modifier(ParallaxMotionModifier(manager: manager, magnitude: 10, orientation: .vertical))
+                    .modifier(ParallaxMotionModifier(manager: manager, magnitude: 20, orientation: .vertical))
                 
                 Image("Boat")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .offset(y: -getOffset(reader, multiplier: 8) + 50)
+                    .offset(y: -getOffset(reader, multiplier: 8) + 25)
                     .frame(width: reader.size.width, height: getOffset(reader, multiplier: 8) + 480)
-                    .modifier(ParallaxMotionModifier(manager: manager, magnitude: 10, orientation: .vertical))
+                    .modifier(ParallaxMotionModifier(manager: manager, magnitude: 30, orientation: .vertical))
 
                 VStack(alignment: .leading) {
                     Spacer()
