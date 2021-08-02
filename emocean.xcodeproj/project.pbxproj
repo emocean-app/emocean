@@ -34,6 +34,14 @@
 		86A6D80226B04E48001C19E1 /* dummy10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D80126B04E48001C19E1 /* dummy10.swift */; };
 		86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */; };
 		E8E9D5A726B2EFB000D331EF /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E9D5A626B2EFB000D331EF /* TextField.swift */; };
+		E8EC034D26B7BB9800318CA7 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC034C26B7BB9800318CA7 /* LottieView.swift */; };
+		E8EC034F26B7BBBC00318CA7 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC034E26B7BBBC00318CA7 /* BackgroundView.swift */; };
+		E8EC035226B7BBDF00318CA7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E8EC035126B7BBDF00318CA7 /* Lottie */; };
+		E8EC036826B7BC0100318CA7 /* CheckinDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC036726B7BC0100318CA7 /* CheckinDescriptionView.swift */; };
+		E8EC036E26B7BCF800318CA7 /* AnimasiHomepageSore.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036A26B7BCF700318CA7 /* AnimasiHomepageSore.json */; };
+		E8EC036F26B7BCF800318CA7 /* AnimasiHomepageMalam.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036B26B7BCF700318CA7 /* AnimasiHomepageMalam.json */; };
+		E8EC037026B7BCF800318CA7 /* AnimasiHomepageSiang.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036C26B7BCF700318CA7 /* AnimasiHomepageSiang.json */; };
+		E8EC037126B7BCF800318CA7 /* AnimasiHomepagePagi.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036D26B7BCF700318CA7 /* AnimasiHomepagePagi.json */; };
 		EFDC625C26A7E4A200E4D068 /* emoceanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC625B26A7E4A200E4D068 /* emoceanApp.swift */; };
 		EFDC625E26A7E4A200E4D068 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC625D26A7E4A200E4D068 /* ContentView.swift */; };
 		EFDC626026A7E4A400E4D068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFDC625F26A7E4A400E4D068 /* Assets.xcassets */; };
@@ -86,6 +94,13 @@
 		86A6D80126B04E48001C19E1 /* dummy10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy10.swift; sourceTree = "<group>"; };
 		86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonOutlined.swift; sourceTree = "<group>"; };
 		E8E9D5A626B2EFB000D331EF /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		E8EC034C26B7BB9800318CA7 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		E8EC034E26B7BBBC00318CA7 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		E8EC036726B7BC0100318CA7 /* CheckinDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinDescriptionView.swift; sourceTree = "<group>"; };
+		E8EC036A26B7BCF700318CA7 /* AnimasiHomepageSore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageSore.json; sourceTree = "<group>"; };
+		E8EC036B26B7BCF700318CA7 /* AnimasiHomepageMalam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageMalam.json; sourceTree = "<group>"; };
+		E8EC036C26B7BCF700318CA7 /* AnimasiHomepageSiang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageSiang.json; sourceTree = "<group>"; };
+		E8EC036D26B7BCF700318CA7 /* AnimasiHomepagePagi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepagePagi.json; sourceTree = "<group>"; };
 		EFDC625826A7E4A200E4D068 /* emocean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = emocean.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDC625B26A7E4A200E4D068 /* emoceanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emoceanApp.swift; sourceTree = "<group>"; };
 		EFDC625D26A7E4A200E4D068 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C0D672E26B2E8C2005925E4 /* WrappingHStack in Frameworks */,
+				E8EC035226B7BBDF00318CA7 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				4E22EC8B26B0715F002CD2C7 /* CheckinObservationView.swift */,
+				E8EC036726B7BC0100318CA7 /* CheckinDescriptionView.swift */,
 			);
 			name = CheckinObservation;
 			path = ../Resources/CheckinObservation;
@@ -265,6 +282,8 @@
 				0C62284526B1AEB800672AEA /* ProgressBubble.swift */,
 				E8E9D5A626B2EFB000D331EF /* TextField.swift */,
 				0C0D673126B3A8F0005925E4 /* EmotionChart.swift */,
+				E8EC034C26B7BB9800318CA7 /* LottieView.swift */,
+				E8EC034E26B7BBBC00318CA7 /* BackgroundView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -272,9 +291,21 @@
 		86DA0AC826AF0F6F00FA2C53 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E8EC036926B7BCF700318CA7 /* Lottie */,
 				86A6D80126B04E48001C19E1 /* dummy10.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E8EC036926B7BCF700318CA7 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				E8EC036A26B7BCF700318CA7 /* AnimasiHomepageSore.json */,
+				E8EC036B26B7BCF700318CA7 /* AnimasiHomepageMalam.json */,
+				E8EC036C26B7BCF700318CA7 /* AnimasiHomepageSiang.json */,
+				E8EC036D26B7BCF700318CA7 /* AnimasiHomepagePagi.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 		EFDC624F26A7E4A200E4D068 = {
@@ -358,6 +389,7 @@
 			name = emocean;
 			packageProductDependencies = (
 				0C0D672D26B2E8C2005925E4 /* WrappingHStack */,
+				E8EC035126B7BBDF00318CA7 /* Lottie */,
 			);
 			productName = emocean;
 			productReference = EFDC625826A7E4A200E4D068 /* emocean.app */;
@@ -432,6 +464,7 @@
 			mainGroup = EFDC624F26A7E4A200E4D068;
 			packageReferences = (
 				0C0D672C26B2E8C2005925E4 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+				E8EC035026B7BBDF00318CA7 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = EFDC625926A7E4A200E4D068 /* Products */;
 			projectDirPath = "";
@@ -449,6 +482,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8EC036E26B7BCF800318CA7 /* AnimasiHomepageSore.json in Resources */,
+				E8EC037126B7BCF800318CA7 /* AnimasiHomepagePagi.json in Resources */,
+				E8EC037026B7BCF800318CA7 /* AnimasiHomepageSiang.json in Resources */,
+				E8EC036F26B7BCF800318CA7 /* AnimasiHomepageMalam.json in Resources */,
 				EFDC626326A7E4A400E4D068 /* Preview Assets.xcassets in Resources */,
 				EFDC626026A7E4A400E4D068 /* Assets.xcassets in Resources */,
 			);
@@ -498,6 +535,7 @@
 			files = (
 				4E22EC8C26B0715F002CD2C7 /* CheckinObservationView.swift in Sources */,
 				86A6D7FC26B04E2F001C19E1 /* dummy7.swift in Sources */,
+				E8EC034D26B7BB9800318CA7 /* LottieView.swift in Sources */,
 				86A6D80226B04E48001C19E1 /* dummy10.swift in Sources */,
 				E8E9D5A726B2EFB000D331EF /* TextField.swift in Sources */,
 				0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */,
@@ -505,6 +543,7 @@
 				86A6D7FA26B04E25001C19E1 /* dummy6.swift in Sources */,
 				86A6D7F226B04E02001C19E1 /* dummy2.swift in Sources */,
 				4E67393626B2DA1D0037583E /* TabBarView.swift in Sources */,
+				E8EC034F26B7BBBC00318CA7 /* BackgroundView.swift in Sources */,
 				EFDC625E26A7E4A200E4D068 /* ContentView.swift in Sources */,
 				4E91CA2226B1BA9100387EE4 /* GoalCell.swift in Sources */,
 				86A6D7F626B04E13001C19E1 /* dummy4.swift in Sources */,
@@ -516,6 +555,7 @@
 				EFDC625C26A7E4A200E4D068 /* emoceanApp.swift in Sources */,
 				4E91CA1F26B1802C00387EE4 /* CategoryLabel.swift in Sources */,
 				8689DE3E26B6EFF50084403B /* EMCalendarViewModel.swift in Sources */,
+				E8EC036826B7BC0100318CA7 /* CheckinDescriptionView.swift in Sources */,
 				4E91CA1D26B1730500387EE4 /* GoalDetailView.swift in Sources */,
 				0C0D673226B3A8F0005925E4 /* EmotionChart.swift in Sources */,
 				0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */,
@@ -853,6 +893,14 @@
 				minimumVersion = 2.1.2;
 			};
 		};
+		E8EC035026B7BBDF00318CA7 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -860,6 +908,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0C0D672C26B2E8C2005925E4 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
 			productName = WrappingHStack;
+		};
+		E8EC035126B7BBDF00318CA7 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8EC035026B7BBDF00318CA7 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
