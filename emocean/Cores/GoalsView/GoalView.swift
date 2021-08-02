@@ -18,7 +18,6 @@ struct GoalView: View {
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor(Color.theme.primary)], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor(Color.theme.grayPrimary)], for: .normal)
     }
-    
     var body: some View {
         ZStack {
             Rectangle()
