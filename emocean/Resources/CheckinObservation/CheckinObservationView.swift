@@ -18,7 +18,6 @@ struct CheckinObservationView: View {
     @Binding var question: String
     // MARK: BODY
     var body: some View {
-        
         ZStack { // START: ZTACK
             VStack(spacing: 0){
                 Image("UpNight") /// - Background Image
@@ -61,7 +60,7 @@ struct CheckinObservationView: View {
                 }.padding(.bottom, 30) // END: HSTACK
             } // END: VSTACK
         } // END: ZTACK
-    } 
+    }
 }
 
 struct CheckinObservationView_Previews: PreviewProvider {
