@@ -6,18 +6,19 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct CheckinSuccessView: View {
-    @State var skybg: String = SkyBG.morning.rawValue
+    @State var showAlert: Bool = false
+    @State var setReminder: Bool = false
     @State var theme: String = ThemeBG.morning.rawValue
     @State var selected: Int = 0
     var body: some View {
-        ZStack{
-            LottieView(filename: skybg)
-                .ignoresSafeArea()
-            TabView(selection: $selected){
-                Page1(theme: $theme).tag(0).animation(.easeIn)
-                Page2(theme: $theme).tag(1).animation(.easeInOut(duration: 100))
+        ZStack {
+            LottieView(filename: "\(theme)Ending").ignoresSafeArea(edges: .top)
+            TabView(selection: $selected) {
+                Page1(theme: $theme).tag(0)
+                Page2(theme: $theme).tag(1)
             }
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
@@ -25,17 +26,48 @@ struct CheckinSuccessView: View {
 //            .animation(.easeInOut(duration: 90))
 
             if selected == 1 {
-                VStack{
+                VStack {
                     Spacer()
                     Spacer()
                     Spacer()
+                    
                     PrimaryButton(content: {
                         Text("Thanks!")
-                    }, maxWidth: 100, action: {})
+                    }, maxWidth: 100, action: {
+                        showAlert.toggle()
+                    })
+                    .alert(isPresented: $showAlert, content: {
+                        getAllert()
+                    })
                     Spacer()
                 }
             }
+        }.ignoresSafeArea()
+    }
+    
+    
+    func getAllert() -> Alert {
+        return Alert(
+            title: Text("Want to get reminded for \n your daily Check-In?"),
+            message: Text("You can change the reminder on settings"),
+            primaryButton: .default(Text("No thanks")),
+            secondaryButton: .default(Text("Sure"), action: {
+                alertView()
+            })
+        )
+    }
+    
+    func alertView(){
+        let alert = UIAlertController(title: "You’re all set!", message: "you will be reminded every night!", preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Okay", style: .default) { (_) in
+            return
         }
+        alert.addAction(okay)
+        
+        //presenting alert
+        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: {
+            
+        })
     }
 }
 
@@ -49,6 +81,9 @@ struct Page1: View {
     @Binding var theme: String
     var body: some View {
         ZStack{
+            Image("L\(theme)")
+                .resizable()
+                .scaledToFill()
             VStack(alignment: .leading){
                 Spacer()
                 Text("Thank you for sharing your thoughts with me!")
@@ -59,10 +94,7 @@ struct Page1: View {
                 Spacer()
                 Spacer()
             }.padding(.trailing, 30)
-            
-            Image("L\(theme)")
-                .resizable()
-                .scaledToFill()
+            .foregroundColor(theme == "Night" ? .white : .primary)
         }
     }
 }
@@ -70,6 +102,9 @@ struct Page2: View {
     @Binding var theme: String
     var body: some View {
         ZStack{
+            Image("R\(theme)")
+                .resizable()
+                .scaledToFill()
             VStack(alignment: .leading, spacing: 20){
                 Spacer()
                 Text("“Do what you can, with what you’ve got, where you are.”")
@@ -81,18 +116,11 @@ struct Page2: View {
                 Spacer()
                 Spacer()
             }
-            Image("R\(theme)")
-                .resizable()
-                .scaledToFill()
+            .padding(.trailing, 30)
+            .foregroundColor(theme == "Night" ? .white : .primary)
+            
         }
     }
-}
-
-enum SkyBG: String {
-    case morning = "MorningEnding"
-    case noon = "NoonEnding"
-    case sunset = "SunsetEnding"
-    case night = "NightEnding"
 }
 
 enum ThemeBG: String {
