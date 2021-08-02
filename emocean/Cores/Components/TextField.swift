@@ -24,7 +24,6 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
         textField.isUserInteractionEnabled = true
         textField.isScrollEnabled = true
         textField.backgroundColor =  UIColor(white: 1.0, alpha: 0.75)
-        textField.textContainerInset = UIEdgeInsets(top: 30, left: 25, bottom: 50, right: 25)
         if nil != onDone {
             textField.returnKeyType = .done
         }
