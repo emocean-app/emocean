@@ -15,7 +15,7 @@ struct CheckinSuccessView: View {
     @State var selected: Int = 0
     var body: some View {
         ZStack {
-            LottieView(filename: "\(time.getRawValue())Ending").ignoresSafeArea(edges: .top)
+            LottieView(filename: "\(time.getRawValue())Ending", contentMode: .scaleAspectFit).ignoresSafeArea(edges: .top)
             ScrollView {
                 TabView(selection: $selected) {
                     Page1(theme: time.getRawValue()).tag(0)

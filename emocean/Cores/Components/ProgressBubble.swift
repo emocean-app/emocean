@@ -51,10 +51,7 @@ struct ProgressBubble: View {
 
     // MARK: BODY
     var body: some View {
-        VStack { // START: VSTACK
-            if isSelected {
-                Image("SelectedDay")
-            }
+        VStack(spacing: 0) { // START: VSTACK
             ZStack { // START: ZSTACK
                 if isDone {
                     Circle()
@@ -62,20 +59,25 @@ struct ProgressBubble: View {
                         .frame(width: 40, height: 40)
                 } else {
                     Circle()
-                        .strokeBorder(Color.white, lineWidth: 2)
+                        .strokeBorder(Color.white, lineWidth: 1)
                         .frame(width: 40, height: 40)
                 }
                 Circle()
                     .trim(from: 0.0, to: 0.25)
-                    .stroke(strokeColor, style: StrokeStyle(lineWidth: 2, lineCap: .round))
-                    .frame(width: 25, height: 25)
+                    .stroke(strokeColor, style: StrokeStyle(lineWidth: 1, lineCap: .round))
+                    .frame(width: 28, height: 28)
                 Text(getDayOfWeek(dayInt: day))
                     .foregroundColor(strokeColor)
                     .bold()
             } // END: ZSTACK
+            
+            if isSelected {
+                Image("SelectedDay")
+                    .rotationEffect(.degrees(180))
+            }
         } // END: VSTACK
     }
-    
+
     // MARK: - Get day string from day int
     func getDayOfWeek(dayInt day: Int) -> String {
         switch day {
@@ -116,7 +118,7 @@ struct Triangle: Shape {
 // MARK: PREVIEW
 struct ProgressBubble_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressBubble(dayOfWeek: 2, isDone: true, isToday: true)
+        ProgressBubble(dayOfWeek: 2, isDone: false, isToday: true)
             .padding()
             .background(Color.purple)
             .previewLayout(.sizeThatFits)
