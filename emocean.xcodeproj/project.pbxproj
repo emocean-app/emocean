@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C08BA5A26B81A7A003399BE /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08BA5926B81A7A003399BE /* MotionManager.swift */; };
+		0C08BA5C26B81ADC003399BE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08BA5B26B81ADC003399BE /* MainView.swift */; };
+		0C08BA5F26B83200003399BE /* ReflectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08BA5E26B83200003399BE /* ReflectButton.swift */; };
 		0C0D672E26B2E8C2005925E4 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 0C0D672D26B2E8C2005925E4 /* WrappingHStack */; };
 		0C0D673226B3A8F0005925E4 /* EmotionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D673126B3A8F0005925E4 /* EmotionChart.swift */; };
 		0C62284426B18ECA00672AEA /* ReflectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284326B18ECA00672AEA /* ReflectionCell.swift */; };
 		0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284526B1AEB800672AEA /* ProgressBubble.swift */; };
+		0CBD70C726B848FC00B6E59E /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBD70C626B848FC00B6E59E /* MainHeaderView.swift */; };
+		0CBD70C926B850DE00B6E59E /* ChartDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBD70C826B850DE00B6E59E /* ChartDescriptionView.swift */; };
 		0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE373326B06D440006FE66 /* PrimaryButton.swift */; };
 		4E22EC8C26B0715F002CD2C7 /* CheckinObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E22EC8B26B0715F002CD2C7 /* CheckinObservationView.swift */; };
 		4E67393226B28D680037583E /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67393126B28D680037583E /* TabBar.swift */; };
@@ -68,9 +73,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C08BA5926B81A7A003399BE /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		0C08BA5B26B81ADC003399BE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0C08BA5E26B83200003399BE /* ReflectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectButton.swift; sourceTree = "<group>"; };
 		0C0D673126B3A8F0005925E4 /* EmotionChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionChart.swift; sourceTree = "<group>"; };
 		0C62284326B18ECA00672AEA /* ReflectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionCell.swift; sourceTree = "<group>"; };
 		0C62284526B1AEB800672AEA /* ProgressBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBubble.swift; sourceTree = "<group>"; };
+		0CBD70C626B848FC00B6E59E /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
+		0CBD70C826B850DE00B6E59E /* ChartDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDescriptionView.swift; sourceTree = "<group>"; };
 		0CDE373326B06D440006FE66 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		4E22EC8B26B0715F002CD2C7 /* CheckinObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinObservationView.swift; sourceTree = "<group>"; };
 		4E67393126B28D680037583E /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -142,6 +152,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C08BA5826B7C0CE003399BE /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				0C08BA5B26B81ADC003399BE /* MainView.swift */,
+				0C08BA5E26B83200003399BE /* ReflectButton.swift */,
+				0CBD70C626B848FC00B6E59E /* MainHeaderView.swift */,
+				0CBD70C826B850DE00B6E59E /* ChartDescriptionView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		0C08BA5D26B81C1E003399BE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0C08BA5926B81A7A003399BE /* MotionManager.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		4E22EC8A26B07145002CD2C7 /* CheckinObservation */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +221,7 @@
 		86DA0ABE26AF0E6600FA2C53 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				0C08BA5D26B81C1E003399BE /* Helper */,
 				86DA0ABF26AF0E7A00FA2C53 /* Extensions */,
 				86DA0AC126AF0E8A00FA2C53 /* Services */,
 				86DA0AC026AF0E8000FA2C53 /* Networking */,
@@ -262,6 +292,7 @@
 		86DA0AC626AF0F4000FA2C53 /* Cores */ = {
 			isa = PBXGroup;
 			children = (
+				0C08BA5826B7C0CE003399BE /* MainView */,
 				866BC52726B6CD49008AA685 /* ReflectionDetail */,
 				4E67392D26B28A710037583E /* TabBar */,
 				4E91CA2026B1BA3000387EE4 /* GoalsView */,
@@ -534,10 +565,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E22EC8C26B0715F002CD2C7 /* CheckinObservationView.swift in Sources */,
+				0C08BA5A26B81A7A003399BE /* MotionManager.swift in Sources */,
 				86A6D7FC26B04E2F001C19E1 /* dummy7.swift in Sources */,
 				E8EC034D26B7BB9800318CA7 /* LottieView.swift in Sources */,
 				86A6D80226B04E48001C19E1 /* dummy10.swift in Sources */,
 				E8E9D5A726B2EFB000D331EF /* TextField.swift in Sources */,
+				0CBD70C926B850DE00B6E59E /* ChartDescriptionView.swift in Sources */,
 				0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */,
 				86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */,
 				86A6D7FA26B04E25001C19E1 /* dummy6.swift in Sources */,
@@ -547,6 +580,7 @@
 				EFDC625E26A7E4A200E4D068 /* ContentView.swift in Sources */,
 				4E91CA2226B1BA9100387EE4 /* GoalCell.swift in Sources */,
 				86A6D7F626B04E13001C19E1 /* dummy4.swift in Sources */,
+				0C08BA5F26B83200003399BE /* ReflectButton.swift in Sources */,
 				866BC52B26B6D0C7008AA685 /* ReflectionDetailViewModel.swift in Sources */,
 				0C62284426B18ECA00672AEA /* ReflectionCell.swift in Sources */,
 				86A6D7F826B04E1C001C19E1 /* dummy5.swift in Sources */,
@@ -561,7 +595,9 @@
 				0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */,
 				8689DE4026B6F8710084403B /* EMCalendar.swift in Sources */,
 				868B0C2B26B26C7E0019A2B0 /* ThemeExtension.swift in Sources */,
+				0CBD70C726B848FC00B6E59E /* MainHeaderView.swift in Sources */,
 				4EB48B0926B39900004F04DD /* GoalView.swift in Sources */,
+				0C08BA5C26B81ADC003399BE /* MainView.swift in Sources */,
 				868B0C2926B25DF70019A2B0 /* ColorExtension.swift in Sources */,
 				4E67393226B28D680037583E /* TabBar.swift in Sources */,
 			);
