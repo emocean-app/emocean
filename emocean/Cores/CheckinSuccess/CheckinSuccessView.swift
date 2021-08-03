@@ -11,19 +11,24 @@ import Lottie
 struct CheckinSuccessView: View {
     @State var showAlert: Bool = false
     @State var setReminder: Bool = false
-    @State var theme: String = ThemeBG.morning.rawValue
+    @State var theme: String = ThemeBG.noon.rawValue
     @State var selected: Int = 0
     var body: some View {
         ZStack {
             LottieView(filename: "\(theme)Ending").ignoresSafeArea(edges: .top)
-            TabView(selection: $selected) {
-                Page1(theme: $theme).tag(0)
-                Page2(theme: $theme).tag(1)
-            }
-            .tabViewStyle(PageTabViewStyle())
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
-            .ignoresSafeArea()
-//            .animation(.easeInOut(duration: 90))
+            ScrollView {
+                TabView(selection: $selected) {
+                    Page1(theme: $theme).tag(0)
+                    Page2(theme: $theme).tag(1)
+                }
+                .frame(
+                    width: UIScreen.main.bounds.width ,
+                    height: UIScreen.main.bounds.height
+                )
+                .tabViewStyle(PageTabViewStyle())
+                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
+                .animation(.easeInOut(duration: 90))
+            }.edgesIgnoringSafeArea(.all)
 
             if selected == 1 {
                 VStack {
