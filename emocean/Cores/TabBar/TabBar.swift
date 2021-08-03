@@ -33,6 +33,7 @@ struct TabBar: View {
                     Text("Checkin")
                         .fontWeight(selectedTab == .checkin ? .bold : .regular)
                         .font(.footnote)
+                        .frame(width: 70)
                         .foregroundColor(Color.theme.grayPrimary)
                 } // END: VSTACK
             }) // END: LABEL & BUTTON CHECKIN
@@ -57,6 +58,7 @@ struct TabBar: View {
                     }
                     Text("Goal")
                         .fontWeight(selectedTab == .goal ? .bold : .regular)
+                        .frame(width: 70)
                         .font(.footnote)
                         .foregroundColor(Color.theme.grayPrimary)
                 } // END: VSTACK
@@ -81,6 +83,7 @@ struct TabBar: View {
                     }
                     Text("History")
                         .fontWeight(selectedTab == .history ? .bold : .regular)
+                        .frame(width: 70)
                         .font(.footnote)
                         .foregroundColor(Color.theme.grayPrimary)
                 } // END: VSTACK

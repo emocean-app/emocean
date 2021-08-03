@@ -30,6 +30,7 @@ struct CheckinSuccessView: View {
                 .animation(.easeInOut(duration: 90))
             }.edgesIgnoringSafeArea(.all)
 
+
             if selected == 1 {
                 VStack {
                     Spacer()
