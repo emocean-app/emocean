@@ -17,9 +17,7 @@ struct TabBarView: View {
         VStack {
             switch selectedTab {
             case .checkin:
-                NavigationView {
-                    TempView(title: .constant("Checkin"))
-                }
+                MainView()
             case .goal:
                 NavigationView {
                     TempView(title: .constant("Goal"))
