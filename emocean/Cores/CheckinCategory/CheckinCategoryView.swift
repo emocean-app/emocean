@@ -17,27 +17,56 @@ struct CheckinCategoryView: View {
     @State private var animationOffset = false
     
     private var imageFullWidth = UIScreen.main.bounds.width * 2
-    
+    private let screenHeight = UIScreen.main.bounds.height
     
     // MARK: BODY
     var body: some View {
         ZStack { // START: ZSTACK
 
-            // background
-            EMTheme.shared.sea
-                .ignoresSafeArea()
-            
-            // fish rod
-            fishRod
-            
-            // back coral
-            backCoral
-            
-            // front coral
-            frontCoral
-            
-            // content
-            contentContainer
+            GeometryReader {reader in
+                // background
+                EMTheme.shared.sea
+                    .ignoresSafeArea()
+                
+                // back coral
+                backCoral
+                
+                // front coral
+                frontCoral
+                
+                // content
+                ScrollView {
+                    
+                    let normalOffset = 0-reader.safeAreaInsets.top
+                    let animateoffset = 0 - reader.safeAreaInsets.top - 30
+                    
+                    ZStack {
+                        // fish rod
+                        VStack { // START: VSTACK
+                            HStack { // START: HSTACK
+                                Spacer()
+                                Image("FishRod")
+                                    .resizable()
+                                    .frame(
+                                        width: reader.size.width * 0.1,
+                                        height: reader.size.height * 0.4
+                                    )
+                                    .offset(
+                                        x: 0,
+                                        y: animationOffset ? animateoffset : normalOffset
+                                    )
+                            } // START: HSTACK
+                            .padding(.trailing, 50)
+                            Spacer()
+                        } // END: VSTACK
+                        .ignoresSafeArea()
+                        
+                        // content
+                        contentContainer
+                    }
+                    .frame(minHeight: reader.size.height)
+                }
+            }
             
         } // END: ZSTACK
     }
@@ -75,9 +104,7 @@ extension CheckinCategoryView {
             }, maxWidth: 177) {
                 print("Primary Button Clicked")
             }
-
         } // END: VSTACK
-        
     }
     
     var questionSection: some View {
