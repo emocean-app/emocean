@@ -16,18 +16,18 @@ import SwiftUI
 ///
 /// ```
 /// ProgressBubble(
-///     day: "T",
+///     dayOfWeek: 2,
 ///     isDone: true,
 ///     isToday: true
 /// )
 /// ```
 ///
-/// - Parameter day: The day string
+/// - Parameter day: The day of week in int
 /// - Parameter isDone: Whether the day is done or not
 /// - Parameter isToday: Whether the day is today
 ///
 struct ProgressBubble: View {
-    let day: String
+    let day: Int
     let isDone: Bool
     let isSelected: Bool
 
@@ -35,8 +35,8 @@ struct ProgressBubble: View {
     let backgroundColor: Color
 
     // MARK: INITIALIZER
-    init(day: String, isDone: Bool, isToday: Bool) {
-        self.day = day
+    init(dayOfWeek: Int, isDone: Bool, isToday: Bool) {
+        self.day = dayOfWeek
         self.isDone = isDone
         self.isSelected = isToday
 
@@ -59,21 +59,43 @@ struct ProgressBubble: View {
                 if isDone {
                     Circle()
                         .foregroundColor(backgroundColor)
-                        .frame(width: 50, height: 50)
+                        .frame(width: 40, height: 40)
                 } else {
                     Circle()
                         .strokeBorder(Color.white, lineWidth: 2)
-                        .frame(width: 50, height: 50)
+                        .frame(width: 40, height: 40)
                 }
                 Circle()
                     .trim(from: 0.0, to: 0.25)
                     .stroke(strokeColor, style: StrokeStyle(lineWidth: 2, lineCap: .round))
-                    .frame(width: 35, height: 35)
-                Text(day)
+                    .frame(width: 25, height: 25)
+                Text(getDayOfWeek(dayInt: day))
                     .foregroundColor(strokeColor)
                     .bold()
             } // END: ZSTACK
         } // END: VSTACK
+    }
+    
+    // MARK: - Get day string from day int
+    func getDayOfWeek(dayInt day: Int) -> String {
+        switch day {
+        case 0:
+            return "S"
+        case 1:
+            return "M"
+        case 2:
+            return "T"
+        case 3:
+            return "W"
+        case 4:
+            return "T"
+        case 5:
+            return "F"
+        case 6:
+            return "S"
+        default:
+            return "U"
+        }
     }
 }
 
@@ -94,7 +116,7 @@ struct Triangle: Shape {
 // MARK: PREVIEW
 struct ProgressBubble_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressBubble(day: "T", isDone: true, isToday: true)
+        ProgressBubble(dayOfWeek: 2, isDone: true, isToday: true)
             .padding()
             .background(Color.purple)
             .previewLayout(.sizeThatFits)

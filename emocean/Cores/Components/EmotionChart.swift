@@ -63,14 +63,14 @@ struct EmotionChart: View {
                 Circle()
                     .trim(from: emotion.startPoint!, to: emotion.startPoint! + emotion.value)
                     .stroke(style: StrokeStyle(lineWidth: 40, lineCap: .round))
-                    .frame(width: 350, height: 350, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(width: 250, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .foregroundColor(emotion.color)
             } // END: FOREACH
 
             Image(emotionArray[0].image.randomElement()!)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 200, height: 200)
+                .frame(width: 150, height: 150)
         }
         .padding(30)
         // END: ZSTACK
