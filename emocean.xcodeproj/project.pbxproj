@@ -11,7 +11,6 @@
 		0C08BA5C26B81ADC003399BE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08BA5B26B81ADC003399BE /* MainView.swift */; };
 		0C08BA5F26B83200003399BE /* ReflectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08BA5E26B83200003399BE /* ReflectButton.swift */; };
 		0C0A88A526B9545B00D80AEE /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0A88A426B9545B00D80AEE /* TimeHelper.swift */; };
-		0C0A88A926B9973800D80AEE /* AnimasiHomepageMalam.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C0A88A826B9973800D80AEE /* AnimasiHomepageMalam.json */; };
 		0C0A88AB26B9A69500D80AEE /* WhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0A88AA26B9A69500D80AEE /* WhiteButton.swift */; };
 		0C0D672E26B2E8C2005925E4 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 0C0D672D26B2E8C2005925E4 /* WrappingHStack */; };
 		0C0D673226B3A8F0005925E4 /* EmotionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D673126B3A8F0005925E4 /* EmotionChart.swift */; };
@@ -94,7 +93,6 @@
 		0C08BA5B26B81ADC003399BE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0C08BA5E26B83200003399BE /* ReflectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectButton.swift; sourceTree = "<group>"; };
 		0C0A88A426B9545B00D80AEE /* TimeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelper.swift; sourceTree = "<group>"; };
-		0C0A88A826B9973800D80AEE /* AnimasiHomepageMalam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AnimasiHomepageMalam.json; path = "../../../../../../Dropbox (DeveloperAcademy-ID)/Tvvice MC3 Documentation/Asset/homepage/Lottie/AnimasiHomepageMalam.json"; sourceTree = "<group>"; };
 		0C0A88AA26B9A69500D80AEE /* WhiteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteButton.swift; sourceTree = "<group>"; };
 		0C0D673126B3A8F0005925E4 /* EmotionChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionChart.swift; sourceTree = "<group>"; };
 		0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageMalam.json; sourceTree = "<group>"; };
@@ -407,7 +405,6 @@
 				4E580EFE26B7E55F00229D9A /* SunsetEnding.json */,
 				0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */,
 				E8EC036A26B7BCF700318CA7 /* AnimasiHomepageSore.json */,
-				0C0A88A826B9973800D80AEE /* AnimasiHomepageMalam.json */,
 				E8EC036C26B7BCF700318CA7 /* AnimasiHomepageSiang.json */,
 				E8EC036D26B7BCF700318CA7 /* AnimasiHomepagePagi.json */,
 			);
@@ -595,7 +592,6 @@
 				4E580F0126B7E55F00229D9A /* MorningEnding.json in Resources */,
 				0C3F042D26B9B75F00844F23 /* AnimasiHomepageMalam.json in Resources */,
 				4E580F0026B7E55F00229D9A /* NoonEnding.json in Resources */,
-				0C0A88A926B9973800D80AEE /* AnimasiHomepageMalam.json in Resources */,
 				EFDC626326A7E4A400E4D068 /* Preview Assets.xcassets in Resources */,
 				4E580EFF26B7E55F00229D9A /* NightEnding.json in Resources */,
 				EFDC626026A7E4A400E4D068 /* Assets.xcassets in Resources */,
