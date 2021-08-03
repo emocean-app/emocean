@@ -33,6 +33,7 @@
 		86A6D7FC26B04E2F001C19E1 /* dummy7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7FB26B04E2F001C19E1 /* dummy7.swift */; };
 		86A6D80226B04E48001C19E1 /* dummy10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D80126B04E48001C19E1 /* dummy10.swift */; };
 		86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */; };
+		E88061E926B9391A003D7264 /* CheckinFeelingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88061E826B9391A003D7264 /* CheckinFeelingsView.swift */; };
 		E8E9D5A726B2EFB000D331EF /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E9D5A626B2EFB000D331EF /* TextField.swift */; };
 		E8EC034D26B7BB9800318CA7 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC034C26B7BB9800318CA7 /* LottieView.swift */; };
 		E8EC034F26B7BBBC00318CA7 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC034E26B7BBBC00318CA7 /* BackgroundView.swift */; };
@@ -93,6 +94,7 @@
 		86A6D7FB26B04E2F001C19E1 /* dummy7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy7.swift; sourceTree = "<group>"; };
 		86A6D80126B04E48001C19E1 /* dummy10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy10.swift; sourceTree = "<group>"; };
 		86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonOutlined.swift; sourceTree = "<group>"; };
+		E88061E826B9391A003D7264 /* CheckinFeelingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinFeelingsView.swift; sourceTree = "<group>"; };
 		E8E9D5A626B2EFB000D331EF /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		E8EC034C26B7BB9800318CA7 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		E8EC034E26B7BBBC00318CA7 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				4E22EC8B26B0715F002CD2C7 /* CheckinObservationView.swift */,
 				E8EC036726B7BC0100318CA7 /* CheckinDescriptionView.swift */,
+				E88061E826B9391A003D7264 /* CheckinFeelingsView.swift */,
 			);
 			name = CheckinObservation;
 			path = ../Resources/CheckinObservation;
@@ -534,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E22EC8C26B0715F002CD2C7 /* CheckinObservationView.swift in Sources */,
+				E88061E926B9391A003D7264 /* CheckinFeelingsView.swift in Sources */,
 				86A6D7FC26B04E2F001C19E1 /* dummy7.swift in Sources */,
 				E8EC034D26B7BB9800318CA7 /* LottieView.swift in Sources */,
 				86A6D80226B04E48001C19E1 /* dummy10.swift in Sources */,
