@@ -341,8 +341,8 @@
 		86DA0AC626AF0F4000FA2C53 /* Cores */ = {
 			isa = PBXGroup;
 			children = (
-				864B452C26B82E9C00528ECF /* CheckinCategory */,
 				4E580EF826B7E31400229D9A /* CheckinSuccess */,
+				864B452C26B82E9C00528ECF /* CheckinCategory */,
 				0C08BA5826B7C0CE003399BE /* MainView */,
 				866BC52726B6CD49008AA685 /* ReflectionDetail */,
 				4E67392D26B28A710037583E /* TabBar */,
