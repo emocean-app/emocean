@@ -24,6 +24,12 @@
 		4E91CA1F26B1802C00387EE4 /* CategoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA1E26B1802C00387EE4 /* CategoryLabel.swift */; };
 		4E91CA2226B1BA9100387EE4 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA2126B1BA9100387EE4 /* GoalCell.swift */; };
 		4EB48B0926B39900004F04DD /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB48B0826B39900004F04DD /* GoalView.swift */; };
+		4EF4222326B84EC700EA7341 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4222226B84EC700EA7341 /* Mood.swift */; };
+		4EF4222526B84F2400EA7341 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4222426B84F2400EA7341 /* Category.swift */; };
+		4EF4222726B84F6800EA7341 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4222626B84F6800EA7341 /* Question.swift */; };
+		4EF4222926B850B900EA7341 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4222826B850B900EA7341 /* Feedback.swift */; };
+		4EF4222B26B8512B00EA7341 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4222A26B8512B00EA7341 /* Quotes.swift */; };
+		4EF4222D26B8516E00EA7341 /* Checkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4222C26B8516E00EA7341 /* Checkin.swift */; };
 		866BC52926B6CD5A008AA685 /* ReflectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BC52826B6CD5A008AA685 /* ReflectionDetailView.swift */; };
 		866BC52B26B6D0C7008AA685 /* ReflectionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BC52A26B6D0C7008AA685 /* ReflectionDetailViewModel.swift */; };
 		868B0C2926B25DF70019A2B0 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868B0C2826B25DF70019A2B0 /* ColorExtension.swift */; };
@@ -87,6 +93,12 @@
 		4E91CA1E26B1802C00387EE4 /* CategoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLabel.swift; sourceTree = "<group>"; };
 		4E91CA2126B1BA9100387EE4 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		4EB48B0826B39900004F04DD /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		4EF4222226B84EC700EA7341 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		4EF4222426B84F2400EA7341 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		4EF4222626B84F6800EA7341 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		4EF4222826B850B900EA7341 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		4EF4222A26B8512B00EA7341 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
+		4EF4222C26B8516E00EA7341 /* Checkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkin.swift; sourceTree = "<group>"; };
 		866BC52826B6CD5A008AA685 /* ReflectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionDetailView.swift; sourceTree = "<group>"; };
 		866BC52A26B6D0C7008AA685 /* ReflectionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionDetailViewModel.swift; sourceTree = "<group>"; };
 		868B0C2826B25DF70019A2B0 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -260,6 +272,12 @@
 			isa = PBXGroup;
 			children = (
 				86A6D7FB26B04E2F001C19E1 /* dummy7.swift */,
+				4EF4222226B84EC700EA7341 /* Mood.swift */,
+				4EF4222426B84F2400EA7341 /* Category.swift */,
+				4EF4222626B84F6800EA7341 /* Question.swift */,
+				4EF4222826B850B900EA7341 /* Feedback.swift */,
+				4EF4222A26B8512B00EA7341 /* Quotes.swift */,
+				4EF4222C26B8516E00EA7341 /* Checkin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -553,7 +571,10 @@
 				E8E9D5A726B2EFB000D331EF /* TextField.swift in Sources */,
 				0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */,
 				86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */,
+				4EF4222B26B8512B00EA7341 /* Quotes.swift in Sources */,
+				4EF4222526B84F2400EA7341 /* Category.swift in Sources */,
 				86A6D7FA26B04E25001C19E1 /* dummy6.swift in Sources */,
+				4EF4222726B84F6800EA7341 /* Question.swift in Sources */,
 				4E580EFA26B7E34E00229D9A /* CheckinSuccessView.swift in Sources */,
 				86A6D7F226B04E02001C19E1 /* dummy2.swift in Sources */,
 				4E67393626B2DA1D0037583E /* TabBarView.swift in Sources */,
@@ -566,12 +587,15 @@
 				86A6D7F826B04E1C001C19E1 /* dummy5.swift in Sources */,
 				86A6D7F426B04E0B001C19E1 /* dummy3.swift in Sources */,
 				866BC52926B6CD5A008AA685 /* ReflectionDetailView.swift in Sources */,
+				4EF4222926B850B900EA7341 /* Feedback.swift in Sources */,
 				EFDC625C26A7E4A200E4D068 /* emoceanApp.swift in Sources */,
 				4E91CA1F26B1802C00387EE4 /* CategoryLabel.swift in Sources */,
 				E8EC036826B7BC0100318CA7 /* CheckinDescriptionView.swift in Sources */,
 				4E91CA1D26B1730500387EE4 /* GoalDetailView.swift in Sources */,
 				0C0D673226B3A8F0005925E4 /* EmotionChart.swift in Sources */,
+				4EF4222D26B8516E00EA7341 /* Checkin.swift in Sources */,
 				0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */,
+				4EF4222326B84EC700EA7341 /* Mood.swift in Sources */,
 				868B0C2B26B26C7E0019A2B0 /* ThemeExtension.swift in Sources */,
 				4EB48B0926B39900004F04DD /* GoalView.swift in Sources */,
 				868B0C2926B25DF70019A2B0 /* ColorExtension.swift in Sources */,
