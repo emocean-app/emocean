@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct GoalView: View {
-    @State var selection: Int = 0
-    @State var category: String = "Work"
-    @State var goal: String =  "Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd "
-    @State var date: String = "25 January 2020"
+    @StateObject private var vm = GoalViewModel()
+    @State var selection: Bool = false
+    @State var selectedGoal: Goal = GoalList.getGoal.first!
+    @State var showModal: Bool = false
+    @State var goals: [Goal] = [
+        Goal(goal: "makan nasi seminggu sekali", category: "Work", date: "Sunday, 25 January", status: true),
+        Goal(goal: "Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd", category: "Relationship", date: "Monday, 26 January", status: false),
+        Goal(goal: "makan daging anjing dengan sayur kol", category: "Covid", date: "Tuesday, 27 January", status: true)
+    ]
+    //    @State var category: String = "Work"
+    //    @State var goal: String =  "Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd "
+    //    @State var date: String = "25 January 2020"
     init() {
         
+        UITableView.appearance().backgroundColor = .clear
+        UITableViewCell.appearance().backgroundColor = .clear
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.theme.grayPrimary)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor(Color.theme.primary)], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor(Color.theme.grayPrimary)], for: .normal)
@@ -40,26 +50,36 @@ struct GoalView: View {
                 }
                 .padding(.horizontal,20)
                 Picker("Status", selection: $selection) {
-                    Text("On-Going").tag(0)
-                    Text("Completed").tag(1)
+                    Text("On-Going").tag(false)
+                    Text("Completed").tag(true)
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
-                ScrollView {
-                    VStack {
-                        GoalCell(category: $category, goal: $goal, date: $date)
-                            .padding(.horizontal, 20)
-                            .padding(.bottom, 10)
-                        GoalCell(category: $category, goal: $goal, date: $date)
-                            .padding(.horizontal,20)
-                            .padding(.bottom, 10)
-                        GoalDetailView(goal: $goal, date: $date, isShow: .constant(false))
-                            .padding(.horizontal,20)
-                            .padding(.bottom, 10)
+                
+                
+                List {
+                    ForEach(goals, id: \.self) { item in
+                        if selection == item.status {
+                            GoalCell(category: item.category, goal: item.goal, date: item.date, isCompleted: item.status)
+                                .onTapGesture {
+                                    self.showModal.toggle()
+                                    self.selectedGoal = item
+                                }
+                        }
                     }
+                    .onDelete(perform: delete)
+                    .listRowBackground(Color.clear)
                 }
+                
+//                .sheet(isPresented: $showModal, content: {
+//                    GoalDetailView(goal: self.selectedGoal, isShow: $showModal).padding()
+//                })
             }
+            GoalDetailView(goal: self.selectedGoal, isShow: $showModal).padding()
         }
+    }
+    func delete(indexSet: IndexSet) {
+        goals.remove(atOffsets: indexSet)
     }
 }
 

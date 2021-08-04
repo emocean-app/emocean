@@ -19,9 +19,7 @@ struct TabBarView: View {
             case .checkin:
                 MainView()
             case .goal:
-                NavigationView {
-                    TempView(title: .constant("Goal"))
-                }
+                GoalView()
             case .history:
                 NavigationView {
                     TempView(title: .constant("History"))

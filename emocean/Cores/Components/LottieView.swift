@@ -20,6 +20,7 @@ struct LottieView: UIViewRepresentable {
         let animation = Animation.named(filename)
         animationView.animation = animation
         animationView.contentMode = contentMode
+        animationView.loopMode = .loop
         animationView.play()
         
         animationView.translatesAutoresizingMaskIntoConstraints = false

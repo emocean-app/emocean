@@ -25,47 +25,50 @@ import SwiftUI
 
 struct GoalDetailView: View {
     // MARK: - PROPERTIES
-    @Binding var goal: String
-    @Binding var date: String
+    var goal: Goal
+//    @Binding var goal: String
+//    @Binding var date: String
     @Binding var isShow: Bool
     private let mainColor = Color(red: 16/255, green: 28/255, blue: 56/255)
     private let clearColor = Color.clear
     var body: some View {
         VStack (alignment: .leading){ // START: VSTACK
-            HStack { // START: HSTACK
-                Text(date)
-                    .font(.footnote)
+            if isShow {
+                HStack { // START: HSTACK
+                    Text(goal.date)
+                        .font(.footnote)
+                    Spacer()
+                    Text("X")
+                        .bold()
+                        .foregroundColor(.gray)
+                        .onTapGesture {
+                            isShow = false
+                        }
+                } // END: HSTACK
+                .padding(.horizontal)
+                .padding(.top)
+                //Spacer()
+                Text(goal.goal)
+                    .padding()
+                    .font(.body)
+                    .frame(width: .infinity)
                 Spacer()
-                Text("X")
-                    .bold()
-                    .foregroundColor(.gray)
-                    .onTapGesture {
-                        isShow = false
-                    }
-            } // END: HSTACK
-            .padding(.horizontal)
-            .padding(.top)
-            //Spacer()
-            Text(goal)
-                .padding()
-                .font(.body)
-                .frame(width: .infinity)
-            Spacer()
-            HStack { // START: HSTACK
-                CompleteButton(action: {})
-                EditButton(action: {})
-                Image("Trash")
-                    .resizable()
-                    .foregroundColor(mainColor)
-                    .frame(width: 50, height: 50)
-                    .onTapGesture {
-                        // DEL FUNCTION
-                    }
-            } // END: HSTACK
-            .padding(.horizontal)
-            .padding(.bottom)
+                HStack { // START: HSTACK
+                    CompleteButton(action: {})
+                    EditButton(action: {})
+                    Image("Trash")
+                        .resizable()
+                        .foregroundColor(mainColor)
+                        .frame(width: 50, height: 50)
+                        .onTapGesture {
+                            // DEL FUNCTION
+                        }
+                } // END: HSTACK
+                .padding(.horizontal)
+                .padding(.bottom)
+            }
         } // END: VSTACK
-        .frame(minHeight: 200)
+        .frame(height: 400)
         .background(Color.white)
         .cornerRadius(25)
     }
@@ -73,7 +76,7 @@ struct GoalDetailView: View {
 
 struct GoalDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalDetailView(goal:.constant("I Want to Focus on myself more so one day I’ll achieve the things I want to be able to eat all you can eat martabak I Want to Focus on myself more so one day I’ll achieve the things I want to be able to eat all you can eat martabak"),date: .constant("January 30th 2021"),isShow:.constant(false))
+        GoalDetailView(goal: GoalList.getGoal.first!, isShow: .constant(true))
             .previewLayout(.sizeThatFits)
             .padding(.horizontal,10)
             .background(Color.black)
