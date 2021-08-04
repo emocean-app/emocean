@@ -38,7 +38,6 @@ struct EMCalendar: View {
     
     // MARK: BODY
     var body: some View {
-        ScrollView { // START: SCROLLVIEW
             ZStack { // START: ZSTACK
                 // Background
                 Color.white
@@ -65,8 +64,6 @@ struct EMCalendar: View {
                     date = val
                 }
             })
-        } // START: SCROLLVIEW
-        .disabled(true)
     }
 }
 
@@ -123,6 +120,7 @@ extension EMCalendar {
                             Text(
                                 vm.cellToDateString(cellNumber: item)
                             )
+                            .frame( minWidth: 25, minHeight: 25)
                             .foregroundColor(Color.theme.primary)
                             .font(.title3)
                             
@@ -171,9 +169,11 @@ struct EMCalendar_Previews: PreviewProvider {
     }()
     
     static var previews: some View {
-        EMCalendar(date: .constant(DateComponents()))
-            .background(Color.theme.primary)
-            .previewLayout(.sizeThatFits)
-            .frame(height: 430)
+        NavigationView {
+            EMCalendar(date: .constant(DateComponents()))
+                .background(Color.theme.primary)
+                .previewLayout(.sizeThatFits)
+                .frame(height: 430)
+        }
     }
 }

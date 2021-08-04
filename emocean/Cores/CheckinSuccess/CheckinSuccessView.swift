@@ -11,15 +11,15 @@ import Lottie
 struct CheckinSuccessView: View {
     @State var showAlert: Bool = false
     @State var setReminder: Bool = false
-    @State var theme: String = ThemeBG.noon.rawValue
+    let time = Time()
     @State var selected: Int = 0
     var body: some View {
         ZStack {
-            LottieView(filename: "\(theme)Ending").ignoresSafeArea(edges: .top)
+            LottieView(filename: "\(time.getRawValue())Ending", contentMode: .scaleAspectFit).ignoresSafeArea(edges: .top)
             ScrollView {
                 TabView(selection: $selected) {
-                    Page1(theme: $theme).tag(0)
-                    Page2(theme: $theme).tag(1)
+                    Page1(theme: time.getRawValue()).tag(0)
+                    Page2(theme: time.getRawValue()).tag(1)
                 }
                 .frame(
                     width: UIScreen.main.bounds.width ,
@@ -83,7 +83,7 @@ struct CheckinSuccessView_Previews: PreviewProvider {
 }
 
 struct Page1: View {
-    @Binding var theme: String
+    let theme: String
     var body: some View {
         ZStack{
             Image("L\(theme)")
@@ -104,7 +104,7 @@ struct Page1: View {
     }
 }
 struct Page2: View {
-    @Binding var theme: String
+    let theme: String
     var body: some View {
         ZStack{
             Image("R\(theme)")

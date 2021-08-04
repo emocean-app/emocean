@@ -22,7 +22,6 @@ struct CheckinCategoryView: View {
     // MARK: BODY
     var body: some View {
         ZStack { // START: ZSTACK
-
             GeometryReader {reader in
                 // background
                 EMTheme.shared.sea
