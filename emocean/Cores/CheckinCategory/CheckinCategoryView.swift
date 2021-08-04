@@ -83,7 +83,7 @@ extension CheckinCategoryView {
             Spacer(minLength: 35)
             
             // Image
-            Image("jellyfish")
+            Image("Jellyfish")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 170, height: 120)
