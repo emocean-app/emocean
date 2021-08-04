@@ -16,12 +16,12 @@ struct HistoryView: View {
     private var selectedDateString: String {
         let date = Calendar.current.date(from: selectedDate)
         
-        guard let date = date else { return "" }
+        guard let dateUnwrap = date else { return "" }
         
         let formatter = DateFormatter()
         formatter.dateFormat = "EEEE, MMM d yyyy"
         
-        return formatter.string(from: date)
+        return formatter.string(from: dateUnwrap)
     }
     
     init() {
