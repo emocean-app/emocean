@@ -23,9 +23,10 @@
 import SwiftUI
 
 struct GoalCell: View {
-    @Binding var category: String
-    @Binding var goal: String
-    @Binding var date: String
+    @State var category: String
+    @State var goal: String
+    @State var date: String
+    @State var isCompleted: Bool
     private let mainColor = Color(red: 16/255, green: 28/255, blue: 56/255)
     private let bgColor = Color(red: 237/255, green: 238/255, blue: 241/255)
     var body: some View {
@@ -55,13 +56,13 @@ struct GoalCell: View {
         })
         .frame(height: 90, alignment: .center)
         .background(bgColor)
-        .cornerRadius(15)
+        .cornerRadius(25)
     }
 }
 
 struct GoalCell_Previews: PreviewProvider {
     static var previews: some View {
-        GoalCell(category: .constant("Relationship"),goal: .constant("Hello Mr Crab adaasda daskdadmak adksadka adsnkd"),date: .constant("January 30th 2021"))
+        GoalCell(category: "Relationship",goal: "Hello Mr Crab adaasda daskdadmak adksadka adsnkd",date: "January 30th 2021", isCompleted: true)
             .previewLayout(.sizeThatFits)
             .padding()
             .background(Color.black)

@@ -11,8 +11,10 @@
 		0C08BA5C26B81ADC003399BE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08BA5B26B81ADC003399BE /* MainView.swift */; };
 		0C08BA5F26B83200003399BE /* ReflectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08BA5E26B83200003399BE /* ReflectButton.swift */; };
 		0C0A88A526B9545B00D80AEE /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0A88A426B9545B00D80AEE /* TimeHelper.swift */; };
+		0C0A88AB26B9A69500D80AEE /* WhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0A88AA26B9A69500D80AEE /* WhiteButton.swift */; };
 		0C0D672E26B2E8C2005925E4 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 0C0D672D26B2E8C2005925E4 /* WrappingHStack */; };
 		0C0D673226B3A8F0005925E4 /* EmotionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D673126B3A8F0005925E4 /* EmotionChart.swift */; };
+		0C3F042D26B9B75F00844F23 /* AnimasiHomepageMalam.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */; };
 		0C62284426B18ECA00672AEA /* ReflectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284326B18ECA00672AEA /* ReflectionCell.swift */; };
 		0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284526B1AEB800672AEA /* ProgressBubble.swift */; };
 		0CBD70C726B848FC00B6E59E /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBD70C626B848FC00B6E59E /* MainHeaderView.swift */; };
@@ -36,6 +38,7 @@
 		4EF4222926B850B900EA7341 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4222826B850B900EA7341 /* Feedback.swift */; };
 		4EF4222B26B8512B00EA7341 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4222A26B8512B00EA7341 /* Quotes.swift */; };
 		4EF4222D26B8516E00EA7341 /* Checkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4222C26B8516E00EA7341 /* Checkin.swift */; };
+		4EFF352026B9908000E7FC0D /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */; };
 		864B452E26B82EB000528ECF /* CheckinCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B452D26B82EB000528ECF /* CheckinCategoryView.swift */; };
 		866BC52926B6CD5A008AA685 /* ReflectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BC52826B6CD5A008AA685 /* ReflectionDetailView.swift */; };
 		866BC52B26B6D0C7008AA685 /* ReflectionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BC52A26B6D0C7008AA685 /* ReflectionDetailViewModel.swift */; };
@@ -53,13 +56,13 @@
 		86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */; };
 		E88061E926B9391A003D7264 /* CheckinFeelingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88061E826B9391A003D7264 /* CheckinFeelingsView.swift */; };
 		E8B336EE26B9AA98001A62A9 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B336ED26B9AA98001A62A9 /* SliderView.swift */; };
+		86DE2B1726B97211008F4623 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2B1626B97211008F4623 /* HistoryView.swift */; };
 		E8E9D5A726B2EFB000D331EF /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E9D5A626B2EFB000D331EF /* TextField.swift */; };
 		E8EC034D26B7BB9800318CA7 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC034C26B7BB9800318CA7 /* LottieView.swift */; };
 		E8EC034F26B7BBBC00318CA7 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC034E26B7BBBC00318CA7 /* BackgroundView.swift */; };
 		E8EC035226B7BBDF00318CA7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E8EC035126B7BBDF00318CA7 /* Lottie */; };
 		E8EC036826B7BC0100318CA7 /* CheckinDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC036726B7BC0100318CA7 /* CheckinDescriptionView.swift */; };
 		E8EC036E26B7BCF800318CA7 /* AnimasiHomepageSore.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036A26B7BCF700318CA7 /* AnimasiHomepageSore.json */; };
-		E8EC036F26B7BCF800318CA7 /* AnimasiHomepageMalam.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036B26B7BCF700318CA7 /* AnimasiHomepageMalam.json */; };
 		E8EC037026B7BCF800318CA7 /* AnimasiHomepageSiang.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036C26B7BCF700318CA7 /* AnimasiHomepageSiang.json */; };
 		E8EC037126B7BCF800318CA7 /* AnimasiHomepagePagi.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036D26B7BCF700318CA7 /* AnimasiHomepagePagi.json */; };
 		EFDC625C26A7E4A200E4D068 /* emoceanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC625B26A7E4A200E4D068 /* emoceanApp.swift */; };
@@ -92,7 +95,9 @@
 		0C08BA5B26B81ADC003399BE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0C08BA5E26B83200003399BE /* ReflectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectButton.swift; sourceTree = "<group>"; };
 		0C0A88A426B9545B00D80AEE /* TimeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelper.swift; sourceTree = "<group>"; };
+		0C0A88AA26B9A69500D80AEE /* WhiteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteButton.swift; sourceTree = "<group>"; };
 		0C0D673126B3A8F0005925E4 /* EmotionChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionChart.swift; sourceTree = "<group>"; };
+		0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageMalam.json; sourceTree = "<group>"; };
 		0C62284326B18ECA00672AEA /* ReflectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionCell.swift; sourceTree = "<group>"; };
 		0C62284526B1AEB800672AEA /* ProgressBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBubble.swift; sourceTree = "<group>"; };
 		0CBD70C626B848FC00B6E59E /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
@@ -116,6 +121,7 @@
 		4EF4222826B850B900EA7341 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		4EF4222A26B8512B00EA7341 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		4EF4222C26B8516E00EA7341 /* Checkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkin.swift; sourceTree = "<group>"; };
+		4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
 		864B452D26B82EB000528ECF /* CheckinCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinCategoryView.swift; sourceTree = "<group>"; };
 		866BC52826B6CD5A008AA685 /* ReflectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionDetailView.swift; sourceTree = "<group>"; };
 		866BC52A26B6D0C7008AA685 /* ReflectionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionDetailViewModel.swift; sourceTree = "<group>"; };
@@ -133,12 +139,12 @@
 		86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonOutlined.swift; sourceTree = "<group>"; };
 		E88061E826B9391A003D7264 /* CheckinFeelingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinFeelingsView.swift; sourceTree = "<group>"; };
 		E8B336ED26B9AA98001A62A9 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		86DE2B1626B97211008F4623 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		E8E9D5A626B2EFB000D331EF /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		E8EC034C26B7BB9800318CA7 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		E8EC034E26B7BBBC00318CA7 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		E8EC036726B7BC0100318CA7 /* CheckinDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinDescriptionView.swift; sourceTree = "<group>"; };
 		E8EC036A26B7BCF700318CA7 /* AnimasiHomepageSore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageSore.json; sourceTree = "<group>"; };
-		E8EC036B26B7BCF700318CA7 /* AnimasiHomepageMalam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageMalam.json; sourceTree = "<group>"; };
 		E8EC036C26B7BCF700318CA7 /* AnimasiHomepageSiang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageSiang.json; sourceTree = "<group>"; };
 		E8EC036D26B7BCF700318CA7 /* AnimasiHomepagePagi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepagePagi.json; sourceTree = "<group>"; };
 		EFDC625826A7E4A200E4D068 /* emocean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = emocean.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,9 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				0C08BA5B26B81ADC003399BE /* MainView.swift */,
-				0C08BA5E26B83200003399BE /* ReflectButton.swift */,
-				0CBD70C626B848FC00B6E59E /* MainHeaderView.swift */,
-				0CBD70C826B850DE00B6E59E /* ChartDescriptionView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				4E91CA1C26B1730500387EE4 /* GoalDetailView.swift */,
 				4E91CA2126B1BA9100387EE4 /* GoalCell.swift */,
 				4EB48B0826B39900004F04DD /* GoalView.swift */,
+				4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */,
 			);
 			path = GoalsView;
 			sourceTree = "<group>";
@@ -346,8 +350,9 @@
 		86DA0AC626AF0F4000FA2C53 /* Cores */ = {
 			isa = PBXGroup;
 			children = (
-				864B452C26B82E9C00528ECF /* CheckinCategory */,
+				86DE2B1526B97204008F4623 /* History */,
 				4E580EF826B7E31400229D9A /* CheckinSuccess */,
+				864B452C26B82E9C00528ECF /* CheckinCategory */,
 				0C08BA5826B7C0CE003399BE /* MainView */,
 				866BC52726B6CD49008AA685 /* ReflectionDetail */,
 				4E67392D26B28A710037583E /* TabBar */,
@@ -367,11 +372,15 @@
 				4E91CA1E26B1802C00387EE4 /* CategoryLabel.swift */,
 				0C62284326B18ECA00672AEA /* ReflectionCell.swift */,
 				0C62284526B1AEB800672AEA /* ProgressBubble.swift */,
+				0C08BA5E26B83200003399BE /* ReflectButton.swift */,
+				0CBD70C626B848FC00B6E59E /* MainHeaderView.swift */,
+				0CBD70C826B850DE00B6E59E /* ChartDescriptionView.swift */,
 				E8E9D5A626B2EFB000D331EF /* TextField.swift */,
 				0C0D673126B3A8F0005925E4 /* EmotionChart.swift */,
 				E8EC034C26B7BB9800318CA7 /* LottieView.swift */,
 				E8EC034E26B7BBBC00318CA7 /* BackgroundView.swift */,
 				E8B336ED26B9AA98001A62A9 /* SliderView.swift */,
+				0C0A88AA26B9A69500D80AEE /* WhiteButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -385,6 +394,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		86DE2B1526B97204008F4623 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				86DE2B1626B97211008F4623 /* HistoryView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		E8EC036926B7BCF700318CA7 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,8 +409,8 @@
 				4E580EFD26B7E55F00229D9A /* MorningEnding.json */,
 				4E580EFC26B7E55E00229D9A /* NoonEnding.json */,
 				4E580EFE26B7E55F00229D9A /* SunsetEnding.json */,
+				0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */,
 				E8EC036A26B7BCF700318CA7 /* AnimasiHomepageSore.json */,
-				E8EC036B26B7BCF700318CA7 /* AnimasiHomepageMalam.json */,
 				E8EC036C26B7BCF700318CA7 /* AnimasiHomepageSiang.json */,
 				E8EC036D26B7BCF700318CA7 /* AnimasiHomepagePagi.json */,
 			);
@@ -577,9 +594,9 @@
 				E8EC036E26B7BCF800318CA7 /* AnimasiHomepageSore.json in Resources */,
 				E8EC037126B7BCF800318CA7 /* AnimasiHomepagePagi.json in Resources */,
 				E8EC037026B7BCF800318CA7 /* AnimasiHomepageSiang.json in Resources */,
-				E8EC036F26B7BCF800318CA7 /* AnimasiHomepageMalam.json in Resources */,
 				4E580F0226B7E55F00229D9A /* SunsetEnding.json in Resources */,
 				4E580F0126B7E55F00229D9A /* MorningEnding.json in Resources */,
+				0C3F042D26B9B75F00844F23 /* AnimasiHomepageMalam.json in Resources */,
 				4E580F0026B7E55F00229D9A /* NoonEnding.json in Resources */,
 				EFDC626326A7E4A400E4D068 /* Preview Assets.xcassets in Resources */,
 				4E580EFF26B7E55F00229D9A /* NightEnding.json in Resources */,
@@ -646,6 +663,7 @@
 				4EF4222726B84F6800EA7341 /* Question.swift in Sources */,
 				4E580EFA26B7E34E00229D9A /* CheckinSuccessView.swift in Sources */,
 				86A6D7F226B04E02001C19E1 /* dummy2.swift in Sources */,
+				0C0A88AB26B9A69500D80AEE /* WhiteButton.swift in Sources */,
 				4E67393626B2DA1D0037583E /* TabBarView.swift in Sources */,
 				E8EC034F26B7BBBC00318CA7 /* BackgroundView.swift in Sources */,
 				EFDC625E26A7E4A200E4D068 /* ContentView.swift in Sources */,
@@ -659,6 +677,8 @@
 				866BC52926B6CD5A008AA685 /* ReflectionDetailView.swift in Sources */,
 				4EF4222926B850B900EA7341 /* Feedback.swift in Sources */,
 				EFDC625C26A7E4A200E4D068 /* emoceanApp.swift in Sources */,
+				4EFF352026B9908000E7FC0D /* GoalViewModel.swift in Sources */,
+				86DE2B1726B97211008F4623 /* HistoryView.swift in Sources */,
 				4E91CA1F26B1802C00387EE4 /* CategoryLabel.swift in Sources */,
 				8689DE3E26B6EFF50084403B /* EMCalendarViewModel.swift in Sources */,
 				E8EC036826B7BC0100318CA7 /* CheckinDescriptionView.swift in Sources */,
