@@ -16,11 +16,12 @@ import SwiftUI
 struct CheckinObservationView: View {
     // MARK: PROPERTIES
     @Binding var question: String
+    let time = Time()
     // MARK: BODY
     var body: some View {
         ZStack { // START: ZTACK
-            VStack(spacing: 0){
-                Image("UpNight") /// - Background Image
+            VStack(spacing: -1){
+                Image("Up\(time.getRawValue())") /// - Background Image
                     .resizable()
                     .scaledToFit()
                     .padding(.top,0)
