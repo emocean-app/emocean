@@ -27,8 +27,6 @@ struct GoalCell: View {
     @State var goal: String
     @State var date: String
     @State var isCompleted: Bool
-    private let mainColor = Color(red: 16/255, green: 28/255, blue: 56/255)
-    private let bgColor = Color(red: 237/255, green: 238/255, blue: 241/255)
     var body: some View {
         Button(action: {}, label: {
          
@@ -42,7 +40,7 @@ struct GoalCell: View {
                         }
                         Text(goal)
                             .frame(minHeight: 50)
-                            .foregroundColor(mainColor)
+                            .foregroundColor(Color.theme.primary)
                             .lineLimit(2)
                             .padding(.top,0)
                     }
@@ -55,7 +53,7 @@ struct GoalCell: View {
                 }
         })
         .frame(height: 90, alignment: .center)
-        .background(bgColor)
+        .background(Color.theme.grayPrimary)
         .cornerRadius(25)
     }
 }

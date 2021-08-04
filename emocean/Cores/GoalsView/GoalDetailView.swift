@@ -29,7 +29,6 @@ struct GoalDetailView: View {
 //    @Binding var goal: String
 //    @Binding var date: String
     @Binding var isShow: Bool
-    private let mainColor = Color(red: 16/255, green: 28/255, blue: 56/255)
     private let clearColor = Color.clear
     var body: some View {
         VStack (alignment: .leading){ // START: VSTACK
@@ -58,7 +57,7 @@ struct GoalDetailView: View {
                     EditButton(action: {})
                     Image("Trash")
                         .resizable()
-                        .foregroundColor(mainColor)
+                        .foregroundColor(Color.theme.primary)
                         .frame(width: 50, height: 50)
                         .onTapGesture {
                             // DEL FUNCTION
