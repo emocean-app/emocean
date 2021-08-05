@@ -8,45 +8,42 @@
 import SwiftUI
 
 struct CheckinFeelingsView: View {
+    let time = Time()
     @State var question: String = "How do you feel?"
-    @State var selection: String = "Select Time"
+    @State var selection: TimeRange
     @State var energy: CGFloat = 0.0
     @State var pleasentness: CGFloat = 0.0
-    
+
     @State var name: String = "Annoyed"
     @State var description: String = "Feeling or showing angry irritation or anything that makes you angry"
     @State var image: String = ""
-    
-    var array: [String] = ["This Morning", "This Afternoon", "This Evening", "This Night"]
-    
+
     let timer = Timer.publish(every: 1.25, on: .main, in: .common).autoconnect()
     @State private var animationOffset = false
-    
+
     private var imageFullWidth = UIScreen.main.bounds.width * 2
     private let screenHeight = UIScreen.main.bounds.height
-    
-    
+
+    init() {
+        self.selection = time.timeRange
+    }
+
     var body: some View {
-        ZStack{ // START: ZSTACK
-//            Rectangle()
-//                .fill(
-//                    LinearGradient(gradient: Gradient(colors: [Color.theme.seaTopGradient, Color.theme.seaBottomGradient]), startPoint: .top, endPoint: .bottom)
-//                )
-//                .ignoresSafeArea()
+        ZStack { // START: ZSTACK
             GeometryReader {reader in
                 // background
                 EMTheme.shared.sea
                     .ignoresSafeArea()
-                
+
                 // back coral
                 backCoral
-                
+
                 // front coral
                 frontCoral
-                
+
                 let normalOffset = 0-reader.safeAreaInsets.top
                 let animateoffset = 0 - reader.safeAreaInsets.top - 30
-                
+
                 ZStack {
                     // fish rod
                     VStack { // START: VSTACK
@@ -67,7 +64,7 @@ struct CheckinFeelingsView: View {
                         Spacer()
                     } // END: VSTACK
                     .ignoresSafeArea()
-                    
+
                     // content
                     contentContainer
                 }
@@ -78,12 +75,12 @@ struct CheckinFeelingsView: View {
     }
 }
 // MARK: - COMPONENTS
-extension CheckinFeelingsView{
-    
+extension CheckinFeelingsView {
+
     var contentContainer: some View {
-        VStack{ // START: VSTACK
-            Group{ // START: GROUP
-                HStack{ // START: HSTACK
+        VStack { // START: VSTACK
+            Group { // START: GROUP
+                HStack { // START: HSTACK
                     Spacer()
                     Image(systemName: "xmark")
                         .font(.system(size: 27.0, weight: .medium))
@@ -96,24 +93,14 @@ extension CheckinFeelingsView{
                     .font(.system(size: 28.0, weight: .semibold))
                     .foregroundColor(Color.white)
 
-                HStack{
-                    Picker(selection: $selection, label: HStack{
-                        Text(selection)
-                        Image(systemName: "chevron.down")
-                    }, content: {
-                        ForEach(array, id: \.self) { word in
-                            Text(word).tag(word)
+                HStack {
+                    Picker(selection: $selection, label: pickerLabel, content: {
+                        ForEach(TimeRange.allCases, id: \.self) {
+                            Text("\($0.rawValue)").tag($0)
                         }
                     })
-                .frame(width: 150, height: 5)
-                .animation(nil)
-                .pickerStyle(MenuPickerStyle())
-                .padding()
-                .foregroundColor(.white)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 30)
-                        .stroke(Color.white, lineWidth: 2)
-                ).background(RoundedRectangle(cornerRadius: 30).fill(Color.clear))
+                    .animation(.easeInOut)
+                    .pickerStyle(MenuPickerStyle())
                 }
                 Spacer().frame(minHeight: 10, maxHeight: 20)
                 Image("Crab")
@@ -133,10 +120,10 @@ extension CheckinFeelingsView{
                     .foregroundColor(Color.white).frame(maxWidth: 325, alignment: .center).multilineTextAlignment(.center)
             }
             Group {
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     Spacer()
                         .frame(minHeight: 10, maxHeight: 50)
-                    HStack{
+                    HStack {
                         Text("Energy")
                         .font(.system(size: 17.0, weight: .regular))
                         .foregroundColor(Color.white).padding(.horizontal, 10)
@@ -149,7 +136,7 @@ extension CheckinFeelingsView{
                     CustomControl(text: $energy)
                         .frame(width: 325, height: 50, alignment: .center)
                     Spacer().frame(minHeight: 10, maxHeight: 30)
-                    HStack{
+                    HStack {
                         Text("Pleasentness")
                         .font(.system(size: 17.0, weight: .regular))
                         .foregroundColor(Color.white).padding(.horizontal, 10)
@@ -166,19 +153,19 @@ extension CheckinFeelingsView{
                 }
             }
             Group {
-                VStack(alignment: .center){
+                VStack(alignment: .center) {
                     // Button
-                    
+
                     PrimaryButton(content: {
                         Text("I do feel that!")
-                    }, maxWidth: 177){
+                    }, maxWidth: 177) {
                         print("Primary Button Clicked")
                     }
                 }
             }
         }
     }
-    
+
     var fishRod: some View {
         VStack { // START: VSTACK
             HStack { // START: HSTACK
@@ -199,7 +186,7 @@ extension CheckinFeelingsView{
         } // END: VSTACK
         .ignoresSafeArea()
     }
-    
+
     var backCoral: some View {
         VStack(alignment: .trailing) {
             Spacer()
@@ -210,12 +197,12 @@ extension CheckinFeelingsView{
                     height: 275,
                     alignment: .leading
                 )
-                
+
         }
         .frame(width: UIScreen.main.bounds.width, alignment: .leading)
         .ignoresSafeArea()
     }
-    
+
     var frontCoral: some View {
         VStack(alignment: .trailing) {
             Spacer()
@@ -226,10 +213,24 @@ extension CheckinFeelingsView{
                     height: 300,
                     alignment: .leading
                 )
-                
+
         }
         .frame(width: UIScreen.main.bounds.width, alignment: .leading)
         .ignoresSafeArea()
+    }
+    
+    var pickerLabel: some View {
+        HStack {
+            Text("This \(selection.rawValue)")
+            Image(systemName: "chevron.down")
+        }
+        .frame(width: 150, height: 5)
+        .padding()
+        .overlay(
+            RoundedRectangle(cornerRadius: 30)
+                .stroke(Color.white, lineWidth: 2)
+        ).background(RoundedRectangle(cornerRadius: 30).fill(Color.clear))
+        .foregroundColor(.white)
     }
 }
 
@@ -239,4 +240,3 @@ struct CheckinFeelingsView_Previews: PreviewProvider {
         CheckinFeelingsView()
     }
 }
-
