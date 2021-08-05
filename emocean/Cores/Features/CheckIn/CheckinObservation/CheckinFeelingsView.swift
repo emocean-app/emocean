@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CheckinFeelingsView: View {
+    @EnvironmentObject var env: CheckinViewModel
+    
     @State var question: String = "How do you feel?"
     @State var selection: TimeRange = Time().timeRange
     @State var energy: CGFloat = 0.0
@@ -26,15 +28,6 @@ struct CheckinFeelingsView: View {
     var body: some View {
         ZStack { // START: ZSTACK
             GeometryReader {reader in
-                // background
-                EMTheme.shared.sea
-                    .ignoresSafeArea()
-
-                // back coral
-                backCoral
-
-                // front coral
-                frontCoral
 
                 let normalOffset = 0-reader.safeAreaInsets.top
                 let animateoffset = 0 - reader.safeAreaInsets.top - 30
@@ -155,6 +148,11 @@ extension CheckinFeelingsView {
                         Text("I do feel that!")
                     }, maxWidth: 177) {
                         print("Primary Button Clicked")
+                        withAnimation(
+                            .easeInOut(duration: 0.5)
+                        ) {
+                            env.nextStep(index: env.currentStep.nextYes)
+                        }
                     }
                 }
             }
@@ -182,38 +180,6 @@ extension CheckinFeelingsView {
         .ignoresSafeArea()
     }
 
-    var backCoral: some View {
-        VStack(alignment: .trailing) {
-            Spacer()
-            Image("BackCoral")
-                .resizable()
-                .frame(
-                    width: imageFullWidth,
-                    height: 275,
-                    alignment: .leading
-                )
-
-        }
-        .frame(width: UIScreen.main.bounds.width, alignment: .leading)
-        .ignoresSafeArea()
-    }
-
-    var frontCoral: some View {
-        VStack(alignment: .trailing) {
-            Spacer()
-            Image("FrontCoral")
-                .resizable()
-                .frame(
-                    width: imageFullWidth,
-                    height: 300,
-                    alignment: .leading
-                )
-
-        }
-        .frame(width: UIScreen.main.bounds.width, alignment: .leading)
-        .ignoresSafeArea()
-    }
-
     var pickerLabel: some View {
         HStack {
             Text("This \(selection.rawValue)")
@@ -233,5 +199,6 @@ extension CheckinFeelingsView {
 struct CheckinFeelingsView_Previews: PreviewProvider {
     static var previews: some View {
         CheckinFeelingsView()
+            .background(EMTheme.shared.sea.ignoresSafeArea())
     }
 }
