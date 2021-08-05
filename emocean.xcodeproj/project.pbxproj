@@ -87,6 +87,7 @@
 		E8EC036E26B7BCF800318CA7 /* AnimasiHomepageSore.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036A26B7BCF700318CA7 /* AnimasiHomepageSore.json */; };
 		E8EC037026B7BCF800318CA7 /* AnimasiHomepageSiang.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036C26B7BCF700318CA7 /* AnimasiHomepageSiang.json */; };
 		E8EC037126B7BCF800318CA7 /* AnimasiHomepagePagi.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036D26B7BCF700318CA7 /* AnimasiHomepagePagi.json */; };
+		EFCF693626BBC3C7004142A0 /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFCF693526BBC3C7004142A0 /* exportOptions.plist */; };
 		EFDC625C26A7E4A200E4D068 /* emoceanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC625B26A7E4A200E4D068 /* emoceanApp.swift */; };
 		EFDC625E26A7E4A200E4D068 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC625D26A7E4A200E4D068 /* ContentView.swift */; };
 		EFDC626026A7E4A400E4D068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFDC625F26A7E4A400E4D068 /* Assets.xcassets */; };
@@ -191,6 +192,7 @@
 		E8EC036A26B7BCF700318CA7 /* AnimasiHomepageSore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageSore.json; sourceTree = "<group>"; };
 		E8EC036C26B7BCF700318CA7 /* AnimasiHomepageSiang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageSiang.json; sourceTree = "<group>"; };
 		E8EC036D26B7BCF700318CA7 /* AnimasiHomepagePagi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepagePagi.json; sourceTree = "<group>"; };
+		EFCF693526BBC3C7004142A0 /* exportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
 		EFDC625826A7E4A200E4D068 /* emocean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = emocean.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDC625B26A7E4A200E4D068 /* emoceanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emoceanApp.swift; sourceTree = "<group>"; };
 		EFDC625D26A7E4A200E4D068 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -657,6 +659,7 @@
 				EFDC625D26A7E4A200E4D068 /* ContentView.swift */,
 				EFDC625F26A7E4A400E4D068 /* Assets.xcassets */,
 				EFDC626426A7E4A400E4D068 /* Info.plist */,
+				EFCF693526BBC3C7004142A0 /* exportOptions.plist */,
 				EFDC626126A7E4A400E4D068 /* Preview Content */,
 			);
 			path = emocean;
@@ -690,6 +693,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		EFCF693126BBB599004142A0 /* SwiftLint */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(PROJECT_DIR)/.github/scripts/linter_app.sh";
+			buildConfigurationList = EFCF693226BBB599004142A0 /* Build configuration list for PBXLegacyTarget "SwiftLint" */;
+			buildPhases = (
+			);
+			buildToolPath = /bin/bash;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = SwiftLint;
+			passBuildSettingsInEnvironment = 1;
+			productName = Swiftlint;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		EFDC625726A7E4A200E4D068 /* emocean */ = {
 			isa = PBXNativeTarget;
@@ -698,7 +718,6 @@
 				EFDC625426A7E4A200E4D068 /* Sources */,
 				EFDC625526A7E4A200E4D068 /* Frameworks */,
 				EFDC625626A7E4A200E4D068 /* Resources */,
-				EF79012A26B0D09300DF7F0D /* Run Linter Script */,
 			);
 			buildRules = (
 			);
@@ -758,6 +777,9 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					EFCF693126BBB599004142A0 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
 					EFDC625726A7E4A200E4D068 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
@@ -791,6 +813,7 @@
 				EFDC625726A7E4A200E4D068 /* emocean */,
 				EFDC626826A7E4A400E4D068 /* emoceanTests */,
 				EFDC627326A7E4A400E4D068 /* emoceanUITests */,
+				EFCF693126BBB599004142A0 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
@@ -811,6 +834,7 @@
 				4E580EFF26B7E55F00229D9A /* NightEnding.json in Resources */,
 				4E6CC39D26BBB9650070D9A7 /* GambarGoneFishing.json in Resources */,
 				EFDC626026A7E4A400E4D068 /* Assets.xcassets in Resources */,
+				EFCF693626BBC3C7004142A0 /* exportOptions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -829,27 +853,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		EF79012A26B0D09300DF7F0D /* Run Linter Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Linter Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EFDC625426A7E4A200E4D068 /* Sources */ = {
@@ -962,6 +965,33 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		EFCF693326BBB599004142A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9BZTP27JHA;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EFCF693426BBB599004142A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9BZTP27JHA;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		EFDC627B26A7E4A400E4D068 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1087,6 +1117,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"emocean/Preview Content\"";
 				DEVELOPMENT_TEAM = 9BZTP27JHA;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = emocean/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1105,10 +1143,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"emocean/Preview Content\"";
 				DEVELOPMENT_TEAM = 9BZTP27JHA;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = emocean/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1117,6 +1164,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.emocean;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = emocean_distribution;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1209,6 +1257,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EFCF693226BBB599004142A0 /* Build configuration list for PBXLegacyTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFCF693326BBB599004142A0 /* Debug */,
+				EFCF693426BBB599004142A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EFDC625326A7E4A200E4D068 /* Build configuration list for PBXProject "emocean" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
