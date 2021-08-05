@@ -15,7 +15,7 @@ jobs:
       - name: Setup provisioning profile
         env:
           IOS_KEYS: ${{ secrets.IOS_KEYS }}
-        run: exec ./.github/scripts/decrypt_secrets.sh
+        run: exec ./.github/scripts/decrypt_secret.sh
       - name: Archiving project
         env:
           PR_NUMBER: $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
