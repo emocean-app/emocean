@@ -17,6 +17,9 @@
 		0C3F042D26B9B75F00844F23 /* AnimasiHomepageMalam.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */; };
 		0C62284426B18ECA00672AEA /* ReflectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284326B18ECA00672AEA /* ReflectionCell.swift */; };
 		0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284526B1AEB800672AEA /* ProgressBubble.swift */; };
+		0CB430B226BB98FA00FC8A34 /* CheckinFeelingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB430AF26BB98FA00FC8A34 /* CheckinFeelingsView.swift */; };
+		0CB430B326BB98FA00FC8A34 /* CheckinDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB430B026BB98FA00FC8A34 /* CheckinDescriptionView.swift */; };
+		0CB430B426BB98FA00FC8A34 /* CheckinObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB430B126BB98FA00FC8A34 /* CheckinObservationView.swift */; };
 		0CBD70C726B848FC00B6E59E /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBD70C626B848FC00B6E59E /* MainHeaderView.swift */; };
 		0CBD70C926B850DE00B6E59E /* ChartDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBD70C826B850DE00B6E59E /* ChartDescriptionView.swift */; };
 		0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE373326B06D440006FE66 /* PrimaryButton.swift */; };
@@ -45,9 +48,6 @@
 		8689DE4026B6F8710084403B /* EMCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8689DE3F26B6F8710084403B /* EMCalendar.swift */; };
 		868B0C2926B25DF70019A2B0 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868B0C2826B25DF70019A2B0 /* ColorExtension.swift */; };
 		868B0C2B26B26C7E0019A2B0 /* ThemeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868B0C2A26B26C7E0019A2B0 /* ThemeExtension.swift */; };
-		8696D0D026BB931500F80E0B /* CheckinFeelingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696D0CD26BB931500F80E0B /* CheckinFeelingsView.swift */; };
-		8696D0D126BB931500F80E0B /* CheckinObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696D0CE26BB931500F80E0B /* CheckinObservationView.swift */; };
-		8696D0D226BB931500F80E0B /* CheckinDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696D0CF26BB931500F80E0B /* CheckinDescriptionView.swift */; };
 		86A6D7F226B04E02001C19E1 /* dummy2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F126B04E02001C19E1 /* dummy2.swift */; };
 		86A6D7F426B04E0B001C19E1 /* dummy3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F326B04E0B001C19E1 /* dummy3.swift */; };
 		86A6D7F626B04E13001C19E1 /* dummy4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F526B04E13001C19E1 /* dummy4.swift */; };
@@ -100,6 +100,9 @@
 		0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageMalam.json; sourceTree = "<group>"; };
 		0C62284326B18ECA00672AEA /* ReflectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionCell.swift; sourceTree = "<group>"; };
 		0C62284526B1AEB800672AEA /* ProgressBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBubble.swift; sourceTree = "<group>"; };
+		0CB430AF26BB98FA00FC8A34 /* CheckinFeelingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinFeelingsView.swift; sourceTree = "<group>"; };
+		0CB430B026BB98FA00FC8A34 /* CheckinDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinDescriptionView.swift; sourceTree = "<group>"; };
+		0CB430B126BB98FA00FC8A34 /* CheckinObservationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinObservationView.swift; sourceTree = "<group>"; };
 		0CBD70C626B848FC00B6E59E /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
 		0CBD70C826B850DE00B6E59E /* ChartDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDescriptionView.swift; sourceTree = "<group>"; };
 		0CDE373326B06D440006FE66 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
@@ -128,9 +131,6 @@
 		8689DE3F26B6F8710084403B /* EMCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMCalendar.swift; sourceTree = "<group>"; };
 		868B0C2826B25DF70019A2B0 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		868B0C2A26B26C7E0019A2B0 /* ThemeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeExtension.swift; sourceTree = "<group>"; };
-		8696D0CD26BB931500F80E0B /* CheckinFeelingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckinFeelingsView.swift; path = emocean/Cores/CheckinObservation/CheckinFeelingsView.swift; sourceTree = SOURCE_ROOT; };
-		8696D0CE26BB931500F80E0B /* CheckinObservationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckinObservationView.swift; path = emocean/Cores/CheckinObservation/CheckinObservationView.swift; sourceTree = SOURCE_ROOT; };
-		8696D0CF26BB931500F80E0B /* CheckinDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckinDescriptionView.swift; path = emocean/Cores/CheckinObservation/CheckinDescriptionView.swift; sourceTree = SOURCE_ROOT; };
 		86A6D7F126B04E02001C19E1 /* dummy2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy2.swift; sourceTree = "<group>"; };
 		86A6D7F326B04E0B001C19E1 /* dummy3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy3.swift; sourceTree = "<group>"; };
 		86A6D7F526B04E13001C19E1 /* dummy4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy4.swift; sourceTree = "<group>"; };
@@ -205,15 +205,14 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		4E22EC8A26B07145002CD2C7 /* CheckinObservation */ = {
+		0CB430AE26BB98FA00FC8A34 /* CheckinObservation */ = {
 			isa = PBXGroup;
 			children = (
-				8696D0CF26BB931500F80E0B /* CheckinDescriptionView.swift */,
-				8696D0CD26BB931500F80E0B /* CheckinFeelingsView.swift */,
-				8696D0CE26BB931500F80E0B /* CheckinObservationView.swift */,
+				0CB430AF26BB98FA00FC8A34 /* CheckinFeelingsView.swift */,
+				0CB430B026BB98FA00FC8A34 /* CheckinDescriptionView.swift */,
+				0CB430B126BB98FA00FC8A34 /* CheckinObservationView.swift */,
 			);
-			name = CheckinObservation;
-			path = ../Resources/CheckinObservation;
+			path = CheckinObservation;
 			sourceTree = "<group>";
 		};
 		4E580EF826B7E31400229D9A /* CheckinSuccess */ = {
@@ -350,6 +349,7 @@
 		86DA0AC626AF0F4000FA2C53 /* Cores */ = {
 			isa = PBXGroup;
 			children = (
+				0CB430AE26BB98FA00FC8A34 /* CheckinObservation */,
 				86DE2B1526B97204008F4623 /* History */,
 				4E580EF826B7E31400229D9A /* CheckinSuccess */,
 				864B452C26B82E9C00528ECF /* CheckinCategory */,
@@ -357,7 +357,6 @@
 				866BC52726B6CD49008AA685 /* ReflectionDetail */,
 				4E67392D26B28A710037583E /* TabBar */,
 				4E91CA2026B1BA3000387EE4 /* GoalsView */,
-				4E22EC8A26B07145002CD2C7 /* CheckinObservation */,
 				86DA0AC726AF0F5E00FA2C53 /* Components */,
 			);
 			path = Cores;
@@ -647,14 +646,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C08BA5A26B81A7A003399BE /* MotionManager.swift in Sources */,
-				8696D0D026BB931500F80E0B /* CheckinFeelingsView.swift in Sources */,
+				0CB430B226BB98FA00FC8A34 /* CheckinFeelingsView.swift in Sources */,
 				86A6D7FC26B04E2F001C19E1 /* dummy7.swift in Sources */,
 				864B452E26B82EB000528ECF /* CheckinCategoryView.swift in Sources */,
 				E8EC034D26B7BB9800318CA7 /* LottieView.swift in Sources */,
 				86A6D80226B04E48001C19E1 /* dummy10.swift in Sources */,
 				E8E9D5A726B2EFB000D331EF /* TextField.swift in Sources */,
 				0CBD70C926B850DE00B6E59E /* ChartDescriptionView.swift in Sources */,
-				8696D0D126BB931500F80E0B /* CheckinObservationView.swift in Sources */,
 				0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */,
 				86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */,
 				4EF4222B26B8512B00EA7341 /* Quotes.swift in Sources */,
@@ -669,8 +667,8 @@
 				EFDC625E26A7E4A200E4D068 /* ContentView.swift in Sources */,
 				4E91CA2226B1BA9100387EE4 /* GoalCell.swift in Sources */,
 				86A6D7F626B04E13001C19E1 /* dummy4.swift in Sources */,
-				8696D0D226BB931500F80E0B /* CheckinDescriptionView.swift in Sources */,
 				0C08BA5F26B83200003399BE /* ReflectButton.swift in Sources */,
+				0CB430B326BB98FA00FC8A34 /* CheckinDescriptionView.swift in Sources */,
 				866BC52B26B6D0C7008AA685 /* ReflectionDetailViewModel.swift in Sources */,
 				0C62284426B18ECA00672AEA /* ReflectionCell.swift in Sources */,
 				86A6D7F826B04E1C001C19E1 /* dummy5.swift in Sources */,
@@ -692,6 +690,7 @@
 				868B0C2B26B26C7E0019A2B0 /* ThemeExtension.swift in Sources */,
 				0C0A88A526B9545B00D80AEE /* TimeHelper.swift in Sources */,
 				0CBD70C726B848FC00B6E59E /* MainHeaderView.swift in Sources */,
+				0CB430B426BB98FA00FC8A34 /* CheckinObservationView.swift in Sources */,
 				4EB48B0926B39900004F04DD /* GoalView.swift in Sources */,
 				0C08BA5C26B81ADC003399BE /* MainView.swift in Sources */,
 				868B0C2926B25DF70019A2B0 /* ColorExtension.swift in Sources */,
