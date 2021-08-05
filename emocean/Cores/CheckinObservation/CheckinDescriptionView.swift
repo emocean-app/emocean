@@ -14,7 +14,7 @@ struct CheckinDescriptionView: View {
     static var testBinding = Binding<String>(get: { test }, set: {
         test = $0 })
 
-    // MARK: BODY
+    // MARK: BODY   
     var body: some View {
         ZStack { // START: ZTACK
             Image("dummy1") /// - Background Image
