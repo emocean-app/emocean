@@ -15,7 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Github Action for Swiftlint
-      uses: norio-nomura/action-swiftlint@3.0.1
+      uses: norio-nomura/action-swiftlint@3.2.1
+      with:
+        args: --force-exclude --strict
   
   Test:
     runs-on: macOS-latest
