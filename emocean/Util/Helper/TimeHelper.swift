@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum TimeRange: String {
+enum TimeRange: String, CaseIterable {
     case morning = "Morning"
     case noon = "Noon"
     case sunset = "Sunset"
