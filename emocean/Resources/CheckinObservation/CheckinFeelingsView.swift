@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct CheckinFeelingsView: View {
-    let time = Time()
     @State var question: String = "How do you feel?"
-    @State var selection: TimeRange
+    @State var selection: TimeRange = Time().timeRange
     @State var energy: CGFloat = 0.0
     @State var pleasentness: CGFloat = 0.0
 
@@ -23,10 +22,6 @@ struct CheckinFeelingsView: View {
 
     private var imageFullWidth = UIScreen.main.bounds.width * 2
     private let screenHeight = UIScreen.main.bounds.height
-
-    init() {
-        self.selection = time.timeRange
-    }
 
     var body: some View {
         ZStack { // START: ZSTACK
@@ -218,7 +213,7 @@ extension CheckinFeelingsView {
         .frame(width: UIScreen.main.bounds.width, alignment: .leading)
         .ignoresSafeArea()
     }
-    
+
     var pickerLabel: some View {
         HStack {
             Text("This \(selection.rawValue)")
