@@ -19,11 +19,9 @@ struct TabBarView: View {
             case .checkin:
                 MainView()
             case .goal:
-                GoalView()
+                WentFishingView()
             case .history:
-                NavigationView {
-                    TempView(title: .constant("History"))
-                }
+                WentFishingView()
             }
             TabBar(selectedTab: $selectedTab)
                 .frame(height: 30)
