@@ -72,7 +72,7 @@ struct ReflectionCell: View {
                 .background(Color.theme.grayPrimary)
         }
         .frame(height: 100, alignment: .center)
-        .cornerRadius(15)
+        .cornerRadius(20)
         // END: HSTACK
     }
 }

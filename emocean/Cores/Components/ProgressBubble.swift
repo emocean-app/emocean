@@ -52,6 +52,10 @@ struct ProgressBubble: View {
     // MARK: BODY
     var body: some View {
         VStack(spacing: 0) { // START: VSTACK
+            if isSelected {
+                Image("SelectedDay")
+            }
+            
             ZStack { // START: ZSTACK
                 if isDone {
                     Circle()
@@ -70,11 +74,6 @@ struct ProgressBubble: View {
                     .foregroundColor(strokeColor)
                     .bold()
             } // END: ZSTACK
-            
-            if isSelected {
-                Image("SelectedDay")
-                    .rotationEffect(.degrees(180))
-            }
         } // END: VSTACK
     }
 

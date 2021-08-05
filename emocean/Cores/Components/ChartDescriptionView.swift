@@ -49,7 +49,7 @@ struct ChartDescriptionView: View {
         }
         .padding()
         .background(Color.white)
-        .cornerRadius(15)
+        .cornerRadius(20)
     }
 }
 
