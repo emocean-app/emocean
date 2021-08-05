@@ -31,7 +31,7 @@ struct MainView: View {
                     .padding(.top)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                HStack(alignment: .top) {
+                HStack(alignment: .bottom) {
                     ForEach(0..<7) { idx in
                         ProgressBubble(dayOfWeek: idx, isDone: false, isToday: idx == dayOfWeek - 1)
                     }

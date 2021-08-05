@@ -16,8 +16,8 @@ struct MainHeaderView: View {
         GeometryReader { reader in
             ZStack(alignment: .top) {
                 LottieView(filename: time.getSkyAnimation(), contentMode: .scaleAspectFill)
-                    .offset(y: -getOffset(reader, multiplier: 2))
-                    .frame(width: reader.size.width, height: getOffset(reader, multiplier: 2) + 480)
+                    .offset(y: -getOffset(reader, multiplier: 1.5))
+                    .frame(width: reader.size.width, height: reader.size.height)
 
                 Image("\(time.getRawValue())Sea")
                     .resizable()
