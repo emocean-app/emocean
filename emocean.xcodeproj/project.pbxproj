@@ -30,6 +30,8 @@
 		4E580F0226B7E55F00229D9A /* SunsetEnding.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E580EFE26B7E55F00229D9A /* SunsetEnding.json */; };
 		4E67393226B28D680037583E /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67393126B28D680037583E /* TabBar.swift */; };
 		4E67393626B2DA1D0037583E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67393526B2DA1D0037583E /* TabBarView.swift */; };
+		4E6CC39B26BBB8C60070D9A7 /* WentFishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6CC39A26BBB8C60070D9A7 /* WentFishingView.swift */; };
+		4E6CC39D26BBB9650070D9A7 /* GambarGoneFishing.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E6CC39C26BBB9650070D9A7 /* GambarGoneFishing.json */; };
 		4E91CA1D26B1730500387EE4 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA1C26B1730500387EE4 /* GoalDetailView.swift */; };
 		4E91CA1F26B1802C00387EE4 /* CategoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA1E26B1802C00387EE4 /* CategoryLabel.swift */; };
 		4E91CA2226B1BA9100387EE4 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA2126B1BA9100387EE4 /* GoalCell.swift */; };
@@ -133,6 +135,8 @@
 		4E580EFE26B7E55F00229D9A /* SunsetEnding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SunsetEnding.json; sourceTree = "<group>"; };
 		4E67393126B28D680037583E /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		4E67393526B2DA1D0037583E /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		4E6CC39A26BBB8C60070D9A7 /* WentFishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WentFishingView.swift; sourceTree = "<group>"; };
+		4E6CC39C26BBB9650070D9A7 /* GambarGoneFishing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GambarGoneFishing.json; sourceTree = "<group>"; };
 		4E91CA1C26B1730500387EE4 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
 		4E91CA1E26B1802C00387EE4 /* CategoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLabel.swift; sourceTree = "<group>"; };
 		4E91CA2126B1BA9100387EE4 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
@@ -585,6 +589,7 @@
 				E8EC034E26B7BBBC00318CA7 /* BackgroundView.swift */,
 				E8B336ED26B9AA98001A62A9 /* SliderView.swift */,
 				0C0A88AA26B9A69500D80AEE /* WhiteButton.swift */,
+				4E6CC39A26BBB8C60070D9A7 /* WentFishingView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -608,6 +613,7 @@
 		E8EC036926B7BCF700318CA7 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				4E6CC39C26BBB9650070D9A7 /* GambarGoneFishing.json */,
 				4E580EFB26B7E55E00229D9A /* NightEnding.json */,
 				4E580EFD26B7E55F00229D9A /* MorningEnding.json */,
 				4E580EFC26B7E55E00229D9A /* NoonEnding.json */,
@@ -803,6 +809,7 @@
 				4E580F0026B7E55F00229D9A /* NoonEnding.json in Resources */,
 				EFDC626326A7E4A400E4D068 /* Preview Assets.xcassets in Resources */,
 				4E580EFF26B7E55F00229D9A /* NightEnding.json in Resources */,
+				4E6CC39D26BBB9650070D9A7 /* GambarGoneFishing.json in Resources */,
 				EFDC626026A7E4A400E4D068 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -862,6 +869,7 @@
 				0CBD70C926B850DE00B6E59E /* ChartDescriptionView.swift in Sources */,
 				0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */,
 				8696D0FF26BB9D5B00F80E0B /* SeederStaticQuestion.swift in Sources */,
+				4E6CC39B26BBB8C60070D9A7 /* WentFishingView.swift in Sources */,
 				86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */,
 				4EF4222B26B8512B00EA7341 /* Quotes.swift in Sources */,
 				8696D0EC26BB9CB400F80E0B /* SeederNetworkingCheckin.swift in Sources */,
