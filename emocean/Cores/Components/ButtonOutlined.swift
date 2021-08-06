@@ -4,7 +4,6 @@
 //
 //  Created by Puras Handharmahua on 27/07/21.
 //
-
 import SwiftUI
 
 /// A Button with outline around it.
@@ -32,7 +31,7 @@ struct ButtonOutlined: View {
     
     // MARK: PROPERTIES
     var text: String
-    @Binding var isSelected: Bool
+    var isSelected: Bool
     var isLight: Bool = true
     var action: (() -> Void?)? = nil
     
@@ -50,7 +49,7 @@ struct ButtonOutlined: View {
                 .foregroundColor(isLight ? .white : .black)
                 .frame(maxWidth: .infinity)
                 .padding()
-                .padding(.horizontal)
+                .padding(.horizontal,5)
                 .background( // START: BACKGROUND
                     ZStack { // START: ZTACK
                         backgroundLayer
@@ -94,8 +93,8 @@ extension ButtonOutlined {
 struct ButtonOutlined_Previews: PreviewProvider {
     static var previews: some View {
         ButtonOutlined(
-            text: "Covid",
-            isSelected: .constant(false),
+            text: "Relationship",
+            isSelected: false,
             action: {
                 print("Outlined Button Clicked")
             }

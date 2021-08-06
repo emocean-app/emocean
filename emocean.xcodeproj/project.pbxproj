@@ -82,6 +82,7 @@
 		8696D11726BB9EB300F80E0B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696D11626BB9EB300F80E0B /* Repository.swift */; };
 		8696D11A26BB9ED000F80E0B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696D11926BB9ED000F80E0B /* Constant.swift */; };
 		8696D11C26BB9F6F00F80E0B /* CheckinCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696D11B26BB9F6F00F80E0B /* CheckinCategoryViewModel.swift */; };
+		8699697C26BD7A9200D9FEB1 /* CheckinPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699697B26BD7A9200D9FEB1 /* CheckinPromptView.swift */; };
 		86A6D7F626B04E13001C19E1 /* dummy4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F526B04E13001C19E1 /* dummy4.swift */; };
 		86A6D7F826B04E1C001C19E1 /* dummy5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F726B04E1C001C19E1 /* dummy5.swift */; };
 		86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */; };
@@ -195,6 +196,7 @@
 		8696D11626BB9EB300F80E0B /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		8696D11926BB9ED000F80E0B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8696D11B26BB9F6F00F80E0B /* CheckinCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinCategoryViewModel.swift; sourceTree = "<group>"; };
+		8699697B26BD7A9200D9FEB1 /* CheckinPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinPromptView.swift; sourceTree = "<group>"; };
 		86A6D7F526B04E13001C19E1 /* dummy4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy4.swift; sourceTree = "<group>"; };
 		86A6D7F726B04E1C001C19E1 /* dummy5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy5.swift; sourceTree = "<group>"; };
 		86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonOutlined.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 		8696D0D626BB9BA700F80E0B /* CheckIn */ = {
 			isa = PBXGroup;
 			children = (
+				8699697A26BD7A8500D9FEB1 /* CheckinPrompt */,
 				0CB430AE26BB98FA00FC8A34 /* CheckinObservation */,
 				864B452C26B82E9C00528ECF /* CheckinCategory */,
 				4E580EF826B7E31400229D9A /* CheckinSuccess */,
@@ -517,6 +520,14 @@
 				8696D11926BB9ED000F80E0B /* Constant.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		8699697A26BD7A8500D9FEB1 /* CheckinPrompt */ = {
+			isa = PBXGroup;
+			children = (
+				8699697B26BD7A9200D9FEB1 /* CheckinPromptView.swift */,
+			);
+			path = CheckinPrompt;
 			sourceTree = "<group>";
 		};
 		86DA0ABE26AF0E6600FA2C53 /* Util */ = {
@@ -891,6 +902,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8699697C26BD7A9200D9FEB1 /* CheckinPromptView.swift in Sources */,
 				0C08BA5A26B81A7A003399BE /* MotionManager.swift in Sources */,
 				8696D10E26BB9DEE00F80E0B /* NetworkRequestError.swift in Sources */,
 				0CB430B226BB98FA00FC8A34 /* CheckinFeelingsView.swift in Sources */,

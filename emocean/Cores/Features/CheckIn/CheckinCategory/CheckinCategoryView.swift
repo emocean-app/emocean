@@ -4,21 +4,19 @@
 //
 //  Created by Puras Handharmahua on 27/07/21.
 //
-
 import SwiftUI
 
 struct CheckinCategoryView: View {
     // MARK: PROPERTIES
     @EnvironmentObject var env: CheckinViewModel
     @State private var animationOffset = false
+    @StateObject private var vm = CheckinCategoryViewModel()
     
     let timer = Timer.publish(every: 1.25, on: .main, in: .common).autoconnect()
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
-    private var imageFullWidth = UIScreen.main.bounds.width * 2
-    private let screenHeight = UIScreen.main.bounds.height
     
     // MARK: BODY
     var body: some View {
@@ -62,7 +60,6 @@ struct CheckinCategoryView: View {
 }
 
 // MARK: - COMPONENTS
-
 extension CheckinCategoryView {
     
     var contentContainer: some View {
@@ -93,7 +90,7 @@ extension CheckinCategoryView {
             }, maxWidth: 177) {
                 print("Primary Button Clicked")
                 withAnimation(.easeInOut(duration: 0.5)) {
-                    env.nextStep(index: env.currentStep.nextYes)
+                    env.goToNextStep(isYes: true)
                 }
             }
         } // END: VSTACK
@@ -116,13 +113,14 @@ extension CheckinCategoryView {
     
     var categorySection: some View {
         TabView { // START: TABVIEW
-            ForEach(0..<3) { _ in // START: FOREACH
+            ForEach(0..<3) { i in // START: FOREACH
                 VStack { // START: VSTACK
                     LazyVGrid(columns: columns, spacing: 20, content: { // START: VGRID
-                        ForEach(0..<8) { _ in // START: FOREACH
+                        ForEach(0..<8) { j in // START: FOREACH
+                            let idx = j + (8*i)
                             ButtonOutlined(
-                                text: "Title",
-                                isSelected: .constant(false)
+                                text: vm.categories[idx].name,
+                                isSelected: false
                             )
                             .padding(.horizontal, 5)
                         } // END: FOREACH
@@ -171,7 +169,6 @@ extension CheckinCategoryView {
 }
 
 // MARK: - PREVIEW
-
 struct CheckinCategoryView_Previews: PreviewProvider {
     static var previews: some View {
         CheckinCategoryView()
