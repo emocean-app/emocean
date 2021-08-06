@@ -49,7 +49,7 @@ struct CheckinDescriptionView: View {
             
         } // END: ZTACK
         .onAppear(perform: {
-            withAnimation(.easeInOut.delay(2.5)) {
+            withAnimation(.easeInOut) {
                 showTextField = true
             }
         })
