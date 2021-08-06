@@ -9,42 +9,56 @@ import SwiftUI
 
 struct CheckinDescriptionView: View {
     // MARK: PROPERTIES
-    @Binding var question: String
-    static var test:String = ""
-    static var testBinding = Binding<String>(get: { test }, set: {
-        test = $0 })
+    
+    @EnvironmentObject var env: CheckinViewModel
+    
+    var question: String
+    @State private var showTextField: Bool = false
+    @State private var text: String = ""
 
     // MARK: BODY   
     var body: some View {
         ZStack { // START: ZTACK
-            Image("dummy1") /// - Background Image
-                .resizable()
-                .ignoresSafeArea()
-                VStack(alignment: .center) { // START: VSTACK
-                    Spacer().frame(minHeight: 10, maxHeight: 50)
-                    Text(question)
-                        .padding()
-                        .font(.title)
-                        .lineLimit(nil)
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.red)
-                    Spacer().frame(minHeight: 10, maxHeight: 50)
-                    MultilineTextField(text: CheckinDescriptionView.testBinding, onCommit: {
-                        print("Final text: \(CheckinDescriptionView.test)")
-                    }).padding()
-                }    .frame(
-                    minWidth: 0,
-                    maxWidth: .infinity,
-                    minHeight: 0,
-                    maxHeight: .infinity,
-                    alignment: .topLeading
-                  ) // END: VSTACK
+            
+            VStack(alignment: .center) { // START: VSTACK
+                Spacer()
+                
+                Text(question)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .font(.title)
+                    .lineLimit(nil)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
+                
+                if showTextField {
+                    MultilineTextField(text: $text, onCommit: {
+                        print("Final text: \(text)")
+                    })
+                    .padding()
+                }
+                
+                Spacer()
+            }    .frame(
+                minWidth: 0,
+                maxWidth: .infinity,
+                minHeight: 0,
+                maxHeight: .infinity,
+                alignment: .topLeading
+            ) // END: VSTACK
+            
         } // END: ZTACK
+        .onAppear(perform: {
+            withAnimation(.easeInOut) {
+                showTextField = true
+            }
+        })
     }
 }
 
 struct CheckinDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckinDescriptionView(question: .constant("Do you wanna talk about it?"))
+        CheckinDescriptionView(question: "Lorem ipsum dolor sit amet")
+            .background(EMTheme.shared.sea.ignoresSafeArea())
     }
 }

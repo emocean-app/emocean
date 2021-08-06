@@ -14,9 +14,12 @@
 import SwiftUI
 
 struct CheckinObservationView: View {
+    
     // MARK: PROPERTIES
-    @Binding var question: String
+    @EnvironmentObject var env: CheckinViewModel
+    var question: String
     let time = Time()
+    
     // MARK: BODY
     var body: some View {
         ZStack { // START: ZTACK
@@ -45,6 +48,7 @@ struct CheckinObservationView: View {
             VStack(alignment: .center) { // START: VSTACK d
                 Spacer()
                 Text(question)
+                    .frame(maxWidth: .infinity)
                     .padding()
                     .font(.title)
                     .lineLimit(nil)
@@ -54,10 +58,18 @@ struct CheckinObservationView: View {
                 HStack { // START: HSTACK
                     PrimaryButton(content: {
                         Text("No")
-                    }, maxWidth: 65, action: {})
+                    }, maxWidth: 65, action: {
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            env.nextStep(index: env.currentStep.nextNo)
+                        }
+                    })
                     PrimaryButton(content: {
                         Text("Yes")
-                    }, maxWidth: 65, action: {})
+                    }, maxWidth: 65, action: {
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            env.nextStep(index: env.currentStep.nextYes)
+                        }
+                    })
                 }.padding(.bottom, 30) // END: HSTACK
             } // END: VSTACK
         } // END: ZTACK
@@ -66,6 +78,6 @@ struct CheckinObservationView: View {
 
 struct CheckinObservationView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckinObservationView(question: .constant("Do you wanna talk about it?"))
+        CheckinObservationView(question: "Do you wanna talk about it?")
     }
 }
