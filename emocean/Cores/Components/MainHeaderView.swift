@@ -10,6 +10,7 @@ import SwiftUI
 struct MainHeaderView: View {
     @ObservedObject var manager = MotionManager()
     @Binding var shouldPopUpFullScreen: Bool
+    @Binding var shouldShowSettingsModal: Bool
     let time = Time()
 
     var body: some View {
@@ -37,11 +38,22 @@ struct MainHeaderView: View {
                     Spacer()
                         .frame(height: 75)
 
-                    Text("Ahoy!")
-                        .font(.largeTitle)
-                        .bold()
-                        .foregroundColor(time.timeRange == .night ? .white : Color.theme.primary)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    HStack {
+                        Text("Ahoy!")
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundColor(time.timeRange == .night ? .white : Color.theme.primary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Button(action: {
+                            self.shouldShowSettingsModal = true
+                        }, label: {
+                            Image(systemName: "gearshape")
+                                .resizable()
+                                .frame(width: 30, height: 30, alignment: .center)
+                                .foregroundColor(time.timeRange == .night ? .white : Color.theme.primary)
+                        })
+                    }
 
                     Text("Do you wanna check in?")
                         .font(.title3)
@@ -93,6 +105,6 @@ struct MainHeaderView: View {
 
 struct MainHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        MainHeaderView(shouldPopUpFullScreen: .constant(false))
+        MainHeaderView(shouldPopUpFullScreen: .constant(false), shouldShowSettingsModal: .constant(false))
     }
 }

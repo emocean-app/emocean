@@ -17,6 +17,8 @@
 		0C3F042D26B9B75F00844F23 /* AnimasiHomepageMalam.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */; };
 		0C62284426B18ECA00672AEA /* ReflectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284326B18ECA00672AEA /* ReflectionCell.swift */; };
 		0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284526B1AEB800672AEA /* ProgressBubble.swift */; };
+		0C9C72EE26BC13F8005A3548 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C72ED26BC13F8005A3548 /* SettingsView.swift */; };
+		0C9C72F026BC22B6005A3548 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C72EF26BC22B6005A3548 /* SettingsViewModel.swift */; };
 		0CB430B226BB98FA00FC8A34 /* CheckinFeelingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB430AF26BB98FA00FC8A34 /* CheckinFeelingsView.swift */; };
 		0CB430B326BB98FA00FC8A34 /* CheckinDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB430B026BB98FA00FC8A34 /* CheckinDescriptionView.swift */; };
 		0CB430B426BB98FA00FC8A34 /* CheckinObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB430B126BB98FA00FC8A34 /* CheckinObservationView.swift */; };
@@ -123,6 +125,8 @@
 		0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageMalam.json; sourceTree = "<group>"; };
 		0C62284326B18ECA00672AEA /* ReflectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionCell.swift; sourceTree = "<group>"; };
 		0C62284526B1AEB800672AEA /* ProgressBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBubble.swift; sourceTree = "<group>"; };
+		0C9C72ED26BC13F8005A3548 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0C9C72EF26BC22B6005A3548 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		0CB430AF26BB98FA00FC8A34 /* CheckinFeelingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinFeelingsView.swift; sourceTree = "<group>"; };
 		0CB430B026BB98FA00FC8A34 /* CheckinDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinDescriptionView.swift; sourceTree = "<group>"; };
 		0CB430B126BB98FA00FC8A34 /* CheckinObservationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinObservationView.swift; sourceTree = "<group>"; };
@@ -251,6 +255,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		0C9C72EC26BC1350005A3548 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0C9C72ED26BC13F8005A3548 /* SettingsView.swift */,
+				0C9C72EF26BC22B6005A3548 /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		0CB430AE26BB98FA00FC8A34 /* CheckinObservation */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +332,7 @@
 		8696D0D426BB9B8600F80E0B /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				0C9C72EC26BC1350005A3548 /* Settings */,
 				8696D0D826BB9BB400F80E0B /* History */,
 				8696D0D726BB9BAF00F80E0B /* Goals */,
 				8696D0D626BB9BA700F80E0B /* CheckIn */,
@@ -901,6 +915,7 @@
 				EFDC625C26A7E4A200E4D068 /* emoceanApp.swift in Sources */,
 				8696D10C26BB9DB900F80E0B /* QotesRepository.swift in Sources */,
 				4EFF352026B9908000E7FC0D /* GoalViewModel.swift in Sources */,
+				0C9C72F026BC22B6005A3548 /* SettingsViewModel.swift in Sources */,
 				86DE2B1726B97211008F4623 /* HistoryView.swift in Sources */,
 				4E91CA1F26B1802C00387EE4 /* CategoryLabel.swift in Sources */,
 				8689DE3E26B6EFF50084403B /* EMCalendarViewModel.swift in Sources */,
@@ -916,6 +931,7 @@
 				8696D0F126BB9CFB00F80E0B /* SeederStaticFeedback.swift in Sources */,
 				8696D0F326BB9D0900F80E0B /* SeederNetworkingFeedback.swift in Sources */,
 				8689DE4026B6F8710084403B /* EMCalendar.swift in Sources */,
+				0C9C72EE26BC13F8005A3548 /* SettingsView.swift in Sources */,
 				8696D0E326BB9C5B00F80E0B /* SeederNetworkingCategory.swift in Sources */,
 				8696D0EE26BB9CD100F80E0B /* CheckinRepository.swift in Sources */,
 				868B0C2B26B26C7E0019A2B0 /* ThemeExtension.swift in Sources */,

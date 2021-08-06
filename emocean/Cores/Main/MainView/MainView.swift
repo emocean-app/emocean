@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State var shouldShowCheckin = false
+    @State var showSettings = false
     let dayOfWeek: Int
     let time = Time()
 
@@ -20,7 +21,7 @@ struct MainView: View {
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false, content: {
-            MainHeaderView(shouldPopUpFullScreen: $shouldShowCheckin)
+            MainHeaderView(shouldPopUpFullScreen: $shouldShowCheckin, shouldShowSettingsModal: $showSettings)
 
             Spacer()
 
@@ -80,6 +81,9 @@ struct MainView: View {
                     Text("Close")
                 })
             }
+        })
+        .sheet(isPresented: $showSettings, content: {
+            SettingsView(showModal: $showSettings)
         })
     }
 }
