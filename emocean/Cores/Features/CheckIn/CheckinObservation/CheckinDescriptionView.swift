@@ -34,7 +34,6 @@ struct CheckinDescriptionView: View {
                 if showTextField {
                     MultilineTextField(text: $text, onCommit: {
                         print("Final text: \(text)")
-                        env.answers.append(text)
                     })
                     .padding()
                 }
@@ -50,7 +49,7 @@ struct CheckinDescriptionView: View {
             
         } // END: ZTACK
         .onAppear(perform: {
-            withAnimation(.easeInOut.delay(5)) {
+            withAnimation(.easeInOut.delay(2.5)) {
                 showTextField = true
             }
         })

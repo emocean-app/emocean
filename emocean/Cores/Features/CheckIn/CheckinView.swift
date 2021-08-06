@@ -53,6 +53,7 @@ struct CheckinView: View {
                 CheckinSuccessView()
             case .observation:
                 CheckinObservationView(question: vm.currentStep.question)
+                    .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .bottom)))
             }
         }
         .environmentObject(vm)

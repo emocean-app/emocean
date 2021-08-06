@@ -48,6 +48,7 @@ struct CheckinObservationView: View {
             VStack(alignment: .center) { // START: VSTACK d
                 Spacer()
                 Text(question)
+                    .frame(maxWidth: .infinity)
                     .padding()
                     .font(.title)
                     .lineLimit(nil)
@@ -59,7 +60,7 @@ struct CheckinObservationView: View {
                         Text("No")
                     }, maxWidth: 65, action: {
                         withAnimation(.easeInOut(duration: 0.5)) {
-                            env.nextStep(index: env.currentStep.nextNo!)
+                            env.nextStep(index: env.currentStep.nextNo)
                         }
                     })
                     PrimaryButton(content: {

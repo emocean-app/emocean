@@ -12,16 +12,16 @@ class CheckinViewModel: ObservableObject {
     
     // MARK: PROPERTIES
     let dummy = [
-        Step(type: .feelings, question: "", nextYes: 1, nextNo: nil), // 0
-        Step(type: .category, question: "", nextYes: 2, nextNo: nil), // 1
+        Step(type: .feelings, question: "", nextYes: 1, nextNo: 1), // 0
+        Step(type: .category, question: "", nextYes: 2, nextNo: 2), // 1
         Step(type: .observation, question: "Would you like to elaborate on this?", nextYes: 3, nextNo: 4), // 2
-        Step(type: .description, question: "Lorem ipsum dolor sit amet", nextYes: 5, nextNo: nil), // 3
+        Step(type: .description, question: "Lorem ipsum dolor sit amet", nextYes: 5, nextNo: 5), // 3
         Step(type: .observation, question: "Do you enjoy this feeling?", nextYes: 8, nextNo: 5), // 4
-        Step(type: .description, question: "Is there something happening that might be involved in this?", nextYes: 6, nextNo: nil), // 5
-        Step(type: .description, question: "Lorem ipsum dolor sit amet", nextYes: 7, nextNo: nil), // 6
-        Step(type: .description, question: "What do you need right now?", nextYes: 9, nextNo: nil), // 7
-        Step(type: .description, question: "What can you do to maintain this thing?", nextYes: 9, nextNo: nil), // 8
-        Step(type: .succes, question: "", nextYes: 0, nextNo: nil) // 9
+        Step(type: .description, question: "Is there something happening that might be involved in this?", nextYes: 6, nextNo: 6), // 5
+        Step(type: .description, question: "Lorem ipsum dolor sit amet", nextYes: 7, nextNo: 7), // 6
+        Step(type: .description, question: "What do you need right now?", nextYes: 9, nextNo: 9), // 7
+        Step(type: .description, question: "What can you do to maintain this thing?", nextYes: 9, nextNo: 9), // 8
+        Step(type: .succes, question: "", nextYes: 0, nextNo: 0) // 9
     ]
     
     // View
@@ -72,6 +72,6 @@ extension CheckinViewModel {
         let type: ScreenState
         let question: String
         let nextYes: Int
-        let nextNo: Int?
+        let nextNo: Int
     }
 }
