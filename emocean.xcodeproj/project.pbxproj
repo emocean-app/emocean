@@ -17,6 +17,8 @@
 		0C3F042D26B9B75F00844F23 /* AnimasiHomepageMalam.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */; };
 		0C62284426B18ECA00672AEA /* ReflectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284326B18ECA00672AEA /* ReflectionCell.swift */; };
 		0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284526B1AEB800672AEA /* ProgressBubble.swift */; };
+		0C9C72EE26BC13F8005A3548 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C72ED26BC13F8005A3548 /* SettingsView.swift */; };
+		0C9C72F026BC22B6005A3548 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C72EF26BC22B6005A3548 /* SettingsViewModel.swift */; };
 		0CB430B226BB98FA00FC8A34 /* CheckinFeelingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB430AF26BB98FA00FC8A34 /* CheckinFeelingsView.swift */; };
 		0CB430B326BB98FA00FC8A34 /* CheckinDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB430B026BB98FA00FC8A34 /* CheckinDescriptionView.swift */; };
 		0CB430B426BB98FA00FC8A34 /* CheckinObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB430B126BB98FA00FC8A34 /* CheckinObservationView.swift */; };
@@ -47,6 +49,8 @@
 		4EF8877526BD157B00D25DBA /* GoneFishingNoon.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EF8877226BD157B00D25DBA /* GoneFishingNoon.json */; };
 		4EFF352026B9908000E7FC0D /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */; };
 		864B452E26B82EB000528ECF /* CheckinCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B452D26B82EB000528ECF /* CheckinCategoryView.swift */; };
+		8655E97926BC071600DC9CFF /* CheckinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655E97826BC071600DC9CFF /* CheckinView.swift */; };
+		8655E97B26BC072E00DC9CFF /* CheckinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655E97A26BC072E00DC9CFF /* CheckinViewModel.swift */; };
 		866BC52926B6CD5A008AA685 /* ReflectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BC52826B6CD5A008AA685 /* ReflectionDetailView.swift */; };
 		866BC52B26B6D0C7008AA685 /* ReflectionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BC52A26B6D0C7008AA685 /* ReflectionDetailViewModel.swift */; };
 		8689DE3E26B6EFF50084403B /* EMCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8689DE3D26B6EFF50084403B /* EMCalendarViewModel.swift */; };
@@ -90,6 +94,7 @@
 		E8EC036E26B7BCF800318CA7 /* AnimasiHomepageSore.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036A26B7BCF700318CA7 /* AnimasiHomepageSore.json */; };
 		E8EC037026B7BCF800318CA7 /* AnimasiHomepageSiang.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036C26B7BCF700318CA7 /* AnimasiHomepageSiang.json */; };
 		E8EC037126B7BCF800318CA7 /* AnimasiHomepagePagi.json in Resources */ = {isa = PBXBuildFile; fileRef = E8EC036D26B7BCF700318CA7 /* AnimasiHomepagePagi.json */; };
+		EFCF693626BBC3C7004142A0 /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFCF693526BBC3C7004142A0 /* exportOptions.plist */; };
 		EFDC625C26A7E4A200E4D068 /* emoceanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC625B26A7E4A200E4D068 /* emoceanApp.swift */; };
 		EFDC625E26A7E4A200E4D068 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC625D26A7E4A200E4D068 /* ContentView.swift */; };
 		EFDC626026A7E4A400E4D068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFDC625F26A7E4A400E4D068 /* Assets.xcassets */; };
@@ -125,6 +130,8 @@
 		0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageMalam.json; sourceTree = "<group>"; };
 		0C62284326B18ECA00672AEA /* ReflectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionCell.swift; sourceTree = "<group>"; };
 		0C62284526B1AEB800672AEA /* ProgressBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBubble.swift; sourceTree = "<group>"; };
+		0C9C72ED26BC13F8005A3548 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0C9C72EF26BC22B6005A3548 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		0CB430AF26BB98FA00FC8A34 /* CheckinFeelingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinFeelingsView.swift; sourceTree = "<group>"; };
 		0CB430B026BB98FA00FC8A34 /* CheckinDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinDescriptionView.swift; sourceTree = "<group>"; };
 		0CB430B126BB98FA00FC8A34 /* CheckinObservationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinObservationView.swift; sourceTree = "<group>"; };
@@ -155,6 +162,8 @@
 		4EF8877226BD157B00D25DBA /* GoneFishingNoon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GoneFishingNoon.json; sourceTree = "<group>"; };
 		4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
 		864B452D26B82EB000528ECF /* CheckinCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinCategoryView.swift; sourceTree = "<group>"; };
+		8655E97826BC071600DC9CFF /* CheckinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinView.swift; sourceTree = "<group>"; };
+		8655E97A26BC072E00DC9CFF /* CheckinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinViewModel.swift; sourceTree = "<group>"; };
 		866BC52826B6CD5A008AA685 /* ReflectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionDetailView.swift; sourceTree = "<group>"; };
 		866BC52A26B6D0C7008AA685 /* ReflectionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionDetailViewModel.swift; sourceTree = "<group>"; };
 		8689DE3D26B6EFF50084403B /* EMCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMCalendarViewModel.swift; sourceTree = "<group>"; };
@@ -197,6 +206,7 @@
 		E8EC036A26B7BCF700318CA7 /* AnimasiHomepageSore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageSore.json; sourceTree = "<group>"; };
 		E8EC036C26B7BCF700318CA7 /* AnimasiHomepageSiang.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageSiang.json; sourceTree = "<group>"; };
 		E8EC036D26B7BCF700318CA7 /* AnimasiHomepagePagi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepagePagi.json; sourceTree = "<group>"; };
+		EFCF693526BBC3C7004142A0 /* exportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
 		EFDC625826A7E4A200E4D068 /* emocean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = emocean.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDC625B26A7E4A200E4D068 /* emoceanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emoceanApp.swift; sourceTree = "<group>"; };
 		EFDC625D26A7E4A200E4D068 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -253,6 +263,15 @@
 				0C0A88A426B9545B00D80AEE /* TimeHelper.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		0C9C72EC26BC1350005A3548 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0C9C72ED26BC13F8005A3548 /* SettingsView.swift */,
+				0C9C72EF26BC22B6005A3548 /* SettingsViewModel.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		0CB430AE26BB98FA00FC8A34 /* CheckinObservation */ = {
@@ -323,6 +342,7 @@
 		8696D0D426BB9B8600F80E0B /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				0C9C72EC26BC1350005A3548 /* Settings */,
 				8696D0D826BB9BB400F80E0B /* History */,
 				8696D0D726BB9BAF00F80E0B /* Goals */,
 				8696D0D626BB9BA700F80E0B /* CheckIn */,
@@ -345,6 +365,8 @@
 				0CB430AE26BB98FA00FC8A34 /* CheckinObservation */,
 				864B452C26B82E9C00528ECF /* CheckinCategory */,
 				4E580EF826B7E31400229D9A /* CheckinSuccess */,
+				8655E97826BC071600DC9CFF /* CheckinView.swift */,
+				8655E97A26BC072E00DC9CFF /* CheckinViewModel.swift */,
 			);
 			path = CheckIn;
 			sourceTree = "<group>";
@@ -666,6 +688,7 @@
 				EFDC625D26A7E4A200E4D068 /* ContentView.swift */,
 				EFDC625F26A7E4A400E4D068 /* Assets.xcassets */,
 				EFDC626426A7E4A400E4D068 /* Info.plist */,
+				EFCF693526BBC3C7004142A0 /* exportOptions.plist */,
 				EFDC626126A7E4A400E4D068 /* Preview Content */,
 			);
 			path = emocean;
@@ -699,6 +722,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		EFCF693126BBB599004142A0 /* SwiftLint */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(PROJECT_DIR)/.github/scripts/linter_app.sh";
+			buildConfigurationList = EFCF693226BBB599004142A0 /* Build configuration list for PBXLegacyTarget "SwiftLint" */;
+			buildPhases = (
+			);
+			buildToolPath = /bin/bash;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = SwiftLint;
+			passBuildSettingsInEnvironment = 1;
+			productName = Swiftlint;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		EFDC625726A7E4A200E4D068 /* emocean */ = {
 			isa = PBXNativeTarget;
@@ -707,7 +747,6 @@
 				EFDC625426A7E4A200E4D068 /* Sources */,
 				EFDC625526A7E4A200E4D068 /* Frameworks */,
 				EFDC625626A7E4A200E4D068 /* Resources */,
-				EF79012A26B0D09300DF7F0D /* Run Linter Script */,
 			);
 			buildRules = (
 			);
@@ -767,6 +806,9 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					EFCF693126BBB599004142A0 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
 					EFDC625726A7E4A200E4D068 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
@@ -800,6 +842,7 @@
 				EFDC625726A7E4A200E4D068 /* emocean */,
 				EFDC626826A7E4A400E4D068 /* emoceanTests */,
 				EFDC627326A7E4A400E4D068 /* emoceanUITests */,
+				EFCF693126BBB599004142A0 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
@@ -823,6 +866,7 @@
 				4E580EFF26B7E55F00229D9A /* NightEnding.json in Resources */,
 				4E6CC39D26BBB9650070D9A7 /* GoneFishingSunset.json in Resources */,
 				EFDC626026A7E4A400E4D068 /* Assets.xcassets in Resources */,
+				EFCF693626BBC3C7004142A0 /* exportOptions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,27 +885,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		EF79012A26B0D09300DF7F0D /* Run Linter Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Linter Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EFDC625426A7E4A200E4D068 /* Sources */ = {
@@ -888,6 +911,7 @@
 				8696D0E526BB9C7000F80E0B /* CategoryRepository.swift in Sources */,
 				4EF4222526B84F2400EA7341 /* Category.swift in Sources */,
 				8696D11726BB9EB300F80E0B /* Repository.swift in Sources */,
+				8655E97926BC071600DC9CFF /* CheckinView.swift in Sources */,
 				8696D10126BB9D6600F80E0B /* SeederNetworkingQuestion.swift in Sources */,
 				4EF4222726B84F6800EA7341 /* Question.swift in Sources */,
 				8696D10826BB9D9F00F80E0B /* SeederStaticQuotes.swift in Sources */,
@@ -910,6 +934,7 @@
 				EFDC625C26A7E4A200E4D068 /* emoceanApp.swift in Sources */,
 				8696D10C26BB9DB900F80E0B /* QotesRepository.swift in Sources */,
 				4EFF352026B9908000E7FC0D /* GoalViewModel.swift in Sources */,
+				0C9C72F026BC22B6005A3548 /* SettingsViewModel.swift in Sources */,
 				86DE2B1726B97211008F4623 /* HistoryView.swift in Sources */,
 				4E91CA1F26B1802C00387EE4 /* CategoryLabel.swift in Sources */,
 				8689DE3E26B6EFF50084403B /* EMCalendarViewModel.swift in Sources */,
@@ -925,6 +950,8 @@
 				8696D0F126BB9CFB00F80E0B /* SeederStaticFeedback.swift in Sources */,
 				8696D0F326BB9D0900F80E0B /* SeederNetworkingFeedback.swift in Sources */,
 				8689DE4026B6F8710084403B /* EMCalendar.swift in Sources */,
+				8655E97B26BC072E00DC9CFF /* CheckinViewModel.swift in Sources */,
+				0C9C72EE26BC13F8005A3548 /* SettingsView.swift in Sources */,
 				8696D0E326BB9C5B00F80E0B /* SeederNetworkingCategory.swift in Sources */,
 				8696D0EE26BB9CD100F80E0B /* CheckinRepository.swift in Sources */,
 				868B0C2B26B26C7E0019A2B0 /* ThemeExtension.swift in Sources */,
@@ -974,6 +1001,33 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		EFCF693326BBB599004142A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9BZTP27JHA;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EFCF693426BBB599004142A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9BZTP27JHA;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		EFDC627B26A7E4A400E4D068 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1099,6 +1153,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"emocean/Preview Content\"";
 				DEVELOPMENT_TEAM = 9BZTP27JHA;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = emocean/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1117,10 +1179,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"emocean/Preview Content\"";
 				DEVELOPMENT_TEAM = 9BZTP27JHA;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = emocean/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1129,6 +1200,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.emocean;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = emocean_distribution;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1221,6 +1293,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EFCF693226BBB599004142A0 /* Build configuration list for PBXLegacyTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFCF693326BBB599004142A0 /* Debug */,
+				EFCF693426BBB599004142A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EFDC625326A7E4A200E4D068 /* Build configuration list for PBXProject "emocean" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
