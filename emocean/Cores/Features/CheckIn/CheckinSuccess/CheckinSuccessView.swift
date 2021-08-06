@@ -4,11 +4,12 @@
 //
 //  Created by Christian Adiputra on 02/08/21.
 //
-
 import SwiftUI
 import Lottie
 
 struct CheckinSuccessView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @State var showAlert: Bool = false
     @State var setReminder: Bool = false
     let time = Time()
@@ -55,7 +56,9 @@ struct CheckinSuccessView: View {
         return Alert(
             title: Text("Want to get reminded for \n your daily Check-In?"),
             message: Text("You can change the reminder on settings"),
-            primaryButton: .default(Text("No thanks")),
+            primaryButton: .default(Text("No thanks"), action: {
+                presentationMode.wrappedValue.dismiss()
+            }),
             secondaryButton: .default(Text("Sure"), action: {
                 alertView()
             })
@@ -71,7 +74,7 @@ struct CheckinSuccessView: View {
         
         //presenting alert
         UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: {
-            
+            presentationMode.wrappedValue.dismiss()
         })
     }
 }
@@ -103,6 +106,7 @@ struct Page1: View {
         }
     }
 }
+
 struct Page2: View {
     let theme: String
     var body: some View {

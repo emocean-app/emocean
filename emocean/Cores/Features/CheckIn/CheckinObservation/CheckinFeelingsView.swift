@@ -4,7 +4,6 @@
 //
 //  Created by Wilson Adrilia on 03/08/2021.
 //
-
 import SwiftUI
 
 struct CheckinFeelingsView: View {
@@ -68,14 +67,6 @@ extension CheckinFeelingsView {
     var contentContainer: some View {
         VStack { // START: VSTACK
             Group { // START: GROUP
-                HStack { // START: HSTACK
-                    Spacer()
-                    Image(systemName: "xmark")
-                        .font(.system(size: 27.0, weight: .medium))
-                        .frame(maxWidth: 30, maxHeight: 30, alignment: .center)
-                        .foregroundColor(Color.white)
-                } // END: HSTACK
-                .padding(.horizontal,25)
                 Spacer().frame(minHeight: 10, maxHeight: 20)
                 Text(question)
                     .font(.system(size: 28.0, weight: .semibold))
@@ -143,7 +134,6 @@ extension CheckinFeelingsView {
             Group {
                 VStack(alignment: .center) {
                     // Button
-
                     PrimaryButton(content: {
                         Text("I do feel that!")
                     }, maxWidth: 177) {
@@ -151,7 +141,7 @@ extension CheckinFeelingsView {
                         withAnimation(
                             .easeInOut(duration: 0.5)
                         ) {
-                            env.nextStep(index: env.currentStep.nextYes)
+                            env.goToNextStep(isYes: true)
                         }
                     }
                 }

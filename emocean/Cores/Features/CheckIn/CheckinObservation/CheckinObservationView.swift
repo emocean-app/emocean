@@ -4,13 +4,11 @@
 //
 //  Created by Christian Adiputra on 27/07/21.
 //
-
 /// CheckinObservation
 ///
 ///
 /// - Parameter question: The question for CheckinObservationView
 ///
-
 import SwiftUI
 
 struct CheckinObservationView: View {
@@ -60,14 +58,14 @@ struct CheckinObservationView: View {
                         Text("No")
                     }, maxWidth: 65, action: {
                         withAnimation(.easeInOut(duration: 0.5)) {
-                            env.nextStep(index: env.currentStep.nextNo)
+                            env.goToNextStep(isYes: false)
                         }
                     })
                     PrimaryButton(content: {
                         Text("Yes")
                     }, maxWidth: 65, action: {
                         withAnimation(.easeInOut(duration: 0.5)) {
-                            env.nextStep(index: env.currentStep.nextYes)
+                            env.goToNextStep(isYes: true)
                         }
                     })
                 }.padding(.bottom, 30) // END: HSTACK
