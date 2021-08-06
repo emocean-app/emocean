@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct WentFishingView: View {
+    let time = Time()
     var body: some View {
         ZStack{
             EMTheme.shared.sea.ignoresSafeArea()
             VStack (alignment: .center, spacing: -10) {
                 Spacer()
-                LottieView(filename: "GambarGoneFishing", contentMode: .scaleToFill)
+                LottieView(filename: "GoneFishing\(time.getRawValue())", contentMode: .scaleToFill)
                     .frame(width: 250, height: 250, alignment: .center)
                 Text("Gone Fishing!")
                     .font(.title)

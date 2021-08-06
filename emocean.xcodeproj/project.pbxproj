@@ -31,7 +31,7 @@
 		4E67393226B28D680037583E /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67393126B28D680037583E /* TabBar.swift */; };
 		4E67393626B2DA1D0037583E /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67393526B2DA1D0037583E /* TabBarView.swift */; };
 		4E6CC39B26BBB8C60070D9A7 /* WentFishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6CC39A26BBB8C60070D9A7 /* WentFishingView.swift */; };
-		4E6CC39D26BBB9650070D9A7 /* GambarGoneFishing.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E6CC39C26BBB9650070D9A7 /* GambarGoneFishing.json */; };
+		4E6CC39D26BBB9650070D9A7 /* GoneFishingSunset.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E6CC39C26BBB9650070D9A7 /* GoneFishingSunset.json */; };
 		4E91CA1D26B1730500387EE4 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA1C26B1730500387EE4 /* GoalDetailView.swift */; };
 		4E91CA1F26B1802C00387EE4 /* CategoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA1E26B1802C00387EE4 /* CategoryLabel.swift */; };
 		4E91CA2226B1BA9100387EE4 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E91CA2126B1BA9100387EE4 /* GoalCell.swift */; };
@@ -42,6 +42,9 @@
 		4EF4222926B850B900EA7341 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4222826B850B900EA7341 /* Feedback.swift */; };
 		4EF4222B26B8512B00EA7341 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4222A26B8512B00EA7341 /* Quotes.swift */; };
 		4EF4222D26B8516E00EA7341 /* Checkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4222C26B8516E00EA7341 /* Checkin.swift */; };
+		4EF8877326BD157B00D25DBA /* GoneFishingNight.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EF8877026BD157B00D25DBA /* GoneFishingNight.json */; };
+		4EF8877426BD157B00D25DBA /* GoneFishingMorning.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EF8877126BD157B00D25DBA /* GoneFishingMorning.json */; };
+		4EF8877526BD157B00D25DBA /* GoneFishingNoon.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EF8877226BD157B00D25DBA /* GoneFishingNoon.json */; };
 		4EFF352026B9908000E7FC0D /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */; };
 		864B452E26B82EB000528ECF /* CheckinCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B452D26B82EB000528ECF /* CheckinCategoryView.swift */; };
 		866BC52926B6CD5A008AA685 /* ReflectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866BC52826B6CD5A008AA685 /* ReflectionDetailView.swift */; };
@@ -136,7 +139,7 @@
 		4E67393126B28D680037583E /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		4E67393526B2DA1D0037583E /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		4E6CC39A26BBB8C60070D9A7 /* WentFishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WentFishingView.swift; sourceTree = "<group>"; };
-		4E6CC39C26BBB9650070D9A7 /* GambarGoneFishing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GambarGoneFishing.json; sourceTree = "<group>"; };
+		4E6CC39C26BBB9650070D9A7 /* GoneFishingSunset.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GoneFishingSunset.json; sourceTree = "<group>"; };
 		4E91CA1C26B1730500387EE4 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
 		4E91CA1E26B1802C00387EE4 /* CategoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLabel.swift; sourceTree = "<group>"; };
 		4E91CA2126B1BA9100387EE4 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
@@ -147,6 +150,9 @@
 		4EF4222826B850B900EA7341 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		4EF4222A26B8512B00EA7341 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		4EF4222C26B8516E00EA7341 /* Checkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkin.swift; sourceTree = "<group>"; };
+		4EF8877026BD157B00D25DBA /* GoneFishingNight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GoneFishingNight.json; sourceTree = "<group>"; };
+		4EF8877126BD157B00D25DBA /* GoneFishingMorning.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GoneFishingMorning.json; sourceTree = "<group>"; };
+		4EF8877226BD157B00D25DBA /* GoneFishingNoon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GoneFishingNoon.json; sourceTree = "<group>"; };
 		4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
 		864B452D26B82EB000528ECF /* CheckinCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinCategoryView.swift; sourceTree = "<group>"; };
 		866BC52826B6CD5A008AA685 /* ReflectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionDetailView.swift; sourceTree = "<group>"; };
@@ -613,7 +619,10 @@
 		E8EC036926B7BCF700318CA7 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				4E6CC39C26BBB9650070D9A7 /* GambarGoneFishing.json */,
+				4EF8877026BD157B00D25DBA /* GoneFishingNight.json */,
+				4EF8877126BD157B00D25DBA /* GoneFishingMorning.json */,
+				4EF8877226BD157B00D25DBA /* GoneFishingNoon.json */,
+				4E6CC39C26BBB9650070D9A7 /* GoneFishingSunset.json */,
 				4E580EFB26B7E55E00229D9A /* NightEnding.json */,
 				4E580EFD26B7E55F00229D9A /* MorningEnding.json */,
 				4E580EFC26B7E55E00229D9A /* NoonEnding.json */,
@@ -800,7 +809,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EF8877426BD157B00D25DBA /* GoneFishingMorning.json in Resources */,
 				E8EC036E26B7BCF800318CA7 /* AnimasiHomepageSore.json in Resources */,
+				4EF8877526BD157B00D25DBA /* GoneFishingNoon.json in Resources */,
 				E8EC037126B7BCF800318CA7 /* AnimasiHomepagePagi.json in Resources */,
 				E8EC037026B7BCF800318CA7 /* AnimasiHomepageSiang.json in Resources */,
 				4E580F0226B7E55F00229D9A /* SunsetEnding.json in Resources */,
@@ -808,8 +819,9 @@
 				0C3F042D26B9B75F00844F23 /* AnimasiHomepageMalam.json in Resources */,
 				4E580F0026B7E55F00229D9A /* NoonEnding.json in Resources */,
 				EFDC626326A7E4A400E4D068 /* Preview Assets.xcassets in Resources */,
+				4EF8877326BD157B00D25DBA /* GoneFishingNight.json in Resources */,
 				4E580EFF26B7E55F00229D9A /* NightEnding.json in Resources */,
-				4E6CC39D26BBB9650070D9A7 /* GambarGoneFishing.json in Resources */,
+				4E6CC39D26BBB9650070D9A7 /* GoneFishingSunset.json in Resources */,
 				EFDC626026A7E4A400E4D068 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
