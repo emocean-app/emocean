@@ -37,7 +37,7 @@ struct TabBar: View {
                         .foregroundColor(Color.theme.grayPrimary)
                 } // END: VSTACK
             }) // END: LABEL & BUTTON CHECKIN
-            .padding(.bottom,30)
+            .padding(.bottom,35)
             .padding(.leading)
             .buttonStyle(TabButtonStyle())
             Spacer()
@@ -63,7 +63,7 @@ struct TabBar: View {
                         .foregroundColor(Color.theme.grayPrimary)
                 } // END: VSTACK
             }) // END: LABEL & BUTTON GOAL
-            .padding(.bottom,30)
+            .padding(.bottom,35)
             .buttonStyle(TabButtonStyle())
             Spacer()
             Button(action: { // START: BUTTON HISTORY
@@ -88,7 +88,7 @@ struct TabBar: View {
                         .foregroundColor(Color.theme.grayPrimary)
                 } // END: VSTACK
             }) // END: LABEL & BUTTON HISTORY
-            .padding(.bottom, 30)
+            .padding(.bottom, 35)
             .padding(.trailing)
             .buttonStyle(TabButtonStyle())
         } // END: HSTACK
