@@ -86,6 +86,9 @@ struct MainView: View {
         .sheet(isPresented: $showSettings, content: {
             SettingsView(showModal: $showSettings)
         })
+        .sheet(isPresented: $showSettings, content: {
+            SettingsView(showModal: $showSettings)
+        })
     }
 }
 
