@@ -4,19 +4,19 @@
 //
 //  Created by Wilson Adrilia on 01/08/2021.
 //
-
 import SwiftUI
 
 struct CheckinDescriptionView: View {
+    
     // MARK: PROPERTIES
-    
-    @EnvironmentObject var env: CheckinViewModel
-    
     var question: String
+    @EnvironmentObject var env: CheckinViewModel
     @State private var showTextField: Bool = false
     @State private var text: String = ""
+    @State private var sec = 0.0
+    var timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
 
-    // MARK: BODY   
+    // MARK: BODY
     var body: some View {
         ZStack { // START: ZTACK
             
@@ -34,6 +34,7 @@ struct CheckinDescriptionView: View {
                 if showTextField {
                     MultilineTextField(text: $text, onCommit: {
                         print("Final text: \(text)")
+                        env.goToNextStep(isYes: true)
                     })
                     .padding()
                 }
@@ -48,9 +49,15 @@ struct CheckinDescriptionView: View {
             ) // END: VSTACK
             
         } // END: ZTACK
-        .onAppear(perform: {
-            withAnimation(.easeInOut) {
-                showTextField = true
+        .onReceive(timer, perform: { _ in
+            if sec == 2.5 {
+                withAnimation(.easeInOut) {
+                    showTextField = true
+                }
+                timer.upstream.connect().cancel()
+                sec = 0.0
+            } else {
+                sec += 0.5
             }
         })
     }
