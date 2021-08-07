@@ -53,8 +53,6 @@ struct CheckinView: View {
                     )
                 )
             }
-            
-            
             // Views
             switch vm.currentStep.viewType {
             case .feelings:
@@ -64,12 +62,12 @@ struct CheckinView: View {
                 CheckinCategoryView()
                     .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .leading)))
             case .description:
-                CheckinDescriptionView(question: vm.currentStep.question.texts[0])
+                CheckinDescriptionView()
                     .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .opacity))
             case .succes:
                 CheckinSuccessView()
             case .observation:
-                CheckinObservationView(question: vm.currentStep.question.texts[0])
+                CheckinObservationView()
                     .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .bottom)))
             case .prompt:
                 CheckinPromptView()
