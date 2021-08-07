@@ -7,8 +7,8 @@
 import Foundation
 import Combine
 
-public protocol Repository {
+protocol Repository {
     associatedtype Entity: Codable
     
-//    func getAllData() -> AnyPublisher<Entity, NetworkRequestError>
+    func getAllData() -> AnyPublisher<[Entity], NetworkRequestError>
 }

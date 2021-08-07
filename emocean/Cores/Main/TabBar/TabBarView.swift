@@ -24,7 +24,7 @@ struct TabBarView: View {
                 WentFishingView()
             }
             TabBar(selectedTab: $selectedTab)
-                .frame(height: 30)
+                .frame(maxHeight: 30)
         }
     }
 }

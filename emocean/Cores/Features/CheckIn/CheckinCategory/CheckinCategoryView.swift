@@ -4,35 +4,24 @@
 //
 //  Created by Puras Handharmahua on 27/07/21.
 //
-
 import SwiftUI
 
 struct CheckinCategoryView: View {
     // MARK: PROPERTIES
+    @EnvironmentObject var env: CheckinViewModel
+    @State private var animationOffset = false
+    @StateObject private var vm = CheckinCategoryViewModel()
+    
+    let timer = Timer.publish(every: 1.25, on: .main, in: .common).autoconnect()
     private let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
-    let timer = Timer.publish(every: 1.25, on: .main, in: .common).autoconnect()
-    @State private var animationOffset = false
-    
-    private var imageFullWidth = UIScreen.main.bounds.width * 2
-    private let screenHeight = UIScreen.main.bounds.height
     
     // MARK: BODY
     var body: some View {
         ZStack { // START: ZSTACK
             GeometryReader {reader in
-                // background
-                EMTheme.shared.sea
-                    .ignoresSafeArea()
-                
-                // back coral
-                backCoral
-                
-                // front coral
-                frontCoral
-                
                 // content
                 ScrollView {
                     
@@ -66,13 +55,11 @@ struct CheckinCategoryView: View {
                     .frame(minHeight: reader.size.height)
                 }
             }
-            
         } // END: ZSTACK
     }
 }
 
 // MARK: - COMPONENTS
-
 extension CheckinCategoryView {
     
     var contentContainer: some View {
@@ -102,6 +89,9 @@ extension CheckinCategoryView {
                 Text("Yes!")
             }, maxWidth: 177) {
                 print("Primary Button Clicked")
+                withAnimation(.easeInOut(duration: 0.5)) {
+                    env.goToNextStep(isYes: true)
+                }
             }
         } // END: VSTACK
     }
@@ -123,13 +113,14 @@ extension CheckinCategoryView {
     
     var categorySection: some View {
         TabView { // START: TABVIEW
-            ForEach(0..<3) { _ in // START: FOREACH
+            ForEach(0..<3) { i in // START: FOREACH
                 VStack { // START: VSTACK
                     LazyVGrid(columns: columns, spacing: 20, content: { // START: VGRID
-                        ForEach(0..<8) { _ in // START: FOREACH
+                        ForEach(0..<8) { j in // START: FOREACH
+                            let idx = j + (8*i)
                             ButtonOutlined(
-                                text: "Title",
-                                isSelected: .constant(false)
+                                text: vm.categories[idx].name,
+                                isSelected: false
                             )
                             .padding(.horizontal, 5)
                         } // END: FOREACH
@@ -150,7 +141,7 @@ extension CheckinCategoryView {
                     Spacer()
                         .frame(height: 37.5)
                 } // END: VSTACK
-                .frame(width: .infinity)
+                .frame(width: UIScreen.main.bounds.width)
         ) // START: OVERLAY
         .frame(height: 370)
     }
@@ -175,44 +166,12 @@ extension CheckinCategoryView {
         } // END: VSTACK
         .ignoresSafeArea()
     }
-    
-    var backCoral: some View {
-        VStack(alignment: .trailing) {
-            Spacer()
-            Image("BackCoral")
-                .resizable()
-                .frame(
-                    width: imageFullWidth,
-                    height: 275,
-                    alignment: .leading
-                )
-                
-        }
-        .frame(width: UIScreen.main.bounds.width, alignment: .center)
-        .ignoresSafeArea()
-    }
-    
-    var frontCoral: some View {
-        VStack(alignment: .trailing) {
-            Spacer()
-            Image("FrontCoral")
-                .resizable()
-                .frame(
-                    width: imageFullWidth,
-                    height: 300,
-                    alignment: .leading
-                )
-                
-        }
-        .frame(width: UIScreen.main.bounds.width, alignment: .center)
-        .ignoresSafeArea()
-    }
 }
 
 // MARK: - PREVIEW
-
 struct CheckinCategoryView_Previews: PreviewProvider {
     static var previews: some View {
         CheckinCategoryView()
+            .background(EMTheme.shared.sea.ignoresSafeArea())
     }
 }

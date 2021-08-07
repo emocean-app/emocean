@@ -4,10 +4,11 @@
 //
 //  Created by Wilson Adrilia on 03/08/2021.
 //
-
 import SwiftUI
 
 struct CheckinFeelingsView: View {
+    @EnvironmentObject var env: CheckinViewModel
+    
     @State var question: String = "How do you feel?"
     @State var selection: TimeRange = Time().timeRange
     @State var energy: CGFloat = 0.0
@@ -26,15 +27,6 @@ struct CheckinFeelingsView: View {
     var body: some View {
         ZStack { // START: ZSTACK
             GeometryReader {reader in
-                // background
-                EMTheme.shared.sea
-                    .ignoresSafeArea()
-
-                // back coral
-                backCoral
-
-                // front coral
-                frontCoral
 
                 let normalOffset = 0-reader.safeAreaInsets.top
                 let animateoffset = 0 - reader.safeAreaInsets.top - 30
@@ -75,14 +67,6 @@ extension CheckinFeelingsView {
     var contentContainer: some View {
         VStack { // START: VSTACK
             Group { // START: GROUP
-                HStack { // START: HSTACK
-                    Spacer()
-                    Image(systemName: "xmark")
-                        .font(.system(size: 27.0, weight: .medium))
-                        .frame(maxWidth: 30, maxHeight: 30, alignment: .center)
-                        .foregroundColor(Color.white)
-                } // END: HSTACK
-                .padding(.horizontal,25)
                 Spacer().frame(minHeight: 10, maxHeight: 20)
                 Text(question)
                     .font(.system(size: 28.0, weight: .semibold))
@@ -150,11 +134,15 @@ extension CheckinFeelingsView {
             Group {
                 VStack(alignment: .center) {
                     // Button
-
                     PrimaryButton(content: {
                         Text("I do feel that!")
                     }, maxWidth: 177) {
                         print("Primary Button Clicked")
+                        withAnimation(
+                            .easeInOut(duration: 0.5)
+                        ) {
+                            env.goToNextStep(isYes: true)
+                        }
                     }
                 }
             }
@@ -182,38 +170,6 @@ extension CheckinFeelingsView {
         .ignoresSafeArea()
     }
 
-    var backCoral: some View {
-        VStack(alignment: .trailing) {
-            Spacer()
-            Image("BackCoral")
-                .resizable()
-                .frame(
-                    width: imageFullWidth,
-                    height: 275,
-                    alignment: .leading
-                )
-
-        }
-        .frame(width: UIScreen.main.bounds.width, alignment: .leading)
-        .ignoresSafeArea()
-    }
-
-    var frontCoral: some View {
-        VStack(alignment: .trailing) {
-            Spacer()
-            Image("FrontCoral")
-                .resizable()
-                .frame(
-                    width: imageFullWidth,
-                    height: 300,
-                    alignment: .leading
-                )
-
-        }
-        .frame(width: UIScreen.main.bounds.width, alignment: .leading)
-        .ignoresSafeArea()
-    }
-
     var pickerLabel: some View {
         HStack {
             Text("This \(selection.rawValue)")
@@ -233,5 +189,6 @@ extension CheckinFeelingsView {
 struct CheckinFeelingsView_Previews: PreviewProvider {
     static var previews: some View {
         CheckinFeelingsView()
+            .background(EMTheme.shared.sea.ignoresSafeArea())
     }
 }

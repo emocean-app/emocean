@@ -7,9 +7,10 @@
 import Foundation
 import Combine
 
-struct CategoryRepository {
+struct CategoryRepository: Repository {
     
     typealias Entity = Category
+    
     private var staticStore = SeederStaticCategory()
     private var networkStore = SeederNetworkingCategory()
     private var cancellables = Set<AnyCancellable>()
@@ -22,5 +23,11 @@ struct CategoryRepository {
                 return data.data
             })
             .eraseToAnyPublisher()
+    }
+    
+    func getAllDummy() -> [CategorySelection] {
+        let dummy = staticStore.getData()
+        let arr = dummy.map { CategorySelection(category: $0) }
+        return arr
     }
 }

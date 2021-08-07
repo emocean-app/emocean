@@ -73,14 +73,18 @@ struct MainView: View {
         .background(Color.theme.seaBottomGradient)
         .edgesIgnoringSafeArea(.all)
         .fullScreenCover(isPresented: $shouldShowCheckin, content: {
-            VStack {
-                Text("Hello World")
-                Button(action: {
-                    self.shouldShowCheckin = false
-                }, label: {
-                    Text("Close")
-                })
-            }
+//            VStack {
+//                Text("Hello World")
+//                Button(action: {
+//                    self.shouldShowCheckin = false
+//                }, label: {
+//                    Text("Close")
+//                })
+//            }
+            CheckinView()
+        })
+        .sheet(isPresented: $showSettings, content: {
+            SettingsView(showModal: $showSettings)
         })
         .sheet(isPresented: $showSettings, content: {
             SettingsView(showModal: $showSettings)
