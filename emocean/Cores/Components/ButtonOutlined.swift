@@ -33,7 +33,7 @@ struct ButtonOutlined: View {
     var text: String
     var isSelected: Bool
     var isLight: Bool = true
-    var action: (() -> Void?)? = nil
+    var action: (() -> Void?)?
     
     private let whiteOpacity = Color.white.opacity(0.5)
     private let whiteColor = Color.white

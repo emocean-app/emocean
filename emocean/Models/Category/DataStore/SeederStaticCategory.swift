@@ -7,7 +7,6 @@
 import Foundation
 
 struct SeederStaticCategory {
-    
     func getData() -> [Category] {
         return [
             Category(id: 1, name: "Dummy"),
@@ -20,5 +19,4 @@ struct SeederStaticCategory {
             Category(id: 8, name: "Dummy")
         ]
     }
-    
 }

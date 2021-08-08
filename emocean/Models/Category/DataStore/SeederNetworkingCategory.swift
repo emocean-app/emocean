@@ -26,7 +26,7 @@ extension SeederNetworkingCategory {
     
     struct GetAllCategories: Request {
         typealias ReturnType = GetResponse
-        var path: String = "api/category"
+        var path: String = "api/categories"
     }
     
 }

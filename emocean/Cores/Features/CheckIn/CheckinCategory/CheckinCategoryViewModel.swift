@@ -9,7 +9,8 @@ import Combine
 
 class CheckinCategoryViewModel: ObservableObject {
     let repository = CategoryRepository()
-    @Published var categories: [CategorySelection] = []
+    @Published var categories: [Category] = []
+    
     private var cancellable = Set<AnyCancellable>()
     
     init() {
@@ -20,9 +21,6 @@ class CheckinCategoryViewModel: ObservableObject {
     func fetchAllData() {
         repository
             .getAllData()
-            .map { val -> [CategorySelection] in
-                return val.map { CategorySelection(category: $0) }
-            }
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let err):

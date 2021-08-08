@@ -6,10 +6,12 @@
 //
 import Foundation
 import SwiftUI
+import Combine
 
 class CheckinViewModel: ObservableObject {
     
     // MARK: PROPERTIES
+    // dummy
     static let dummy: [Step] = [
         Step(
             id: 1,
@@ -25,7 +27,7 @@ class CheckinViewModel: ObservableObject {
             id: 2,
             viewType: .category,
             question: DummQuestion(id: 1, texts: [
-                "How do you feel?"
+                "Please, tell me what made you feel $?"
             ]),
             nextYes: 3,
             nextNo: 3,
@@ -48,7 +50,7 @@ class CheckinViewModel: ObservableObject {
                 "Can you tell me about how your $ are going lately?",
                 "Can you tell me what's on your mind about your $?",
                 "Can you tell me about what happened to the $?",
-                
+                "Why does a $ make you feel that way?"
             ]),
             nextYes: 5,
             nextNo: 5,
@@ -119,85 +121,143 @@ class CheckinViewModel: ObservableObject {
             totalQuestion: 0
         )
     ]
-    
-    static let dummQuest: [DummQuestion] = [
-        DummQuestion(id: 1, texts: [
-            "How do you feel?"
-        ]),
-        DummQuestion(id: 2, texts: [
-            "Please, tell me what made you feel sad?"
-        ]),
-        DummQuestion(id: 3, texts: [
-            "Would you like to elaborate on this?"
-        ]),
-        DummQuestion(id: 4, texts: [
-            "Can you tell me about how your $ are going lately?",
-            "Can you tell me what's on your mind about your $?",
-            "Can you tell me about what happened to the $?",
-            
-        ]),
-        DummQuestion(id: 5, texts: [
-            "Do you enjoy this feeling"
-        ]),
-        DummQuestion(id: 6, texts: [
-            "Are there anything happening that might be involved in this?",
-            "What external factor that might trigger this feeling?",
-            "Is there something that might be involved in this?"
-        ]),
-        DummQuestion(id: 7, texts: [
-            "Okay now focus on yourself",
-            "Okay now take a deep breath",
-            "Okay now empty your mind"
-        ]),
-        DummQuestion(id: 8, texts: [
-            "What do you need most right now?"
-        ]),
-        DummQuestion(id: 9, texts: [
-            "What can you do to maintain this things?"
-        ])
-    ]
-    
     // View
     private var imageFullWidth = UIScreen.main.bounds.width * 2
     private let screenHeight = UIScreen.main.bounds.height
-    @Published var step: Int = 0
+    // Published
     @Published var currentStep: Step = CheckinViewModel.dummy[0]
+    @Published var checkin = Checkin(idmood: 0, categories: [], feedbacks: [])
+    @Published var moods: [Mood] = []
+    @Published var categories: [Category] = []
+    // others
+    private var moodRepo = MoodRepository()
+    private var categoryRepo = CategoryRepository()
+    private var cancellable = Set<AnyCancellable>()
+    
+    // MARK: INIT
+    init() {
+        moods = moodRepo.getAllDummy()
+        categories = categoryRepo.getAllDummy()
+        fetchData()
+    }
 }
 
 // MARK: - METHODS
 extension CheckinViewModel {
+    /// Fetch all data needed from server
+    func fetchData() {
+        // Moods
+        moodRepo.getAllData()
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let err):
+                    print(err.errorDescription ?? "")
+                    guard let self = self else {return}
+                    self.moods = self.moodRepo.getAllDummy()
+                case .finished:
+                    print("Finish")
+                }
+            } receiveValue: { [weak self] data in
+                self?.moods = data
+            }
+            .store(in: &cancellable)
+        // Categories
+        categoryRepo
+            .getAllData()
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let err):
+                    print(err.errorDescription ?? "Error")
+                    guard let self = self else {return}
+                    self.categories = self.categoryRepo.getAllDummy()
+                case .finished:
+                    print("Finish")
+                }
+            } receiveValue: { [weak self] data in
+                self?.categories = data
+            }
+            .store(in: &cancellable)
+    }
+    /// Get the coral alignment for background animation
+    /// - Returns: an Alignment
     func getCoralAlignment() -> Alignment {
         if currentStep.viewType == .feelings {
             return .leading
         }
         return .center
     }
-    
+    /// Get the coral width for background animation
+    /// - Returns: return a CGFloat of width
     func getCoralWidth() -> CGFloat {
-        
         if currentStep.viewType == .observation {
             return UIScreen.main.bounds.width
         }
-        
         return imageFullWidth
     }
-    
-    func nextStep(index: Int) {
-        step = index
-    }
-    
+    /// Change the checkin step forward
+    /// - Parameter isYes: whether it's a NO or YES selection
     func goToNextStep(isYes: Bool) {
-        
         guard let stepYes = CheckinViewModel.dummy.first(where: { $0.id == currentStep.nextYes }) else { return }
         guard let stepNo = CheckinViewModel.dummy.first(where: { $0.id == currentStep.nextNo }) else { return }
-        
         currentStep = isYes ? stepYes : stepNo
+    }
+    /// Get category item status curently selected or not
+    /// - Parameter model: a Category
+    /// - Returns: a Bool wether it's already in checkin.categories or not
+    func checkIfSelected(model: Category) -> Bool {
+        let id = model.id
+        return checkin.categories.contains(where: {$0.id == id})
+    }
+    /// Handle the category button tapped gesture
+    /// - Parameter model: an object of Category from the tapped button in view
+    func categoryClicked(model: Category) {
+        let id = model.id
+        if checkin.categories.contains(where: { $0.id == id }) {
+            guard let idx = checkin.categories.firstIndex(where: {$0.id == id}) else { return }
+            checkin.categories.remove(at: idx)
+        } else {
+            guard checkin.categories.count < 3 else { return }
+            checkin.categories.append(model)
+        }
+    }
+    /// Get the question for checkins
+    /// - Returns: a String of question
+    func getQuestion() -> String {
+        if currentStep.question.id == 4 {
+            let categoryName = checkin.categories[0].name
+            switch checkin.categories[0].id {
+            case 1...14:
+                let question = currentStep.question.texts[0]
+                return question.replacingOccurrences(of: "$", with: categoryName)
+            case 19...24:
+                let question = currentStep.question.texts[1]
+                return question.replacingOccurrences(of: "$", with: categoryName)
+            case 15...16:
+                let question = currentStep.question.texts[2]
+                return question.replacingOccurrences(of: "$", with: categoryName)
+            case 17...18:
+                let question = currentStep.question.texts[3]
+                return question.replacingOccurrences(of: "$", with: categoryName)
+            default:
+                return ""
+            }
+        }
+        return currentStep.question.texts[0]
+    }
+    /// Save the feedback answers
+    /// - Parameter answer: string of answer 
+    func saveFeedback(answer: String) {
+        let questionId = currentStep.question.id
+        let feedback = Feedback(idquestion: questionId, answer: answer)
+        checkin.feedbacks.append(feedback)
+    }
+    func getMood() {
+        
     }
 }
 
 // MARK: - ENUM & STRUCT
 extension CheckinViewModel {
-    
     enum ScreenState {
         case feelings
         case description
@@ -206,7 +266,6 @@ extension CheckinViewModel {
         case succes
         case prompt
     }
-    
     struct Step {
         let id: Int
         let viewType: ScreenState
@@ -215,7 +274,6 @@ extension CheckinViewModel {
         let nextNo: Int
         let totalQuestion: Int
     }
-    
     struct DummQuestion {
         let id: Int
         let texts: [String]

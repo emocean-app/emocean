@@ -10,6 +10,7 @@ import Lottie
 struct CheckinSuccessView: View {
     @Environment(\.presentationMode) var presentationMode
     
+    @EnvironmentObject var env: CheckinViewModel
     @State var showAlert: Bool = false
     @State var setReminder: Bool = false
     let time = Time()
@@ -40,7 +41,9 @@ struct CheckinSuccessView: View {
                     PrimaryButton(content: {
                         Text("Thanks!")
                     }, maxWidth: 100, action: {
+                        print(env.checkin.feedbacks)
                         showAlert.toggle()
+                        
                     })
                     .alert(isPresented: $showAlert, content: {
                         getAllert()
