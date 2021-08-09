@@ -273,10 +273,10 @@ extension CheckinViewModel {
         return getMood(energy: energy, pleasent: pleasent)?.description ?? ""
     }
     func getMoodName(energy: Int, pleasent: Int) -> String {
-        return getMood(energy: energy, pleasent: pleasent)?.name ?? ""
+        return getMood(energy: energy, pleasent: pleasent)?.name ?? "Neutral"
     }
     func getMoodImage(energy: Int, pleasent: Int) -> String {
-        return getMood(energy: energy, pleasent: pleasent)?.imageUrl ?? "BuntelDua"
+        return getMood(energy: energy, pleasent: pleasent)?.imageUrl ?? "Placeholder"
     }
     func getMoodImage() -> String {
         let mood = moods.first(where: {$0.id == checkin.idmood})
@@ -284,7 +284,7 @@ extension CheckinViewModel {
     }
     func getMoodName() -> String {
         let mood = moods.first(where: {$0.id == checkin.idmood})
-        return mood?.name ?? ""
+        return mood?.name ?? "Neutral"
     }
     func setMood(mood: Mood) {
         checkin.idmood = mood.id

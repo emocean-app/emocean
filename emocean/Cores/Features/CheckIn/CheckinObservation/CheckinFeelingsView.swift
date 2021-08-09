@@ -108,7 +108,7 @@ extension CheckinFeelingsView {
                 Image(env.getMoodImage(energy: getEnergy, pleasent: getPleasentness))
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 170, height: 120)
+                    .frame( height: 120)
                     .offset(y: animationOffset ? 8.0 : -0.8)
                     .onReceive(timer, perform: { _ in
                         withAnimation(.easeInOut(duration: 1.25)) {
@@ -126,14 +126,14 @@ extension CheckinFeelingsView {
                 )
                     .font(.system(size: 15.0, weight: .regular))
                     .foregroundColor(Color.white)
-                    .frame(maxWidth: 325, alignment: .center)
+                .frame(maxWidth: 325, minHeight: 70, alignment: .top)
                     .multilineTextAlignment(.center)
-                    .animation(.easeInOut)
+                    .transition(.opacity)
             }
             Group {
                 VStack(alignment: .leading) {
-                    Spacer()
-                        .frame(minHeight: 10, maxHeight: 50)
+//                    Spacer()
+//                        .frame(minHeight: 10, maxHeight: 50)
                     HStack {
                         Text("Energy")
                         .font(.system(size: 17.0, weight: .regular))
