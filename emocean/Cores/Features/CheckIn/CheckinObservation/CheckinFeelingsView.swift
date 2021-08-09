@@ -14,53 +14,31 @@ struct CheckinFeelingsView: View {
     @State var energy: CGFloat = 0.5
     @State var pleasentness: CGFloat = 0.5
     var getEnergy: Int {
-        if 0 ... 0.10 ~= energy {
-            return 1 }
-        else if 0.10 ... 0.20 ~= energy {
-            return 2 }
-        else if 0.20 ... 0.30 ~= energy {
-            return 3 }
-        else if 0.30 ... 0.40 ~= energy {
-            return 4 }
-        else if 0.40 ... 0.49 ~= energy {
-            return 5 }
-        else if 0.49 ... 0.51 ~= energy {
-            return 0 }
-        else if 0.51 ... 0.60 ~= energy {
-            return 6 }
-        else if 0.60 ... 0.70 ~= energy {
-            return 7 }
-        else if 0.70 ... 0.80 ~= energy {
-            return 8 }
-        else if 0.80 ... 0.90 ~= energy {
-            return 9 }
-        else if 0.90 ... 1 ~= energy {
-            return 10 }
+        if 0 ... 0.10 ~= energy { return 1 }
+        else if 0.10 ... 0.20 ~= energy { return 2 }
+        else if 0.20 ... 0.30 ~= energy { return 3 }
+        else if 0.30 ... 0.40 ~= energy { return 4 }
+        else if 0.40 ... 0.49 ~= energy { return 5 }
+        else if 0.49 ... 0.51 ~= energy { return 0 }
+        else if 0.51 ... 0.60 ~= energy { return 6 }
+        else if 0.60 ... 0.70 ~= energy { return 7 }
+        else if 0.70 ... 0.80 ~= energy { return 8 }
+        else if 0.80 ... 0.90 ~= energy { return 9 }
+        else if 0.90 ... 1 ~= energy { return 10 }
         return 0
     }
     var getPleasentness: Int {
-        if 0 ... 0.10 ~= pleasentness {
-            return 1 }
-        else if 0.10 ... 0.20 ~= pleasentness {
-            return 2 }
-        else if 0.20 ... 0.30 ~= pleasentness {
-            return 3 }
-        else if 0.30 ... 0.40 ~= pleasentness {
-            return 4 }
-        else if 0.40 ... 0.49 ~= pleasentness {
-            return 5 }
-        else if 0.49 ... 0.51 ~= pleasentness {
-            return 0 }
-        else if 0.51 ... 0.60 ~= pleasentness {
-            return 6 }
-        else if 0.60 ... 0.70 ~= pleasentness {
-            return 7 }
-        else if 0.70 ... 0.80 ~= pleasentness {
-            return 8 }
-        else if 0.80 ... 0.90 ~= pleasentness {
-            return 9 }
-        else if 0.90 ... 1 ~= pleasentness {
-            return 10 }
+        if 0 ... 0.10 ~= pleasentness { return 1 }
+        else if 0.10 ... 0.20 ~= pleasentness { return 2 }
+        else if 0.20 ... 0.30 ~= pleasentness { return 3 }
+        else if 0.30 ... 0.40 ~= pleasentness { return 4 }
+        else if 0.40 ... 0.49 ~= pleasentness { return 5 }
+        else if 0.49 ... 0.51 ~= pleasentness { return 0 }
+        else if 0.51 ... 0.60 ~= pleasentness { return 6 }
+        else if 0.60 ... 0.70 ~= pleasentness { return 7 }
+        else if 0.70 ... 0.80 ~= pleasentness { return 8 }
+        else if 0.80 ... 0.90 ~= pleasentness { return 9 }
+        else if 0.90 ... 1 ~= pleasentness { return 10 }
         return 0
     }
     @State var name: String = "Annoyed"
