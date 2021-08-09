@@ -15,7 +15,6 @@ struct CheckinObservationView: View {
     
     // MARK: PROPERTIES
     @EnvironmentObject var env: CheckinViewModel
-    var question: String
     let time = Time()
     
     // MARK: BODY
@@ -45,7 +44,7 @@ struct CheckinObservationView: View {
             }.ignoresSafeArea()
             VStack(alignment: .center) { // START: VSTACK d
                 Spacer()
-                Text(question)
+                Text(env.currentStep.question.texts[0])
                     .frame(maxWidth: .infinity)
                     .padding()
                     .font(.title)
@@ -76,6 +75,6 @@ struct CheckinObservationView: View {
 
 struct CheckinObservationView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckinObservationView(question: "Do you wanna talk about it?")
+        CheckinObservationView()
     }
 }

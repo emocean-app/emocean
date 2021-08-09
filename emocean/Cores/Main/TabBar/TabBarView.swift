@@ -12,6 +12,7 @@
 import SwiftUI
 
 struct TabBarView: View {
+    @StateObject var settingsEnv = SettingsViewModel()
     @State private var selectedTab: Tab = .checkin
     var body: some View {
         VStack {
@@ -26,6 +27,7 @@ struct TabBarView: View {
             TabBar(selectedTab: $selectedTab)
                 .frame(maxHeight: 30)
         }
+        .environmentObject(settingsEnv)
     }
 }
 

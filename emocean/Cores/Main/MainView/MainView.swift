@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var settingsEnv: SettingsViewModel
     @State var shouldShowCheckin = false
     @State var showSettings = false
     let dayOfWeek: Int
@@ -73,19 +74,12 @@ struct MainView: View {
         .background(Color.theme.seaBottomGradient)
         .edgesIgnoringSafeArea(.all)
         .fullScreenCover(isPresented: $shouldShowCheckin, content: {
-//            VStack {
-//                Text("Hello World")
-//                Button(action: {
-//                    self.shouldShowCheckin = false
-//                }, label: {
-//                    Text("Close")
-//                })
-//            }
             CheckinView()
         })
         .sheet(isPresented: $showSettings, content: {
             SettingsView(showModal: $showSettings)
         })
+        .environmentObject(settingsEnv)
     }
 }
 
@@ -94,5 +88,6 @@ struct MainView_Previews: PreviewProvider {
         MainView()
             .edgesIgnoringSafeArea(.all)
             .background(Color.theme.primary)
+            .environmentObject(SettingsViewModel())
     }
 }

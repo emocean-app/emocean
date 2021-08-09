@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Binding var showModal: Bool
-    @StateObject var vm = SettingsViewModel()
+    @EnvironmentObject var vm: SettingsViewModel
     
     var body: some View {
         NavigationView {

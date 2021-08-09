@@ -16,7 +16,7 @@ struct CheckinPromptView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Now focus on yourself")
+            Text(env.getQuestion())
                 .foregroundColor(.white)
                 .font(.title)
                 .frame(maxWidth: .infinity)

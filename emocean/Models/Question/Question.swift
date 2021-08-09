@@ -7,11 +7,9 @@
 
 import Foundation
 
-struct Questions: Codable{
+struct Questions: Codable {
     let id: Int
     let question: String
-    let questiontype: QuestionType
-    let prevquestion: Int
 }
 
 enum QuestionType: Int, Codable {

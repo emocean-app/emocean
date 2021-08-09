@@ -25,9 +25,7 @@ struct CategoryRepository: Repository {
             .eraseToAnyPublisher()
     }
     
-    func getAllDummy() -> [CategorySelection] {
-        let dummy = staticStore.getData()
-        let arr = dummy.map { CategorySelection(category: $0) }
-        return arr
+    func getAllDummy() -> [Entity] {
+        return staticStore.getData()
     }
 }
