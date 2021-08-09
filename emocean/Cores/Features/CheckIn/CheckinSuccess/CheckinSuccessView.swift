@@ -12,7 +12,7 @@ struct CheckinSuccessView: View {
     
     @EnvironmentObject var env: CheckinViewModel
     @State var showAlert: Bool = false
-    @State var setReminder: Bool = false
+    @State var showAction: Bool = false
     let time = Time()
     @State var selected: Int = 0
     var body: some View {
@@ -42,9 +42,10 @@ struct CheckinSuccessView: View {
                         Text("Thanks!")
                     }, maxWidth: 100, action: {
                         print(env.checkin.feedbacks)
-                        showAlert.toggle()
-                        
+                        showAction.toggle()
                     })
+                    .animation(.easeInOut(duration: 4))
+                    .actionSheet(isPresented: $showAction, content: getActionSheet)
                     .alert(isPresented: $showAlert, content: {
                         getAllert()
                     })
@@ -53,18 +54,27 @@ struct CheckinSuccessView: View {
             }
         }.ignoresSafeArea()
     }
-    
+    func getActionSheet() -> ActionSheet {
+        
+        let button1: ActionSheet.Button = .default(Text("Sure")){
+            showAlert.toggle()
+        }
+        let button2: ActionSheet.Button = .destructive(Text("No thanks!"))
+        let button3: ActionSheet.Button = .cancel()
+        return ActionSheet(
+            title: Text("Want to get reminded for \n your daily Check-In?"),
+            message: Text("You can change the reminder on settings"),
+            buttons: [button1,button2,button3]
+        )
+    }
+
     
     func getAllert() -> Alert {
         return Alert(
-            title: Text("Want to get reminded for \n your daily Check-In?"),
-            message: Text("You can change the reminder on settings"),
-            primaryButton: .default(Text("No thanks"), action: {
-                presentationMode.wrappedValue.dismiss()
-            }),
-            secondaryButton: .default(Text("Sure"), action: {
-                alertView()
-            })
+            title: Text("You’re all set!"),
+            message: Text("you will be reminded every night!"),
+            dismissButton: .default(Text("Okay"), action: {
+            presentationMode.wrappedValue.dismiss()})
         )
     }
     
