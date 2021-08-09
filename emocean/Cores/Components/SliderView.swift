@@ -43,7 +43,7 @@ extension CustomControl {
         }
         
         @objc func valueChanged(_ slider: CustomSlider) {
-            self.text = slider.currentValue
+            self.text = slider.currentValue + 0.5
         }
     }
 }
