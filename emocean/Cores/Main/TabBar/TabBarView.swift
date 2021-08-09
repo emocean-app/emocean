@@ -14,8 +14,6 @@ import SwiftUI
 struct TabBarView: View {
     @StateObject var settingsEnv = SettingsViewModel()
     @State private var selectedTab: Tab = .checkin
-    
-    
     var body: some View {
         VStack {
             switch selectedTab {
