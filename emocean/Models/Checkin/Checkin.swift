@@ -8,6 +8,6 @@
 import Foundation
 struct Checkin: Codable {
     var idmood: Int
-    var categories: [Category]
+    var categoriesId: Int
     var feedbacks: [Feedback]
 }

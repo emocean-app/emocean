@@ -10,7 +10,7 @@ import SwiftUI
 struct ReflectButton: View {
     var body: some View {
         HStack(spacing: 0) { // START: HSTACK
-            Image("Bawal")
+            Image("ArwanaSatu")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(maxWidth: 75, alignment: .trailing)

@@ -20,10 +20,10 @@ struct CheckinDescriptionView: View {
         ZStack { // START: ZTACK
             
             VStack(alignment: .center) { // START: VSTACK
-                Spacer()
+                Spacer(minLength: 35)
                 
                 Text(env.getQuestion())
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: .infinity, minHeight: 110, alignment: .bottom)
                     .padding()
                     .font(.title)
                     .lineLimit(nil)
@@ -38,7 +38,7 @@ struct CheckinDescriptionView: View {
                             env.goToNextStep(isYes: true)
                         }
                     })
-                    .padding()
+                    .padding(.horizontal)
                 }
                 
                 Spacer()
