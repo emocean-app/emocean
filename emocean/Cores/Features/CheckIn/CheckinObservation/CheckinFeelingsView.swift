@@ -8,7 +8,6 @@ import SwiftUI
 
 struct CheckinFeelingsView: View {
     @EnvironmentObject var env: CheckinViewModel
-    
     @State var question: String = "How do you feel?"
     @State var selection: TimeRange = Time().timeRange
     @State var energy: CGFloat = 0.5
@@ -41,9 +40,6 @@ struct CheckinFeelingsView: View {
         else if 0.90 ... 1 ~= pleasentness { return 10 }
         return 0
     }
-    @State var name: String = "Annoyed"
-    @State var description: String = "Feeling or showing angry irritation or anything that makes you angry"
-    @State var image: String = ""
 
     let timer = Timer.publish(every: 1.25, on: .main, in: .common).autoconnect()
     @State private var animationOffset = false
@@ -109,26 +105,35 @@ extension CheckinFeelingsView {
                     .pickerStyle(MenuPickerStyle())
                 }
                 Spacer().frame(minHeight: 10, maxHeight: 20)
-                Image("Crab")
+                Image(env.getMoodImage(energy: getEnergy, pleasent: getPleasentness))
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 170, height: 120)
+                    .frame( height: 120)
                     .offset(y: animationOffset ? 8.0 : -0.8)
                     .onReceive(timer, perform: { _ in
                         withAnimation(.easeInOut(duration: 1.25)) {
                             animationOffset.toggle()
                         }
                     })
-                Text(name).font(.system(size: 27.0, weight: .semibold)).italic()
+                Text(env.getMoodName(energy: getEnergy, pleasent: getPleasentness))
+                    .font(.system(size: 27.0, weight: .semibold))
+                    .italic()
                     .foregroundColor(Color.white)
+                    .animation(.easeInOut)
                 Spacer().frame(minHeight: 10, maxHeight: 10)
-                Text(description).font(.system(size: 15.0, weight: .regular))
-                    .foregroundColor(Color.white).frame(maxWidth: 325, alignment: .center).multilineTextAlignment(.center)
+                Text(
+                    env.getMoodDescription(energy: getEnergy, pleasent: getPleasentness)
+                )
+                    .font(.system(size: 15.0, weight: .regular))
+                    .foregroundColor(Color.white)
+                .frame(maxWidth: 325, minHeight: 70, alignment: .top)
+                    .multilineTextAlignment(.center)
+                    .transition(.opacity)
             }
             Group {
                 VStack(alignment: .leading) {
-                    Spacer()
-                        .frame(minHeight: 10, maxHeight: 50)
+//                    Spacer()
+//                        .frame(minHeight: 10, maxHeight: 50)
                     HStack {
                         Text("Energy")
                         .font(.system(size: 17.0, weight: .regular))
@@ -168,6 +173,8 @@ extension CheckinFeelingsView {
                         withAnimation(
                             .easeInOut(duration: 0.5)
                         ) {
+                            guard let mood = env.getMood(energy: getEnergy, pleasent: getPleasentness) else {return}
+                            env.setMood(mood: mood)
                             env.goToNextStep(isYes: true)
                         }
                     }

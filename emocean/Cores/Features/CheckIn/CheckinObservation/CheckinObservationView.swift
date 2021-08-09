@@ -20,29 +20,7 @@ struct CheckinObservationView: View {
     // MARK: BODY
     var body: some View {
         ZStack { // START: ZTACK
-            VStack(spacing: -1){
-                Image("Up\(time.getRawValue())") /// - Background Image
-                    .resizable()
-                    .scaledToFit()
-                    .padding(.top,0)
-                Rectangle()
-                    .fill(
-                        LinearGradient(gradient: Gradient(colors: [Color.theme.seaTopGradient, Color.theme.seaBottomGradient]), startPoint: .top, endPoint: .bottom)
-                    )
-                ZStack {
-                    Image("BackCoral") /// - Background Image
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.top,0)
-                    Image("FrontCoral") /// - Background Image
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.top,0)
-                }
-                .background(Color.theme.seaBottomGradient)
-                .ignoresSafeArea()
-            }.ignoresSafeArea()
-            VStack(alignment: .center) { // START: VSTACK d
+            VStack(alignment: .center) { // START: VSTACK
                 Spacer()
                 Text(env.currentStep.question.texts[0])
                     .frame(maxWidth: .infinity)

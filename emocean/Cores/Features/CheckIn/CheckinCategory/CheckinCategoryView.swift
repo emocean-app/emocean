@@ -22,7 +22,6 @@ struct CheckinCategoryView: View {
             GeometryReader {reader in
                 // content
                 ScrollView {
-                    
                     let normalOffset = 0-reader.safeAreaInsets.top
                     let animateoffset = 0 - reader.safeAreaInsets.top - 30
                     
@@ -67,7 +66,7 @@ extension CheckinCategoryView {
             Spacer(minLength: 35)
             
             // Image
-            Image("Jellyfish")
+            Image(env.getMoodImage())
                 .resizable()
                 .scaledToFit()
                 .frame(width: 170, height: 120)
@@ -87,8 +86,8 @@ extension CheckinCategoryView {
                 Text("Yes!")
             }, maxWidth: 177) {
                 print("Primary Button Clicked")
-                withAnimation(.easeInOut(duration: 0.5)) {
-                    if !env.checkin.categories.isEmpty {
+                withAnimation(.easeInOut(duration: 1)) {
+                    if env.checkin.categoriesId != 0 {
                         env.goToNextStep(isYes: true)
                     }
                 }
@@ -102,7 +101,7 @@ extension CheckinCategoryView {
             Text("what made you")
                 .bold()
                 .italic()
-            Text("feel \(env.moods[0].name)?")
+            Text("feel \(env.getMoodName())?")
                 .bold()
                 .italic()
         } // END: VSTACK
@@ -136,17 +135,6 @@ extension CheckinCategoryView {
         } // END: TABVIEW
         .tabViewStyle(PageTabViewStyle())
         .padding(.horizontal, 25)
-        .overlay( // START: OVERLAY
-                VStack { // START: VSTACK
-                    Spacer()
-                    Text("You can choose up to 3")
-                        .foregroundColor(.white)
-                        .font(.subheadline)
-                    Spacer()
-                        .frame(height: 37.5)
-                } // END: VSTACK
-                .frame(width: UIScreen.main.bounds.width)
-        ) // START: OVERLAY
         .frame(height: 370)
     }
     

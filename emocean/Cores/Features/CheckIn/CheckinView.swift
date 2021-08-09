@@ -18,7 +18,7 @@ struct CheckinView: View {
     var body: some View {
         ZStack {
             // background theme
-            if vm.currentStep.viewType == .category || vm.currentStep.viewType == .feelings {
+            if vm.currentStep.viewType == .category || vm.currentStep.viewType == .feelings || vm.currentStep.viewType == .observation {
                 Group {
                     VStack(spacing: 0) {
                         if vm.currentStep.viewType == .observation {
@@ -72,7 +72,6 @@ struct CheckinView: View {
             case .prompt:
                 CheckinPromptView()
             }
-            
             // Button X
             VStack {
                 HStack {
@@ -89,7 +88,6 @@ struct CheckinView: View {
                 .padding(.top, 20)
                 Spacer()
             }
-            
         }
         .environmentObject(vm)
     }
@@ -105,10 +103,9 @@ extension CheckinView {
                 .resizable()
                 .frame(
                     width: vm.getCoralWidth(),
-                    height: 275,
+                    height: vm.getCoralHeight(isFront: false),
                     alignment: .leading
                 )
-                
         }
         .frame(width: UIScreen.main.bounds.width, alignment: vm.getCoralAlignment())
         .ignoresSafeArea()
@@ -121,7 +118,7 @@ extension CheckinView {
                 .resizable()
                 .frame(
                     width: vm.getCoralWidth(),
-                    height: 300,
+                    height: vm.getCoralHeight(isFront: true),
                     alignment: .leading
                 )
         }
