@@ -14,6 +14,8 @@ import SwiftUI
 struct TabBarView: View {
     @StateObject var settingsEnv = SettingsViewModel()
     @State private var selectedTab: Tab = .checkin
+    
+    
     var body: some View {
         VStack {
             switch selectedTab {
@@ -26,6 +28,11 @@ struct TabBarView: View {
             }
             TabBar(selectedTab: $selectedTab)
                 .frame(maxHeight: 30)
+        }
+        .onAppear(){
+            if settingsEnv.music {
+                SoundManager.shared.playSound(sound: .ocean)
+            }
         }
         .environmentObject(settingsEnv)
     }
@@ -40,6 +47,7 @@ enum Tab: String {
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
         TabBarView()
+            .environmentObject(SettingsViewModel())
     }
 }
 
