@@ -126,14 +126,17 @@ class CheckinViewModel: ObservableObject {
     private let screenHeight = UIScreen.main.bounds.height
     // Published
     @Published var currentStep: Step = CheckinViewModel.dummy[0]
-    @Published var checkin = Checkin(idmood: 0, categories: [], feedbacks: [])
+    @Published var checkin = Checkin(
+        idmood: 0,
+        categoriesId: 0,
+        feedbacks: []
+    )
     @Published var moods: [Mood] = []
     @Published var categories: [Category] = []
     // others
     private var moodRepo = MoodRepository()
     private var categoryRepo = CategoryRepository()
     private var cancellable = Set<AnyCancellable>()
-    
     // MARK: INIT
     init() {
         moods = moodRepo.getAllDummy()
@@ -194,6 +197,18 @@ extension CheckinViewModel {
         }
         return imageFullWidth
     }
+    /// Get the coral width for background animation
+    /// - Returns: return a CGFloat of width
+    func getCoralHeight(isFront: Bool) -> CGFloat {
+        if currentStep.viewType == .observation {
+            return UIScreen.main.bounds.height * 0.2
+        }    
+        if isFront {
+            return 300
+        } else {
+            return 275
+        }
+    }
     /// Change the checkin step forward
     /// - Parameter isYes: whether it's a NO or YES selection
     func goToNextStep(isYes: Bool) {
@@ -206,26 +221,25 @@ extension CheckinViewModel {
     /// - Returns: a Bool wether it's already in checkin.categories or not
     func checkIfSelected(model: Category) -> Bool {
         let id = model.id
-        return checkin.categories.contains(where: {$0.id == id})
+        return checkin.categoriesId == id
     }
     /// Handle the category button tapped gesture
     /// - Parameter model: an object of Category from the tapped button in view
     func categoryClicked(model: Category) {
         let id = model.id
-        if checkin.categories.contains(where: { $0.id == id }) {
-            guard let idx = checkin.categories.firstIndex(where: {$0.id == id}) else { return }
-            checkin.categories.remove(at: idx)
+        if checkin.categoriesId == id {
+            checkin.categoriesId = 0
         } else {
-            guard checkin.categories.count < 3 else { return }
-            checkin.categories.append(model)
+            checkin.categoriesId = id
         }
     }
     /// Get the question for checkins
     /// - Returns: a String of question
     func getQuestion() -> String {
         if currentStep.question.id == 4 {
-            let categoryName = checkin.categories[0].name
-            switch checkin.categories[0].id {
+            guard let idx = categories.firstIndex(where: {$0.id == checkin.categoriesId}) else {return ""}
+            let categoryName = categories[idx].name
+            switch checkin.categoriesId {
             case 1...14:
                 let question = currentStep.question.texts[0]
                 return question.replacingOccurrences(of: "$", with: categoryName)
@@ -251,8 +265,29 @@ extension CheckinViewModel {
         let feedback = Feedback(idquestion: questionId, answer: answer)
         checkin.feedbacks.append(feedback)
     }
-    func getMood() {
-        
+    func getMood(energy: Int, pleasent: Int) -> Mood? {
+        guard let mood = moods.first(where: {$0.energy == energy && $0.pleasent == pleasent }) else { return nil }
+        return mood
+    }
+    func getMoodDescription(energy: Int, pleasent: Int) -> String {
+        return getMood(energy: energy, pleasent: pleasent)?.description ?? ""
+    }
+    func getMoodName(energy: Int, pleasent: Int) -> String {
+        return getMood(energy: energy, pleasent: pleasent)?.name ?? ""
+    }
+    func getMoodImage(energy: Int, pleasent: Int) -> String {
+        return getMood(energy: energy, pleasent: pleasent)?.imageUrl ?? "BuntelDua"
+    }
+    func getMoodImage() -> String {
+        let mood = moods.first(where: {$0.id == checkin.idmood})
+        return mood?.imageUrl ?? "BuntelDua"
+    }
+    func getMoodName() -> String {
+        let mood = moods.first(where: {$0.id == checkin.idmood})
+        return mood?.name ?? ""
+    }
+    func setMood(mood: Mood) {
+        checkin.idmood = mood.id
     }
 }
 

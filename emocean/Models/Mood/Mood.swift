@@ -24,5 +24,14 @@ struct Mood: Identifiable, Codable {
         case energy
         case pleasent
     }
-    
 }
+/*
+ {
+     "id": 1,
+     "name": "Despairing",
+     "description": "Feeling extreme dislike or disapproval of something",
+     "image_url": "ArwanaDua",
+     "energy": 1,
+     "pleasent": 1
+ },
+ */
