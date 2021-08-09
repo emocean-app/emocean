@@ -25,6 +25,8 @@
 		0CBD70C726B848FC00B6E59E /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBD70C626B848FC00B6E59E /* MainHeaderView.swift */; };
 		0CBD70C926B850DE00B6E59E /* ChartDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBD70C826B850DE00B6E59E /* ChartDescriptionView.swift */; };
 		0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE373326B06D440006FE66 /* PrimaryButton.swift */; };
+		4E29B9FE26C14EB70089F3FA /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E29B9FD26C14EB70089F3FA /* SoundManager.swift */; };
+		4E29BA0026C153770089F3FA /* ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E29B9FF26C153770089F3FA /* ocean.mp3 */; };
 		4E580EFA26B7E34E00229D9A /* CheckinSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E580EF926B7E34E00229D9A /* CheckinSuccessView.swift */; };
 		4E580EFF26B7E55F00229D9A /* NightEnding.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E580EFB26B7E55E00229D9A /* NightEnding.json */; };
 		4E580F0026B7E55F00229D9A /* NoonEnding.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E580EFC26B7E55E00229D9A /* NoonEnding.json */; };
@@ -139,6 +141,8 @@
 		0CBD70C626B848FC00B6E59E /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
 		0CBD70C826B850DE00B6E59E /* ChartDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDescriptionView.swift; sourceTree = "<group>"; };
 		0CDE373326B06D440006FE66 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		4E29B9FD26C14EB70089F3FA /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		4E29B9FF26C153770089F3FA /* ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ocean.mp3; sourceTree = "<group>"; };
 		4E580EF926B7E34E00229D9A /* CheckinSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinSuccessView.swift; sourceTree = "<group>"; };
 		4E580EFB26B7E55E00229D9A /* NightEnding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NightEnding.json; sourceTree = "<group>"; };
 		4E580EFC26B7E55E00229D9A /* NoonEnding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoonEnding.json; sourceTree = "<group>"; };
@@ -629,6 +633,7 @@
 				E8B336ED26B9AA98001A62A9 /* SliderView.swift */,
 				0C0A88AA26B9A69500D80AEE /* WhiteButton.swift */,
 				4E6CC39A26BBB8C60070D9A7 /* WentFishingView.swift */,
+				4E29B9FD26C14EB70089F3FA /* SoundManager.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -636,6 +641,7 @@
 		86DA0AC826AF0F6F00FA2C53 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4E29B9FF26C153770089F3FA /* ocean.mp3 */,
 				E8EC036926B7BCF700318CA7 /* Lottie */,
 			);
 			path = Resources;
@@ -870,6 +876,7 @@
 				E8EC037026B7BCF800318CA7 /* AnimasiHomepageSiang.json in Resources */,
 				4E580F0226B7E55F00229D9A /* SunsetEnding.json in Resources */,
 				4E580F0126B7E55F00229D9A /* MorningEnding.json in Resources */,
+				4E29BA0026C153770089F3FA /* ocean.mp3 in Resources */,
 				0C3F042D26B9B75F00844F23 /* AnimasiHomepageMalam.json in Resources */,
 				4E580F0026B7E55F00229D9A /* NoonEnding.json in Resources */,
 				EFDC626326A7E4A400E4D068 /* Preview Assets.xcassets in Resources */,
@@ -959,6 +966,7 @@
 				E8B336EE26B9AA98001A62A9 /* SliderView.swift in Sources */,
 				8696D0FA26BB9D3900F80E0B /* SeederNetworkingMood.swift in Sources */,
 				4EF4222326B84EC700EA7341 /* Mood.swift in Sources */,
+				4E29B9FE26C14EB70089F3FA /* SoundManager.swift in Sources */,
 				8696D0F126BB9CFB00F80E0B /* SeederStaticFeedback.swift in Sources */,
 				8696D0F326BB9D0900F80E0B /* SeederNetworkingFeedback.swift in Sources */,
 				8689DE4026B6F8710084403B /* EMCalendar.swift in Sources */,

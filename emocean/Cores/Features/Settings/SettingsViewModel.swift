@@ -49,6 +49,11 @@ class SettingsViewModel: ObservableObject {
         $music
             .sink { result in
                 UserDefaults.standard.setValue(result, forKey: "music")
+                if result {
+                    SoundManager.shared.playSound(sound: .ocean)
+                } else {
+                    SoundManager.shared.stopSound(sound: .ocean)
+                }
             }
             .store(in: &cancellable)
         
