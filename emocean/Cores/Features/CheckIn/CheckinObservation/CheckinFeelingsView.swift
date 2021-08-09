@@ -182,8 +182,6 @@ extension CheckinFeelingsView {
             }
             Group {
                 VStack(alignment: .center) {
-                    Text("\(getEnergy)")
-                    Text("\(getPleasentness)")
                     // Button
                     PrimaryButton(content: {
                         Text("I do feel that!")
