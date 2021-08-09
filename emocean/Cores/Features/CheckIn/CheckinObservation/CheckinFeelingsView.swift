@@ -97,9 +97,10 @@ extension CheckinFeelingsView {
 
                 HStack {
                     Picker(selection: $selection, label: pickerLabel, content: {
-                        ForEach(TimeRange.allCases, id: \.self) {
-                            Text("\($0.rawValue)").tag($0)
-                        }
+                        Text("Morning").tag(TimeRange.morning)
+                        Text("Afternoon").tag(TimeRange.noon)
+                        Text("Evening").tag(TimeRange.sunset)
+                        Text("Tonight").tag(TimeRange.night)
                     })
                     .animation(.easeInOut)
                     .pickerStyle(MenuPickerStyle())
@@ -206,7 +207,16 @@ extension CheckinFeelingsView {
 
     var pickerLabel: some View {
         HStack {
-            Text("This \(selection.rawValue)")
+            switch selection{
+            case .morning:
+                Text("This Morning")
+            case .noon:
+                Text("This Afternoon")
+            case .sunset:
+                Text("This Evening")
+            case .night:
+                Text("Tonight")
+            }
             Image(systemName: "chevron.down")
         }
         .frame(width: 150, height: 5)
