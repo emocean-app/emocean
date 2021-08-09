@@ -7,9 +7,7 @@
 
 import Foundation
 struct Checkin: Codable {
-    let idmood: Int
-    let categories: [Category]
-    let elaborated: Bool
-    let enjoyed: Bool
-    let feedbacks: [Feedback]
+    var idmood: Int
+    var categoriesId: Int
+    var feedbacks: [Feedback]
 }

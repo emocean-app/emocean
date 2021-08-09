@@ -18,7 +18,7 @@ struct CheckinView: View {
     var body: some View {
         ZStack {
             // background theme
-            if vm.currentStep.viewType == .category || vm.currentStep.viewType == .feelings {
+            if vm.currentStep.viewType == .category || vm.currentStep.viewType == .feelings || vm.currentStep.viewType == .observation {
                 Group {
                     VStack(spacing: 0) {
                         if vm.currentStep.viewType == .observation {
@@ -53,8 +53,6 @@ struct CheckinView: View {
                     )
                 )
             }
-            
-            
             // Views
             switch vm.currentStep.viewType {
             case .feelings:
@@ -64,17 +62,16 @@ struct CheckinView: View {
                 CheckinCategoryView()
                     .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .leading)))
             case .description:
-                CheckinDescriptionView(question: vm.currentStep.question.texts[0])
+                CheckinDescriptionView()
                     .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .opacity))
             case .succes:
                 CheckinSuccessView()
             case .observation:
-                CheckinObservationView(question: vm.currentStep.question.texts[0])
+                CheckinObservationView()
                     .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .bottom)))
             case .prompt:
                 CheckinPromptView()
             }
-            
             // Button X
             VStack {
                 HStack {
@@ -91,7 +88,6 @@ struct CheckinView: View {
                 .padding(.top, 20)
                 Spacer()
             }
-            
         }
         .environmentObject(vm)
     }
@@ -107,10 +103,9 @@ extension CheckinView {
                 .resizable()
                 .frame(
                     width: vm.getCoralWidth(),
-                    height: 275,
+                    height: vm.getCoralHeight(isFront: false),
                     alignment: .leading
                 )
-                
         }
         .frame(width: UIScreen.main.bounds.width, alignment: vm.getCoralAlignment())
         .ignoresSafeArea()
@@ -123,7 +118,7 @@ extension CheckinView {
                 .resizable()
                 .frame(
                     width: vm.getCoralWidth(),
-                    height: 300,
+                    height: vm.getCoralHeight(isFront: true),
                     alignment: .leading
                 )
         }

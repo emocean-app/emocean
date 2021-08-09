@@ -9,7 +9,6 @@ import SwiftUI
 struct CheckinDescriptionView: View {
     
     // MARK: PROPERTIES
-    var question: String
     @EnvironmentObject var env: CheckinViewModel
     @State private var showTextField: Bool = false
     @State private var text: String = ""
@@ -21,10 +20,10 @@ struct CheckinDescriptionView: View {
         ZStack { // START: ZTACK
             
             VStack(alignment: .center) { // START: VSTACK
-                Spacer()
+                Spacer(minLength: 35)
                 
-                Text(question)
-                    .frame(maxWidth: .infinity)
+                Text(env.getQuestion())
+                    .frame(maxWidth: .infinity, minHeight: 110, alignment: .bottom)
                     .padding()
                     .font(.title)
                     .lineLimit(nil)
@@ -34,9 +33,12 @@ struct CheckinDescriptionView: View {
                 if showTextField {
                     MultilineTextField(text: $text, onCommit: {
                         print("Final text: \(text)")
-                        env.goToNextStep(isYes: true)
+                        if !text.isEmpty {
+                            env.saveFeedback(answer: text)
+                            env.goToNextStep(isYes: true)
+                        }
                     })
-                    .padding()
+                    .padding(.horizontal)
                 }
                 
                 Spacer()
@@ -65,7 +67,7 @@ struct CheckinDescriptionView: View {
 
 struct CheckinDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckinDescriptionView(question: "Lorem ipsum dolor sit amet")
+        CheckinDescriptionView()
             .background(EMTheme.shared.sea.ignoresSafeArea())
     }
 }

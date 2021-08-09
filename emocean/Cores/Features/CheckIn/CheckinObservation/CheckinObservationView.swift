@@ -15,37 +15,14 @@ struct CheckinObservationView: View {
     
     // MARK: PROPERTIES
     @EnvironmentObject var env: CheckinViewModel
-    var question: String
     let time = Time()
     
     // MARK: BODY
     var body: some View {
         ZStack { // START: ZTACK
-            VStack(spacing: -1){
-                Image("Up\(time.getRawValue())") /// - Background Image
-                    .resizable()
-                    .scaledToFit()
-                    .padding(.top,0)
-                Rectangle()
-                    .fill(
-                        LinearGradient(gradient: Gradient(colors: [Color.theme.seaTopGradient, Color.theme.seaBottomGradient]), startPoint: .top, endPoint: .bottom)
-                    )
-                ZStack {
-                    Image("BackCoral") /// - Background Image
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.top,0)
-                    Image("FrontCoral") /// - Background Image
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.top,0)
-                }
-                .background(Color.theme.seaBottomGradient)
-                .ignoresSafeArea()
-            }.ignoresSafeArea()
-            VStack(alignment: .center) { // START: VSTACK d
+            VStack(alignment: .center) { // START: VSTACK
                 Spacer()
-                Text(question)
+                Text(env.currentStep.question.texts[0])
                     .frame(maxWidth: .infinity)
                     .padding()
                     .font(.title)
@@ -76,6 +53,6 @@ struct CheckinObservationView: View {
 
 struct CheckinObservationView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckinObservationView(question: "Do you wanna talk about it?")
+        CheckinObservationView()
     }
 }
