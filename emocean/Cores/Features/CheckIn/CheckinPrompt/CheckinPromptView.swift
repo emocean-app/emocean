@@ -17,7 +17,7 @@ struct CheckinPromptView: View {
         VStack {
             Spacer()
             Text(env.getQuestion())
-                .foregroundColor(.white)
+                .foregroundColor(Time().timeRange == .night ? .white : Color.theme.primary)
                 .font(.title)
                 .frame(maxWidth: .infinity)
                 .padding()

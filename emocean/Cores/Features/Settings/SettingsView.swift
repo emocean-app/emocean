@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Binding var showModal: Bool
+    @Environment(\.presentationMode) private var presentationMode
+    @Environment(\.colorScheme) private var colorScheme
     @EnvironmentObject var vm: SettingsViewModel
     
     var body: some View {
@@ -36,10 +37,10 @@ struct SettingsView: View {
                 }
             }
             .navigationBarItems(trailing: Button(action: {
-                self.showModal = false
+                presentationMode.wrappedValue.dismiss()
             }, label: {
                 Image(systemName: "xmark")
-                    .foregroundColor(Color.theme.grayThird)
+                    .foregroundColor(colorScheme == .light ? Color.theme.grayThird : Color.theme.grayPrimary)
             }))
             .navigationBarTitle(Text("Settings"))
         }
@@ -48,6 +49,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(showModal: .constant(true))
+        SettingsView()
     }
 }

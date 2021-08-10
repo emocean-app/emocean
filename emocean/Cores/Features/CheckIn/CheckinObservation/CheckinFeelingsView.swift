@@ -97,9 +97,10 @@ extension CheckinFeelingsView {
 
                 HStack {
                     Picker(selection: $selection, label: pickerLabel, content: {
-                        ForEach(TimeRange.allCases, id: \.self) {
-                            Text("\($0.rawValue)").tag($0)
-                        }
+                        Text("Morning").tag(TimeRange.morning)
+                        Text("Afternoon").tag(TimeRange.noon)
+                        Text("Evening").tag(TimeRange.sunset)
+                        Text("Tonight").tag(TimeRange.night)
                     })
                     .animation(.easeInOut)
                     .pickerStyle(MenuPickerStyle())
@@ -132,29 +133,43 @@ extension CheckinFeelingsView {
             }
             Group {
                 VStack(alignment: .leading) {
-//                    Spacer()
-//                        .frame(minHeight: 10, maxHeight: 50)
+                    Spacer()
+                        .frame(height: 5)
                     HStack {
                         Text("Energy")
                         .font(.system(size: 17.0, weight: .regular))
                         .foregroundColor(Color.white).padding(.horizontal, 10)
-                        Image(systemName: "questionmark.circle")
-                            .font(.system(size: 12.0))
-                            .foregroundColor(Color.white)
-                            .padding(.horizontal,-12)
+
+                        Menu {
+                            Button(action: {}, label: {
+                                Text("Notice how your body feels based on your energy")
+                            })
+                        } label: {
+                            Label("", systemImage: "questionmark.circle")
+                                .font(.system(size: 12.0))
+                                .foregroundColor(Color.white)
+                        }
+                        .padding(.horizontal,-12)
                     }
                     Spacer().frame(minHeight: 1, maxHeight: 1)
                     CustomControl(text: $energy)
                         .frame(width: 325, height: 50, alignment: .center)
                     Spacer().frame(minHeight: 10, maxHeight: 30)
                     HStack {
-                        Text("Pleasentness")
+                        Text("Pleasantness")
                         .font(.system(size: 17.0, weight: .regular))
                         .foregroundColor(Color.white).padding(.horizontal, 10)
-                        Image(systemName: "questionmark.circle")
-                            .font(.system(size: 12.0))
-                            .foregroundColor(Color.white)
-                            .padding(.horizontal,-12)
+
+                        Menu {
+                            Button(action: {}, label: {
+                                Text("Notice the nature of your thoughts")
+                            })
+                        } label: {
+                            Label("", systemImage: "questionmark.circle")
+                                .font(.system(size: 12.0))
+                                .foregroundColor(Color.white)
+                        }
+                        .padding(.horizontal,-12)
                     }
                     Spacer()
                         .frame(minHeight: 1, maxHeight: 1)
@@ -206,7 +221,16 @@ extension CheckinFeelingsView {
 
     var pickerLabel: some View {
         HStack {
-            Text("This \(selection.rawValue)")
+            switch selection {
+            case .morning:
+                Text("This Morning")
+            case .noon:
+                Text("This Afternoon")
+            case .sunset:
+                Text("This Evening")
+            case .night:
+                Text("Tonight")
+            }
             Image(systemName: "chevron.down")
         }
         .frame(width: 150, height: 5)
@@ -224,6 +248,6 @@ struct CheckinFeelingsView_Previews: PreviewProvider {
     static var previews: some View {
         CheckinFeelingsView()
             .background(EMTheme.shared.sea.ignoresSafeArea())
+            .environmentObject(CheckinViewModel())
     }
 }
-
