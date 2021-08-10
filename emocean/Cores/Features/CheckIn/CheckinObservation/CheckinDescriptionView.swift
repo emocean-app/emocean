@@ -14,6 +14,7 @@ struct CheckinDescriptionView: View {
     @State private var text: String = ""
     @State private var sec = 0.0
     var timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    let time = Time()
 
     // MARK: BODY
     var body: some View {
@@ -28,7 +29,7 @@ struct CheckinDescriptionView: View {
                     .font(.title)
                     .lineLimit(nil)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(.white)
+                    .foregroundColor(time.timeRange == .night ? .white : Color.theme.primary)
                 
                 if showTextField {
                     MultilineTextField(text: $text, onCommit: {
@@ -62,6 +63,7 @@ struct CheckinDescriptionView: View {
                 sec += 0.5
             }
         })
+        .preferredColorScheme(time.timeRange == .night ? .dark : .light)
     }
 }
 
@@ -69,5 +71,6 @@ struct CheckinDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
         CheckinDescriptionView()
             .background(EMTheme.shared.sea.ignoresSafeArea())
+            .environmentObject(CheckinViewModel())
     }
 }

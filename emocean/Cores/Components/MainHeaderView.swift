@@ -25,15 +25,15 @@ struct MainHeaderView: View {
                 Image("\(time.getRawValue())Sea")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .offset(y: -getOffset(reader, multiplier: 3) + 15)
-                    .frame(width: reader.size.width, height: getOffset(reader, multiplier: 3) + 480)
+                    .offset(y: -getOffset(reader, multiplier: 2) + 15)
+                    .frame(width: reader.size.width, height: getOffset(reader, multiplier: 2) + 480)
                     .modifier(ParallaxMotionModifier(manager: manager, magnitude: !settingsEnv.reduceMotion ? 20 : 0, orientation: .vertical))
                 
                 Image("Boat")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .offset(y: -getOffset(reader, multiplier: 12) + 40)
-                    .frame(width: reader.size.width, height: getOffset(reader, multiplier: 12) + 480)
+                    .offset(y: -getOffset(reader, multiplier: 4) + 40)
+                    .frame(width: reader.size.width, height: getOffset(reader, multiplier: 4) + 480)
                     .modifier(ParallaxMotionModifier(manager: manager, magnitude: !settingsEnv.reduceMotion ? 30 : 0, orientation: .vertical))
 
                 HStack(alignment: .top) {
@@ -111,5 +111,6 @@ struct MainHeaderView: View {
 struct MainHeaderView_Previews: PreviewProvider {
     static var previews: some View {
         MainHeaderView(shouldPopUpFullScreen: .constant(false), shouldShowSettingsModal: .constant(false))
+            .environmentObject(SettingsViewModel())
     }
 }
