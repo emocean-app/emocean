@@ -76,8 +76,8 @@ struct MainView: View {
         .fullScreenCover(isPresented: $shouldShowCheckin, content: {
             CheckinView()
         })
-        .sheet(isPresented: $showSettings, content: {
-            SettingsView(showModal: $showSettings)
+        .fullScreenCover(isPresented: $showSettings, content: {
+            SettingsView()
         })
         .environmentObject(settingsEnv)
     }
