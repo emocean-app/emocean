@@ -59,7 +59,9 @@ struct CheckinSuccessView: View {
         let button1: ActionSheet.Button = .default(Text("Sure")){
             showAlert.toggle()
         }
-        let button2: ActionSheet.Button = .destructive(Text("No thanks!"))
+        let button2: ActionSheet.Button = .destructive(Text("No thanks!")){
+            presentationMode.wrappedValue.dismiss()
+        }
         let button3: ActionSheet.Button = .cancel()
         return ActionSheet(
             title: Text("Want to get reminded for \n your daily Check-In?"),
