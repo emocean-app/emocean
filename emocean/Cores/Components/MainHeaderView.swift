@@ -27,14 +27,26 @@ struct MainHeaderView: View {
                     .aspectRatio(contentMode: .fill)
                     .offset(y: -getOffset(reader, multiplier: 2) + 15)
                     .frame(width: reader.size.width, height: getOffset(reader, multiplier: 2) + 480)
-                    .modifier(ParallaxMotionModifier(manager: manager, magnitude: !settingsEnv.reduceMotion ? 20 : 0, orientation: .vertical))
+                    .modifier(
+                        ParallaxMotionModifier(
+                            manager: manager,
+                            magnitude: !settingsEnv.reduceMotion ? 20 : 0,
+                            orientation: .vertical
+                        )
+                    )
                 
                 Image("Boat")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .offset(y: -getOffset(reader, multiplier: 4) + 40)
                     .frame(width: reader.size.width, height: getOffset(reader, multiplier: 4) + 480)
-                    .modifier(ParallaxMotionModifier(manager: manager, magnitude: !settingsEnv.reduceMotion ? 30 : 0, orientation: .vertical))
+                    .modifier(
+                        ParallaxMotionModifier(
+                            manager: manager,
+                            magnitude: !settingsEnv.reduceMotion ? 30 : 0,
+                            orientation: .vertical
+                        )
+                    )
 
                 HStack(alignment: .top) {
                     VStack(alignment: .leading) {

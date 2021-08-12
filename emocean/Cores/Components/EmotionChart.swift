@@ -35,10 +35,30 @@ struct EmotionChart: View {
         let total: CGFloat = red + blue + green + yellow
 
         self.emotionArray = [
-            ChartData(emotion: .blue, value: blue/total, color: Color.theme.blueQuadrant, image: ["ArwanaDua", "BuntelDua"]),
-            ChartData(emotion: .green, value: green/total, color: Color.theme.greenQuadrant, image: ["GuritaDua", "CupangDua"]),
-            ChartData(emotion: .yellow, value: yellow/total, color: Color.theme.yellowQuadrant, image: ["KudaDua", "NemoDua"]),
-            ChartData(emotion: .red, value: red/total, color: Color.theme.redQuadrant, image: ["KepitingDua", "GuritaDua"])
+            ChartData(
+                emotion: .blue,
+                value: blue/total,
+                color: Color.theme.blueQuadrant,
+                image: ["ArwanaDua", "BuntelDua"]
+            ),
+            ChartData(
+                emotion: .green,
+                value: green/total,
+                color: Color.theme.greenQuadrant,
+                image: ["GuritaDua", "CupangDua"]
+            ),
+            ChartData(
+                emotion: .yellow,
+                value: yellow/total,
+                color: Color.theme.yellowQuadrant,
+                image: ["KudaDua", "NemoDua"]
+            ),
+            ChartData(
+                emotion: .red,
+                value: red/total,
+                color: Color.theme.redQuadrant,
+                image: ["KepitingDua", "GuritaDua"]
+            )
         ]
 
         sortData()

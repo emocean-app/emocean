@@ -35,16 +35,16 @@ class SettingsViewModel: ObservableObject {
         } else {
             self.reminder = false
         }
-        
+
         if let date = UserDefaults.standard.object(forKey: "reminderTime") as? Date {
             reminderTime = date
         } else {
             reminderTime = Date()
         }
-        
+
         setListeners()
     }
-    
+
     func setListeners() {
         $music
             .sink { result in
@@ -56,7 +56,7 @@ class SettingsViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellable)
-        
+
         $reduceMotion
             .sink { result in
                 UserDefaults.standard.setValue(result, forKey: "reduceMotion")
@@ -66,7 +66,7 @@ class SettingsViewModel: ObservableObject {
         $reminder
             .sink { [weak self] result in
                 UserDefaults.standard.setValue(result, forKey: "reminder")
-                
+
                 if !result {
                     self?.reminderTime = Date()
                     UserDefaults.standard.setValue(nil, forKey: "reminderTime")
@@ -84,7 +84,7 @@ class SettingsViewModel: ObservableObject {
     func getTime() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        
+
         return dateFormatter.string(from: reminderTime)
     }
 }

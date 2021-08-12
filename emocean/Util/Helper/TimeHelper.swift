@@ -21,21 +21,21 @@ struct Time {
     init() {
         let calendar = Calendar(identifier: .gregorian)
         let currentTime = Date()
-        
+
         let hour = calendar.component(.hour, from: currentTime)
         if hour >= 19 || hour < 5 {
             self.timeRange = .night
         } else if hour < 11 {
             self.timeRange = .morning
-            
+
         } else if hour < 15 {
             self.timeRange = .noon
-            
+
         } else {
             self.timeRange = .sunset
         }
     }
-    
+
     func getSkyAnimation() -> String {
         switch timeRange {
         case .morning:
