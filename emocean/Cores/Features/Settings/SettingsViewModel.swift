@@ -35,7 +35,7 @@ class SettingsViewModel: ObservableObject {
         } else {
             self.reminder = false
         }
-        
+
         if let date = UserDefaults.standard.object(forKey: "reminderTime") as? Date {
             reminderTime = date
         } else {
