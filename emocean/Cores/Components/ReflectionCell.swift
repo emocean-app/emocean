@@ -80,7 +80,13 @@ struct ReflectionCell: View {
 // MARK: PREVIEW
 struct ReflectionCell_Previews: PreviewProvider {
     static var previews: some View {
-        ReflectionCell(time: "Morning", mood: "Angry", image: "Jellyfish", bgColor: Color.theme.redQuadrant, categories: ["News", "Relationship", "Coronavirus"])
+        ReflectionCell(
+            time: "Morning",
+            mood: "Angry",
+            image: "Jellyfish",
+            bgColor: Color.theme.redQuadrant,
+            categories: ["News", "Relationship", "Coronavirus"]
+        )
             .previewLayout(.sizeThatFits)
     }
 }

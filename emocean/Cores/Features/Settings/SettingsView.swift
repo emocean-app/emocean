@@ -8,38 +8,39 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Binding var showModal: Bool
-    @EnvironmentObject var vm: SettingsViewModel
-    
+    @Environment(\.presentationMode) private var presentationMode
+    @Environment(\.colorScheme) private var colorScheme
+    @EnvironmentObject var settingsVM: SettingsViewModel
+
     var body: some View {
         NavigationView {
             Form {
-                Toggle("Music", isOn: $vm.music)
-                Toggle("Reduce motion", isOn: $vm.reduceMotion)
+                Toggle("Music", isOn: $settingsVM.music)
+                Toggle("Reduce motion", isOn: $settingsVM.reduceMotion)
 
                 Section(footer: Text("Set the time and you will get notifications to remind you to reflect everyday")) {
-                    Toggle(isOn: $vm.reminder.animation(), label: {
+                    Toggle(isOn: $settingsVM.reminder.animation(), label: {
                         VStack(alignment: .leading) {
                             Text("Set reminder")
-                            if vm.reminder {
-                                Text(vm.getTime())
+                            if settingsVM.reminder {
+                                Text(settingsVM.getTime())
                                     .font(.caption)
                                     .foregroundColor(.blue)
                             }
                         }
                     })
 
-                    if vm.reminder {
-                        DatePicker("", selection: $vm.reminderTime, displayedComponents: .hourAndMinute)
+                    if settingsVM.reminder {
+                        DatePicker("", selection: $settingsVM.reminderTime, displayedComponents: .hourAndMinute)
                             .datePickerStyle(GraphicalDatePickerStyle())
                     }
                 }
             }
             .navigationBarItems(trailing: Button(action: {
-                self.showModal = false
+                presentationMode.wrappedValue.dismiss()
             }, label: {
                 Image(systemName: "xmark")
-                    .foregroundColor(Color.theme.grayThird)
+                    .foregroundColor(colorScheme == .light ? Color.theme.grayThird : Color.theme.grayPrimary)
             }))
             .navigationBarTitle(Text("Settings"))
         }
@@ -48,6 +49,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(showModal: .constant(true))
+        SettingsView()
     }
 }
