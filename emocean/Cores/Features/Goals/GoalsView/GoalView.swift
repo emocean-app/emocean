@@ -11,7 +11,6 @@ struct GoalView: View {
     @StateObject private var goalViewModel = GoalViewModel()
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     @State var selection: Bool = false
-    //@State var selectedGoal: Goal = GoalList.getGoal.first!
 
     init() {
         UITableView.appearance().backgroundColor = .clear
