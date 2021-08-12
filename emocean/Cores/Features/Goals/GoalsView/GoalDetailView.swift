@@ -51,7 +51,8 @@ struct GoalDetailView: View {
                         .padding(.horizontal,25)
                         .padding(.vertical)
                         .font(.body)
-                        .frame(width: .infinity)
+                        .frame(maxWidth: .infinity)
+
                 }
                 .padding(.vertical,10)
                 Spacer()

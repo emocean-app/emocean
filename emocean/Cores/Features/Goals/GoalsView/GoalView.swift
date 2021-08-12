@@ -11,7 +11,7 @@ struct GoalView: View {
     @StateObject private var goalViewModel = GoalViewModel()
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     @State var selection: Bool = false
-
+    @State var isModalShown = false
     init() {
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
@@ -38,6 +38,9 @@ struct GoalView: View {
                         .overlay(RoundedRectangle(cornerRadius: 25)
                                     .stroke(Color.theme.grayPrimary, lineWidth: 2))
                         .foregroundColor(Color.theme.grayPrimary)
+                        .onTapGesture {
+                            isModalShown = true
+                        }
                 }
                 .padding(.horizontal,20)
                 Picker("Status", selection: $selection) {
@@ -64,6 +67,9 @@ struct GoalView: View {
                 }
             }
         }
+        .sheet(isPresented: $isModalShown, content: {
+            GoalFormView(showModal: $isModalShown)
+        })
     }
 }
 
