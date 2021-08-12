@@ -10,6 +10,7 @@ import Foundation
 class GoalViewModel: ObservableObject {
     
     @Published var goals: [Goal] = []
+    var getGoal: Goal = Goal(goal: "", category: "", date: "", status: false)
     init() {
         getGoals()
     }
