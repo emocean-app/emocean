@@ -9,17 +9,14 @@ import SwiftUI
 
 struct GoalView: View {
     @StateObject private var vm = GoalViewModel()
+    @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     @State var selection: Bool = false
     @State var selectedGoal: Goal = GoalList.getGoal.first!
-    @State var showModal: Bool = false
     @State var goals: [Goal] = [
         Goal(goal: "makan nasi seminggu sekali", category: "Work", date: "Sunday, 25 January", status: true),
-        Goal(goal: "Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd", category: "Relationship", date: "Monday, 26 January", status: false),
+        Goal(goal: "Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd", category: "Relationship", date: "Monday, 26 January", status: false),
         Goal(goal: "makan daging anjing dengan sayur kol", category: "Covid", date: "Tuesday, 27 January", status: true)
     ]
-    //    @State var category: String = "Work"
-    //    @State var goal: String =  "Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd "
-    //    @State var date: String = "25 January 2020"
     init() {
         
         UITableView.appearance().backgroundColor = .clear
@@ -62,22 +59,21 @@ struct GoalView: View {
                         if selection == item.status {
                             GoalCell(category: item.category, goal: item.goal, date: item.date, isCompleted: item.status)
                                 .onTapGesture {
-                                    self.showModal.toggle()
                                     self.selectedGoal = item
+                                    self.viewControllerHolder?.present(style: .overCurrentContext, transitionStyle: .crossDissolve) {
+                                        GoalDetailView(goal: selectedGoal).padding()
+                                    }
+                                    
                                 }
                         }
                     }
                     .onDelete(perform: delete)
                     .listRowBackground(Color.clear)
                 }
-                
-//                .sheet(isPresented: $showModal, content: {
-//                    GoalDetailView(goal: self.selectedGoal, isShow: $showModal).padding()
-//                })
             }
-            GoalDetailView(goal: self.selectedGoal, isShow: $showModal).padding()
         }
     }
+    
     func delete(indexSet: IndexSet) {
         goals.remove(atOffsets: indexSet)
     }
@@ -86,5 +82,37 @@ struct GoalView: View {
 struct GoalView_Previews: PreviewProvider {
     static var previews: some View {
         GoalView()
+    }
+}
+
+
+struct ViewControllerHolder {
+    weak var value: UIViewController?
+}
+
+struct ViewControllerKey: EnvironmentKey {
+    static var defaultValue: ViewControllerHolder {
+        return ViewControllerHolder(value: UIApplication.shared.windows.first?.rootViewController)
+    }
+}
+
+extension EnvironmentValues {
+    var viewController: UIViewController? {
+        get { return self[ViewControllerKey.self].value }
+        set { self[ViewControllerKey.self].value = newValue }
+    }
+}
+
+extension UIViewController {
+    func present<Content: View>(style: UIModalPresentationStyle = .automatic, transitionStyle: UIModalTransitionStyle = .coverVertical, @ViewBuilder builder: () -> Content) {
+        let toPresent = UIHostingController(rootView: AnyView(EmptyView()))
+        toPresent.modalPresentationStyle = style
+        toPresent.modalTransitionStyle = transitionStyle
+        toPresent.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        toPresent.rootView = AnyView(
+            builder()
+                .environment(\.viewController, toPresent)
+        )
+        self.present(toPresent, animated: true, completion: nil)
     }
 }

@@ -28,33 +28,43 @@ struct GoalDetailView: View {
     var goal: Goal
 //    @Binding var goal: String
 //    @Binding var date: String
-    @Binding var isShow: Bool
+    @State var value = 0.0
+    @Environment(\.viewController) private var viewControllerHolder: UIViewController?
+   // @Binding var isShow: Bool
     private let clearColor = Color.clear
     var body: some View {
         VStack (alignment: .leading){ // START: VSTACK
-            if isShow {
+            
                 HStack { // START: HSTACK
                     Text(goal.date)
                         .font(.footnote)
                     Spacer()
-                    Text("X")
-                        .bold()
+                    Image(systemName: "xmark")
+                        .resizable()
+                        .frame(width:20, height: 20)
                         .foregroundColor(.gray)
                         .onTapGesture {
-                            isShow = false
+                            //isShow = false
+                            self.viewControllerHolder?.dismiss(animated: true, completion: nil)
                         }
                 } // END: HSTACK
                 .padding(.horizontal)
                 .padding(.top)
                 //Spacer()
-                Text(goal.goal)
-                    .padding()
-                    .font(.body)
-                    .frame(width: .infinity)
+                ScrollView{
+                    Text(goal.goal)
+                        .padding()
+                        .font(.body)
+                        .frame(width: .infinity)
+
+                }
                 Spacer()
                 HStack { // START: HSTACK
-                    CompleteButton(action: {})
-                    EditButton(action: {})
+                    if !goal.status {
+                        CompleteButton(action: {})
+                        EditButton(action: {})
+                    }
+                    Spacer()
                     Image("Trash")
                         .resizable()
                         .foregroundColor(Color.theme.primary)
@@ -65,9 +75,8 @@ struct GoalDetailView: View {
                 } // END: HSTACK
                 .padding(.horizontal)
                 .padding(.bottom)
-            }
         } // END: VSTACK
-        .frame(height: 400)
+        .frame(minHeight: 200, maxHeight: 400)
         .background(Color.white)
         .cornerRadius(25)
     }
@@ -75,7 +84,7 @@ struct GoalDetailView: View {
 
 struct GoalDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalDetailView(goal: GoalList.getGoal.first!, isShow: .constant(true))
+        GoalDetailView(goal: GoalList.getGoal.first!)
             .previewLayout(.sizeThatFits)
             .padding(.horizontal,10)
             .background(Color.black)
