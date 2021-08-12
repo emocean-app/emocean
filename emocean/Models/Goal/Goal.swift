@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Goal: Identifiable {
+struct Goal: Codable, Identifiable {
     
     let id: String = UUID().uuidString
     let goal: String
@@ -15,7 +15,4 @@ struct Goal: Identifiable {
     let date: String
     let status: Bool
     
-//    func hash(into hasher: inout Hasher) {
-//        hasher.combine(goal)
-//    }
 }
