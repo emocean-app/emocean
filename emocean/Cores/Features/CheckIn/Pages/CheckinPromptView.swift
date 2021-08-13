@@ -23,7 +23,7 @@ struct CheckinPromptView: View {
             Spacer()
         } // END: VSTACK
         .onReceive(timer, perform: { _ in  // START: ON-RECIEVE
-            if sec == 2.5 {
+            if sec == Double(2.5) {
                 sec = 0.0
                 env.goToNextStep(isYes: true)
                 self.timer.upstream.connect().cancel()

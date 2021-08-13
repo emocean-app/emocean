@@ -300,24 +300,6 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		0CB430AE26BB98FA00FC8A34 /* CheckinObservation */ = {
-			isa = PBXGroup;
-			children = (
-				0CB430AF26BB98FA00FC8A34 /* CheckinFeelingsView.swift */,
-				0CB430B026BB98FA00FC8A34 /* CheckinDescriptionView.swift */,
-				0CB430B126BB98FA00FC8A34 /* CheckinObservationView.swift */,
-			);
-			path = CheckinObservation;
-			sourceTree = "<group>";
-		};
-		4E580EF826B7E31400229D9A /* CheckinSuccess */ = {
-			isa = PBXGroup;
-			children = (
-				4E580EF926B7E34E00229D9A /* CheckinSuccessView.swift */,
-			);
-			path = CheckinSuccess;
-			sourceTree = "<group>";
-		};
 		4E59223F26C4DEF300FD565D /* Goal */ = {
 			isa = PBXGroup;
 			children = (

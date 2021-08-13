@@ -264,7 +264,7 @@ extension CheckinViewModel {
         timerCancellable = timer?
             .sink(receiveValue: { [weak self] _ in
             guard let self = self else {return}
-            if self.sec == 1.5 {
+            if self.sec == Double(1.5) {
                 self.sec = 0.0
                 self.timer = nil
                 withAnimation(.easeInOut(duration: 1)) {

@@ -32,15 +32,15 @@ struct CheckinDescriptionView: View {
                     MultilineTextField(text: $text, onCommit: {
                         print("Final text: \(text)")
                         if !text.isEmpty {
-                            env.saveFeedback(answer: text)
-                            showTextField = false
                             if env.nextStepType() == .description {
                                 timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
                             }
                             withAnimation(.easeInOut) {
                                 env.goToNextStep(isYes: true)
-                                text = ""
                             }
+                            env.saveFeedback(answer: text)
+                            showTextField = false
+                            text = ""
                         }
                     })
                     .padding(.horizontal)
@@ -56,7 +56,7 @@ struct CheckinDescriptionView: View {
             )
         } // END: ZTACK
         .onReceive(timer, perform: { _ in
-            if sec == 2.5 {
+            if sec == Double(2.5) {
                 withAnimation(.easeInOut) {
                     showTextField = true
                 }
