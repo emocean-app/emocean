@@ -8,18 +8,11 @@
 import SwiftUI
 
 struct GoalView: View {
-    @StateObject private var vm = GoalViewModel()
+    @StateObject private var goalViewModel = GoalViewModel()
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     @State var selection: Bool = false
-    @State var selectedGoal: Goal = GoalList.getGoal.first!
-    @State var goals: [Goal] = [
-        Goal(goal: "makan nasi seminggu sekali", category: "Work", date: "Sunday, 25 January", status: true),
-        Goal(goal: "Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd", category: "Relationship", date: "Monday, 26 January", status: false),
-        Goal(goal: "makan daging anjing dengan sayur kol", category: "Covid", date: "Tuesday, 27 January", status: true)
-    ]
     @State var isModalShown = false
     init() {
-        
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.theme.grayPrimary)
@@ -56,22 +49,20 @@ struct GoalView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
-                
-                
                 List {
-                    ForEach(goals, id: \.self) { item in
+                    ForEach(goalViewModel.goals) { item in
                         if selection == item.status {
                             GoalCell(category: item.category, goal: item.goal, date: item.date, isCompleted: item.status)
                                 .onTapGesture {
-                                    self.selectedGoal = item
+                                    goalViewModel.getGoal =  item
                                     self.viewControllerHolder?.present(style: .overCurrentContext, transitionStyle: .crossDissolve) {
-                                        GoalDetailView(goal: selectedGoal).padding()
+                                        GoalDetailView(goal: item).padding()
                                     }
                                     
                                 }
                         }
                     }
-                    .onDelete(perform: delete)
+                    .onDelete(perform: goalViewModel.delete)
                     .listRowBackground(Color.clear)
                 }
             }
@@ -80,10 +71,6 @@ struct GoalView: View {
             GoalFormView(showModal: $isModalShown)
         })
     }
-    
-    func delete(indexSet: IndexSet) {
-        goals.remove(atOffsets: indexSet)
-    }
 }
 
 struct GoalView_Previews: PreviewProvider {
@@ -91,7 +78,6 @@ struct GoalView_Previews: PreviewProvider {
         GoalView()
     }
 }
-
 
 struct ViewControllerHolder {
     weak var value: UIViewController?
