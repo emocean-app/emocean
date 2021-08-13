@@ -9,7 +9,6 @@ import SwiftUI
 struct CheckinFeelingsView: View {
     // MARK: PROPERTIES
     @EnvironmentObject var env: CheckinViewModel
-    @State var question: String = "How do you feel?"
     @State var selection: TimeRange = Time().timeRange
     @State var energy: CGFloat = 0.5
     @State var pleasentness: CGFloat = 0.5
@@ -23,7 +22,7 @@ struct CheckinFeelingsView: View {
     @State private var animationOffset = false
     private var imageFullWidth = UIScreen.main.bounds.width * 2
     private let screenHeight = UIScreen.main.bounds.height
-
+    private let time = Time()
     // MARK: BODY
     var body: some View {
         ZStack { // START: ZSTACK
@@ -66,20 +65,13 @@ extension CheckinFeelingsView {
         VStack { // START: VSTACK
             Group { // START: GROUP
                 Spacer().frame(minHeight: 10, maxHeight: 20)
-                Text(question)
+                Text(env.getQuestion())
                     .font(.system(size: 28.0, weight: .semibold))
                     .foregroundColor(Color.white)
-                HStack { // START: HSTACK
-                    Picker(selection: $selection, label: pickerLabel, content: {
-                        Text("Morning").tag(TimeRange.morning)
-                        Text("Afternoon").tag(TimeRange.noon)
-                        Text("Evening").tag(TimeRange.sunset)
-                        Text("Tonight").tag(TimeRange.night)
-                    })
-                    .animation(.easeInOut)
-                    .pickerStyle(MenuPickerStyle())
-                } // END: HSTACK
-                Spacer().frame(minHeight: 10, maxHeight: 20)
+                Text("This \(time.getRawValue())")
+                    .font(.system(size: 28.0, weight: .semibold))
+                    .foregroundColor(Color.white)
+                Spacer(minLength: 50)
                 Image(env.getMoodImage(energy: getEnergy, pleasent: getPleasentness))
                     .resizable()
                     .scaledToFit()
@@ -90,11 +82,13 @@ extension CheckinFeelingsView {
                             animationOffset.toggle()
                         }
                     })
+                Spacer(minLength: 20)
                 Text(env.getMoodName(energy: getEnergy, pleasent: getPleasentness))
                     .font(.system(size: 27.0, weight: .semibold))
                     .italic()
                     .foregroundColor(Color.white)
                     .animation(.easeInOut)
+                    .frame(minHeight: 35)
                 Spacer().frame(minHeight: 10, maxHeight: 10)
                 Text(
                     env.getMoodDescription(energy: getEnergy, pleasent: getPleasentness)
@@ -116,7 +110,7 @@ extension CheckinFeelingsView {
 
                         Menu {
                             Button(action: {}, label: {
-                                Text("Notice how your body feels based on your energy")
+                                Text("Are you feeling sluggish or more energetic?")
                             })
                         } label: {
                             Label("", systemImage: "questionmark.circle")
@@ -136,7 +130,7 @@ extension CheckinFeelingsView {
 
                         Menu {
                             Button(action: {}, label: {
-                                Text("Notice the nature of your thoughts")
+                                Text("Are you feeling unpleasant or pleasant")
                             })
                         } label: {
                             Label("", systemImage: "questionmark.circle")
@@ -191,29 +185,6 @@ extension CheckinFeelingsView {
             Spacer()
         } // END: VSTACK
         .ignoresSafeArea()
-    }
-    // Picker Label
-    var pickerLabel: some View {
-        HStack { // START: HSTACK
-            switch selection {
-            case .morning:
-                Text("This Morning")
-            case .noon:
-                Text("This Afternoon")
-            case .sunset:
-                Text("This Evening")
-            case .night:
-                Text("Tonight")
-            }
-            Image(systemName: "chevron.down")
-        } // END: HSTACK
-        .frame(width: 150, height: 5)
-        .padding()
-        .overlay(
-            RoundedRectangle(cornerRadius: 30)
-                .stroke(Color.white, lineWidth: 2)
-        ).background(RoundedRectangle(cornerRadius: 30).fill(Color.clear))
-        .foregroundColor(.white)
     }
 }
 

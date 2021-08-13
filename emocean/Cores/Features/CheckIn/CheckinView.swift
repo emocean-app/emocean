@@ -108,7 +108,10 @@ extension CheckinView {
             case .succes:
                 CheckinSuccessView()
             case .observation:
-                CheckinObservationView()
+                VStack{ }
+                    .onAppear(perform: {
+                        viewModel.startTimer()
+                    })
             case .prompt:
                CheckinPromptView()
             }

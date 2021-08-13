@@ -12,7 +12,7 @@ struct CheckinDescriptionView: View {
     @State private var showTextField: Bool = false
     @State private var text: String = ""
     @State private var sec = 0.0
-    var timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    @State var timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     let time = Time()
     // MARK: BODY
     var body: some View {
@@ -26,13 +26,21 @@ struct CheckinDescriptionView: View {
                     .lineLimit(nil)
                     .multilineTextAlignment(.center)
                     .foregroundColor(time.timeRange == .night ? .white : Color.theme.primary)
+                    .transition(.move(edge: .top))
                 // Show TextField or not
                 if showTextField {
                     MultilineTextField(text: $text, onCommit: {
                         print("Final text: \(text)")
                         if !text.isEmpty {
                             env.saveFeedback(answer: text)
-                            env.goToNextStep(isYes: true)
+                            text = ""
+                            showTextField = false
+                            if env.nextStepType() == .description {
+                                timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+                            }
+                            withAnimation(.easeInOut) {
+                                env.goToNextStep(isYes: true)
+                            }
                         }
                     })
                     .padding(.horizontal)

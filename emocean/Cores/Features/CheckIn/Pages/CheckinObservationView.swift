@@ -16,17 +16,17 @@ struct CheckinObservationView: View {
     var body: some View {
         ZStack { // START: ZTACK
         } // END: ZTACK
-        .onReceive(timer, perform: { _ in  // START: ON-RECIEVE
-            if sec == 2.5 {
-                sec = 0.0
-                withAnimation(.easeInOut(duration: 2)) {
-                    env.goToNextStep(isYes: true)
-                }
-                self.timer.upstream.connect().cancel()
-            } else {
-                sec += 0.5
-            }
-        }) // END: ON-RECIEVE
+//        .onReceive(timer, perform: { _ in  // START: ON-RECIEVE
+//            if sec == 1.5 {
+//                sec = 0.0
+//                withAnimation(.easeInOut(duration: 1)) {
+//                    env.goToNextStep(isYes: true)
+//                }
+//                self.timer.upstream.connect().cancel()
+//            } else {
+//                sec += 0.5
+//            }
+//        }) // END: ON-RECIEVE
     }
 }
 

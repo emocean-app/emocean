@@ -89,13 +89,10 @@ extension CheckinCategoryView {
     // QUESTION
     var questionSection: some View {
         VStack { // START: VSTACK
-            Text("Please, tell me")
-            Text("what made you")
+            Text(env.getQuestion())
                 .bold()
-                .italic()
-            Text("feel \(env.getMoodName())?")
-                .bold()
-                .italic()
+                .frame(maxWidth: UIScreen.main.bounds.width * 0.7)
+                .multilineTextAlignment(.center)
         } // END: VSTACK
         .font(.title)
         .foregroundColor(Color.white)
