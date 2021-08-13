@@ -33,13 +33,13 @@ struct CheckinDescriptionView: View {
                         print("Final text: \(text)")
                         if !text.isEmpty {
                             env.saveFeedback(answer: text)
-                            text = ""
                             showTextField = false
                             if env.nextStepType() == .description {
                                 timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
                             }
                             withAnimation(.easeInOut) {
                                 env.goToNextStep(isYes: true)
+                                text = ""
                             }
                         }
                     })

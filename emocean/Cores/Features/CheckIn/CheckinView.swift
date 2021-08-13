@@ -72,14 +72,16 @@ struct CheckinView: View {
             VStack { // START: VSTACK
                 HStack { // START: HSTACK
                     Spacer()
-                    Image(systemName: "xmark")
-                        .resizable()
-                        .frame(width: 23, height: 23)
-                        .foregroundColor(.white)
-                        .onTapGesture {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                        .zIndex(2)
+                    if viewModel.currentStep.viewType != .succes {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .frame(width: 23, height: 23)
+                            .foregroundColor(.white)
+                            .onTapGesture {
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                            .zIndex(2)
+                    }
                 } // END: HSTACK
                 .padding(.horizontal, 28)
                 .padding(.top, 20)
