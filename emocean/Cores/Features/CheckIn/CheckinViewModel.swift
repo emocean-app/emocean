@@ -11,7 +11,7 @@ import Combine
 class CheckinViewModel: ObservableObject {
     
     // MARK: PROPERTIES
-    // dummy
+    // Dummy
     static let dummy: [Step] = [
         Step(
             id: 1,

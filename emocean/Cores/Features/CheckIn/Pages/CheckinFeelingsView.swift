@@ -7,54 +7,31 @@
 import SwiftUI
 
 struct CheckinFeelingsView: View {
+    // MARK: PROPERTIES
     @EnvironmentObject var env: CheckinViewModel
     @State var question: String = "How do you feel?"
     @State var selection: TimeRange = Time().timeRange
     @State var energy: CGFloat = 0.5
     @State var pleasentness: CGFloat = 0.5
     var getEnergy: Int {
-        if 0 ... 0.10 ~= energy { return 1 }
-        else if 0.10 ... 0.20 ~= energy { return 2 }
-        else if 0.20 ... 0.30 ~= energy { return 3 }
-        else if 0.30 ... 0.40 ~= energy { return 4 }
-        else if 0.40 ... 0.49 ~= energy { return 5 }
-        else if 0.49 ... 0.51 ~= energy { return 0 }
-        else if 0.51 ... 0.60 ~= energy { return 6 }
-        else if 0.60 ... 0.70 ~= energy { return 7 }
-        else if 0.70 ... 0.80 ~= energy { return 8 }
-        else if 0.80 ... 0.90 ~= energy { return 9 }
-        else if 0.90 ... 1 ~= energy { return 10 }
-        return 0
+        return getValue(energy)
     }
     var getPleasentness: Int {
-        if 0 ... 0.10 ~= pleasentness { return 1 }
-        else if 0.10 ... 0.20 ~= pleasentness { return 2 }
-        else if 0.20 ... 0.30 ~= pleasentness { return 3 }
-        else if 0.30 ... 0.40 ~= pleasentness { return 4 }
-        else if 0.40 ... 0.49 ~= pleasentness { return 5 }
-        else if 0.49 ... 0.51 ~= pleasentness { return 0 }
-        else if 0.51 ... 0.60 ~= pleasentness { return 6 }
-        else if 0.60 ... 0.70 ~= pleasentness { return 7 }
-        else if 0.70 ... 0.80 ~= pleasentness { return 8 }
-        else if 0.80 ... 0.90 ~= pleasentness { return 9 }
-        else if 0.90 ... 1 ~= pleasentness { return 10 }
-        return 0
+        return getValue(pleasentness)
     }
-
     let timer = Timer.publish(every: 1.25, on: .main, in: .common).autoconnect()
     @State private var animationOffset = false
-
     private var imageFullWidth = UIScreen.main.bounds.width * 2
     private let screenHeight = UIScreen.main.bounds.height
 
+    // MARK: BODY
     var body: some View {
         ZStack { // START: ZSTACK
             GeometryReader {reader in
-
                 let normalOffset = 0-reader.safeAreaInsets.top
                 let animateoffset = 0 - reader.safeAreaInsets.top - 30
 
-                ZStack {
+                ZStack { // START: VSTACK
                     // fish rod
                     VStack { // START: VSTACK
                         HStack { // START: HSTACK
@@ -74,19 +51,17 @@ struct CheckinFeelingsView: View {
                         Spacer()
                     } // END: VSTACK
                     .ignoresSafeArea()
-
                     // content
                     contentContainer
-                }
+                } // END: VSTACK
                 .frame(minHeight: reader.size.height)
             }
-
         }
     }
 }
 // MARK: - COMPONENTS
 extension CheckinFeelingsView {
-
+    // Content
     var contentContainer: some View {
         VStack { // START: VSTACK
             Group { // START: GROUP
@@ -94,8 +69,7 @@ extension CheckinFeelingsView {
                 Text(question)
                     .font(.system(size: 28.0, weight: .semibold))
                     .foregroundColor(Color.white)
-
-                HStack {
+                HStack { // START: HSTACK
                     Picker(selection: $selection, label: pickerLabel, content: {
                         Text("Morning").tag(TimeRange.morning)
                         Text("Afternoon").tag(TimeRange.noon)
@@ -104,7 +78,7 @@ extension CheckinFeelingsView {
                     })
                     .animation(.easeInOut)
                     .pickerStyle(MenuPickerStyle())
-                }
+                } // END: HSTACK
                 Spacer().frame(minHeight: 10, maxHeight: 20)
                 Image(env.getMoodImage(energy: getEnergy, pleasent: getPleasentness))
                     .resizable()
@@ -132,10 +106,10 @@ extension CheckinFeelingsView {
                     .transition(.opacity)
             }
             Group {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading) { // START: VSTACK
                     Spacer()
                         .frame(height: 5)
-                    HStack {
+                    HStack { // START: HSTACK
                         Text("Energy")
                         .font(.system(size: 17.0, weight: .regular))
                         .foregroundColor(Color.white).padding(.horizontal, 10)
@@ -150,12 +124,12 @@ extension CheckinFeelingsView {
                                 .foregroundColor(Color.white)
                         }
                         .padding(.horizontal,-12)
-                    }
+                    } // END: HSTACK
                     Spacer().frame(minHeight: 1, maxHeight: 1)
                     CustomControl(text: $energy)
                         .frame(width: 325, height: 50, alignment: .center)
                     Spacer().frame(minHeight: 10, maxHeight: 30)
-                    HStack {
+                    HStack { // START: HSTACK
                         Text("Pleasantness")
                         .font(.system(size: 17.0, weight: .regular))
                         .foregroundColor(Color.white).padding(.horizontal, 10)
@@ -170,18 +144,18 @@ extension CheckinFeelingsView {
                                 .foregroundColor(Color.white)
                         }
                         .padding(.horizontal,-12)
-                    }
+                    } // END: HSTACK
                     Spacer()
                         .frame(minHeight: 1, maxHeight: 1)
                     CustomControl(text: $pleasentness)
-                        .frame(width: 325, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 325, height: 50, alignment: .center)
                     Spacer()
-                }
+                } // END: VSTACK
             }
-            Group {
-                VStack(alignment: .center) {
+            Group { // START: GROUP
+                VStack(alignment: .center) { // START: VSTACK
                     // Button
-                    PrimaryButton(content: {
+                    PrimaryButton(content: { // START: BUTTON
                         Text("I do feel that!")
                     }, maxWidth: 177) {
                         print("Primary Button Clicked")
@@ -192,12 +166,12 @@ extension CheckinFeelingsView {
                             env.setMood(mood: mood)
                             env.goToNextStep(isYes: true)
                         }
-                    }
-                }
-            }
+                    } // END: BUTTON
+                } // END: H\VSTACK
+            } // END: GROUP
         }
     }
-
+    // Fish Rod
     var fishRod: some View {
         VStack { // START: VSTACK
             HStack { // START: HSTACK
@@ -218,9 +192,9 @@ extension CheckinFeelingsView {
         } // END: VSTACK
         .ignoresSafeArea()
     }
-
+    // Picker Label
     var pickerLabel: some View {
-        HStack {
+        HStack { // START: HSTACK
             switch selection {
             case .morning:
                 Text("This Morning")
@@ -232,7 +206,7 @@ extension CheckinFeelingsView {
                 Text("Tonight")
             }
             Image(systemName: "chevron.down")
-        }
+        } // END: HSTACK
         .frame(width: 150, height: 5)
         .padding()
         .overlay(
@@ -240,6 +214,38 @@ extension CheckinFeelingsView {
                 .stroke(Color.white, lineWidth: 2)
         ).background(RoundedRectangle(cornerRadius: 30).fill(Color.clear))
         .foregroundColor(.white)
+    }
+}
+
+// MARK: - METHODS
+extension CheckinFeelingsView {
+    private func getValue(_ float: CGFloat) -> Int {
+        switch float {
+        case 0...0.10:
+            return 1
+        case 0.10...0.20:
+            return 2
+        case 0.20...0.30:
+            return 3
+        case 0.30...0.40:
+            return 4
+        case 0.40...0.49:
+            return 5
+        case 0.49...0.51:
+            return 0
+        case 0.51...0.60:
+            return 6
+        case 0.60...0.70:
+            return 7
+        case 0.70...0.80:
+            return 8
+        case 0.80...0.90:
+            return 9
+        case 0.90...1:
+            return 10
+        default:
+            return 0
+        }
     }
 }
 
