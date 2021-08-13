@@ -17,6 +17,7 @@
 		0C3F042D26B9B75F00844F23 /* AnimasiHomepageMalam.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */; };
 		0C62284426B18ECA00672AEA /* ReflectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284326B18ECA00672AEA /* ReflectionCell.swift */; };
 		0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284526B1AEB800672AEA /* ProgressBubble.swift */; };
+		0C6DE87226C65A3E0087D166 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6DE87126C65A3E0087D166 /* NotificationHelper.swift */; };
 		0C979CD926C4FB410057C879 /* GoalFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C979CD826C4FB410057C879 /* GoalFormView.swift */; };
 		0C979CDE26C531260057C879 /* GoalFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C979CDD26C531260057C879 /* GoalFormViewModel.swift */; };
 		0C9C72EE26BC13F8005A3548 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C72ED26BC13F8005A3548 /* SettingsView.swift */; };
@@ -138,6 +139,7 @@
 		0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageMalam.json; sourceTree = "<group>"; };
 		0C62284326B18ECA00672AEA /* ReflectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionCell.swift; sourceTree = "<group>"; };
 		0C62284526B1AEB800672AEA /* ProgressBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBubble.swift; sourceTree = "<group>"; };
+		0C6DE87126C65A3E0087D166 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		0C979CD826C4FB410057C879 /* GoalFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalFormView.swift; sourceTree = "<group>"; };
 		0C979CDD26C531260057C879 /* GoalFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalFormViewModel.swift; sourceTree = "<group>"; };
 		0C9C72ED26BC13F8005A3548 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 			children = (
 				0C08BA5926B81A7A003399BE /* MotionManager.swift */,
 				0C0A88A426B9545B00D80AEE /* TimeHelper.swift */,
+				0C6DE87126C65A3E0087D166 /* NotificationHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -976,6 +979,7 @@
 				4EF4222726B84F6800EA7341 /* Question.swift in Sources */,
 				8696D10826BB9D9F00F80E0B /* SeederStaticQuotes.swift in Sources */,
 				4E59224426C56A8400FD565D /* SeederStaticGoal.swift in Sources */,
+				0C6DE87226C65A3E0087D166 /* NotificationHelper.swift in Sources */,
 				4E580EFA26B7E34E00229D9A /* CheckinSuccessView.swift in Sources */,
 				0C979CDE26C531260057C879 /* GoalFormViewModel.swift in Sources */,
 				0C0A88AB26B9A69500D80AEE /* WhiteButton.swift in Sources */,
