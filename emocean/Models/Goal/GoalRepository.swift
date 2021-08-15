@@ -12,6 +12,19 @@ struct GoalRepository {
     typealias Entity = Goal
     
     private var staticStore = SeederStaticGoal()
+    private var networkStore = SeederNetworkingGoal()
+    private var cancellables = Set<AnyCancellable>()
+    
+    func getAllData() -> AnyPublisher<[Entity], NetworkRequestError> {
+        
+        return networkStore
+            .getAllGoal()
+            .map({ data -> [Entity] in
+                return data.data
+            })
+            .eraseToAnyPublisher()
+        
+    }
     
     func getAllDummy() -> [Entity] {
         return staticStore.getData()

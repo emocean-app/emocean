@@ -80,7 +80,7 @@ struct GoalDetailView: View {
 
 struct GoalDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalDetailView(goal: Goal(goal: "Hello good Morning everyone", category: "Relationship", date: "25 January 2021", status: false))
+        GoalDetailView(goal: Goal(id: 0, goal: "Hello good Morning everyone", category: "Relationship", date: "25 January 2021", status: false))
             .previewLayout(.sizeThatFits)
             .padding(.horizontal,10)
             .background(Color.black)

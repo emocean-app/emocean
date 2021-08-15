@@ -7,5 +7,5 @@
 import Foundation
 
 struct Constant {
-    static let baseUrl = "https://emocean.farrelanshary.me/"
+    static let baseUrl = "https://emocean.me/"
 }
