@@ -165,27 +165,6 @@ extension CheckinFeelingsView {
             } // END: GROUP
         }
     }
-    // Fish Rod
-    var fishRod: some View {
-        VStack { // START: VSTACK
-            HStack { // START: HSTACK
-                Spacer()
-                Image("FishRod")
-                    .resizable()
-                    .frame(
-                        width: 44,
-                        height: 350
-                    )
-                    .offset(
-                        x: 0,
-                        y: animationOffset ? -30 : 0
-                    )
-            } // START: HSTACK
-            .padding(.trailing, 50)
-            Spacer()
-        } // END: VSTACK
-        .ignoresSafeArea()
-    }
 }
 
 // MARK: - METHODS

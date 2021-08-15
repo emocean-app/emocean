@@ -107,6 +107,7 @@ class CheckinViewModel: ObservableObject {
 }
 
 // MARK: - METHODS
+
 extension CheckinViewModel {
     /// Fetch all data needed from server
     func fetchData() {
