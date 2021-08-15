@@ -142,7 +142,6 @@ struct Page2: View {
             }
             .padding(.trailing, 30)
             .foregroundColor(theme == "Night" ? .white : .primary)
-            
         }
     }
 }

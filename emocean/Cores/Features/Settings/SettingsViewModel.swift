@@ -14,11 +14,12 @@ class SettingsViewModel: ObservableObject {
     @Published var reminder: Bool
     @Published var reminderTime: Date
     
-    var cancellable = Set<AnyCancellable>()
+    var notification = NotificationHelper()
     
+    var cancellable = Set<AnyCancellable>()
+
     init() {
         if let music = UserDefaults.standard.object(forKey: "music") as? Bool {
-            print(music)
             self.music = music
         } else {
             self.music = true
@@ -29,17 +30,19 @@ class SettingsViewModel: ObservableObject {
         } else {
             self.reduceMotion = false
         }
-        
-        if let reminder = UserDefaults.standard.object(forKey: "reminder") as? Bool {
-            self.reminder = reminder
-        } else {
-            self.reminder = false
-        }
 
         if let date = UserDefaults.standard.object(forKey: "reminderTime") as? Date {
-            reminderTime = date
+            self.reminderTime = date
         } else {
-            reminderTime = Date()
+            self.reminderTime = Date()
+        }
+
+        if let reminder = UserDefaults.standard.object(forKey: "reminder") as? Bool {
+            self.reminder = reminder
+            reminder ? self.notif(self.reminderTime) : self.notification.removeNotification()
+        } else {
+            self.reminder = false
+            self.notification.removeNotification()
         }
 
         setListeners()
@@ -62,7 +65,7 @@ class SettingsViewModel: ObservableObject {
                 UserDefaults.standard.setValue(result, forKey: "reduceMotion")
             }
             .store(in: &cancellable)
-        
+
         $reminder
             .sink { [weak self] result in
                 UserDefaults.standard.setValue(result, forKey: "reminder")
@@ -71,14 +74,31 @@ class SettingsViewModel: ObservableObject {
                     self?.reminderTime = Date()
                     UserDefaults.standard.setValue(nil, forKey: "reminderTime")
                 }
+
+                result ? self?.notif(self!.reminderTime) : self?.notification.removeNotification()
             }
             .store(in: &cancellable)
 
         $reminderTime
-            .sink { result in
+            .sink { [weak self] result in
                 UserDefaults.standard.setValue(result, forKey: "reminderTime")
+
+                if let reminder = self?.reminder,
+                   reminder {
+                    self?.notif(result)
+                } else {
+                    self?.notification.removeNotification()
+                }
             }
             .store(in: &cancellable)
+    }
+
+    func notif(_ time: Date) {
+        self.notification.setupNotification(
+            title: "Time to check in!",
+            body: "It is time to check in on your emotion for today",
+            time: time
+        )
     }
 
     func getTime() -> String {
