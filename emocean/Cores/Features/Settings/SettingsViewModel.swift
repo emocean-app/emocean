@@ -96,7 +96,7 @@ class SettingsViewModel: ObservableObject {
 
     func notif(_ time: Date) {
         NotificationHelper.setupNotification(
-            title: "It is time to catch you emotion!",
+            title: "It is time to catch your emotion!",
             body: "How are you feeling now?",
             time: time
         )
