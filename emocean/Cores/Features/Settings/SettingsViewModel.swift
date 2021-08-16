@@ -7,15 +7,16 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class SettingsViewModel: ObservableObject {
     @Published var music: Bool
     @Published var reduceMotion: Bool
     @Published var reminder: Bool
     @Published var reminderTime: Date
-    
+
     var notification = NotificationHelper()
-    
+
     var cancellable = Set<AnyCancellable>()
 
     init() {
@@ -24,7 +25,7 @@ class SettingsViewModel: ObservableObject {
         } else {
             self.music = true
         }
-        
+
         if let reduceMotion = UserDefaults.standard.object(forKey: "reduceMotion") as? Bool {
             self.reduceMotion = reduceMotion
         } else {
@@ -94,9 +95,9 @@ class SettingsViewModel: ObservableObject {
     }
 
     func notif(_ time: Date) {
-        self.notification.setupNotification(
-            title: "Time to check in!",
-            body: "It is time to check in on your emotion for today",
+        NotificationHelper.setupNotification(
+            title: "It is time to catch you emotion!",
+            body: "How are you feeling now?",
             time: time
         )
     }
