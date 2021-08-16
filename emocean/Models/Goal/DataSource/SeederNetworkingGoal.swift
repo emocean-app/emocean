@@ -34,6 +34,6 @@ extension SeederNetworkingGoal {
 //MARK: - RESPONSE MODELS
 extension SeederNetworkingGoal {
     struct GetResponse: Codable {
-        let data: [Goal]
+        let goals: [Goal]
     }
 }

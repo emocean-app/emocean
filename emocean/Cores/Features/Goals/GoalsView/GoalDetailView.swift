@@ -32,7 +32,7 @@ struct GoalDetailView: View {
     var body: some View {
         VStack (alignment: .leading){ // START: VSTACK
                 HStack { // START: HSTACK
-                    Text(goal.date)
+                    Text(goal.createdAt)
                         .font(.footnote)
                     Spacer()
                     Image(systemName: "xmark")
@@ -47,7 +47,7 @@ struct GoalDetailView: View {
                 .padding(.horizontal,25)
                 .padding(.top,25)
                 ScrollView{
-                    Text(goal.goal)
+                    Text(goal.content)
                         .padding(.horizontal,25)
                         .padding(.vertical)
                         .font(.body)
@@ -56,7 +56,7 @@ struct GoalDetailView: View {
                 .padding(.vertical,10)
                 Spacer()
                 HStack { // START: HSTACK
-                    if !goal.status {
+                    if !goal.completed {
                         CompleteButton(action: {})
                         EditButton(action: {})
                     }
@@ -80,7 +80,7 @@ struct GoalDetailView: View {
 
 struct GoalDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalDetailView(goal: Goal(id: 0, goal: "Hello good Morning everyone", category: "Relationship", date: "25 January 2021", status: false))
+        GoalDetailView(goal: Goal(id: 0, content: "Hello good Morning everyone",category: "Relationship", createdAt: "25 January 2021", completed: false))
             .previewLayout(.sizeThatFits)
             .padding(.horizontal,10)
             .background(Color.black)

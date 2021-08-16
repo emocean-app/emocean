@@ -97,6 +97,7 @@ class CheckinViewModel: ObservableObject {
     private var cancellable = Set<AnyCancellable>()
     private var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
     private var timerCancellable: AnyCancellable?
+    private var isfirst: Bool = true
     private var sec = 0.0
     // MARK: INIT
     init() {

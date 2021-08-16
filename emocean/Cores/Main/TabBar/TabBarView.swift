@@ -20,7 +20,7 @@ struct TabBarView: View {
             case .checkin:
                 MainView()
             case .goal:
-                WentFishingView()
+                GoalView()
             case .history:
                 WentFishingView()
             }

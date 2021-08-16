@@ -10,9 +10,9 @@ import Foundation
 struct Goal: Codable, Identifiable {
     
     let id: Int
-    let goal: String
-    let category: String
-    let date: String
-    let status: Bool
+    let content: String
+    let category: String?
+    let createdAt: String
+    let completed: Bool
     
 }

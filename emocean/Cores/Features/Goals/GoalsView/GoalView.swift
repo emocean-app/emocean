@@ -51,8 +51,8 @@ struct GoalView: View {
                 .padding()
                 List {
                     ForEach(goalViewModel.goals) { item in
-                        if selection == item.status {
-                            GoalCell(category: item.category, goal: item.goal, date: item.date, isCompleted: item.status)
+                        if selection == item.completed {
+                            GoalCell(category: item.category ?? "", goal: item.content, date: item.createdAt, isCompleted: item.completed)
                                 .onTapGesture {
                                     goalViewModel.getGoal =  item
                                     self.viewControllerHolder?.present(style: .overCurrentContext, transitionStyle: .crossDissolve) {

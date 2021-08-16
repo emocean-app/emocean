@@ -20,7 +20,7 @@ struct GoalRepository {
         return networkStore
             .getAllGoal()
             .map({ data -> [Entity] in
-                return data.data
+                return data.goals
             })
             .eraseToAnyPublisher()
         
