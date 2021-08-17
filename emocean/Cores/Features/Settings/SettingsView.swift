@@ -10,28 +10,28 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.presentationMode) private var presentationMode
     @Environment(\.colorScheme) private var colorScheme
-    @EnvironmentObject var vm: SettingsViewModel
-    
+    @EnvironmentObject var settingsVM: SettingsViewModel
+
     var body: some View {
         NavigationView {
             Form {
-                Toggle("Music", isOn: $vm.music)
-                Toggle("Reduce motion", isOn: $vm.reduceMotion)
+                Toggle("Music", isOn: $settingsVM.music)
+                Toggle("Reduce motion", isOn: $settingsVM.reduceMotion)
 
                 Section(footer: Text("Set the time and you will get notifications to remind you to reflect everyday")) {
-                    Toggle(isOn: $vm.reminder.animation(), label: {
+                    Toggle(isOn: $settingsVM.reminder.animation(), label: {
                         VStack(alignment: .leading) {
                             Text("Set reminder")
-                            if vm.reminder {
-                                Text(vm.getTime())
+                            if settingsVM.reminder {
+                                Text(settingsVM.getTime())
                                     .font(.caption)
                                     .foregroundColor(.blue)
                             }
                         }
                     })
 
-                    if vm.reminder {
-                        DatePicker("", selection: $vm.reminderTime, displayedComponents: .hourAndMinute)
+                    if settingsVM.reminder {
+                        DatePicker("", selection: $settingsVM.reminderTime, displayedComponents: .hourAndMinute)
                             .datePickerStyle(GraphicalDatePickerStyle())
                     }
                 }
@@ -43,6 +43,7 @@ struct SettingsView: View {
                     .foregroundColor(colorScheme == .light ? Color.theme.grayThird : Color.theme.grayPrimary)
             }))
             .navigationBarTitle(Text("Settings"))
+            .preferredColorScheme(Time().getMode())
         }
     }
 }

@@ -15,56 +15,50 @@ struct CheckinCategoryView: View {
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
-    
     // MARK: BODY
     var body: some View {
-        ZStack { // START: ZSTACK
-            GeometryReader {reader in
-                // content
-                ScrollView {
-                    let normalOffset = 0-reader.safeAreaInsets.top
-                    let animateoffset = 0 - reader.safeAreaInsets.top - 30
-                    
-                    ZStack {
-                        // fish rod
-                        VStack { // START: VSTACK
-                            HStack { // START: HSTACK
-                                Spacer()
-                                Image("FishRod")
-                                    .resizable()
-                                    .frame(
-                                        width: reader.size.width * 0.1,
-                                        height: reader.size.height * 0.4
-                                    )
-                                    .offset(
-                                        x: 0,
-                                        y: animationOffset ? animateoffset : normalOffset
-                                    )
-                            } // START: HSTACK
-                            .padding(.trailing, 50)
+        GeometryReader {reader in // START: GEO
+            // content
+            ScrollView { // START: SCROLLVIEW
+                let normalOffset = 0-reader.safeAreaInsets.top
+                let animateoffset = 0 - reader.safeAreaInsets.top - 30
+                ZStack { // START: ZSTACK
+                    // Fish Rod Image
+                    VStack { // START: VSTACK
+                        HStack { // START: HSTACK
                             Spacer()
-                        } // END: VSTACK
-                        .ignoresSafeArea()
-                        
-                        // content
-                        contentContainer
-                    }
-                    .frame(minHeight: reader.size.height)
-                }
-            }
-        } // END: ZSTACK
+                            Image("FishRod")
+                                .resizable()
+                                .frame(
+                                    width: reader.size.width * 0.1,
+                                    height: reader.size.height * 0.4
+                                )
+                                .offset(
+                                    x: 0,
+                                    y: animationOffset ? animateoffset : normalOffset
+                                )
+                        } // START: HSTACK
+                        .padding(.trailing, 50)
+                        Spacer()
+                    } // END: VSTACK
+                    .ignoresSafeArea()
+                    // Content
+                    contentContainer
+                } // END: ZSTACK
+                .frame(minHeight: reader.size.height)
+            } // END: SCROLLVIEW
+        } // START: SCROLLVIEW
     }
 }
 
 // MARK: - COMPONENTS
 extension CheckinCategoryView {
-    
+    // CONTENT
     var contentContainer: some View {
         VStack { // START: VSTACK
             // Question
             questionSection
             Spacer(minLength: 35)
-            
             // Image
             Image(env.getMoodImage())
                 .resizable()
@@ -77,12 +71,10 @@ extension CheckinCategoryView {
                     }
                 })
             Spacer(minLength: 35)
-            
             // Grid
             categorySection
-            
             // Button
-            PrimaryButton(content: {
+            PrimaryButton(content: { // START: BUTTON
                 Text("Yes!")
             }, maxWidth: 177) {
                 print("Primary Button Clicked")
@@ -91,32 +83,29 @@ extension CheckinCategoryView {
                         env.goToNextStep(isYes: true)
                     }
                 }
-            }
+            } // END: BUTTON
         } // END: VSTACK
     }
-    
+    // QUESTION
     var questionSection: some View {
         VStack { // START: VSTACK
-            Text("Please, tell me")
-            Text("what made you")
+            Text(env.getQuestion())
                 .bold()
-                .italic()
-            Text("feel \(env.getMoodName())?")
-                .bold()
-                .italic()
+                .frame(maxWidth: UIScreen.main.bounds.width * 0.7)
+                .multilineTextAlignment(.center)
         } // END: VSTACK
         .font(.title)
         .foregroundColor(Color.white)
         .padding(.top, 30)
     }
-    
+    // CATEGORY
     var categorySection: some View {
         TabView { // START: TABVIEW
-            ForEach(0..<3) { i in // START: FOREACH
+            ForEach(0..<3) { page in // START: FOREACH
                 VStack { // START: VSTACK
                     LazyVGrid(columns: columns, spacing: 20, content: { // START: VGRID
-                        ForEach(0..<8) { j in // START: FOREACH
-                            let idx = j + (8*i)
+                        ForEach(0..<8) { item in // START: FOREACH
+                            let idx = item + (8*page)
                             let model = env.categories[idx]
                             ButtonOutlined(
                                 text: model.name,
@@ -136,27 +125,6 @@ extension CheckinCategoryView {
         .tabViewStyle(PageTabViewStyle())
         .padding(.horizontal, 25)
         .frame(height: 370)
-    }
-    
-    var fishRod: some View {
-        VStack { // START: VSTACK
-            HStack { // START: HSTACK
-                Spacer()
-                Image("FishRod")
-                    .resizable()
-                    .frame(
-                        width: 44,
-                        height: 350
-                    )
-                    .offset(
-                        x: 0,
-                        y: animationOffset ? -30 : 0
-                    )
-            } // START: HSTACK
-            .padding(.trailing, 50)
-            Spacer()
-        } // END: VSTACK
-        .ignoresSafeArea()
     }
 }
 

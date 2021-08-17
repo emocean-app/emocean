@@ -11,6 +11,7 @@ struct CheckinSuccessView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var env: CheckinViewModel
+    @EnvironmentObject var settingsEnv: SettingsViewModel
     @State var showAlert: Bool = false
     @State var showAction: Bool = false
     let time = Time()
@@ -42,7 +43,12 @@ struct CheckinSuccessView: View {
                         Text("Thanks!")
                     }, maxWidth: 100, action: {
                         print(env.checkin.feedbacks)
-                        showAction.toggle()
+                        if UserDefaults.standard.object(forKey: "isFirstNotification") == nil,
+                           !settingsEnv.reminder {
+                            showAction.toggle()
+                        } else {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     })
                     .animation(.easeInOut(duration: 4))
                     .actionSheet(isPresented: $showAction, content: getActionSheet)
@@ -57,9 +63,13 @@ struct CheckinSuccessView: View {
     func getActionSheet() -> ActionSheet {
         
         let button1: ActionSheet.Button = .default(Text("Sure")){
+            settingsEnv.reminderTime = Date()
+            settingsEnv.reminder = true
             showAlert.toggle()
         }
-        let button2: ActionSheet.Button = .destructive(Text("No thanks!"))
+        let button2: ActionSheet.Button = .destructive(Text("No thanks!")){
+            presentationMode.wrappedValue.dismiss()
+        }
         let button3: ActionSheet.Button = .cancel()
         return ActionSheet(
             title: Text("Want to get reminded for \n your daily Check-In?"),
@@ -72,7 +82,7 @@ struct CheckinSuccessView: View {
     func getAllert() -> Alert {
         return Alert(
             title: Text("You’re all set!"),
-            message: Text("you will be reminded every night!"),
+            message: Text("You will be reminded everyday"),
             dismissButton: .default(Text("Okay"), action: {
             presentationMode.wrappedValue.dismiss()})
         )
@@ -140,7 +150,6 @@ struct Page2: View {
             }
             .padding(.trailing, 30)
             .foregroundColor(theme == "Night" ? .white : .primary)
-            
         }
     }
 }

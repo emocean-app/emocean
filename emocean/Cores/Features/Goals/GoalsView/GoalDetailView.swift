@@ -26,35 +26,41 @@ import SwiftUI
 struct GoalDetailView: View {
     // MARK: - PROPERTIES
     var goal: Goal
-//    @Binding var goal: String
-//    @Binding var date: String
-    @Binding var isShow: Bool
+    @State var value = 0.0
+    @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     private let clearColor = Color.clear
     var body: some View {
         VStack (alignment: .leading){ // START: VSTACK
-            if isShow {
                 HStack { // START: HSTACK
                     Text(goal.date)
                         .font(.footnote)
                     Spacer()
-                    Text("X")
-                        .bold()
+                    Image(systemName: "xmark")
+                        .resizable()
+                        .frame(width:20, height: 20)
                         .foregroundColor(.gray)
                         .onTapGesture {
-                            isShow = false
+                            //isShow = false
+                            self.viewControllerHolder?.dismiss(animated: true, completion: nil)
                         }
                 } // END: HSTACK
-                .padding(.horizontal)
-                .padding(.top)
-                //Spacer()
-                Text(goal.goal)
-                    .padding()
-                    .font(.body)
-                    .frame(width: .infinity)
+                .padding(.horizontal,25)
+                .padding(.top,25)
+                ScrollView{
+                    Text(goal.goal)
+                        .padding(.horizontal,25)
+                        .padding(.vertical)
+                        .font(.body)
+                        .frame(maxWidth: .infinity)
+                }
+                .padding(.vertical,10)
                 Spacer()
                 HStack { // START: HSTACK
-                    CompleteButton(action: {})
-                    EditButton(action: {})
+                    if !goal.status {
+                        CompleteButton(action: {})
+                        EditButton(action: {})
+                    }
+                    Spacer()
                     Image("Trash")
                         .resizable()
                         .foregroundColor(Color.theme.primary)
@@ -63,11 +69,10 @@ struct GoalDetailView: View {
                             // DEL FUNCTION
                         }
                 } // END: HSTACK
-                .padding(.horizontal)
+                .padding(.horizontal,25)
                 .padding(.bottom)
-            }
         } // END: VSTACK
-        .frame(height: 400)
+        .frame(minHeight: 200, maxHeight: 400)
         .background(Color.white)
         .cornerRadius(25)
     }
@@ -75,7 +80,7 @@ struct GoalDetailView: View {
 
 struct GoalDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalDetailView(goal: GoalList.getGoal.first!, isShow: .constant(true))
+        GoalDetailView(goal: Goal(goal: "Hello good Morning everyone", category: "Relationship", date: "25 January 2021", status: false))
             .previewLayout(.sizeThatFits)
             .padding(.horizontal,10)
             .background(Color.black)

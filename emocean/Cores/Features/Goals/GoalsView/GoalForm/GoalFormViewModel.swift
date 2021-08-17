@@ -1,32 +1,32 @@
 //
-//  CheckinCategoryViewModel.swift
+//  GoalFormViewModel.swift
 //  emocean
 //
-//  Created by Puras Handharmahua on 04/08/21.
+//  Created by Farrel Anshary on 12/08/21.
 //
+
 import Foundation
 import Combine
 
-class CheckinCategoryViewModel: ObservableObject {
-    let repository = CategoryRepository()
-    @Published var categories: [Category] = []
-    
+class GoalFormViewModel: ObservableObject {
+    private var categoryRepo = CategoryRepository()
     private var cancellable = Set<AnyCancellable>()
+
+    @Published var categories = [Category]()
     
     init() {
-        categories = repository.getAllDummy()
-        fetchAllData()
+        getAllData()
     }
-    
-    func fetchAllData() {
-        repository
+
+    private func getAllData() {
+        categoryRepo
             .getAllData()
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let err):
                     print(err.errorDescription ?? "Error")
                     guard let self = self else {return}
-                    self.categories = self.repository.getAllDummy()
+                    self.categories = self.categoryRepo.getAllDummy()
                 case .finished:
                     print("Finish")
                 }

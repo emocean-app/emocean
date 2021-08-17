@@ -47,7 +47,10 @@ struct MainView: View {
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                Text("I want to focusing on myself rather than focusing on other people on social media. Therefore I can achieve more things that matter to me. I want to start focusing on myself")
+                Text("I want to focusing on myself rather than focusing on other people on social"
+                     + "media. Therefore I can achieve more things that matter to me. I want to start"
+                     + "focusing on myself"
+                )
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.white)
                     .padding(.top, 1)
@@ -68,7 +71,15 @@ struct MainView: View {
             }
             .padding(.horizontal, 30)
             .padding(.vertical)
-            .background(LinearGradient(gradient: Gradient(colors: [Color.theme.seaTopGradient, Color.theme.seaBottomGradient]), startPoint: .top, endPoint: .bottom))
+            .background(
+                LinearGradient(
+                    gradient: Gradient(
+                        colors: [Color.theme.seaTopGradient, Color.theme.seaBottomGradient]
+                    ),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            )
         })
         .preferredColorScheme(time.getMode())
         .background(Color.theme.seaBottomGradient)

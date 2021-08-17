@@ -9,9 +9,24 @@ import SwiftUI
 
 @main
 struct EmoceanApp: App {
+    @State var isLaunchScreen = true
+    
     var body: some Scene {
         WindowGroup {
-            TabBarView()
+            Group {
+                if isLaunchScreen {
+                    LaunchScreenView()
+                } else {
+                    TabBarView()
+                }
+            }
+            .onAppear(perform: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    withAnimation(.easeInOut) {
+                        isLaunchScreen = false
+                    }
+                }
+            })
         }
     }
 }

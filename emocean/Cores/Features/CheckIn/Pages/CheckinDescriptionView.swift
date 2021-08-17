@@ -7,22 +7,18 @@
 import SwiftUI
 
 struct CheckinDescriptionView: View {
-    
     // MARK: PROPERTIES
     @EnvironmentObject var env: CheckinViewModel
     @State private var showTextField: Bool = false
     @State private var text: String = ""
     @State private var sec = 0.0
-    var timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    @State var timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     let time = Time()
-
     // MARK: BODY
     var body: some View {
         ZStack { // START: ZTACK
-            
             VStack(alignment: .center) { // START: VSTACK
                 Spacer(minLength: 35)
-                
                 Text(env.getQuestion())
                     .frame(maxWidth: .infinity, minHeight: 110, alignment: .bottom)
                     .padding()
@@ -30,30 +26,37 @@ struct CheckinDescriptionView: View {
                     .lineLimit(nil)
                     .multilineTextAlignment(.center)
                     .foregroundColor(time.timeRange == .night ? .white : Color.theme.primary)
-                
+                    .transition(.move(edge: .top))
+                // Show TextField or not
                 if showTextField {
                     MultilineTextField(text: $text, onCommit: {
                         print("Final text: \(text)")
                         if !text.isEmpty {
+                            if env.nextStepType() == .description {
+                                timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+                            }
+                            withAnimation(.easeInOut) {
+                                env.goToNextStep(isYes: true)
+                            }
                             env.saveFeedback(answer: text)
-                            env.goToNextStep(isYes: true)
+                            showTextField = false
+                            text = ""
                         }
                     })
                     .padding(.horizontal)
                 }
-                
                 Spacer()
-            }    .frame(
+            } // END: VSTACK
+            .frame(
                 minWidth: 0,
                 maxWidth: .infinity,
                 minHeight: 0,
                 maxHeight: .infinity,
                 alignment: .topLeading
-            ) // END: VSTACK
-            
+            )
         } // END: ZTACK
         .onReceive(timer, perform: { _ in
-            if sec == 2.5 {
+            if sec == Double(2.5) {
                 withAnimation(.easeInOut) {
                     showTextField = true
                 }
@@ -67,6 +70,7 @@ struct CheckinDescriptionView: View {
     }
 }
 
+// MARK: - PREVIEW
 struct CheckinDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
         CheckinDescriptionView()

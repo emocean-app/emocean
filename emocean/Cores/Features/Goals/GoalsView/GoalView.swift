@@ -8,20 +8,11 @@
 import SwiftUI
 
 struct GoalView: View {
-    @StateObject private var vm = GoalViewModel()
+    @StateObject private var goalViewModel = GoalViewModel()
+    @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     @State var selection: Bool = false
-    @State var selectedGoal: Goal = GoalList.getGoal.first!
-    @State var showModal: Bool = false
-    @State var goals: [Goal] = [
-        Goal(goal: "makan nasi seminggu sekali", category: "Work", date: "Sunday, 25 January", status: true),
-        Goal(goal: "Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd", category: "Relationship", date: "Monday, 26 January", status: false),
-        Goal(goal: "makan daging anjing dengan sayur kol", category: "Covid", date: "Tuesday, 27 January", status: true)
-    ]
-    //    @State var category: String = "Work"
-    //    @State var goal: String =  "Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd Hello Mr Crab adaasda daskdadmak adksadka adsnkd "
-    //    @State var date: String = "25 January 2020"
+    @State var isModalShown = false
     init() {
-        
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.theme.grayPrimary)
@@ -47,6 +38,9 @@ struct GoalView: View {
                         .overlay(RoundedRectangle(cornerRadius: 25)
                                     .stroke(Color.theme.grayPrimary, lineWidth: 2))
                         .foregroundColor(Color.theme.grayPrimary)
+                        .onTapGesture {
+                            isModalShown = true
+                        }
                 }
                 .padding(.horizontal,20)
                 Picker("Status", selection: $selection) {
@@ -55,36 +49,63 @@ struct GoalView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
-                
-                
                 List {
-                    ForEach(goals, id: \.self) { item in
+                    ForEach(goalViewModel.goals) { item in
                         if selection == item.status {
                             GoalCell(category: item.category, goal: item.goal, date: item.date, isCompleted: item.status)
                                 .onTapGesture {
-                                    self.showModal.toggle()
-                                    self.selectedGoal = item
+                                    goalViewModel.getGoal =  item
+                                    self.viewControllerHolder?.present(style: .overCurrentContext, transitionStyle: .crossDissolve) {
+                                        GoalDetailView(goal: item).padding()
+                                    }
+                                    
                                 }
                         }
                     }
-                    .onDelete(perform: delete)
+                    .onDelete(perform: goalViewModel.delete)
                     .listRowBackground(Color.clear)
                 }
-                
-//                .sheet(isPresented: $showModal, content: {
-//                    GoalDetailView(goal: self.selectedGoal, isShow: $showModal).padding()
-//                })
             }
-            GoalDetailView(goal: self.selectedGoal, isShow: $showModal).padding()
         }
-    }
-    func delete(indexSet: IndexSet) {
-        goals.remove(atOffsets: indexSet)
+        .sheet(isPresented: $isModalShown, content: {
+            GoalFormView(showModal: $isModalShown)
+        })
     }
 }
 
 struct GoalView_Previews: PreviewProvider {
     static var previews: some View {
         GoalView()
+    }
+}
+
+struct ViewControllerHolder {
+    weak var value: UIViewController?
+}
+
+struct ViewControllerKey: EnvironmentKey {
+    static var defaultValue: ViewControllerHolder {
+        return ViewControllerHolder(value: UIApplication.shared.windows.first?.rootViewController)
+    }
+}
+
+extension EnvironmentValues {
+    var viewController: UIViewController? {
+        get { return self[ViewControllerKey.self].value }
+        set { self[ViewControllerKey.self].value = newValue }
+    }
+}
+
+extension UIViewController {
+    func present<Content: View>(style: UIModalPresentationStyle = .automatic, transitionStyle: UIModalTransitionStyle = .coverVertical, @ViewBuilder builder: () -> Content) {
+        let toPresent = UIHostingController(rootView: AnyView(EmptyView()))
+        toPresent.modalPresentationStyle = style
+        toPresent.modalTransitionStyle = transitionStyle
+        toPresent.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        toPresent.rootView = AnyView(
+            builder()
+                .environment(\.viewController, toPresent)
+        )
+        self.present(toPresent, animated: true, completion: nil)
     }
 }
