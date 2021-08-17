@@ -10,103 +10,42 @@ import Combine
 
 class CheckinViewModel: ObservableObject {
     // MARK: PROPERTIES
-    // Dummy
-    static let steps: [Step] = [
-        Step(id: 1,
-             viewType: .feelings,
-             question: DummQuestion(id: 1, texts: [
-                 "How do you feel?"
-             ]),
-             nextYes: 2,
-             nextNo: 2,
-             totalQuestion: 1
-        ),
-        Step(
-            id: 2,
-            viewType: .category,
-            question: DummQuestion(id: 2, texts: [
-                "What is this emotion related to?"
-            ]),
-            nextYes: 3,
-            nextNo: 3,
-            totalQuestion: 1
-        ),
-        Step(
-            id: 3,
-            viewType: .observation,
-            question:  DummQuestion(id: 3, texts: [
-                ""
-            ]),
-            nextYes: 4,
-            nextNo: 4,
-            totalQuestion: 1
-        ),
-        Step(
-            id: 4,
-            viewType: .description,
-            question:  DummQuestion(id: 4, texts: [
-                "Tell me what’s happening inside you that's causing this emotion?",
-                "Why do you feel this way?",
-                "What could possibly happening inside yourself?",
-                "Does this emotion seem to repeat in your life and why?"
-            ]),
-            nextYes: 5,
-            nextNo: 5,
-            totalQuestion: 1
-        ),
-        Step(
-            id: 5,
-            viewType: .description,
-            question:  DummQuestion(id: 5, texts: [
-                "What do you need to feel better?",
-                "What is it that you truly want?",
-                "What do you need to mantain this state of mind?"
-            ]),
-            nextYes: 6,
-            nextNo: 6,
-            totalQuestion: 1
-        ),
-        Step(
-            id: 6,
-            viewType: .succes,
-            question:  DummQuestion(id: 6, texts: [
-                "Thank you for showing this part of you",
-                "Thank you for the courage to tell yourself what you feel",
-                "Thank you for giving yourself the time to reflect on yourself"
-            ]),
-            nextYes: 0,
-            nextNo: 0,
-            totalQuestion: 0
-        )
-    ]
     // View
     private var imageFullWidth = UIScreen.main.bounds.width * 2
     private let screenHeight = UIScreen.main.bounds.height
-    // Published
-    @Published var currentStep: Step = CheckinViewModel.steps[0]
-    @Published var checkin = Checkin(
-        idmood: 0,
-        categoriesId: 0,
-        feedbacks: []
-    )
-    @Published var moods: [Mood] = []
-    @Published var categories: [Category] = []
-    // others
-    private var moodRepo = MoodRepository()
-    private var categoryRepo = CategoryRepository()
-    private var cancellable = Set<AnyCancellable>()
     private var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
     private var timerCancellable: AnyCancellable?
     private var sec = 0.0
+    private var randomQuestionIndex = 0
+    // Published
+    private var steps: [CheckinStep] = []
+    @Published var currentStep: CheckinStep!
+    @Published var checkin = Checkin(
+        deviceId: UIDevice.current.identifierForVendor?.uuidString ?? "handhar simulator",
+        moodId: 0,
+        categoriesId: 0,
+        stories: []
+    )
+    @Published var moods: [Mood] = []
+    @Published var categories: [Category] = []
+    // Repos
+    private var moodRepo = MoodRepository()
+    private var categoryRepo = CategoryRepository()
+    private var checkinRepo = CheckinRepository()
+    private var questionRepo = QuestionRepository()
+    private var cancellable = Set<AnyCancellable>()
+    private var postResponse = ""
     // MARK: INIT
     init() {
         moods = moodRepo.getAllDummy()
         categories = categoryRepo.getAllDummy()
+        steps = Constant.CheckinSteps
+        currentStep = steps[0]
         fetchData()
     }
 }
 
-// MARK: - METHODS
+// MARK: - NETWORKING METHODS
 
 extension CheckinViewModel {
     /// Fetch all data needed from server
@@ -142,7 +81,44 @@ extension CheckinViewModel {
                 self?.categories = data
             }
             .store(in: &cancellable)
+        // Steps
+        questionRepo
+            .getAllData()
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let err):
+                    print(err.errorDescription ?? "ERROR")
+                    self?.currentStep = self?.steps[0]
+                case .finished:
+                    print("Finish")
+                    self?.currentStep = self?.steps[0]
+                }
+            } receiveValue: { [weak self] val in
+                self?.steps = val
+            }
+            .store(in: &cancellable)
     }
+    func addCheckin() {
+        checkinRepo
+            .postData(body: checkin)
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let err):
+                    print(err.errorDescription ?? "Error")
+                case .finished:
+                    print("Finsihed")
+                    print(self?.postResponse)
+                }
+            } receiveValue: { [weak self] data in
+                self?.postResponse = data
+            }
+            .store(in: &cancellable)
+    }
+}
+
+// MARK: - UI METHODS
+
+extension CheckinViewModel {
     /// Get the coral alignment for background animation
     /// - Returns: an Alignment
     func getCoralAlignment() -> Alignment {
@@ -174,10 +150,8 @@ extension CheckinViewModel {
     /// Change the checkin step forward
     /// - Parameter isYes: whether it's a NO or YES selection
     func goToNextStep(isYes: Bool) {
-        guard let stepYes = CheckinViewModel.steps.first(where: { $0.id == currentStep.nextYes }) else { return }
-        guard let stepNo = CheckinViewModel.steps.first(where: { $0.id == currentStep.nextNo }) else { return }
-        currentStep = isYes ? stepYes : stepNo
-        print(currentStep.id)
+        guard let next = steps.first(where: { $0.id == currentStep.next }) else { return }
+        currentStep = next
     }
     /// Get category item status curently selected or not
     /// - Parameter model: a Category
@@ -199,14 +173,27 @@ extension CheckinViewModel {
     /// Get the question for checkins
     /// - Returns: a String of question
     func getQuestion() -> String {
-        return currentStep.question.texts[0]
+        if currentStep.text != nil {
+            return currentStep.text!
+        }
+        let totalQuestion = currentStep.totalQuestion
+        guard totalQuestion != 0 else { return ""}
+        let randomInt = Int.random(in: 0..<totalQuestion)
+        randomQuestionIndex = currentStep.questions[randomInt].id
+        return currentStep.questions[randomInt].question
+    }
+    /// Get the static question/prompt for checkin
+    /// - Returns: String of question
+    func getStaticQuestion() -> String {
+        guard let text = currentStep.text else {return ""}
+        return text
     }
     /// Save the feedback answers
-    /// - Parameter answer: string of answer 
+    /// - Parameter answer: string of answer
     func saveFeedback(answer: String) {
-        let questionId = currentStep.question.id
-        let feedback = Feedback(idquestion: questionId, answer: answer)
-        checkin.feedbacks.append(feedback)
+        let questionId = randomQuestionIndex
+        let feedback = Feedback(questionId: questionId, story: answer)
+        checkin.stories.append(feedback)
     }
     /// Get the mood from the amount of energy and pleasentness
     /// - Parameters:
@@ -245,19 +232,19 @@ extension CheckinViewModel {
     /// Get the mood image path from the amount of energy and pleasentness
     /// - Returns: String of image path
     func getMoodImage() -> String {
-        let mood = moods.first(where: {$0.id == checkin.idmood})
+        let mood = moods.first(where: {$0.id == checkin.moodId})
         return mood?.imageUrl ?? "BuntelDua"
     }
     /// Get the mood name from the amount of energy and pleasentness
     /// - Returns: String of mood's name
     func getMoodName() -> String {
-        let mood = moods.first(where: {$0.id == checkin.idmood})
+        let mood = moods.first(where: {$0.id == checkin.moodId})
         return mood?.name ?? "Neutral"
     }
     /// Set the mood in for checkin
     /// - Parameter mood: an instance of mood
     func setMood(mood: Mood) {
-        checkin.idmood = mood.id
+        checkin.moodId = mood.id
     }
     /// Start Timer to go to next step
     func startTimer() {
@@ -279,35 +266,8 @@ extension CheckinViewModel {
     }
     /// Get the next step screen type
     /// - Returns: enum of screen type or nil
-    func nextStepType() -> ScreenState? {
-        guard let nextStep = CheckinViewModel.steps.first(where: { $0.id == currentStep.nextYes }) else {return nil}
+    func nextStepType() -> CheckinScreenState? {
+        guard let nextStep = steps.first(where: { $0.id == currentStep.next }) else {return nil}
         return nextStep.viewType
-    }
-}
-
-// MARK: - ENUM & STRUCT
-extension CheckinViewModel {
-    enum ScreenState {
-        case feelings
-        case description
-        case observation
-        case category
-        case succes
-        case prompt
-    }
-    struct Step {
-        let id: Int
-        let viewType: ScreenState
-        let question: DummQuestion
-        let nextYes: Int
-        let nextNo: Int
-        let totalQuestion: Int
-    }
-    struct DummQuestion {
-        let id: Int
-        let texts: [String]
-        var totalQuestion: Int {
-            return texts.count
-        }
     }
 }
