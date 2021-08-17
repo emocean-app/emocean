@@ -22,9 +22,9 @@
 		0C979CDE26C531260057C879 /* GoalFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C979CDD26C531260057C879 /* GoalFormViewModel.swift */; };
 		0C9C72EE26BC13F8005A3548 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C72ED26BC13F8005A3548 /* SettingsView.swift */; };
 		0C9C72F026BC22B6005A3548 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C72EF26BC22B6005A3548 /* SettingsViewModel.swift */; };
-		0C9F2D3E26CB9CE000CAC775 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F2D3D26CB9CE000CAC775 /* LaunchScreenView.swift */; };
 		0CB430B226BB98FA00FC8A34 /* CheckinFeelingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB430AF26BB98FA00FC8A34 /* CheckinFeelingsView.swift */; };
 		0CB430B326BB98FA00FC8A34 /* CheckinDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB430B026BB98FA00FC8A34 /* CheckinDescriptionView.swift */; };
+		0CB430B426BB98FA00FC8A34 /* CheckinObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB430B126BB98FA00FC8A34 /* CheckinObservationView.swift */; };
 		0CBD70C726B848FC00B6E59E /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBD70C626B848FC00B6E59E /* MainHeaderView.swift */; };
 		0CBD70C926B850DE00B6E59E /* ChartDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBD70C826B850DE00B6E59E /* ChartDescriptionView.swift */; };
 		0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE373326B06D440006FE66 /* PrimaryButton.swift */; };
@@ -144,9 +144,9 @@
 		0C979CDD26C531260057C879 /* GoalFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalFormViewModel.swift; sourceTree = "<group>"; };
 		0C9C72ED26BC13F8005A3548 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0C9C72EF26BC22B6005A3548 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		0C9F2D3D26CB9CE000CAC775 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		0CB430AF26BB98FA00FC8A34 /* CheckinFeelingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinFeelingsView.swift; sourceTree = "<group>"; };
 		0CB430B026BB98FA00FC8A34 /* CheckinDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinDescriptionView.swift; sourceTree = "<group>"; };
+		0CB430B126BB98FA00FC8A34 /* CheckinObservationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinObservationView.swift; sourceTree = "<group>"; };
 		0CBD70C626B848FC00B6E59E /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
 		0CBD70C826B850DE00B6E59E /* ChartDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDescriptionView.swift; sourceTree = "<group>"; };
 		0CDE373326B06D440006FE66 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
@@ -318,12 +318,6 @@
 				4E59224326C56A8400FD565D /* SeederStaticGoal.swift */,
 			);
 			path = DataSource;
-		0C9F2D3C26CB9CD200CAC775 /* LaunchScreen */ = {
-			isa = PBXGroup;
-			children = (
-				0C9F2D3D26CB9CE000CAC775 /* LaunchScreenView.swift */,
-			);
-			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		4E59223F26C4DEF300FD565D /* Goal */ = {
@@ -398,7 +392,6 @@
 		8696D0D526BB9B8C00F80E0B /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				0C9F2D3C26CB9CD200CAC775 /* LaunchScreen */,
 				4E67392D26B28A710037583E /* TabBar */,
 				0C08BA5826B7C0CE003399BE /* MainView */,
 			);
@@ -1004,7 +997,6 @@
 				8696D10C26BB9DB900F80E0B /* QotesRepository.swift in Sources */,
 				4EFF352026B9908000E7FC0D /* GoalViewModel.swift in Sources */,
 				0C9C72F026BC22B6005A3548 /* SettingsViewModel.swift in Sources */,
-				0C9F2D3E26CB9CE000CAC775 /* LaunchScreenView.swift in Sources */,
 				86DE2B1726B97211008F4623 /* HistoryView.swift in Sources */,
 				4E91CA1F26B1802C00387EE4 /* CategoryLabel.swift in Sources */,
 				8689DE3E26B6EFF50084403B /* EMCalendarViewModel.swift in Sources */,
@@ -1029,6 +1021,7 @@
 				0C0A88A526B9545B00D80AEE /* TimeHelper.swift in Sources */,
 				0CBD70C726B848FC00B6E59E /* MainHeaderView.swift in Sources */,
 				8696D10A26BB9DAB00F80E0B /* SeederNetworkingQuotes.swift in Sources */,
+				0CB430B426BB98FA00FC8A34 /* CheckinObservationView.swift in Sources */,
 				8696D11226BB9E1700F80E0B /* APIService.swift in Sources */,
 				4EB48B0926B39900004F04DD /* GoalView.swift in Sources */,
 				0C08BA5C26B81ADC003399BE /* MainView.swift in Sources */,
