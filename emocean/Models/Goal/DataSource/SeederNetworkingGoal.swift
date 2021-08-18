@@ -11,9 +11,19 @@ import Combine
 struct SeederNetworkingGoal {
     private var baseUrl = Constant.baseUrl
     
+    
+    func postGoal(body: [String: Any]) ->
+    AnyPublisher<PostResponse, NetworkRequestError> {
+        let apiService = APIService(baseURL: baseUrl)
+        return apiService
+            .dispatch(request: PostGoal(body: body))
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
     func getAllGoal(status: Bool) -> AnyPublisher<GetResponse, NetworkRequestError> {
         let apiService = APIService(baseURL: baseUrl)
-        
+
         var header: [String:String] = [
             "Content-Type": "application/json"
         ]
@@ -39,14 +49,11 @@ extension SeederNetworkingGoal {
         var body: [String : Any]?
     }
     
-    struct AddGoal: Request {
-        typealias ReturnType = [Goal]
-        var path: String = "api/goals"
+    struct PostGoal: Request {
+        typealias ReturnType = PostResponse
         var method: HTTPMethod = .POST
-        var body: [String : Any]?
-        init(body: [String: Any]) {
-            self.body = body
-        }
+        var path: String = "api/goals"
+        var body: [String: Any]?
     }
 }
 
@@ -54,5 +61,9 @@ extension SeederNetworkingGoal {
 extension SeederNetworkingGoal {
     struct GetResponse: Codable {
         let goals: [Goal]
+    }
+    
+    struct PostResponse: Codable {
+        let deviceId: String
     }
 }
