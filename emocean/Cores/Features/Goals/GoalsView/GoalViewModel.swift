@@ -28,6 +28,7 @@ class GoalViewModel: ObservableObject {
 
 //MARK: - METHODS
 extension GoalViewModel {
+    /// Fetch all data needed from server
     func fetchData(){
         goalRepo.getAllData()
             .sink { [weak self] completion in
@@ -43,6 +44,5 @@ extension GoalViewModel {
                 self?.goals = data
             }
             .store(in: &cancellable)
-
     }
 }
