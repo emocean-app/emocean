@@ -94,6 +94,10 @@
 		86A6D7F826B04E1C001C19E1 /* dummy5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F726B04E1C001C19E1 /* dummy5.swift */; };
 		86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */; };
 		86DE2B1726B97211008F4623 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2B1626B97211008F4623 /* HistoryView.swift */; };
+		E858BC0326CCBB310092E325 /* GoalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858BC0226CCBB310092E325 /* GoalTextView.swift */; };
+		E858BC0526CCBB400092E325 /* WeeklyPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858BC0426CCBB400092E325 /* WeeklyPrompt.swift */; };
+		E858BC0726CCBB4C0092E325 /* WeeklyLastGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858BC0626CCBB4C0092E325 /* WeeklyLastGoal.swift */; };
+		E858BC0926CCBB5D0092E325 /* WeeklyConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858BC0826CCBB5D0092E325 /* WeeklyConfirmation.swift */; };
 		E8B336EE26B9AA98001A62A9 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B336ED26B9AA98001A62A9 /* SliderView.swift */; };
 		E8E9D5A726B2EFB000D331EF /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E9D5A626B2EFB000D331EF /* TextField.swift */; };
 		E8EC034D26B7BB9800318CA7 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC034C26B7BB9800318CA7 /* LottieView.swift */; };
@@ -215,6 +219,10 @@
 		86A6D7F726B04E1C001C19E1 /* dummy5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy5.swift; sourceTree = "<group>"; };
 		86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonOutlined.swift; sourceTree = "<group>"; };
 		86DE2B1626B97211008F4623 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		E858BC0226CCBB310092E325 /* GoalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTextView.swift; sourceTree = "<group>"; };
+		E858BC0426CCBB400092E325 /* WeeklyPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyPrompt.swift; sourceTree = "<group>"; };
+		E858BC0626CCBB4C0092E325 /* WeeklyLastGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyLastGoal.swift; sourceTree = "<group>"; };
+		E858BC0826CCBB5D0092E325 /* WeeklyConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyConfirmation.swift; sourceTree = "<group>"; };
 		E8B336ED26B9AA98001A62A9 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		E8E9D5A626B2EFB000D331EF /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		E8EC034C26B7BB9800318CA7 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -368,6 +376,7 @@
 		8696D0D426BB9B8600F80E0B /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E858BC0126CCBB200092E325 /* Weekly */,
 				0C9C72EC26BC1350005A3548 /* Settings */,
 				8696D0D826BB9BB400F80E0B /* History */,
 				8696D0D726BB9BAF00F80E0B /* Goals */,
@@ -657,6 +666,7 @@
 				0C0A88AA26B9A69500D80AEE /* WhiteButton.swift */,
 				4E6CC39A26BBB8C60070D9A7 /* WentFishingView.swift */,
 				4E29B9FD26C14EB70089F3FA /* SoundManager.swift */,
+				E858BC0226CCBB310092E325 /* GoalTextView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -676,6 +686,16 @@
 				86DE2B1626B97211008F4623 /* HistoryView.swift */,
 			);
 			path = History;
+			sourceTree = "<group>";
+		};
+		E858BC0126CCBB200092E325 /* Weekly */ = {
+			isa = PBXGroup;
+			children = (
+				E858BC0426CCBB400092E325 /* WeeklyPrompt.swift */,
+				E858BC0626CCBB4C0092E325 /* WeeklyLastGoal.swift */,
+				E858BC0826CCBB5D0092E325 /* WeeklyConfirmation.swift */,
+			);
+			path = Weekly;
 			sourceTree = "<group>";
 		};
 		E8EC036926B7BCF700318CA7 /* Lottie */ = {
@@ -944,6 +964,7 @@
 				8696D11026BB9E0800F80E0B /* NetworkDispatcher.swift in Sources */,
 				E8E9D5A726B2EFB000D331EF /* TextField.swift in Sources */,
 				8696D10326BB9D7B00F80E0B /* QuestionRepository.swift in Sources */,
+				E858BC0326CCBB310092E325 /* GoalTextView.swift in Sources */,
 				8696D11A26BB9ED000F80E0B /* Constant.swift in Sources */,
 				0CBD70C926B850DE00B6E59E /* ChartDescriptionView.swift in Sources */,
 				0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */,
@@ -958,6 +979,7 @@
 				8655E97926BC071600DC9CFF /* CheckinView.swift in Sources */,
 				8696D10126BB9D6600F80E0B /* SeederNetworkingQuestion.swift in Sources */,
 				4EF4222726B84F6800EA7341 /* Question.swift in Sources */,
+				E858BC0926CCBB5D0092E325 /* WeeklyConfirmation.swift in Sources */,
 				8696D10826BB9D9F00F80E0B /* SeederStaticQuotes.swift in Sources */,
 				4E59224426C56A8400FD565D /* SeederStaticGoal.swift in Sources */,
 				0C6DE87226C65A3E0087D166 /* NotificationHelper.swift in Sources */,
@@ -975,6 +997,7 @@
 				0CB430B326BB98FA00FC8A34 /* CheckinDescriptionView.swift in Sources */,
 				866BC52B26B6D0C7008AA685 /* ReflectionDetailViewModel.swift in Sources */,
 				8696D0E826BB9C9500F80E0B /* SeederStaticCheckin.swift in Sources */,
+				E858BC0526CCBB400092E325 /* WeeklyPrompt.swift in Sources */,
 				0C62284426B18ECA00672AEA /* ReflectionCell.swift in Sources */,
 				86A6D7F826B04E1C001C19E1 /* dummy5.swift in Sources */,
 				866BC52926B6CD5A008AA685 /* ReflectionDetailView.swift in Sources */,
@@ -1002,6 +1025,7 @@
 				8689DE4026B6F8710084403B /* EMCalendar.swift in Sources */,
 				8655E97B26BC072E00DC9CFF /* CheckinViewModel.swift in Sources */,
 				0C9C72EE26BC13F8005A3548 /* SettingsView.swift in Sources */,
+				E858BC0726CCBB4C0092E325 /* WeeklyLastGoal.swift in Sources */,
 				8696D0E326BB9C5B00F80E0B /* SeederNetworkingCategory.swift in Sources */,
 				8696D0EE26BB9CD100F80E0B /* CheckinRepository.swift in Sources */,
 				868B0C2B26B26C7E0019A2B0 /* ThemeExtension.swift in Sources */,
