@@ -57,6 +57,8 @@
 		4EF8877426BD157B00D25DBA /* GoneFishingMorning.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EF8877126BD157B00D25DBA /* GoneFishingMorning.json */; };
 		4EF8877526BD157B00D25DBA /* GoneFishingNoon.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EF8877226BD157B00D25DBA /* GoneFishingNoon.json */; };
 		4EFF352026B9908000E7FC0D /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */; };
+		8641940126CBCE4000898CFC /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641940026CBCE4000898CFC /* Encodable.swift */; };
+		8641940426CC086700898CFC /* CheckinStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641940326CC086600898CFC /* CheckinStep.swift */; };
 		864B452E26B82EB000528ECF /* CheckinCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B452D26B82EB000528ECF /* CheckinCategoryView.swift */; };
 		8655E97926BC071600DC9CFF /* CheckinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655E97826BC071600DC9CFF /* CheckinView.swift */; };
 		8655E97B26BC072E00DC9CFF /* CheckinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655E97A26BC072E00DC9CFF /* CheckinViewModel.swift */; };
@@ -90,7 +92,6 @@
 		8696D11526BB9E3B00F80E0B /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696D11426BB9E3B00F80E0B /* Request.swift */; };
 		8696D11726BB9EB300F80E0B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696D11626BB9EB300F80E0B /* Repository.swift */; };
 		8696D11A26BB9ED000F80E0B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8696D11926BB9ED000F80E0B /* Constant.swift */; };
-		8699697C26BD7A9200D9FEB1 /* CheckinPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8699697B26BD7A9200D9FEB1 /* CheckinPromptView.swift */; };
 		86A6D7F626B04E13001C19E1 /* dummy4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F526B04E13001C19E1 /* dummy4.swift */; };
 		86A6D7F826B04E1C001C19E1 /* dummy5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F726B04E1C001C19E1 /* dummy5.swift */; };
 		86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */; };
@@ -179,6 +180,8 @@
 		4EF8877126BD157B00D25DBA /* GoneFishingMorning.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GoneFishingMorning.json; sourceTree = "<group>"; };
 		4EF8877226BD157B00D25DBA /* GoneFishingNoon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GoneFishingNoon.json; sourceTree = "<group>"; };
 		4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
+		8641940026CBCE4000898CFC /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		8641940326CC086600898CFC /* CheckinStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinStep.swift; sourceTree = "<group>"; };
 		864B452D26B82EB000528ECF /* CheckinCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinCategoryView.swift; sourceTree = "<group>"; };
 		8655E97826BC071600DC9CFF /* CheckinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinView.swift; sourceTree = "<group>"; };
 		8655E97A26BC072E00DC9CFF /* CheckinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinViewModel.swift; sourceTree = "<group>"; };
@@ -212,7 +215,6 @@
 		8696D11426BB9E3B00F80E0B /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		8696D11626BB9EB300F80E0B /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		8696D11926BB9ED000F80E0B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		8699697B26BD7A9200D9FEB1 /* CheckinPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinPromptView.swift; sourceTree = "<group>"; };
 		86A6D7F526B04E13001C19E1 /* dummy4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy4.swift; sourceTree = "<group>"; };
 		86A6D7F726B04E1C001C19E1 /* dummy5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy5.swift; sourceTree = "<group>"; };
 		86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonOutlined.swift; sourceTree = "<group>"; };
@@ -358,6 +360,14 @@
 				4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */,
 			);
 			path = GoalsView;
+			sourceTree = "<group>";
+		};
+		8641940226CC084500898CFC /* CheckinStep */ = {
+			isa = PBXGroup;
+			children = (
+				8641940326CC086600898CFC /* CheckinStep.swift */,
+			);
+			path = CheckinStep;
 			sourceTree = "<group>";
 		};
 		866BC52726B6CD49008AA685 /* ReflectionDetail */ = {
@@ -559,7 +569,6 @@
 		86A564F026C55C8D00CE8A7D /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				8699697B26BD7A9200D9FEB1 /* CheckinPromptView.swift */,
 				0CB430AF26BB98FA00FC8A34 /* CheckinFeelingsView.swift */,
 				0CB430B026BB98FA00FC8A34 /* CheckinDescriptionView.swift */,
 				0CB430B126BB98FA00FC8A34 /* CheckinObservationView.swift */,
@@ -589,6 +598,7 @@
 			children = (
 				868B0C2826B25DF70019A2B0 /* ColorExtension.swift */,
 				868B0C2A26B26C7E0019A2B0 /* ThemeExtension.swift */,
+				8641940026CBCE4000898CFC /* Encodable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -629,6 +639,7 @@
 		86DA0AC526AF0F3500FA2C53 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8641940226CC084500898CFC /* CheckinStep */,
 				4E59223F26C4DEF300FD565D /* Goal */,
 				8696D0DE26BB9C2E00F80E0B /* Quotes */,
 				8696D0DD26BB9C2400F80E0B /* Question */,
@@ -945,7 +956,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8699697C26BD7A9200D9FEB1 /* CheckinPromptView.swift in Sources */,
 				0C08BA5A26B81A7A003399BE /* MotionManager.swift in Sources */,
 				8696D10E26BB9DEE00F80E0B /* NetworkRequestError.swift in Sources */,
 				0CB430B226BB98FA00FC8A34 /* CheckinFeelingsView.swift in Sources */,
@@ -987,6 +997,7 @@
 				8696D0F526BB9D1800F80E0B /* FeedbackRepository.swift in Sources */,
 				4E59224126C4DF0200FD565D /* Goal.swift in Sources */,
 				0CB430B326BB98FA00FC8A34 /* CheckinDescriptionView.swift in Sources */,
+				8641940426CC086700898CFC /* CheckinStep.swift in Sources */,
 				866BC52B26B6D0C7008AA685 /* ReflectionDetailViewModel.swift in Sources */,
 				8696D0E826BB9C9500F80E0B /* SeederStaticCheckin.swift in Sources */,
 				0C62284426B18ECA00672AEA /* ReflectionCell.swift in Sources */,
@@ -1028,6 +1039,7 @@
 				8696D11526BB9E3B00F80E0B /* Request.swift in Sources */,
 				868B0C2926B25DF70019A2B0 /* ColorExtension.swift in Sources */,
 				4E67393226B28D680037583E /* TabBar.swift in Sources */,
+				8641940126CBCE4000898CFC /* Encodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

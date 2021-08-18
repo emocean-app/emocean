@@ -93,7 +93,6 @@ struct CheckinView: View {
 }
 
 // MARK: - Components
-
 extension CheckinView {
     // Views Selection
     var viewsSelection: some View {
@@ -115,8 +114,6 @@ extension CheckinView {
                     .onAppear(perform: {
                         viewModel.startTimer()
                     })
-            case .prompt:
-               CheckinPromptView()
             }
         }
     }
@@ -153,7 +150,6 @@ extension CheckinView {
 }
 
 // MARK: - PREVIEW
-
 struct CheckinView_Previews: PreviewProvider {
     static var previews: some View {
         CheckinView()
