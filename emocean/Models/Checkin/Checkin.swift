@@ -7,7 +7,8 @@
 
 import Foundation
 struct Checkin: Codable {
-    var idmood: Int
-    var categoriesId: Int
-    var feedbacks: [Feedback]
+    var deviceId: String = ""
+    var moodId: Int
+    var categoryId: Int
+    var stories: [Feedback]
 }

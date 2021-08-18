@@ -7,9 +7,11 @@
 
 import Foundation
 
-struct Questions: Codable {
+struct Question: Codable {
     let id: Int
     let question: String
+    let sequence: Int
+    let type: String?
 }
 
 enum QuestionType: Int, Codable {

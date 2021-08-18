@@ -152,13 +152,12 @@ extension CheckinFeelingsView {
                     PrimaryButton(content: { // START: BUTTON
                         Text("I do feel that!")
                     }, maxWidth: 177) {
-                        print("Primary Button Clicked")
                         withAnimation(
                             .easeInOut(duration: 0.5)
                         ) {
                             guard let mood = env.getMood(energy: getEnergy, pleasent: getPleasentness) else {return}
                             env.setMood(mood: mood)
-                            env.goToNextStep(isYes: true)
+                            env.goToNextStep()
                         }
                     } // END: BUTTON
                 } // END: H\VSTACK

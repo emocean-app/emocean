@@ -77,10 +77,9 @@ extension CheckinCategoryView {
             PrimaryButton(content: { // START: BUTTON
                 Text("Yes!")
             }, maxWidth: 177) {
-                print("Primary Button Clicked")
                 withAnimation(.easeInOut(duration: 1)) {
-                    if env.checkin.categoriesId != 0 {
-                        env.goToNextStep(isYes: true)
+                    if env.checkin.categoryId != 0 {
+                        env.goToNextStep()
                     }
                 }
             } // END: BUTTON

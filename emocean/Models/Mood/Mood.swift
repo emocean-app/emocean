@@ -8,14 +8,15 @@
 import Foundation
 
 struct Mood: Identifiable, Codable {
-    
     let id: Int
     let name: String
     let description: String
     let imageUrl: String
     let energy: Int
     let pleasent: Int
-    
+    var moodType: String {
+        return pleasent <= 5 ? "NEGATIVE" : "POSITIVE"
+    }
     enum CodingKeys: String, CodingKey {
         case id
         case name

@@ -7,6 +7,6 @@
 
 import Foundation
 struct Feedback: Codable {
-    let idquestion: Int
-    let answer: String
+    let questionId: Int
+    let story: String
 }

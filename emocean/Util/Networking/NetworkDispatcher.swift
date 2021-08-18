@@ -8,12 +8,13 @@ import Foundation
 import Combine
 
 struct NetworkDispatcher {
+    // PROPERTIES
     let urlSession: URLSession!
-    
+    // INIT
     public init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
     }
-    
+    // METHODS
     /// Dispatches an URLRequest and returns a publisher
     /// - Parameter request: URLRequest
     /// - Returns: A publisher with the provided decoded data or an error
@@ -26,7 +27,6 @@ struct NetworkDispatcher {
                    !(200...299).contains(response.statusCode) {
                     throw httpError(response.statusCode)
                 }
-                
                 return data
             })
             .decode(type: ReturnType.self, decoder: JSONDecoder()) // Decode data using our ReturnType
@@ -38,6 +38,7 @@ struct NetworkDispatcher {
 }
 
 // MARK: - ERROR HANDLER
+
 extension NetworkDispatcher {
     /// Parses a HTTP StatusCode and returns a proper error
     /// - Parameter statusCode: HTTP status code
@@ -54,7 +55,6 @@ extension NetworkDispatcher {
         default: return .unknownError
         }
     }
-    
     /// Parses URLSession Publisher errors and return proper ones
     /// - Parameter error: URLSession publisher error
     /// - Returns: Readable NetworkRequestError

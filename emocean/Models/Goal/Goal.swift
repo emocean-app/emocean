@@ -8,11 +8,9 @@
 import Foundation
 
 struct Goal: Codable, Identifiable {
-    
-    let id: String = UUID().uuidString
+    var id: String = UUID().uuidString
     let goal: String
     let category: String
     let date: String
     let status: Bool
-    
 }
