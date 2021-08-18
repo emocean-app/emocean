@@ -30,7 +30,6 @@ struct CheckinDescriptionView: View {
                 // Show TextField or not
                 if showTextField {
                     MultilineTextField(text: $text, onCommit: {
-                        print("Final text: \(text)")
                         if !text.isEmpty {
                             if env.nextStepType() == .description {
                                 timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()

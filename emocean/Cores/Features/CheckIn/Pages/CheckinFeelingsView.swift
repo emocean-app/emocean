@@ -152,7 +152,6 @@ extension CheckinFeelingsView {
                     PrimaryButton(content: { // START: BUTTON
                         Text("I do feel that!")
                     }, maxWidth: 177) {
-                        print("Primary Button Clicked")
                         withAnimation(
                             .easeInOut(duration: 0.5)
                         ) {

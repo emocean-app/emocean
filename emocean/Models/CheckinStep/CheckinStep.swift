@@ -17,6 +17,13 @@ struct CheckinStep {
     var totalQuestion: Int {
         return questions.count
     }
+    var isSentiment: Bool {
+        guard totalQuestion > 0,
+              questions[0].type != nil else {
+            return false
+        }
+        return true
+    }
 }
 
 enum CheckinScreenState {
@@ -25,5 +32,4 @@ enum CheckinScreenState {
     case observation
     case category
     case succes
-    case prompt
 }

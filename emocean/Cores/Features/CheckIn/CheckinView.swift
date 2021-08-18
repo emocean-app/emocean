@@ -115,8 +115,6 @@ extension CheckinView {
                     .onAppear(perform: {
                         viewModel.startTimer()
                     })
-            case .prompt:
-               CheckinPromptView()
             }
         }
     }

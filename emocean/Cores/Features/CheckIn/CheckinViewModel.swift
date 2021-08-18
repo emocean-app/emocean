@@ -59,7 +59,7 @@ extension CheckinViewModel {
                     guard let self = self else {return}
                     self.moods = self.moodRepo.getAllDummy()
                 case .finished:
-                    print("Finish")
+                    print("Finish get all moods")
                 }
             } receiveValue: { [weak self] data in
                 self?.moods = data
@@ -75,7 +75,7 @@ extension CheckinViewModel {
                     guard let self = self else {return}
                     self.categories = self.categoryRepo.getAllDummy()
                 case .finished:
-                    print("Finish")
+                    print("Finish get all categories")
                 }
             } receiveValue: { [weak self] data in
                 self?.categories = data
@@ -90,7 +90,7 @@ extension CheckinViewModel {
                     print(err.errorDescription ?? "ERROR")
                     self?.currentStep = self?.steps[0]
                 case .finished:
-                    print("Finish")
+                    print("Finish get all questions")
                     self?.currentStep = self?.steps[0]
                 }
             } receiveValue: { [weak self] val in
@@ -98,6 +98,7 @@ extension CheckinViewModel {
             }
             .store(in: &cancellable)
     }
+    /// Add Checkin to the server
     func addCheckin() {
         checkinRepo
             .postData(body: checkin)
@@ -106,7 +107,7 @@ extension CheckinViewModel {
                 case .failure(let err):
                     print(err.errorDescription ?? "Error")
                 case .finished:
-                    print("Finsihed")
+                    print("Finsihed post checkin")
 //                    print(self?.postResponse)
                 }
             } receiveValue: { [weak self] data in
@@ -115,6 +116,7 @@ extension CheckinViewModel {
             .store(in: &cancellable)
     }
 }
+
 // MARK: - UI METHODS
 
 extension CheckinViewModel {
@@ -151,10 +153,18 @@ extension CheckinViewModel {
     func goToNextStep() {
         guard let next = steps.first(where: { $0.id == currentStep.next }) else { return }
         currentStep = next
+        // Select The Question
         guard currentStep.text == nil,
               currentStep.totalQuestion > 0 else { return }
-        let randomInt = Int.random(in: 0..<currentStep.totalQuestion)
-        activePrompt = currentStep.questions[randomInt]
+        if currentStep.isSentiment {
+            guard let mood = getMood() else { return }
+            let questionArr = currentStep.questions.filter({ $0.type! == mood.moodType })
+            let randomInt = Int.random(in: 0..<questionArr.count)
+            activePrompt = questionArr[randomInt]
+        } else {
+            let randomInt = Int.random(in: 0..<currentStep.totalQuestion)
+            activePrompt = currentStep.questions[randomInt]
+        }
     }
     /// Get category item status curently selected or not
     /// - Parameter model: a Category
@@ -203,6 +213,12 @@ extension CheckinViewModel {
     /// - Returns: an instance of Mood
     func getMood(energy: Int, pleasent: Int) -> Mood? {
         guard let mood = moods.first(where: {$0.energy == energy && $0.pleasent == pleasent }) else { return nil }
+        return mood
+    }
+    /// Get the current selected mood
+    /// - Returns: an instance of Mood
+    func getMood() -> Mood? {
+        guard let mood = moods.first(where: {$0.id == checkin.moodId}) else {return nil}
         return mood
     }
     /// Get the mood description from the amount of energy and pleasentness
