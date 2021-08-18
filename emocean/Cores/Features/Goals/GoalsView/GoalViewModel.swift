@@ -14,7 +14,7 @@ class GoalViewModel: ObservableObject {
     @Published var goals: [Goal] = []
     private var cancellable = Set<AnyCancellable>()
     private var goalRepo = GoalRepository()
-    var getGoal: Goal = Goal(id: 0, content: "" ,category: "", createdAt: "", completed: false)
+    var getGoal: Goal = Goal(id: 0, content: "" ,category: Category(id: 0, name: ""), createdAt: "", completed: false)
     init() {
         //goals = goalRepo.getAllDummy()
         fetchData()
@@ -34,6 +34,7 @@ extension GoalViewModel {
                 switch completion {
                 case .failure(let err):
                     print(err.errorDescription ?? "" + " goal")
+                    //print("\(UIDevice.current.identifierForVendor?.uuidString)" + "test")
                     guard let self = self else {return}
                     self.goals = self.goalRepo.getAllDummy()
                 case .finished:
