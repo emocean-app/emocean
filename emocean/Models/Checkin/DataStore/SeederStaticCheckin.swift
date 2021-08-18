@@ -13,7 +13,4 @@ struct SeederStaticCheckin {
     func postCheckin() -> String {
         return "dummy-device"
     }
-//    func getCheckin() -> {
-//        
-//    }
 }
