@@ -30,6 +30,14 @@ struct GoalRepository {
         return staticStore.getData()
     }
     
+    func postData(body: Goalpost) -> AnyPublisher<String,NetworkRequestError> {
+        return networkStore
+            .postGoal(body: body.asDictionary)
+            .map({ data in
+                return data.deviceId
+            })
+            .eraseToAnyPublisher()
+    }
 //        func addGoal() {
 //            let baseUrl = Constant.baseUrl
 //            let deviceId = UIDevice.current.identifierForVendor?.uuidString

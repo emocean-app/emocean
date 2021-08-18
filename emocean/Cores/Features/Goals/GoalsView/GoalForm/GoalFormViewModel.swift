@@ -11,6 +11,12 @@ import Combine
 
 class GoalFormViewModel: ObservableObject {
     private var categoryRepo = CategoryRepository()
+    private var goalRepo = GoalRepository()
+    private var postResponse = ""
+    @Published var goal = Goalpost(
+        deviceId: "\(UIDevice.current.identifierForVendor?.uuidString ?? "simulator")",
+        content: "",
+        categoryId: 0)
     private var cancellable = Set<AnyCancellable>()
 
     @Published var categories = [Category]()
@@ -37,5 +43,21 @@ class GoalFormViewModel: ObservableObject {
             .store(in: &cancellable)
     }
     
+    func addGoal() {
+        goalRepo
+            .postData(body: goal)
+            .sink { completion in
+                switch completion {
+                case .failure(let err):
+                    print(err.errorDescription ?? "Error")
+                case .finished:
+                    print("Finsihed post Goal")
+                    print(self.postResponse)
+                }
+            } receiveValue: { [weak self] data in
+                self?.postResponse = data
+            }
+            .store(in: &cancellable)
+    }
 
 }

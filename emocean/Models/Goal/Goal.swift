@@ -19,5 +19,10 @@ struct Goal: Codable, Identifiable {
     
 }
 
+struct Goalpost: Codable {
+    let deviceId: String
+    let content: String
+    let categoryId: Int
+}
 
 

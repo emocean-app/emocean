@@ -11,6 +11,7 @@ struct CheckinSuccessView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var env: CheckinViewModel
+    @EnvironmentObject var settingsEnv: SettingsViewModel
     @State var showAlert: Bool = false
     @State var showAction: Bool = false
     @State var isfirst: Bool = true

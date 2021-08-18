@@ -35,7 +35,7 @@ struct GoalFormView: View {
                     Text("Cancel")
                         .font(.body)
                 }), trailing: Button(action: {
-                    //viewModel.addGoal()
+                    viewModel.addGoal()
                 }, label: {
                     Text("Save")
                 })
