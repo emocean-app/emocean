@@ -11,11 +11,19 @@ import Combine
 struct SeederNetworkingGoal {
     private var baseUrl = Constant.baseUrl
     
-    func getAllGoal() -> AnyPublisher<GetResponse, NetworkRequestError> {
+    func getAllGoal(status: Bool) -> AnyPublisher<GetResponse, NetworkRequestError> {
         let apiService = APIService(baseURL: baseUrl)
         
+        var header: [String:String] = [
+            "Content-Type": "application/json"
+        ]
+        var body: [String:Any] = [
+            "deviceId": "80BE2160-E98C-4C9A-B77F-66ECEB04EBAC",
+            "status": status
+        ]
+
         return apiService
-            .dispatch(request: GetAllGoals())
+            .dispatch(request: GetAllGoals(headers: header, body: body))
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
@@ -27,8 +35,19 @@ extension SeederNetworkingGoal {
     struct GetAllGoals: Request {
         typealias ReturnType = GetResponse
         var path: String = "api/goals"
+        var headers: [String : String]?
+        var body: [String : Any]?
     }
     
+    struct AddGoal: Request {
+        typealias ReturnType = [Goal]
+        var path: String = "api/goals"
+        var method: HTTPMethod = .POST
+        var body: [String : Any]?
+        init(body: [String: Any]) {
+            self.body = body
+        }
+    }
 }
 
 //MARK: - RESPONSE MODELS

@@ -32,7 +32,7 @@ struct GoalDetailView: View {
     var body: some View {
         VStack (alignment: .leading){ // START: VSTACK
                 HStack { // START: HSTACK
-                    Text(goal.createdAt)
+                    Text("sdasda")
                         .font(.footnote)
                     Spacer()
                     Image(systemName: "xmark")
@@ -80,7 +80,7 @@ struct GoalDetailView: View {
 
 struct GoalDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalDetailView(goal: Goal(id: 0, content: "Hello good Morning everyone",category: Category(id: 0, name: "Work"), createdAt: "25 January 2021", completed: false))
+        GoalDetailView(goal: Goal(id: 0,content: "Work", completed: false , createdAt: "25 January 2021", categoryId: 2))
             .previewLayout(.sizeThatFits)
             .padding(.horizontal,10)
             .background(Color.black)

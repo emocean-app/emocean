@@ -18,7 +18,7 @@ struct GoalRepository {
     func getAllData() -> AnyPublisher<[Entity], NetworkRequestError> {
         
         return networkStore
-            .getAllGoal()
+            .getAllGoal(status: false)
             .map({ data -> [Entity] in
                 return data.goals
             })
@@ -29,4 +29,19 @@ struct GoalRepository {
     func getAllDummy() -> [Entity] {
         return staticStore.getData()
     }
+    
+//        func addGoal() {
+//            let baseUrl = Constant.baseUrl
+//            let deviceId = UIDevice.current.identifierForVendor?.uuidString
+//            let goal: [String: Any] = ["deviceId": deviceId,
+//                                       "content": "bakso telor",
+//                                       "categoryId": 5]
+//            let apiService = APIService(baseURL: baseUrl)
+//            apiService.dispatch(request: AddGoal(body: goal))
+//                .sink(receiveCompletion: { result in
+//                    print(UIDevice.current.identifierForVendor?.uuidString)
+//                    print(result)
+//                }, receiveValue: { _ in })
+//                .store(in: &cancellable)
+//        }
 }

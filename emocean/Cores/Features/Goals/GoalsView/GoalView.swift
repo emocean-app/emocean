@@ -52,7 +52,7 @@ struct GoalView: View {
                 List {
                     ForEach(goalViewModel.goals) { item in
                         if selection == item.completed {
-                            GoalCell(category: item.category?.name ?? "", goal: item.content, date: item.createdAt, isCompleted: item.completed)
+                            GoalCell(category: "item.category" ?? "", goal: item.content, date: item.createdAt, isCompleted: item.completed)
                                 .onTapGesture {
                                     goalViewModel.getGoal =  item
                                     self.viewControllerHolder?.present(style: .overCurrentContext, transitionStyle: .crossDissolve) {
