@@ -14,7 +14,6 @@
 		0C0A88AB26B9A69500D80AEE /* WhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0A88AA26B9A69500D80AEE /* WhiteButton.swift */; };
 		0C0D672E26B2E8C2005925E4 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 0C0D672D26B2E8C2005925E4 /* WrappingHStack */; };
 		0C0D673226B3A8F0005925E4 /* EmotionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D673126B3A8F0005925E4 /* EmotionChart.swift */; };
-		0C3976B326CCBFF80063CF55 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3976B226CCBFF80063CF55 /* OnboardingView.swift */; };
 		0C3F042D26B9B75F00844F23 /* AnimasiHomepageMalam.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */; };
 		0C62284426B18ECA00672AEA /* ReflectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284326B18ECA00672AEA /* ReflectionCell.swift */; };
 		0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284526B1AEB800672AEA /* ProgressBubble.swift */; };
@@ -138,7 +137,6 @@
 		0C0A88A426B9545B00D80AEE /* TimeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHelper.swift; sourceTree = "<group>"; };
 		0C0A88AA26B9A69500D80AEE /* WhiteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteButton.swift; sourceTree = "<group>"; };
 		0C0D673126B3A8F0005925E4 /* EmotionChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionChart.swift; sourceTree = "<group>"; };
-		0C3976B226CCBFF80063CF55 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageMalam.json; sourceTree = "<group>"; };
 		0C62284326B18ECA00672AEA /* ReflectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionCell.swift; sourceTree = "<group>"; };
 		0C62284526B1AEB800672AEA /* ProgressBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBubble.swift; sourceTree = "<group>"; };
@@ -288,14 +286,6 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		0C3976B126CCB9DA0063CF55 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				0C3976B226CCBFF80063CF55 /* OnboardingView.swift */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
 		0C979CDA26C525CF0057C879 /* GoalForm */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,24 +302,6 @@
 				0C9C72EF26BC22B6005A3548 /* SettingsViewModel.swift */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		4E59223F26C4DEF300FD565D /* Goal */ = {
-			isa = PBXGroup;
-			children = (
-				4E59224226C56A6E00FD565D /* DataSource */,
-				4E59224026C4DF0200FD565D /* Goal.swift */,
-				4E59224526C56AED00FD565D /* GoalRepository.swift */,
-			);
-			path = Goal;
-			sourceTree = "<group>";
-		};
-		4E59224226C56A6E00FD565D /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				4E59224326C56A8400FD565D /* SeederStaticGoal.swift */,
-			);
-			path = DataSource;
 			sourceTree = "<group>";
 		};
 		4E59223F26C4DEF300FD565D /* Goal */ = {
@@ -412,8 +384,6 @@
 		8696D0D526BB9B8C00F80E0B /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				0C3976B126CCB9DA0063CF55 /* Onboarding */,
-				0C9F2D3C26CB9CD200CAC775 /* LaunchScreen */,
 				4E67392D26B28A710037583E /* TabBar */,
 				0C08BA5826B7C0CE003399BE /* MainView */,
 			);
@@ -1050,7 +1020,6 @@
 				0C08BA5C26B81ADC003399BE /* MainView.swift in Sources */,
 				8696D11526BB9E3B00F80E0B /* Request.swift in Sources */,
 				868B0C2926B25DF70019A2B0 /* ColorExtension.swift in Sources */,
-				0C3976B326CCBFF80063CF55 /* OnboardingView.swift in Sources */,
 				4E67393226B28D680037583E /* TabBar.swift in Sources */,
 				8641940126CBCE4000898CFC /* Encodable.swift in Sources */,
 			);
