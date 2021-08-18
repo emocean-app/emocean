@@ -13,10 +13,10 @@ class GoalFormViewModel: ObservableObject {
     private var categoryRepo = CategoryRepository()
     private var goalRepo = GoalRepository()
     private var postResponse = ""
-    @Published var goal = Goalpost(
+    var goalpost = Goalpost(
         deviceId: "\(UIDevice.current.identifierForVendor?.uuidString ?? "simulator")",
         content: "",
-        categoryId: 0)
+        categoryId: 5)
     private var cancellable = Set<AnyCancellable>()
 
     @Published var categories = [Category]()
@@ -45,7 +45,7 @@ class GoalFormViewModel: ObservableObject {
     
     func addGoal() {
         goalRepo
-            .postData(body: goal)
+            .postData(body: goalpost)
             .sink { completion in
                 switch completion {
                 case .failure(let err):
