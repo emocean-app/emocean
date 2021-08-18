@@ -19,7 +19,7 @@ class CheckinViewModel: ObservableObject {
     private var activePrompt: Question?
     // Published
     private var steps: [CheckinStep] = []
-    @Published var currentStep: CheckinStep!
+    @Published var currentStep: CheckinStep
     @Published var checkin = Checkin(
         deviceId: "\(UIDevice.current.identifierForVendor?.uuidString ?? "simulator")",
         moodId: 0,
@@ -85,13 +85,14 @@ extension CheckinViewModel {
         questionRepo
             .getAllData()
             .sink { [weak self] completion in
+                guard let self = self else {return}
                 switch completion {
                 case .failure(let err):
                     print(err.errorDescription ?? "ERROR")
-                    self?.currentStep = self?.steps[0]
+                    self.currentStep = self.steps[0]
                 case .finished:
                     print("Finish get all questions")
-                    self?.currentStep = self?.steps[0]
+                    self.currentStep = self.steps[0]
                 }
             } receiveValue: { [weak self] val in
                 self?.steps = val
@@ -118,7 +119,6 @@ extension CheckinViewModel {
 }
 
 // MARK: - UI METHODS
-
 extension CheckinViewModel {
     /// Get the coral alignment for background animation
     /// - Returns: an Alignment
