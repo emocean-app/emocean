@@ -158,7 +158,7 @@ extension CheckinFeelingsView {
                         ) {
                             guard let mood = env.getMood(energy: getEnergy, pleasent: getPleasentness) else {return}
                             env.setMood(mood: mood)
-                            env.goToNextStep(isYes: true)
+                            env.goToNextStep()
                         }
                     } // END: BUTTON
                 } // END: H\VSTACK

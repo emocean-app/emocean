@@ -25,7 +25,7 @@ struct CheckinPromptView: View {
         .onReceive(timer, perform: { _ in  // START: ON-RECIEVE
             if sec == Double(2.5) {
                 sec = 0.0
-                env.goToNextStep(isYes: true)
+                env.goToNextStep()
                 self.timer.upstream.connect().cancel()
             } else {
                 sec += 0.5

@@ -16,14 +16,14 @@ class CheckinViewModel: ObservableObject {
     private var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
     private var timerCancellable: AnyCancellable?
     private var sec = 0.0
-    private var randomQuestionIndex = 0
+    private var activePrompt: Question?
     // Published
     private var steps: [CheckinStep] = []
     @Published var currentStep: CheckinStep!
     @Published var checkin = Checkin(
-        deviceId: UIDevice.current.identifierForVendor?.uuidString ?? "handhar simulator",
+        deviceId: "\(UIDevice.current.identifierForVendor?.uuidString ?? "simulator")",
         moodId: 0,
-        categoriesId: 0,
+        categoryId: 0,
         stories: []
     )
     @Published var moods: [Mood] = []
@@ -101,13 +101,13 @@ extension CheckinViewModel {
     func addCheckin() {
         checkinRepo
             .postData(body: checkin)
-            .sink { [weak self] completion in
+            .sink { completion in
                 switch completion {
                 case .failure(let err):
                     print(err.errorDescription ?? "Error")
                 case .finished:
                     print("Finsihed")
-                    print(self?.postResponse)
+//                    print(self?.postResponse)
                 }
             } receiveValue: { [weak self] data in
                 self?.postResponse = data
@@ -115,7 +115,6 @@ extension CheckinViewModel {
             .store(in: &cancellable)
     }
 }
-
 // MARK: - UI METHODS
 
 extension CheckinViewModel {
@@ -149,25 +148,29 @@ extension CheckinViewModel {
     }
     /// Change the checkin step forward
     /// - Parameter isYes: whether it's a NO or YES selection
-    func goToNextStep(isYes: Bool) {
+    func goToNextStep() {
         guard let next = steps.first(where: { $0.id == currentStep.next }) else { return }
         currentStep = next
+        guard currentStep.text == nil,
+              currentStep.totalQuestion > 0 else { return }
+        let randomInt = Int.random(in: 0..<currentStep.totalQuestion)
+        activePrompt = currentStep.questions[randomInt]
     }
     /// Get category item status curently selected or not
     /// - Parameter model: a Category
     /// - Returns: a Bool wether it's already in checkin.categories or not
     func checkIfSelected(model: Category) -> Bool {
         let id = model.id
-        return checkin.categoriesId == id
+        return checkin.categoryId == id
     }
     /// Handle the category button tapped gesture
     /// - Parameter model: an object of Category from the tapped button in view
     func categoryClicked(model: Category) {
         let id = model.id
-        if checkin.categoriesId == id {
-            checkin.categoriesId = 0
+        if checkin.categoryId == id {
+            checkin.categoryId = 0
         } else {
-            checkin.categoriesId = id
+            checkin.categoryId = id
         }
     }
     /// Get the question for checkins
@@ -176,11 +179,8 @@ extension CheckinViewModel {
         if currentStep.text != nil {
             return currentStep.text!
         }
-        let totalQuestion = currentStep.totalQuestion
-        guard totalQuestion != 0 else { return ""}
-        let randomInt = Int.random(in: 0..<totalQuestion)
-        randomQuestionIndex = currentStep.questions[randomInt].id
-        return currentStep.questions[randomInt].question
+        guard let prompt = activePrompt else {return ""}
+        return prompt.question
     }
     /// Get the static question/prompt for checkin
     /// - Returns: String of question
@@ -191,7 +191,8 @@ extension CheckinViewModel {
     /// Save the feedback answers
     /// - Parameter answer: string of answer
     func saveFeedback(answer: String) {
-        let questionId = randomQuestionIndex
+        guard let prompt = activePrompt else {return}
+        let questionId = prompt.id
         let feedback = Feedback(questionId: questionId, story: answer)
         checkin.stories.append(feedback)
     }
@@ -256,7 +257,7 @@ extension CheckinViewModel {
                 self.sec = 0.0
                 self.timer = nil
                 withAnimation(.easeInOut(duration: 1)) {
-                    self.goToNextStep(isYes: true)
+                    self.goToNextStep()
                 }
                 self.timerCancellable?.cancel()
             } else {

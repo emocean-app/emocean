@@ -9,6 +9,6 @@ import Foundation
 struct Checkin: Codable {
     var deviceId: String = ""
     var moodId: Int
-    var categoriesId: Int
+    var categoryId: Int
     var stories: [Feedback]
 }

@@ -36,7 +36,7 @@ struct CheckinDescriptionView: View {
                                 timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
                             }
                             withAnimation(.easeInOut) {
-                                env.goToNextStep(isYes: true)
+                                env.goToNextStep()
                             }
                             env.saveFeedback(answer: text)
                             showTextField = false
