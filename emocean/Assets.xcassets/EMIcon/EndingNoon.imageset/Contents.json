@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "LaunchSiang_1.png",
+      "filename" : "EndingSiang.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "LaunchSiang_1@2x.png",
+      "filename" : "EndingSiang@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "LaunchSiang_1@3x.png",
+      "filename" : "EndingSiang@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

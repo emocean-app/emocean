@@ -14,26 +14,14 @@ struct CheckinSuccessView: View {
     @EnvironmentObject var settingsEnv: SettingsViewModel
     @State var showAlert: Bool = false
     @State var showAction: Bool = false
+    @State var isfirst: Bool = true
     let time = Time()
     @State var selected: Int = 0
     var body: some View {
         ZStack {
             LottieView(filename: "\(time.getRawValue())Ending", contentMode: .scaleAspectFit).ignoresSafeArea(edges: .top)
-            ScrollView {
-                TabView(selection: $selected) {
-                    Page1(theme: time.getRawValue()).tag(0)
-                    Page2(theme: time.getRawValue()).tag(1)
-                }
-                .frame(
-                    width: UIScreen.main.bounds.width ,
-                    height: UIScreen.main.bounds.height
-                )
-                .tabViewStyle(PageTabViewStyle())
-                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
-                .animation(.easeInOut(duration: 90))
-            }.edgesIgnoringSafeArea(.all)
-
-            if selected == 1 {
+            Page1(theme: time.getRawValue()).edgesIgnoringSafeArea(.all)
+//            if selected == 0 {
                 VStack {
                     Spacer()
                     Spacer()
@@ -58,14 +46,12 @@ struct CheckinSuccessView: View {
                     })
                     Spacer()
                 }
-            }
+//            }
         }.ignoresSafeArea()
     }
     func getActionSheet() -> ActionSheet {
         
         let button1: ActionSheet.Button = .default(Text("Sure")){
-            settingsEnv.reminderTime = Date()
-            settingsEnv.reminder = true
             showAlert.toggle()
         }
         let button2: ActionSheet.Button = .destructive(Text("No thanks!")){
@@ -79,27 +65,14 @@ struct CheckinSuccessView: View {
         )
     }
 
-    
     func getAllert() -> Alert {
         return Alert(
             title: Text("You’re all set!"),
-            message: Text("You will be reminded everyday"),
+            message: Text("you will be reminded every night!"),
             dismissButton: .default(Text("Okay"), action: {
+            self.isfirst = false
             presentationMode.wrappedValue.dismiss()})
         )
-    }
-    
-    func alertView(){
-        let alert = UIAlertController(title: "You’re all set!", message: "you will be reminded every night!", preferredStyle: .alert)
-        let okay = UIAlertAction(title: "Okay", style: .default) { (_) in
-            return
-        }
-        alert.addAction(okay)
-        
-        //presenting alert
-        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: {
-            presentationMode.wrappedValue.dismiss()
-        })
     }
 }
 
@@ -113,7 +86,7 @@ struct Page1: View {
     let theme: String
     var body: some View {
         ZStack{
-            Image("L\(theme)")
+            Image("Ending\(theme)")
                 .resizable()
                 .scaledToFill()
             VStack(alignment: .leading){
