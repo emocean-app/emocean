@@ -9,13 +9,15 @@ import Foundation
 import Combine
 
 struct MoodRepository {
-    // TYPE
+    // MARK: TYPE
     typealias Entity = Mood
-    // PROPERTIES
+    // MARK: PROPERTIES
     private var staticStore = SeederStaticMood()
     private var networkStore = SeederNetworkingMood()
     private var cancellables = Set<AnyCancellable>()
-    // METHODS
+    // MARK: METHODS
+    /// Get all data from server
+    /// - Returns: A publisher
     func getAllData() -> AnyPublisher<[Entity], NetworkRequestError> {
         return networkStore
             .getAllMoods()
@@ -24,6 +26,8 @@ struct MoodRepository {
             })
             .eraseToAnyPublisher()
     }
+    /// Get all data dummy
+    /// - Returns: An array of Entity
     func getAllDummy() -> [Entity] {
         return staticStore.getData()
     }

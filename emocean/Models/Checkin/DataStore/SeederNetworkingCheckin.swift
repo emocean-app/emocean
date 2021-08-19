@@ -28,6 +28,9 @@ extension SeederNetworkingCheckin {
         var method: HTTPMethod = .POST
         var path: String = "api/journals"
         var body: [String: Any]?
+        var headers: [String : String]? = [
+            "Content-Type" : "application/json"
+        ]
     }
 }
 

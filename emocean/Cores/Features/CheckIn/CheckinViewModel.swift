@@ -10,15 +10,15 @@ import Combine
 
 class CheckinViewModel: ObservableObject {
     // MARK: PROPERTIES
-    // View
+    // VIEW
     private var imageFullWidth = UIScreen.main.bounds.width * 2
     private let screenHeight = UIScreen.main.bounds.height
     private var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
     private var timerCancellable: AnyCancellable?
     private var sec = 0.0
     private var activePrompt: Question?
-    // Published
     private var steps: [CheckinStep] = []
+    // PUBLISHED
     @Published var currentStep: CheckinStep
     @Published var checkin = Checkin(
         deviceId: "\(UIDevice.current.identifierForVendor?.uuidString ?? "simulator")",
@@ -28,7 +28,7 @@ class CheckinViewModel: ObservableObject {
     )
     @Published var moods: [Mood] = []
     @Published var categories: [Category] = []
-    // Repos
+    // REPOS
     private var moodRepo = MoodRepository()
     private var categoryRepo = CategoryRepository()
     private var checkinRepo = CheckinRepository()
@@ -52,53 +52,11 @@ extension CheckinViewModel {
     /// Fetch all data needed from server
     func fetchData() {
         // Moods
-        moodRepo.getAllData()
-            .sink { [weak self] completion in
-                switch completion {
-                case .failure(let err):
-                    print(err.errorDescription ?? "")
-                    guard let self = self else {return}
-                    self.moods = self.moodRepo.getAllDummy()
-                case .finished:
-                    print("Finish get all moods")
-                }
-            } receiveValue: { [weak self] data in
-                self?.moods = data
-            }
-            .store(in: &cancellable)
+        getAllMoods()
         // Categories
-        categoryRepo
-            .getAllData()
-            .sink { [weak self] completion in
-                switch completion {
-                case .failure(let err):
-                    print(err.errorDescription ?? "Error")
-                    guard let self = self else {return}
-                    self.categories = self.categoryRepo.getAllDummy()
-                case .finished:
-                    print("Finish get all categories")
-                }
-            } receiveValue: { [weak self] data in
-                self?.categories = data
-            }
-            .store(in: &cancellable)
+        getAllCategories()
         // Steps
-        questionRepo
-            .getAllData()
-            .sink { [weak self] completion in
-                guard let self = self else {return}
-                switch completion {
-                case .failure(let err):
-                    print(err.errorDescription ?? "ERROR")
-                    self.currentStep = self.steps[0]
-                case .finished:
-                    print("Finish get all questions")
-                    self.currentStep = self.steps[0]
-                }
-            } receiveValue: { [weak self] val in
-                self?.steps = val
-            }
-            .store(in: &cancellable)
+        getAllSteps()
     }
     /// Add Checkin to the server
     func addCheckin() {
@@ -117,10 +75,67 @@ extension CheckinViewModel {
             }
             .store(in: &cancellable)
     }
+    /// Get all moods from server
+    func getAllMoods() {
+        moodRepo
+            .getAllData()
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let err):
+                    print(err.errorDescription ?? "")
+                    guard let self = self else {return}
+                    self.moods = self.moodRepo.getAllDummy()
+                case .finished:
+                    print("Finish get all moods")
+                }
+            } receiveValue: { [weak self] data in
+                self?.moods = data
+            }
+            .store(in: &cancellable)
+    }
+    /// Get all categories from server
+    func getAllCategories() {
+        categoryRepo
+            .getAllData()
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let err):
+                    print(err.errorDescription ?? "Error")
+                    guard let self = self else {return}
+                    self.categories = self.categoryRepo.getAllDummy()
+                case .finished:
+                    print("Finish get all categories")
+                }
+            } receiveValue: { [weak self] data in
+                self?.categories = data
+            }
+            .store(in: &cancellable)
+    }
+    /// Get all questions from server and generate steps
+    func getAllSteps() {
+        questionRepo
+            .getAllData()
+            .sink { [weak self] completion in
+                guard let self = self else {return}
+                switch completion {
+                case .failure(let err):
+                    print(err.errorDescription ?? "ERROR")
+                    self.currentStep = self.steps[0]
+                case .finished:
+                    print("Finish get all questions")
+                    self.currentStep = self.steps[0]
+                }
+            } receiveValue: { [weak self] val in
+                self?.steps = val
+            }
+            .store(in: &cancellable)
+    }
 }
 
 // MARK: - UI METHODS
+
 extension CheckinViewModel {
+    // MARK: BACKGROUND
     /// Get the coral alignment for background animation
     /// - Returns: an Alignment
     func getCoralAlignment() -> Alignment {
@@ -149,6 +164,7 @@ extension CheckinViewModel {
             return 275
         }
     }
+    // MARK: NAVIGATION
     /// Change the checkin step forward
     /// - Parameter isYes: whether it's a NO or YES selection
     func goToNextStep() {
@@ -167,6 +183,13 @@ extension CheckinViewModel {
             activePrompt = currentStep.questions[randomInt]
         }
     }
+    /// Get the next step screen type
+    /// - Returns: enum of screen type or nil
+    func nextStepType() -> CheckinScreenState? {
+        guard let nextStep = steps.first(where: { $0.id == currentStep.next }) else {return nil}
+        return nextStep.viewType
+    }
+    // MARK: CATEGORY
     /// Get category item status curently selected or not
     /// - Parameter model: a Category
     /// - Returns: a Bool wether it's already in checkin.categories or not
@@ -184,6 +207,7 @@ extension CheckinViewModel {
             checkin.categoryId = id
         }
     }
+    // MARK: QUESTIONS
     /// Get the question for checkins
     /// - Returns: a String of question
     func getQuestion() -> String {
@@ -207,6 +231,7 @@ extension CheckinViewModel {
         let feedback = Feedback(questionId: questionId, story: answer)
         checkin.stories.append(feedback)
     }
+    // MARK: MOOD
     /// Get the mood from the amount of energy and pleasentness
     /// - Parameters:
     ///   - energy: amount of energy - CGFloat
@@ -264,6 +289,7 @@ extension CheckinViewModel {
     func setMood(mood: Mood) {
         checkin.moodId = mood.id
     }
+    // MARK: TIMER
     /// Start Timer to go to next step
     func startTimer() {
         timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
@@ -281,11 +307,5 @@ extension CheckinViewModel {
                 self.sec += 0.5
             }
         })
-    }
-    /// Get the next step screen type
-    /// - Returns: enum of screen type or nil
-    func nextStepType() -> CheckinScreenState? {
-        guard let nextStep = steps.first(where: { $0.id == currentStep.next }) else {return nil}
-        return nextStep.viewType
     }
 }
