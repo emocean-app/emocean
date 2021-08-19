@@ -21,7 +21,6 @@ struct SeederNetworkingQuestion {
 }
 
 // MARK: - REQUESTS
-
 extension SeederNetworkingQuestion {
     struct GetCheckinQuestions: Request {
         typealias ReturnType = GetResponse
@@ -30,7 +29,6 @@ extension SeederNetworkingQuestion {
 }
 
 // MARK: - RESPONSE MODEL
-
 extension SeederNetworkingQuestion {
     struct GetResponse: Codable {
         let questions: [String: [Question]]

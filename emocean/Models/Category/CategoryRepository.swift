@@ -8,13 +8,15 @@ import Foundation
 import Combine
 
 struct CategoryRepository: Repository {
-    // Type
+    // MARK: Type
     typealias Entity = Category
-    // PROPERTIES
+    // MARK: PROPERTIES
     private var staticStore = SeederStaticCategory()
     private var networkStore = SeederNetworkingCategory()
     private var cancellables = Set<AnyCancellable>()
-    // METHODS
+    // MARK: METHODS
+    /// Get all data from server
+    /// - Returns: A Publisher
     func getAllData() -> AnyPublisher<[Entity], NetworkRequestError> {
         return networkStore
             .getAllCategory()
@@ -23,6 +25,8 @@ struct CategoryRepository: Repository {
             })
             .eraseToAnyPublisher()
     }
+    /// Get all dummy data
+    /// - Returns: An array of Entity
     func getAllDummy() -> [Entity] {
         return staticStore.getData()
     }

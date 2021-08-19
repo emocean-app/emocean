@@ -6,6 +6,7 @@
 //
 import Foundation
 
+// HTTP Method Enum
 public enum HTTPMethod: String {
     case GET
     case POST
@@ -13,14 +14,13 @@ public enum HTTPMethod: String {
     case DELETE
 }
 
+// Request Protocol
 public protocol Request {
     var path: String { get }
-    
     var method: HTTPMethod { get }
     var contentType: String { get }
     var body: [String: Any]? { get }
     var headers: [String: String]? { get }
-    
     associatedtype ReturnType: Codable
 }
 
@@ -42,10 +42,7 @@ extension Request {
     private func requestBodyFrom(params: [String: Any]?) -> Data? {
         guard let params = params,
               let httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
-        else {
-            return nil
-        }
-        
+        else { return nil }
         return httpBody
     }
     /// Transforms a Request into a standard URL request

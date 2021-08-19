@@ -15,7 +15,6 @@ struct CategorySelection {
     let id: Int
     let name: String
     var isSelected: Bool
-    
     init(category: Category) {
         self.id = category.id
         self.name = category.name
