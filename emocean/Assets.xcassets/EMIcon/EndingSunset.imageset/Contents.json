@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "LaunchMalam.png",
+      "filename" : "EndingSore.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "LaunchMalam@2x.png",
+      "filename" : "EndingSore@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "LaunchMalam@3x.png",
+      "filename" : "EndingSore@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

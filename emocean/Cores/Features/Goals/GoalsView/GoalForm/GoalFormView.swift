@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GoalFormView: View {
     @Binding var showModal: Bool
-    @State var category = ""
+    @State var category = 0
     @State var goal = ""
     @State var searchText = ""
     @ObservedObject var viewModel = GoalFormViewModel()
@@ -35,7 +35,10 @@ struct GoalFormView: View {
                     Text("Cancel")
                         .font(.body)
                 }), trailing: Button(action: {
-                    //
+                    viewModel.goalpost.content = goal
+                    viewModel.goalpost.categoryId = category
+                    viewModel.addGoal()
+                    showModal = false
                 }, label: {
                     Text("Save")
                 })

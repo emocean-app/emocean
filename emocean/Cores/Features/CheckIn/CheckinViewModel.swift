@@ -34,6 +34,7 @@ class CheckinViewModel: ObservableObject {
     private var checkinRepo = CheckinRepository()
     private var questionRepo = QuestionRepository()
     private var cancellable = Set<AnyCancellable>()
+    private var isfirst: Bool = true
     private var postResponse = ""
     // MARK: INIT
     init() {
