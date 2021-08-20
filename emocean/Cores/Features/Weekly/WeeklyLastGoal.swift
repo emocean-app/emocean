@@ -11,7 +11,6 @@ import Lottie
 struct WeeklyLastGoal: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @EnvironmentObject var env: CheckinViewModel
     @State var showAlert: Bool = false
     @State var showAction: Bool = false
     let time = Time()
@@ -119,13 +118,11 @@ extension WeeklyLastGoal {
                         PrimaryButton(content: {
                             Text("No")
                         }, maxWidth: 100, action: {
-                            print(env.checkin.feedbacks)
                             showAction.toggle()
                         })
                         PrimaryButton(content: {
                             Text("Yes")
                         }, maxWidth: 100, action: {
-                            print(env.checkin.feedbacks)
                             showAction.toggle()
                         })
                     }
@@ -136,11 +133,4 @@ extension WeeklyLastGoal {
         
         
     }
-}
-
-enum ThemeBG3: String {
-    case morning = "Morning"
-    case noon = "Noon"
-    case sunset = "Sunset"
-    case night = "Night"
 }

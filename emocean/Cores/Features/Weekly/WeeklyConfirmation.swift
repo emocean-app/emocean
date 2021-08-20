@@ -10,8 +10,7 @@ import Lottie
 
 struct WeeklyConfirmation: View {
     @Environment(\.presentationMode) var presentationMode
-    
-    @EnvironmentObject var env: CheckinViewModel
+
     @State var showAlert: Bool = false
     @State var showAction: Bool = false
     let time = Time()
@@ -34,7 +33,6 @@ struct WeeklyConfirmation: View {
                     PrimaryButton(content: {
                         Text("No")
                     }, maxWidth: 100, action: {
-                        print(env.checkin.feedbacks)
                         showAction.toggle()
                     })
                     .animation(.easeInOut(duration: 4))
@@ -45,7 +43,6 @@ struct WeeklyConfirmation: View {
                     PrimaryButton(content: {
                         Text("Yes")
                     }, maxWidth: 100, action: {
-                        print(env.checkin.feedbacks)
                         showAction.toggle()
                     })
                 }

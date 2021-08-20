@@ -94,6 +94,7 @@
 		86A6D7F826B04E1C001C19E1 /* dummy5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F726B04E1C001C19E1 /* dummy5.swift */; };
 		86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */; };
 		86DE2B1726B97211008F4623 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2B1626B97211008F4623 /* HistoryView.swift */; };
+		E82F1F7D26CE867A006F1A65 /* WeeklyCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82F1F7C26CE867A006F1A65 /* WeeklyCheckin.swift */; };
 		E858BC0326CCBB310092E325 /* GoalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858BC0226CCBB310092E325 /* GoalTextView.swift */; };
 		E858BC0526CCBB400092E325 /* WeeklyPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858BC0426CCBB400092E325 /* WeeklyPrompt.swift */; };
 		E858BC0726CCBB4C0092E325 /* WeeklyLastGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858BC0626CCBB4C0092E325 /* WeeklyLastGoal.swift */; };
@@ -219,6 +220,7 @@
 		86A6D7F726B04E1C001C19E1 /* dummy5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy5.swift; sourceTree = "<group>"; };
 		86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonOutlined.swift; sourceTree = "<group>"; };
 		86DE2B1626B97211008F4623 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		E82F1F7C26CE867A006F1A65 /* WeeklyCheckin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCheckin.swift; sourceTree = "<group>"; };
 		E858BC0226CCBB310092E325 /* GoalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTextView.swift; sourceTree = "<group>"; };
 		E858BC0426CCBB400092E325 /* WeeklyPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyPrompt.swift; sourceTree = "<group>"; };
 		E858BC0626CCBB4C0092E325 /* WeeklyLastGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyLastGoal.swift; sourceTree = "<group>"; };
@@ -691,6 +693,7 @@
 		E858BC0126CCBB200092E325 /* Weekly */ = {
 			isa = PBXGroup;
 			children = (
+				E82F1F7C26CE867A006F1A65 /* WeeklyCheckin.swift */,
 				E858BC0426CCBB400092E325 /* WeeklyPrompt.swift */,
 				E858BC0626CCBB4C0092E325 /* WeeklyLastGoal.swift */,
 				E858BC0826CCBB5D0092E325 /* WeeklyConfirmation.swift */,
@@ -960,6 +963,7 @@
 				0C979CD926C4FB410057C879 /* GoalFormView.swift in Sources */,
 				E8EC034D26B7BB9800318CA7 /* LottieView.swift in Sources */,
 				8696D0E126BB9C5000F80E0B /* SeederStaticCategory.swift in Sources */,
+				E82F1F7D26CE867A006F1A65 /* WeeklyCheckin.swift in Sources */,
 				4E59224626C56AED00FD565D /* GoalRepository.swift in Sources */,
 				8696D11026BB9E0800F80E0B /* NetworkDispatcher.swift in Sources */,
 				E8E9D5A726B2EFB000D331EF /* TextField.swift in Sources */,

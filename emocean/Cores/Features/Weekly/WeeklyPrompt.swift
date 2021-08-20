@@ -11,7 +11,6 @@ import Lottie
 struct WeeklyPrompt: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @EnvironmentObject var env: CheckinViewModel
     @State var showAlert: Bool = false
     @State var showAction: Bool = false
     let time = Time()
@@ -119,7 +118,6 @@ extension WeeklyPrompt {
                     PrimaryButton(content: {
                         Text("Thanks!")
                     }, maxWidth: 177, action: {
-                        print(env.checkin.feedbacks)
                         showAction.toggle()
                     })
                     Spacer()
