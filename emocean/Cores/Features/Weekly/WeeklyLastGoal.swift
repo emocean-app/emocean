@@ -10,11 +10,10 @@ import Lottie
 
 struct WeeklyLastGoal: View {
     @Environment(\.presentationMode) var presentationMode
-    
-    @State var showAlert: Bool = false
-    @State var showAction: Bool = false
     let time = Time()
     @State var selected: Int = 0
+    @State var showAlert: Bool = false
+    @State var showAction: Bool = false
     var body: some View {
         ZStack {
             LottieView(filename: "\(time.getRawValue())Ending", contentMode: .scaleAspectFit).ignoresSafeArea(edges: .top)
@@ -24,7 +23,6 @@ struct WeeklyLastGoal: View {
             // content
             ScrollView {
                 contentContainer
-                
             }.edgesIgnoringSafeArea(.all)
         }.ignoresSafeArea()
     }
@@ -55,14 +53,15 @@ struct FirstPages: View {
     }
 }
 
-struct SecondPages: View {
+struct TextViewPages: View {
     let theme: String
+    @State var title: String
     var date: String = "Monday, 5 July 2021"
     var body: some View {
         VStack {
             Spacer()
             Spacer().frame(height: 200)
-            Text("You've set goal last week").font(.title2)
+            Text(title).font(.title2)
                 .fontWeight(.semibold)
             GoalTextView()
                 .padding(.horizontal,16)
@@ -70,42 +69,21 @@ struct SecondPages: View {
             Spacer()
             Spacer()
         }
-    }
-}
-
-struct ThirdPages: View {
-    let theme: String
-    var date: String = "Monday, 5 July 2021"
-    var body: some View {
-
-        VStack {
-            Spacer()
-            Spacer().frame(height: 200)
-            Text("Did you achieve your goal?").font(.title2)
-                .fontWeight(.semibold)
-            GoalTextView()
-                .padding(.horizontal,16)
-            Text(date)
-            Spacer()
-            Spacer()
-        }
-        
     }
 }
 
 extension WeeklyLastGoal {
     var contentContainer: some View {
         VStack {
-            pages
+            content
         }
     }
-    
-    var pages: some View {
-        VStack{
+    var content: some View {
+        VStack {
         TabView(selection: $selected) {
             FirstPages(theme: time.getRawValue()).tag(0)
-            SecondPages(theme: time.getRawValue()).tag(1)
-            ThirdPages(theme: time.getRawValue()).tag(2)
+            TextViewPages(theme: time.getRawValue(), title: "You've set goal last week").tag(1)
+            TextViewPages(theme: time.getRawValue(), title: "Did you achieve your goal?").tag(2)
         }
         .tabViewStyle(PageTabViewStyle())
         .padding(.horizontal, 0)
@@ -130,7 +108,5 @@ extension WeeklyLastGoal {
                 }
             }
         }
-        
-        
     }
 }

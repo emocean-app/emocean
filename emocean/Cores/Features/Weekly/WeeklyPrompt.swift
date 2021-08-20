@@ -24,7 +24,6 @@ struct WeeklyPrompt: View {
             // content
             ScrollView {
                 contentContainer
-                
             }.edgesIgnoringSafeArea(.all)
         }.ignoresSafeArea()
     }
@@ -36,14 +35,16 @@ struct WeeklyPrompt_Previews: PreviewProvider {
     }
 }
 
-struct PageOne: View {
+// CONTENT VIEW
+struct PromptViewPages: View {
     let theme: String
+    @State var prompt: String
     var body: some View {
         VStack(alignment: .leading) {
             Spacer()
             Spacer().frame(height: 150)
             Group {
-            Text("There are things that you \n can't change")
+            Text(prompt)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .frame(width: 350, alignment: .center)
@@ -52,61 +53,20 @@ struct PageOne: View {
             }
             Spacer()
         }.foregroundColor(theme == "Night" ? .white : .primary)
-    }
-}
-
-struct PageTwo: View {
-    let theme: String
-    var date: String = "Monday, 5 July 2021"
-    var body: some View {
-        VStack(alignment: .leading) {
-            Spacer()
-            Spacer().frame(height: 150)
-            Group {
-            Text("reflect on how can you make \n yourself feel better")
-                .font(.title2)
-                .fontWeight(.semibold)
-                .frame(width: 350, alignment: .center)
-                .padding(.leading, 0)
-                .multilineTextAlignment(.center)
-            }
-            Spacer()
-        }.foregroundColor(theme == "Night" ? .white : .primary)
-    }
-}
-
-struct PageThree: View {
-    let theme: String
-    var date: String = "Monday, 5 July 2021"
-    var body: some View {
-
-        VStack {
-            Spacer()
-            Spacer().frame(height: 200)
-            Text("Did you achieve your goal?").font(.title2)
-                .fontWeight(.semibold)
-            GoalTextView()
-                .padding(.horizontal,16)
-            Text(date)
-            Spacer()
-            Spacer()
-        }
-        
     }
 }
 
 extension WeeklyPrompt {
     var contentContainer: some View {
         VStack {
-            pages
+            content
         }
     }
-    
-    var pages: some View {
-        VStack{
+    var content: some View {
+        VStack {
         TabView(selection: $selected) {
-            PageOne(theme: time.getRawValue()).tag(0)
-            PageTwo(theme: time.getRawValue()).tag(1)
+            PromptViewPages(theme: time.getRawValue(), prompt: "There are things that you \n can't change").tag(0)
+            PromptViewPages(theme: time.getRawValue(), prompt: "reflect on how can you make \n yourself feel better").tag(1)
         }
         .tabViewStyle(PageTabViewStyle())
         .padding(.horizontal, 0)
@@ -124,14 +84,5 @@ extension WeeklyPrompt {
                 }
             }
         }
-        
-        
     }
-}
-
-enum ThemeBG4: String {
-    case morning = "Morning"
-    case noon = "Noon"
-    case sunset = "Sunset"
-    case night = "Night"
 }
