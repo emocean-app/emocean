@@ -21,40 +21,14 @@ struct WeeklyCheckinCategory: View {
                 VStack { // START: VSTACK
                     Spacer()
                     Spacer()
-                    // Text
-                    HStack { // START: HSTACK
-                        Spacer()
-                        Text("What aspect of your life do you want to change?")
-                            .font(.title2)
-                            .fontWeight(.medium)
-                            .frame(
-                                maxWidth: .infinity
-                            )
-                            .padding(.horizontal)
-                            .multilineTextAlignment(.center)
-                        Spacer()
-                    } // END: HSTACK
-                    HStack { // START: HSTACK
-                        Spacer()
-                        Text("Focus on the most important thing to you")
-                            .frame(
-                                maxWidth: .infinity
-                            )
-                            .multilineTextAlignment(.center)
-                        Spacer()
-                    } // END: HSTACK
-                    Spacer()
-                    // Category TabView
-                    TabView { // START: TABVIEW
-                        tabViewItem
-                        tabViewItem
-                        tabViewItem
-                    } // END: TABVIEW
-                    .tabViewStyle(PageTabViewStyle())
-                    .frame(maxHeight: 375)
-                    .padding()
-                    .padding(.horizontal)
-                    // Button
+                    // - Top Text
+                    topPrompt
+                    // - Bottom Text
+                    bottomPrompt
+                    Spacer(minLength: 10)
+                    // - Category TabView
+                    tabView
+                    // - Button
                     PrimaryButton {
                         Text("Yes!")
                             .padding(.horizontal)
@@ -69,13 +43,13 @@ struct WeeklyCheckinCategory: View {
                 ) // END: VSTACK
                 .preferredColorScheme(time.timeRange == .night ? .dark : .light)
             } // END: SCROLLV
-            .background(
-                LottieView(
-                    filename: "\(time.getRawValue())Ending",
-                    contentMode: .scaleAspectFit
-                )
-                    .ignoresSafeArea()
-            )
+//            .background(
+//                LottieView(
+//                    filename: "\(time.getRawValue())Ending",
+//                    contentMode: .scaleAspectFit
+//                )
+//                    .ignoresSafeArea()
+//            )
         } // END: GEOMETRY
     }
 }
@@ -83,6 +57,7 @@ struct WeeklyCheckinCategory: View {
 // MARK: - COMPONENTS
 
 extension WeeklyCheckinCategory {
+    // View for TabView Item
     var tabViewItem: some View {
         VStack { // START: VSTACK
             LazyVGrid(columns: columns, spacing: 20, content: { // START: VGRID
@@ -91,7 +66,7 @@ extension WeeklyCheckinCategory {
                     ButtonOutlined(
                         text: "Dummy",
                         isSelected: false,
-                        isLight: false,
+                        isLight: time.getRawValue() == "Night" ,
                         action: {
                             print("Tes")
                         }
@@ -102,6 +77,46 @@ extension WeeklyCheckinCategory {
             .padding(.top, 5)
             Spacer()
         } // END: VSTACK
+    }
+    // Top Prompt View
+    var topPrompt: some View {
+        HStack { // START: HSTACK
+            Spacer()
+            Text("What aspect of your life do you want to change?")
+                .font(.title2)
+                .fontWeight(.medium)
+                .frame(
+                    maxWidth: .infinity
+                )
+                .padding(.horizontal)
+                .multilineTextAlignment(.center)
+            Spacer()
+        } // END: HSTACK
+    }
+    // Bottom Prompt
+    var bottomPrompt: some View {
+        HStack { // START: HSTACK
+            Spacer()
+            Text("Focus on the most important thing to you")
+                .frame(
+                    maxWidth: .infinity
+                )
+                .padding(.top, 5)
+                .multilineTextAlignment(.center)
+            Spacer()
+        } // END: HSTACK
+    }
+    // Category TabView
+    var tabView: some View {
+        TabView { // START: TABVIEW
+            tabViewItem
+            tabViewItem
+            tabViewItem
+        } // END: TABVIEW
+        .tabViewStyle(PageTabViewStyle())
+        .frame(maxHeight: 375)
+        .padding()
+        .padding(.horizontal)
     }
 }
 

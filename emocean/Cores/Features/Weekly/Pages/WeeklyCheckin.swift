@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct WeeklyCheckin: View {
+    // MARK: PROPERTIES
     @State var select: Int = 0
-    
+    // MARK: BODY
     var body: some View {
         GeometryReader { reader in // START: READER
             ScrollView { // START: SCROLLVIEW
                 VStack { // START: VSTACK
+                    // - PAGES TAB VIEW
                     TabView(selection: $select) { // START: TABVIEW
                         TabViewsItem(firstText: "Hey, it's time for your",
                                      secondText: "Weekly Reflections!").tag(0)
@@ -27,6 +29,7 @@ struct WeeklyCheckin: View {
                     .padding(.horizontal, 0)
                     // Selection to show the primary button
                     if select == 2 {
+                        // - YES! BUTTON
                         PrimaryButton(content: {
                             Text("Next").fontWeight(.bold)
                         }, maxWidth: 150, action: {
@@ -42,22 +45,25 @@ struct WeeklyCheckin: View {
     }
 }
 
+// MARK: - COMPONENTS
 // Tab View Items
 struct TabViewsItem: View {
+    // MARK: PROPERTIES
     @State var firstText: String
     @State var secondText: String
+    // MARK: BODY
     var body: some View {
         VStack(alignment: .leading) { // START: VSTACK
             Spacer()
             Group { // START: GROUP
-                // Top text
+                // - TOP TEXT
                 Text(firstText)
                     .font(.title3)
                     .fontWeight(.regular)
                     .frame(alignment: .center)
                     .padding(.leading)
                     .foregroundColor(.white)
-                // Bottom text
+                // - BOTTOM TEXT
                 Text(secondText)
                     .font(.title)
                     .fontWeight(.semibold)
@@ -69,6 +75,8 @@ struct TabViewsItem: View {
         } // END: VSTACK
     }
 }
+
+// MARK: - PREVIEW
 
 struct WeeklyCheckin_Previews: PreviewProvider {
     static var previews: some View {

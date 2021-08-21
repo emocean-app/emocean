@@ -59,33 +59,36 @@ struct Constant {
         )
     ]
     static let WeeklyCheckinSteps: [WeeklyCheckinStep] = [
-        PrimaryWeeklyCheckinStep(id: 1, next: 0), // 1
+        PrimaryWeeklyCheckinStep(id: 1, next: 2), // 1
         SecondaryWeeklyCheckinStep(
             id: 2,
-            next: 0,
+            next: 3,
             question: "Why do you think this pattern occur in your week?"
         ), // 2
         ThirdWeeklyCheckinStep(
             id: 3,
-            next: 0,
+            backgroundType: .sky,
+            next: 10,
             nextSecondary: 0,
             text: "Are you comfortable with this pattern that's happening to you?"
         ), // 3
         ThirdWeeklyCheckinStep(
             id: 4,
-            next: 0,
-            nextSecondary: 0,
+            backgroundType: .sky,
+            next: 5,
+            nextSecondary: 11,
             text: "Are there things you can change to make you feel more comfortable?"
         ), // 4
         FourthWeeklyCheckinStep(id: 5, next: 0), // 5
         SecondaryWeeklyCheckinStep(
             id: 6,
-            next: 0,
+            next: 7,
             question: "What change do you want to make?"
         ), // 6
-        FifthWeeklyCheckinStep(id: 7, next: 0, nextSecondary: 0), // 7
+        FifthWeeklyCheckinStep(id: 7, next: 8, nextSecondary: 9), // 7
         ThirdWeeklyCheckinStep(
             id: 8,
+            backgroundType: .scenery,
             next: 0,
             nextSecondary: 0,
             text: "You've achieved your goal, keep the spirit for the next week!",
@@ -93,13 +96,14 @@ struct Constant {
         ), // 8
         ThirdWeeklyCheckinStep(
             id: 9,
+            backgroundType: .scenery,
             next: 0,
             nextSecondary: 0,
             text: "Do you want to keep on your goal?"
         ), // 9
         SecondaryWeeklyCheckinStep(
             id: 10,
-            next: 0,
+            next: 11,
             question: "What do you want to do to keep this pattern?"
         ), // 10
         SixthWeeklyCheckinStep(id: 11, next: 0)

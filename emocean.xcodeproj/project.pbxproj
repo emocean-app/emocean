@@ -98,6 +98,7 @@
 		86A6D7F826B04E1C001C19E1 /* dummy5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F726B04E1C001C19E1 /* dummy5.swift */; };
 		86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */; };
 		86DE2B1726B97211008F4623 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2B1626B97211008F4623 /* HistoryView.swift */; };
+		86DF434D26D15536005353A8 /* WeeklySkyBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF434C26D15536005353A8 /* WeeklySkyBackground.swift */; };
 		86ECAE3226CFEC39005DE1DD /* WeeklyBubbleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ECAE3126CFEC39005DE1DD /* WeeklyBubbleBackground.swift */; };
 		86ECAE3626CFEF76005DE1DD /* WeeklyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ECAE3526CFEF76005DE1DD /* WeeklyView.swift */; };
 		86ECAE3826CFEF80005DE1DD /* WeeklyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ECAE3726CFEF80005DE1DD /* WeeklyViewModel.swift */; };
@@ -233,6 +234,7 @@
 		86A6D7F726B04E1C001C19E1 /* dummy5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy5.swift; sourceTree = "<group>"; };
 		86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonOutlined.swift; sourceTree = "<group>"; };
 		86DE2B1626B97211008F4623 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		86DF434C26D15536005353A8 /* WeeklySkyBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklySkyBackground.swift; sourceTree = "<group>"; };
 		86ECAE3126CFEC39005DE1DD /* WeeklyBubbleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyBubbleBackground.swift; sourceTree = "<group>"; };
 		86ECAE3526CFEF76005DE1DD /* WeeklyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyView.swift; sourceTree = "<group>"; };
 		86ECAE3726CFEF80005DE1DD /* WeeklyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyViewModel.swift; sourceTree = "<group>"; };
@@ -737,6 +739,7 @@
 			children = (
 				86ECAE3126CFEC39005DE1DD /* WeeklyBubbleBackground.swift */,
 				86ECAE3926CFF5B3005DE1DD /* WeeklySceneryBackground.swift */,
+				86DF434C26D15536005353A8 /* WeeklySkyBackground.swift */,
 			);
 			path = Background;
 			sourceTree = "<group>";
@@ -1015,6 +1018,7 @@
 				8696D0E126BB9C5000F80E0B /* SeederStaticCategory.swift in Sources */,
 				E82F1F7D26CE867A006F1A65 /* WeeklyCheckin.swift in Sources */,
 				4E59224626C56AED00FD565D /* GoalRepository.swift in Sources */,
+				86DF434D26D15536005353A8 /* WeeklySkyBackground.swift in Sources */,
 				8696D11026BB9E0800F80E0B /* NetworkDispatcher.swift in Sources */,
 				E8E9D5A726B2EFB000D331EF /* TextField.swift in Sources */,
 				8696D10326BB9D7B00F80E0B /* QuestionRepository.swift in Sources */,
