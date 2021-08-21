@@ -58,4 +58,50 @@ struct Constant {
             text: nil
         )
     ]
+    static let WeeklyCheckinSteps: [WeeklyCheckinStep] = [
+        PrimaryWeeklyCheckinStep(id: 1, next: 0), // 1
+        SecondaryWeeklyCheckinStep(
+            id: 2,
+            next: 0,
+            question: "Why do you think this pattern occur in your week?"
+        ), // 2
+        ThirdWeeklyCheckinStep(
+            id: 3,
+            next: 0,
+            nextSecondary: 0,
+            text: "Are you comfortable with this pattern that's happening to you?"
+        ), // 3
+        ThirdWeeklyCheckinStep(
+            id: 4,
+            next: 0,
+            nextSecondary: 0,
+            text: "Are there things you can change to make you feel more comfortable?"
+        ), // 4
+        FourthWeeklyCheckinStep(id: 5, next: 0), // 5
+        SecondaryWeeklyCheckinStep(
+            id: 6,
+            next: 0,
+            question: "What change do you want to make?"
+        ), // 6
+        FifthWeeklyCheckinStep(id: 7, next: 0, nextSecondary: 0), // 7
+        ThirdWeeklyCheckinStep(
+            id: 8,
+            next: 0,
+            nextSecondary: 0,
+            text: "You've achieved your goal, keep the spirit for the next week!",
+            selection: false
+        ), // 8
+        ThirdWeeklyCheckinStep(
+            id: 9,
+            next: 0,
+            nextSecondary: 0,
+            text: "Do you want to keep on your goal?"
+        ), // 9
+        SecondaryWeeklyCheckinStep(
+            id: 10,
+            next: 0,
+            question: "What do you want to do to keep this pattern?"
+        ), // 10
+        SixthWeeklyCheckinStep(id: 11, next: 0)
+    ]
 }

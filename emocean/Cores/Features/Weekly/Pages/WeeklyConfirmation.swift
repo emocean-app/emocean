@@ -12,18 +12,11 @@ struct WeeklyConfirmation: View {
     @Environment(\.presentationMode) var presentationMode
     @State var showAlert: Bool = false
     @State var showAction: Bool = false
+    
     let time = Time()
     @State var selected: Int = 0
     var body: some View {
-        ZStack {
-            LottieView(filename: "\(time.getRawValue())Ending",
-                       contentMode:
-                        .scaleAspectFit).ignoresSafeArea(edges: .top)
-            Image("R\(time.getRawValue())")
-                .resizable()
-                .scaledToFill()
-            contentContainer
-        }.ignoresSafeArea()
+        contentContainer
         .preferredColorScheme(time.timeRange == .night ? .dark : .light)
     }
 }
@@ -32,8 +25,8 @@ extension WeeklyConfirmation {
     var contentContainer: some View {
         VStack {
             Spacer()
-            Spacer().frame(height:100)
-            Text("Do you want to keep \n on your goal?").font(.title2)
+            Text("Do you want to keep \n on your goal?")
+                .font(.title2)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
             Spacer()
@@ -51,7 +44,6 @@ extension WeeklyConfirmation {
                     showAction.toggle()
                 })
             }
-            Spacer().frame(height: 50)
         }
     }
     func getActionSheet() -> ActionSheet {
