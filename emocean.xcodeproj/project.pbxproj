@@ -58,6 +58,7 @@
 		4EF8877426BD157B00D25DBA /* GoneFishingMorning.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EF8877126BD157B00D25DBA /* GoneFishingMorning.json */; };
 		4EF8877526BD157B00D25DBA /* GoneFishingNoon.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EF8877226BD157B00D25DBA /* GoneFishingNoon.json */; };
 		4EFF352026B9908000E7FC0D /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */; };
+		860029D426D0EE8C004329BE /* WeeklyCheckinCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860029D326D0EE8C004329BE /* WeeklyCheckinCategory.swift */; };
 		8641940126CBCE4000898CFC /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641940026CBCE4000898CFC /* Encodable.swift */; };
 		8641940426CC086700898CFC /* CheckinStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641940326CC086600898CFC /* CheckinStep.swift */; };
 		864B452E26B82EB000528ECF /* CheckinCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B452D26B82EB000528ECF /* CheckinCategoryView.swift */; };
@@ -192,6 +193,7 @@
 		4EF8877126BD157B00D25DBA /* GoneFishingMorning.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GoneFishingMorning.json; sourceTree = "<group>"; };
 		4EF8877226BD157B00D25DBA /* GoneFishingNoon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GoneFishingNoon.json; sourceTree = "<group>"; };
 		4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
+		860029D326D0EE8C004329BE /* WeeklyCheckinCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCheckinCategory.swift; sourceTree = "<group>"; };
 		8641940026CBCE4000898CFC /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		8641940326CC086600898CFC /* CheckinStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinStep.swift; sourceTree = "<group>"; };
 		864B452D26B82EB000528ECF /* CheckinCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinCategoryView.swift; sourceTree = "<group>"; };
@@ -725,6 +727,7 @@
 				E858BC0826CCBB5D0092E325 /* WeeklyConfirmation.swift */,
 				E858BC0426CCBB400092E325 /* WeeklyPrompt.swift */,
 				E858BC0626CCBB4C0092E325 /* WeeklyLastGoal.swift */,
+				860029D326D0EE8C004329BE /* WeeklyCheckinCategory.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -1029,6 +1032,7 @@
 				4EF4222526B84F2400EA7341 /* Category.swift in Sources */,
 				8696D11726BB9EB300F80E0B /* Repository.swift in Sources */,
 				8655E97926BC071600DC9CFF /* CheckinView.swift in Sources */,
+				860029D426D0EE8C004329BE /* WeeklyCheckinCategory.swift in Sources */,
 				8696D10126BB9D6600F80E0B /* SeederNetworkingQuestion.swift in Sources */,
 				4EF4222726B84F6800EA7341 /* Question.swift in Sources */,
 				E858BC0926CCBB5D0092E325 /* WeeklyConfirmation.swift in Sources */,
