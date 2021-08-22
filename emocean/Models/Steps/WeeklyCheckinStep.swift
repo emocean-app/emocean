@@ -77,7 +77,7 @@ enum WeeklyCheckinScreenState {
     case sixth // 11
 }
 
-enum WeeklyBackgroundState {
+enum WeeklyBackgroundState: String {
     case bubble
     case scenery
     case sky

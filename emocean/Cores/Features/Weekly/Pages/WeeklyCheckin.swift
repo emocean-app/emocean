@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WeeklyCheckin: View {
     // MARK: PROPERTIES
-    @State var select: Int = 0
+    @Binding var select: Int
     // MARK: BODY
     var body: some View {
         GeometryReader { reader in // START: READER
@@ -80,7 +80,7 @@ struct TabViewsItem: View {
 
 struct WeeklyCheckin_Previews: PreviewProvider {
     static var previews: some View {
-        WeeklyCheckin()
+        WeeklyCheckin(select: .constant(0))
             .background(EMTheme.shared.sea.ignoresSafeArea())
     }
 }

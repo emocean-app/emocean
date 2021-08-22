@@ -8,15 +8,48 @@
 import SwiftUI
 
 struct WeeklyView: View {
+    // MARK: PROPERTIES
+    @StateObject private var viewModel = WeeklyViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack { // START: ZTACK
+            // - BACKGROUND
+            background
+                .ignoresSafeArea()
+            content
+        } // END: ZTACK
     }
-    
-//    var background: View {
-//        Group {
-//            
-//        }
-//    }
+    // BACKGROUND SELECTION
+    var background: some View {
+        Group { // START: GROUP
+            switch viewModel.getBackground() {
+            case .bubble:
+                WeeklyBubbleBackground(isBubble: viewModel.selectedTabIndex != 2)
+            case .sky:
+                WeeklySkyBackground()
+            case .scenery:
+                WeeklySceneryBackground()
+            }
+        } // END: GROUP
+    }
+    // CONTENT SELECTION
+    var content: some View {
+        Group {
+            switch viewModel.getScreenState() {
+            case .primary:
+                WeeklyCheckin(select: $viewModel.selectedTabIndex)
+            case .secondary:
+                WeeklyForm()
+            case .third:
+                WeeklyConfirmation()
+            case .fourth:
+                WeeklyCheckinCategory()
+            case .fifth:
+                WeeklyLastGoal()
+            case .sixth:
+                WeeklyPrompt()
+            }
+        }
+    }
 }
 
 struct WeeklyView_Previews: PreviewProvider {

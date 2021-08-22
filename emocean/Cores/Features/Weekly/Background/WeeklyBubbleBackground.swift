@@ -8,7 +8,55 @@
 import SwiftUI
 
 struct WeeklyBubbleBackground: View {
+    // MARK: PROPERTIES
+    var isBubble: Bool = true
+    private let time = Time()
+    // MARK: BODY
     var body: some View {
+        ZStack {
+            // - BACKGROUND
+            VStack(spacing: 0) { // START: VSTACK
+                // Only show this when isBubble is false
+                if !isBubble {
+                    // - SAILOR IMAGE
+                    sailorImage
+                }
+                // - SEA BACKGROUND
+                EMTheme.shared.sea
+            } // END: VSTACK
+            .ignoresSafeArea()
+            // Only show coral when isBubble is true
+            if isBubble {
+                // - BUBBLE IMAGE
+                bubble
+            }
+            // Only show this when isBubble is false
+            if !isBubble {
+                Group { // START: GROUP
+                    // - BACK CORAL
+                    backCoral
+                    // - FRONT CORAL
+                    frontCoral
+                } // END: GROUP
+                .transition(.move(edge: .bottom))
+                .animation(.easeInOut)
+            }
+        }
+    }
+    var sailorImage: some View {
+        Image("Up\(time.getRawValue())")
+            .resizable()
+            .scaledToFit()
+            .transition(
+                .asymmetric(
+                    insertion: .move(edge: .top),
+                    removal: .move(edge: .top)
+                )
+            )
+            .animation(.easeInOut)
+    }
+    // Bubble
+    var bubble: some View {
         GeometryReader { geometry in // START: GEOMETRY
             VStack { // START: VSTACK
                 // Spacing from the top side
@@ -19,21 +67,25 @@ struct WeeklyBubbleBackground: View {
                     Spacer()
                     // Bubble image
                     Image("Bubble")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: geometry.size.width / 4)
-                    .rotationEffect(.degrees(-180))
-                    .opacity(0.4)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: geometry.size.width / 4)
+                        .rotationEffect(.degrees(-180))
+                        .opacity(0.4)
+                        .transition(.move(edge: .trailing))
+                        .animation(.easeInOut)
                 } // END: HSTACK
                 .frame(maxWidth: .infinity)
                 Spacer()
                 // Container for bubble image
                 HStack { // START: HSTACK
                     Image("Bubble")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: geometry.size.width / 4)
-                    .opacity(0.4)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: geometry.size.width / 4)
+                        .opacity(0.4)
+                        .transition(.move(edge: .leading))
+                        .animation(.easeInOut)
                     Spacer()
                 } // END: HSTACK
                 .padding(.leading, 10)
@@ -42,11 +94,46 @@ struct WeeklyBubbleBackground: View {
             } // END: VSTACK
         } // END: GEOMETRY
     }
+    // Back Coral
+    var backCoral: some View {
+        VStack(alignment: .trailing) { // START: VSTACK
+            Spacer()
+            Image("BackCoral")
+                .resizable()
+                .frame(
+                    width: UIScreen.main.bounds.width,
+                    height: UIScreen.main.bounds.height * 0.2,
+                    alignment: .leading
+                )
+        } // END: VSTACK
+        .frame(
+            width: UIScreen.main.bounds.width,
+            alignment: .center
+        )
+        .ignoresSafeArea()
+    }
+    // Front Coral
+    var frontCoral: some View {
+        VStack(alignment: .trailing) { // START: VSTACK
+            Spacer()
+            Image("FrontCoral")
+                .resizable()
+                .frame(
+                    width: UIScreen.main.bounds.width,
+                    height: UIScreen.main.bounds.height * 0.2,
+                    alignment: .leading
+                )
+        } // END: VSTACK
+        .frame(
+            width: UIScreen.main.bounds.width,
+            alignment: .center
+        )
+        .ignoresSafeArea()
+    }
 }
 
 struct WeeklyBubbleBackground_Previews: PreviewProvider {
     static var previews: some View {
         WeeklyBubbleBackground()
-            .background(EMTheme.shared.sea.ignoresSafeArea())
     }
 }
