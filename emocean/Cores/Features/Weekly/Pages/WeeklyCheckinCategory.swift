@@ -52,27 +52,6 @@ struct WeeklyCheckinCategory: View {
 // MARK: - COMPONENTS
 
 extension WeeklyCheckinCategory {
-    // View for TabView Item
-    var tabViewItem: some View {
-        VStack { // START: VSTACK
-            LazyVGrid(columns: columns, spacing: 20, content: { // START: VGRID
-                ForEach(0..<8) { _ in // START: FOREACH
-                    // Button
-                    ButtonOutlined(
-                        text: "Dummy",
-                        isSelected: false,
-                        isLight: time.getRawValue() == "Night" ,
-                        action: {
-                            print("Tes")
-                        }
-                    )
-                    .padding(.horizontal, 5)
-                } // END: FOREACH
-            }) // END: VGRID
-            .padding(.top, 5)
-            Spacer()
-        } // END: VSTACK
-    }
     // Top Prompt View
     var topPrompt: some View {
         HStack { // START: HSTACK
@@ -104,14 +83,40 @@ extension WeeklyCheckinCategory {
     // Category TabView
     var tabView: some View {
         TabView { // START: TABVIEW
-            tabViewItem
-            tabViewItem
-            tabViewItem
+            ForEach(0..<3) { item in
+                getTabViewItem(page: item)
+            }
         } // END: TABVIEW
         .tabViewStyle(PageTabViewStyle())
         .frame(maxHeight: 375)
         .padding()
         .padding(.horizontal)
+    }
+    // View for TabView Item
+    func getTabViewItem(page: Int) -> some View {
+        var view: some View {
+            VStack { // START: VSTACK
+                LazyVGrid(columns: columns, spacing: 20, content: { // START: VGRID
+                    ForEach(0..<8) { item in // START: FOREACH
+                        let idx = item + (8*page)
+                        let model = env.categories[idx]
+                        // Button
+                        ButtonOutlined(
+                            text: model.name,
+                            isSelected: env.checkIfSelected(model: model),
+                            isLight: time.getRawValue() == "Night" ,
+                            action: {
+                                env.categoryClicked(model: model)
+                            }
+                        )
+                        .padding(.horizontal, 5)
+                    } // END: FOREACH
+                }) // END: VGRID
+                .padding(.top, 5)
+                Spacer()
+            } // END: VSTACK
+        }
+        return view
     }
 }
 
