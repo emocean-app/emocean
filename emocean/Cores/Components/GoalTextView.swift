@@ -15,7 +15,7 @@ struct GoalTextView: View {
                 Text(description)
                     .padding(.init(top: 30, leading: 30, bottom: 20, trailing: 30))
                     .font(.body)
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .multilineTextAlignment(.center)
 
             }

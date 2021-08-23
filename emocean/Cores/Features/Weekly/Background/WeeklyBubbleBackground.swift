@@ -23,6 +23,7 @@ struct WeeklyBubbleBackground: View {
                 }
                 // - SEA BACKGROUND
                 EMTheme.shared.sea
+                    .animation(.easeInOut)
             } // END: VSTACK
             .ignoresSafeArea()
             // Only show coral when isBubble is true
@@ -43,6 +44,11 @@ struct WeeklyBubbleBackground: View {
             }
         }
     }
+}
+
+// MARK: - COMPONENTS
+extension WeeklyBubbleBackground {
+    // SAILOR IMAGE
     var sailorImage: some View {
         Image("Up\(time.getRawValue())")
             .resizable()
@@ -55,7 +61,7 @@ struct WeeklyBubbleBackground: View {
             )
             .animation(.easeInOut)
     }
-    // Bubble
+    // BUBBLE
     var bubble: some View {
         GeometryReader { geometry in // START: GEOMETRY
             VStack { // START: VSTACK
@@ -94,7 +100,7 @@ struct WeeklyBubbleBackground: View {
             } // END: VSTACK
         } // END: GEOMETRY
     }
-    // Back Coral
+    // BACK CORAL
     var backCoral: some View {
         VStack(alignment: .trailing) { // START: VSTACK
             Spacer()
@@ -112,7 +118,7 @@ struct WeeklyBubbleBackground: View {
         )
         .ignoresSafeArea()
     }
-    // Front Coral
+    // FRONT CORAL
     var frontCoral: some View {
         VStack(alignment: .trailing) { // START: VSTACK
             Spacer()
@@ -132,6 +138,7 @@ struct WeeklyBubbleBackground: View {
     }
 }
 
+// MARK: - PREVIEW
 struct WeeklyBubbleBackground_Previews: PreviewProvider {
     static var previews: some View {
         WeeklyBubbleBackground()

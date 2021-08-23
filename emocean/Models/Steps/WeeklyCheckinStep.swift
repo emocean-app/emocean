@@ -40,6 +40,9 @@ struct ThirdWeeklyCheckinStep: WeeklyCheckinStep {
     var nextSecondary: Int
     var text: String
     var selection: Bool = true
+    var isLast: Bool {
+        return self.next == 0 && self.nextSecondary == 0
+    }
 }
 
 // Model for Fourth Screen Type

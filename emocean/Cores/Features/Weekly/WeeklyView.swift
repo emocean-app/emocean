@@ -17,17 +17,28 @@ struct WeeklyView: View {
                 .ignoresSafeArea()
             content
         } // END: ZTACK
+        .environmentObject(viewModel)
     }
+}
+
+// MARK: - COMPONENTS
+extension WeeklyView {
     // BACKGROUND SELECTION
     var background: some View {
         Group { // START: GROUP
             switch viewModel.getBackground() {
             case .bubble:
                 WeeklyBubbleBackground(isBubble: viewModel.selectedTabIndex != 2)
+                    .transition(.move(edge: .bottom))
+                    .animation(.easeInOut)
             case .sky:
                 WeeklySkyBackground()
+                    .transition(.move(edge: .top))
+                    .animation(.easeInOut)
             case .scenery:
                 WeeklySceneryBackground()
+                    .transition(.move(edge: .bottom))
+                    .animation(.easeInOut)
             }
         } // END: GROUP
     }
@@ -36,15 +47,20 @@ struct WeeklyView: View {
         Group {
             switch viewModel.getScreenState() {
             case .primary:
-                WeeklyCheckin(select: $viewModel.selectedTabIndex)
+                WeeklyCheckin(
+                    selected: $viewModel.selectedTabIndex,
+                    model: viewModel.currentStep
+                )
             case .secondary:
-                WeeklyForm()
+                WeeklyForm(
+                    model: viewModel.currentStep
+                )
             case .third:
-                WeeklyConfirmation()
+                WeeklyConfirmation(model: viewModel.currentStep)
             case .fourth:
                 WeeklyCheckinCategory()
             case .fifth:
-                WeeklyLastGoal()
+                WeeklyLastGoal(model: viewModel.currentStep)
             case .sixth:
                 WeeklyPrompt()
             }
@@ -52,6 +68,7 @@ struct WeeklyView: View {
     }
 }
 
+// MARK: - PREVIEW
 struct WeeklyView_Previews: PreviewProvider {
     static var previews: some View {
         WeeklyView()

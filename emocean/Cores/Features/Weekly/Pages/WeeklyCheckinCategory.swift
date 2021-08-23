@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WeeklyCheckinCategory: View {
+    // MARK: ENVIRONMENT
+    @EnvironmentObject var env: WeeklyViewModel
     // MARK: POPERTIES
     private let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -33,7 +35,7 @@ struct WeeklyCheckinCategory: View {
                         Text("Yes!")
                             .padding(.horizontal)
                     } action: {
-                        print("NEXT")
+                        env.goToNextStep(id: env.currentStep.next)
                     }
                     Spacer()
                         .frame(height: 25)
@@ -43,13 +45,6 @@ struct WeeklyCheckinCategory: View {
                 ) // END: VSTACK
                 .preferredColorScheme(time.timeRange == .night ? .dark : .light)
             } // END: SCROLLV
-//            .background(
-//                LottieView(
-//                    filename: "\(time.getRawValue())Ending",
-//                    contentMode: .scaleAspectFit
-//                )
-//                    .ignoresSafeArea()
-//            )
         } // END: GEOMETRY
     }
 }
@@ -125,6 +120,8 @@ extension WeeklyCheckinCategory {
 struct WeeklyCheckinCategory_Previews: PreviewProvider {
     private var time = Time()
     static var previews: some View {
+        let viewModel = WeeklyViewModel()
         WeeklyCheckinCategory()
+            .environmentObject(viewModel)
     }
 }

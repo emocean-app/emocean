@@ -39,18 +39,25 @@ class WeeklyViewModel: ObservableObject {
     }
 }
 
-// MARK: - VIEW METHODS
+// MARK: - NETWORKING METHODS
 
+// MARK: - VIEW METHODS
+// NAVIGATION
 extension WeeklyViewModel {
+    /// Get the background type of current step
+    /// - Returns: Enum of WeeklyBackgroundState
     func getBackground() -> WeeklyBackgroundState {
         return currentStep.backgroundType
     }
+    /// Get the view type of current step
+    /// - Returns: Enum of WeeklyCheckinScreenState
     func getScreenState() -> WeeklyCheckinScreenState {
         return currentStep.viewType
     }
-    func goToNextStep() {
-        guard let step = steps.first(where: { $0.id == currentStep.next }) else {return}
-        print(step)
+    /// Go to the next step
+    /// - Parameter id: Int id of the next step
+    func goToNextStep(id: Int) {
+        guard let step = steps.first(where: { $0.id == id }) else {return}
         currentStep = step
     }
 }

@@ -11,11 +11,21 @@ import Lottie
 struct WeeklyLastGoal: View {
     // MARK: ENVIRONMENT
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var env: WeeklyViewModel
     // MARK: PROPERTIES
     let time = Time()
     @State var selected: Int = 0
     @State var showAlert: Bool = false
     @State var showAction: Bool = false
+    private var model: FifthWeeklyCheckinStep
+    // MARK: INIT
+    init(model: WeeklyCheckinStep) {
+        guard let model = model as? FifthWeeklyCheckinStep else {
+            self.model = FifthWeeklyCheckinStep(id: 0, next: 0, nextSecondary: 0)
+            return
+        }
+        self.model = model
+    }
     // MARK: BODY
     var body: some View {
         GeometryReader { reader in // START: GEOMETRY
@@ -40,13 +50,13 @@ struct WeeklyLastGoal: View {
                             PrimaryButton(content: {
                                 Text("No")
                             }, maxWidth: 100, action: {
-                                showAction.toggle()
+                                env.goToNextStep(id: model.nextSecondary)
                             })
                             // - YES BUTTON
                             PrimaryButton(content: {
                                 Text("Yes")
                             }, maxWidth: 100, action: {
-                                showAction.toggle()
+                                env.goToNextStep(id: model.next)
                             })
                         } // END: HSTACK
                     }
@@ -106,7 +116,8 @@ struct TextViewPages: View {
 
 struct WeeklyLastGoal_Previews: PreviewProvider {
     static var previews: some View {
-        WeeklyLastGoal()
+        let viewModel = WeeklyViewModel()
+        WeeklyLastGoal(model: viewModel.currentStep)
             .background(Color.theme.seaBottomGradient)
     }
 }

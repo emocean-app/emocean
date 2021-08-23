@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct WeeklyCheckin: View {
+    // MARK: ENVIRONMENT
+    @EnvironmentObject var env: WeeklyViewModel
     // MARK: PROPERTIES
     @Binding var select: Int
+    private var model: PrimaryWeeklyCheckinStep
+    // MARK: INIT
+    init(selected: Binding<Int>, model: WeeklyCheckinStep) {
+        self._select = selected
+        guard let model = model as? PrimaryWeeklyCheckinStep else {
+            self.model = PrimaryWeeklyCheckinStep(id: 0, next: 0)
+            return
+        }
+        self.model = model
+    }
     // MARK: BODY
     var body: some View {
         GeometryReader { reader in // START: READER
@@ -31,9 +43,11 @@ struct WeeklyCheckin: View {
                     if select == 2 {
                         // - YES! BUTTON
                         PrimaryButton(content: {
-                            Text("Next").fontWeight(.bold)
+                            Text("Next")
+                                .fontWeight(.bold)
                         }, maxWidth: 150, action: {
                             print("primary clicked")
+                            env.goToNextStep(id: model.next)
                         })
                         .transition(.move(edge: .bottom))
                         .animation(.easeIn(duration: 0.25))
@@ -46,6 +60,7 @@ struct WeeklyCheckin: View {
 }
 
 // MARK: - COMPONENTS
+
 // Tab View Items
 struct TabViewsItem: View {
     // MARK: PROPERTIES
@@ -80,7 +95,9 @@ struct TabViewsItem: View {
 
 struct WeeklyCheckin_Previews: PreviewProvider {
     static var previews: some View {
-        WeeklyCheckin(select: .constant(0))
+        let viewModel = WeeklyViewModel()
+        WeeklyCheckin(selected: .constant(0), model: viewModel.currentStep)
             .background(EMTheme.shared.sea.ignoresSafeArea())
+            .environmentObject(viewModel)
     }
 }

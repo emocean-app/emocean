@@ -69,17 +69,17 @@ struct Constant {
             id: 3,
             backgroundType: .sky,
             next: 10,
-            nextSecondary: 0,
-            text: "Are you comfortable with this pattern that's happening to you?"
+            nextSecondary: 4,
+            text: "Are you comfortable with this\npattern that's happening to you?"
         ), // 3
         ThirdWeeklyCheckinStep(
             id: 4,
             backgroundType: .sky,
             next: 5,
             nextSecondary: 11,
-            text: "Are there things you can change to make you feel more comfortable?"
+            text: "Are there things you can\nchange to make you feel more\ncomfortable?"
         ), // 4
-        FourthWeeklyCheckinStep(id: 5, next: 0), // 5
+        FourthWeeklyCheckinStep(id: 5, next: 6), // 5
         SecondaryWeeklyCheckinStep(
             id: 6,
             next: 7,
@@ -99,11 +99,11 @@ struct Constant {
             backgroundType: .scenery,
             next: 0,
             nextSecondary: 0,
-            text: "Do you want to keep on your goal?"
+            text: "Do you want to keep\non your goal?"
         ), // 9
         SecondaryWeeklyCheckinStep(
             id: 10,
-            next: 11,
+            next: 7,
             question: "What do you want to do to keep this pattern?"
         ), // 10
         SixthWeeklyCheckinStep(id: 11, next: 0)
