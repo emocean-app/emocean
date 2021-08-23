@@ -11,12 +11,11 @@ import SwiftUI
 struct Goal: Codable, Identifiable {
     
     let id: Int
-    let deviceId = UIDevice.current.identifierForVendor!.uuidString
+    let deviceId: String
     let content: String
     let completed: Bool
     let createdAt: String
-    let categoryId: Int
-    
+    let category: Category
 }
 
 struct Goalpost: Codable {

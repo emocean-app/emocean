@@ -19,14 +19,10 @@ struct CheckinSuccessView: View {
     @State var selected: Int = 0
     var body: some View {
         ZStack {
-            LottieView(filename: "\(time.getRawValue())Ending", contentMode: .scaleAspectFit).ignoresSafeArea(edges: .top)
-            Page1(theme: time.getRawValue()).edgesIgnoringSafeArea(.all)
-//            if selected == 0 {
+            LottieView(filename: "\(time.getRawValue())Ending", contentMode: .scaleAspectFit).ignoresSafeArea()
+            Page1(theme: time.getRawValue()).ignoresSafeArea()
                 VStack {
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    
+                    Spacer().frame(height: UIScreen.main.bounds.height * 0.8)
                     PrimaryButton(content: {
                         Text("Thanks!")
                     }, maxWidth: 100, action: {
@@ -46,9 +42,9 @@ struct CheckinSuccessView: View {
                     })
                     Spacer()
                 }
-//            }
-        }.ignoresSafeArea()
+        }
     }
+    
     func getActionSheet() -> ActionSheet {
         
         let button1: ActionSheet.Button = .default(Text("Sure")){

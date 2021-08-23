@@ -9,9 +9,9 @@ import Foundation
 struct SeederStaticGoal {
     func getData() -> [Goal] {
         return [
-            Goal(id: 1,content: "makan daging anjing" , completed: false, createdAt: "Tuesday, 26 January", categoryId: 3),
-            Goal(id: 2,content: "makan daging anjing" , completed: true, createdAt: "Tuesday, 26 January", categoryId: 3),
-            Goal(id: 3,content: "makan daging anjing dengan sayur kol" , completed: true, createdAt: "Tuesday, 27 January", categoryId: 2)
+            Goal(id: 1, deviceId: "",content: "Hello Good Morning" , completed: false, createdAt: "Tuesday, 26 January", category: Category(id: 1, name: "Work")),
+            Goal(id: 2, deviceId: "",content: "Bingung bosnya suka marah-marah" , completed: true, createdAt: "Tuesday, 26 January", category: Category(id: 1, name: "Work")),
+            Goal(id: 3, deviceId: "",content: "makan daging anjing dengan sayur kol" , completed: true, createdAt: "Tuesday, 27 January", category: Category(id: 1, name: "Work"))
         ]
     }
 }

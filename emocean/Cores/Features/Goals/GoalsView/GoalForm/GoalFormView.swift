@@ -13,6 +13,7 @@ struct GoalFormView: View {
     @State var goal = ""
     @State var searchText = ""
     @ObservedObject var viewModel = GoalFormViewModel()
+    @ObservedObject var mainviewModel = GoalViewModel()
     
     var body: some View {
         NavigationView {
@@ -38,6 +39,7 @@ struct GoalFormView: View {
                     viewModel.goalpost.content = goal
                     viewModel.goalpost.categoryId = category
                     viewModel.addGoal()
+                    mainviewModel.fetchData()
                     showModal = false
                 }, label: {
                     Text("Save")

@@ -29,10 +29,11 @@ struct GoalDetailView: View {
     @State var value = 0.0
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     private let clearColor = Color.clear
+    @StateObject private var goalViewModel = GoalViewModel()
     var body: some View {
         VStack (alignment: .leading){ // START: VSTACK
                 HStack { // START: HSTACK
-                    Text("sdasda")
+                    Text(goal.createdAt)
                         .font(.footnote)
                     Spacer()
                     Image(systemName: "xmark")
@@ -46,12 +47,12 @@ struct GoalDetailView: View {
                 } // END: HSTACK
                 .padding(.horizontal,25)
                 .padding(.top,25)
-                ScrollView{
+            ScrollView(){
                     Text(goal.content)
-                        .padding(.horizontal,25)
+                        .padding(.leading,20)
                         .padding(.vertical)
                         .font(.body)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(.vertical,10)
                 Spacer()
@@ -67,6 +68,7 @@ struct GoalDetailView: View {
                         .frame(width: 50, height: 50)
                         .onTapGesture {
                             // DEL FUNCTION
+                            goalViewModel.deleteData(id: goal.id)
                         }
                 } // END: HSTACK
                 .padding(.horizontal,25)
@@ -80,7 +82,7 @@ struct GoalDetailView: View {
 
 struct GoalDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalDetailView(goal: Goal(id: 0,content: "Work", completed: false , createdAt: "25 January 2021", categoryId: 2))
+        GoalDetailView(goal: Goal(id: 0, deviceId: "",content: "Work", completed: false , createdAt: "25 January 2021", category: Category(id: 1, name: "Work")))
             .previewLayout(.sizeThatFits)
             .padding(.horizontal,10)
             .background(Color.black)
