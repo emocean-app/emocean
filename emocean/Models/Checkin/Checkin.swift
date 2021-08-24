@@ -11,4 +11,12 @@ struct Checkin: Codable {
     var moodId: Int
     var categoryId: Int
     var stories: [Feedback]
+    var period: CheckinPeriod
+}
+
+enum CheckinPeriod: String, Codable {
+    case daily
+    case weekly
+    case monthly
+    case yearly
 }

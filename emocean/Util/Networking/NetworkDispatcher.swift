@@ -25,6 +25,7 @@ struct NetworkDispatcher {
                 // If the response is invalid, throw an error
                 if let response = response as? HTTPURLResponse,
                    !(200...299).contains(response.statusCode) {
+                    print(String(data: data, encoding: .utf8))
                     throw httpError(response.statusCode)
                 }
                 return data

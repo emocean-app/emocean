@@ -22,12 +22,12 @@ struct TabBarView: View {
             case .goal:
                 GoalView()
             case .history:
-                WentFishingView()
+                HistoryView()
             }
             TabBar(selectedTab: $selectedTab)
                 .frame(maxHeight: 30)
         }
-        .onAppear(){
+        .onAppear {
             if settingsEnv.music {
                 SoundManager.shared.playSound(sound: .ocean)
             }

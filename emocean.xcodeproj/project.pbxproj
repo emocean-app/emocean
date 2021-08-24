@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C06554C26D3E6E000C7E910 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C06554B26D3E6E000C7E910 /* History.swift */; };
 		0C08BA5A26B81A7A003399BE /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08BA5926B81A7A003399BE /* MotionManager.swift */; };
 		0C08BA5C26B81ADC003399BE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08BA5B26B81ADC003399BE /* MainView.swift */; };
 		0C08BA5F26B83200003399BE /* ReflectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08BA5E26B83200003399BE /* ReflectButton.swift */; };
@@ -18,6 +19,10 @@
 		0C3F042D26B9B75F00844F23 /* AnimasiHomepageMalam.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */; };
 		0C62284426B18ECA00672AEA /* ReflectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284326B18ECA00672AEA /* ReflectionCell.swift */; };
 		0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62284526B1AEB800672AEA /* ProgressBubble.swift */; };
+		0C6C52C026D497A90064A6EB /* SeederStaticHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C52BF26D497A90064A6EB /* SeederStaticHistory.swift */; };
+		0C6C52C226D497B60064A6EB /* SeederNetworkingHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C52C126D497B60064A6EB /* SeederNetworkingHistory.swift */; };
+		0C6C52C426D4A2580064A6EB /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C52C326D4A2580064A6EB /* HistoryViewModel.swift */; };
+		0C6C52C626D4B0B10064A6EB /* HistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C52C526D4B0B10064A6EB /* HistoryRepository.swift */; };
 		0C6DE87226C65A3E0087D166 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6DE87126C65A3E0087D166 /* NotificationHelper.swift */; };
 		0C979CD926C4FB410057C879 /* GoalFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C979CD826C4FB410057C879 /* GoalFormView.swift */; };
 		0C979CDE26C531260057C879 /* GoalFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C979CDD26C531260057C879 /* GoalFormViewModel.swift */; };
@@ -145,6 +150,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C06554B26D3E6E000C7E910 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		0C08BA5926B81A7A003399BE /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		0C08BA5B26B81ADC003399BE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0C08BA5E26B83200003399BE /* ReflectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectButton.swift; sourceTree = "<group>"; };
@@ -155,6 +161,10 @@
 		0C3F042C26B9B75F00844F23 /* AnimasiHomepageMalam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimasiHomepageMalam.json; sourceTree = "<group>"; };
 		0C62284326B18ECA00672AEA /* ReflectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionCell.swift; sourceTree = "<group>"; };
 		0C62284526B1AEB800672AEA /* ProgressBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBubble.swift; sourceTree = "<group>"; };
+		0C6C52BF26D497A90064A6EB /* SeederStaticHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeederStaticHistory.swift; sourceTree = "<group>"; };
+		0C6C52C126D497B60064A6EB /* SeederNetworkingHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeederNetworkingHistory.swift; sourceTree = "<group>"; };
+		0C6C52C326D4A2580064A6EB /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		0C6C52C526D4B0B10064A6EB /* HistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepository.swift; sourceTree = "<group>"; };
 		0C6DE87126C65A3E0087D166 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		0C979CD826C4FB410057C879 /* GoalFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalFormView.swift; sourceTree = "<group>"; };
 		0C979CDD26C531260057C879 /* GoalFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalFormViewModel.swift; sourceTree = "<group>"; };
@@ -296,6 +306,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C06554926D3E67600C7E910 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				0C06554A26D3E67D00C7E910 /* DataStore */,
+				0C06554B26D3E6E000C7E910 /* History.swift */,
+				0C6C52C526D4B0B10064A6EB /* HistoryRepository.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		0C06554A26D3E67D00C7E910 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				0C6C52BF26D497A90064A6EB /* SeederStaticHistory.swift */,
+				0C6C52C126D497B60064A6EB /* SeederNetworkingHistory.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
 		0C08BA5826B7C0CE003399BE /* MainView */ = {
 			isa = PBXGroup;
 			children = (
@@ -661,6 +690,7 @@
 			isa = PBXGroup;
 			children = (
 				8641940226CC084500898CFC /* Steps */,
+				0C06554926D3E67600C7E910 /* History */,
 				4E59223F26C4DEF300FD565D /* Goal */,
 				8696D0DE26BB9C2E00F80E0B /* Quotes */,
 				8696D0DD26BB9C2400F80E0B /* Question */,
@@ -720,6 +750,7 @@
 			isa = PBXGroup;
 			children = (
 				86DE2B1626B97211008F4623 /* HistoryView.swift */,
+				0C6C52C326D4A2580064A6EB /* HistoryViewModel.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -1022,6 +1053,7 @@
 				E82F1F7D26CE867A006F1A65 /* WeeklyCheckin.swift in Sources */,
 				4E59224626C56AED00FD565D /* GoalRepository.swift in Sources */,
 				86DF434D26D15536005353A8 /* WeeklySkyBackground.swift in Sources */,
+				0C6C52C426D4A2580064A6EB /* HistoryViewModel.swift in Sources */,
 				8696D11026BB9E0800F80E0B /* NetworkDispatcher.swift in Sources */,
 				E8E9D5A726B2EFB000D331EF /* TextField.swift in Sources */,
 				8696D10326BB9D7B00F80E0B /* QuestionRepository.swift in Sources */,
@@ -1037,6 +1069,7 @@
 				8696D0EC26BB9CB400F80E0B /* SeederNetworkingCheckin.swift in Sources */,
 				8696D0E526BB9C7000F80E0B /* CategoryRepository.swift in Sources */,
 				4EF4222526B84F2400EA7341 /* Category.swift in Sources */,
+				0C06554C26D3E6E000C7E910 /* History.swift in Sources */,
 				8696D11726BB9EB300F80E0B /* Repository.swift in Sources */,
 				8655E97926BC071600DC9CFF /* CheckinView.swift in Sources */,
 				860029D426D0EE8C004329BE /* WeeklyCheckinCategory.swift in Sources */,
@@ -1051,6 +1084,7 @@
 				0C979CDE26C531260057C879 /* GoalFormViewModel.swift in Sources */,
 				0C0A88AB26B9A69500D80AEE /* WhiteButton.swift in Sources */,
 				4E67393626B2DA1D0037583E /* TabBarView.swift in Sources */,
+				0C6C52C626D4B0B10064A6EB /* HistoryRepository.swift in Sources */,
 				E8EC034F26B7BBBC00318CA7 /* BackgroundView.swift in Sources */,
 				EFDC625E26A7E4A200E4D068 /* ContentView.swift in Sources */,
 				4E91CA2226B1BA9100387EE4 /* GoalCell.swift in Sources */,
@@ -1078,6 +1112,7 @@
 				8689DE3E26B6EFF50084403B /* EMCalendarViewModel.swift in Sources */,
 				8696D0FC26BB9D4600F80E0B /* MoodRepository.swift in Sources */,
 				4E91CA1D26B1730500387EE4 /* GoalDetailView.swift in Sources */,
+				0C6C52C026D497A90064A6EB /* SeederStaticHistory.swift in Sources */,
 				0C0D673226B3A8F0005925E4 /* EmotionChart.swift in Sources */,
 				4EF4222D26B8516E00EA7341 /* Checkin.swift in Sources */,
 				0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */,
@@ -1109,6 +1144,7 @@
 				868B0C2926B25DF70019A2B0 /* ColorExtension.swift in Sources */,
 				0C3976B326CCBFF80063CF55 /* OnboardingView.swift in Sources */,
 				4E67393226B28D680037583E /* TabBar.swift in Sources */,
+				0C6C52C226D497B60064A6EB /* SeederNetworkingHistory.swift in Sources */,
 				8641940126CBCE4000898CFC /* Encodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
