@@ -58,8 +58,10 @@
 		4EF8877426BD157B00D25DBA /* GoneFishingMorning.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EF8877126BD157B00D25DBA /* GoneFishingMorning.json */; };
 		4EF8877526BD157B00D25DBA /* GoneFishingNoon.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EF8877226BD157B00D25DBA /* GoneFishingNoon.json */; };
 		4EFF352026B9908000E7FC0D /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */; };
+		860029D426D0EE8C004329BE /* WeeklyCheckinCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860029D326D0EE8C004329BE /* WeeklyCheckinCategory.swift */; };
 		8641940126CBCE4000898CFC /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641940026CBCE4000898CFC /* Encodable.swift */; };
 		8641940426CC086700898CFC /* CheckinStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641940326CC086600898CFC /* CheckinStep.swift */; };
+		8649E27426D297620035E8E5 /* WeeklyForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8649E27326D297620035E8E5 /* WeeklyForm.swift */; };
 		864B452E26B82EB000528ECF /* CheckinCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B452D26B82EB000528ECF /* CheckinCategoryView.swift */; };
 		8655E97926BC071600DC9CFF /* CheckinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655E97826BC071600DC9CFF /* CheckinView.swift */; };
 		8655E97B26BC072E00DC9CFF /* CheckinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655E97A26BC072E00DC9CFF /* CheckinViewModel.swift */; };
@@ -97,6 +99,12 @@
 		86A6D7F826B04E1C001C19E1 /* dummy5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D7F726B04E1C001C19E1 /* dummy5.swift */; };
 		86A6D80C26B05455001C19E1 /* ButtonOutlined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */; };
 		86DE2B1726B97211008F4623 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE2B1626B97211008F4623 /* HistoryView.swift */; };
+		86DF434D26D15536005353A8 /* WeeklySkyBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF434C26D15536005353A8 /* WeeklySkyBackground.swift */; };
+		86ECAE3226CFEC39005DE1DD /* WeeklyBubbleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ECAE3126CFEC39005DE1DD /* WeeklyBubbleBackground.swift */; };
+		86ECAE3626CFEF76005DE1DD /* WeeklyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ECAE3526CFEF76005DE1DD /* WeeklyView.swift */; };
+		86ECAE3826CFEF80005DE1DD /* WeeklyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ECAE3726CFEF80005DE1DD /* WeeklyViewModel.swift */; };
+		86ECAE3A26CFF5B3005DE1DD /* WeeklySceneryBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ECAE3926CFF5B3005DE1DD /* WeeklySceneryBackground.swift */; };
+		86ECAE3D26D00262005DE1DD /* WeeklyCheckinStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ECAE3C26D00262005DE1DD /* WeeklyCheckinStep.swift */; };
 		E82F1F7D26CE867A006F1A65 /* WeeklyCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82F1F7C26CE867A006F1A65 /* WeeklyCheckin.swift */; };
 		E858BC0326CCBB310092E325 /* GoalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858BC0226CCBB310092E325 /* GoalTextView.swift */; };
 		E858BC0526CCBB400092E325 /* WeeklyPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E858BC0426CCBB400092E325 /* WeeklyPrompt.swift */; };
@@ -187,8 +195,10 @@
 		4EF8877126BD157B00D25DBA /* GoneFishingMorning.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GoneFishingMorning.json; sourceTree = "<group>"; };
 		4EF8877226BD157B00D25DBA /* GoneFishingNoon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GoneFishingNoon.json; sourceTree = "<group>"; };
 		4EFF351F26B9908000E7FC0D /* GoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
+		860029D326D0EE8C004329BE /* WeeklyCheckinCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCheckinCategory.swift; sourceTree = "<group>"; };
 		8641940026CBCE4000898CFC /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		8641940326CC086600898CFC /* CheckinStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinStep.swift; sourceTree = "<group>"; };
+		8649E27326D297620035E8E5 /* WeeklyForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyForm.swift; sourceTree = "<group>"; };
 		864B452D26B82EB000528ECF /* CheckinCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinCategoryView.swift; sourceTree = "<group>"; };
 		8655E97826BC071600DC9CFF /* CheckinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinView.swift; sourceTree = "<group>"; };
 		8655E97A26BC072E00DC9CFF /* CheckinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinViewModel.swift; sourceTree = "<group>"; };
@@ -226,6 +236,12 @@
 		86A6D7F726B04E1C001C19E1 /* dummy5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy5.swift; sourceTree = "<group>"; };
 		86A6D80B26B05455001C19E1 /* ButtonOutlined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonOutlined.swift; sourceTree = "<group>"; };
 		86DE2B1626B97211008F4623 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		86DF434C26D15536005353A8 /* WeeklySkyBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklySkyBackground.swift; sourceTree = "<group>"; };
+		86ECAE3126CFEC39005DE1DD /* WeeklyBubbleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyBubbleBackground.swift; sourceTree = "<group>"; };
+		86ECAE3526CFEF76005DE1DD /* WeeklyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyView.swift; sourceTree = "<group>"; };
+		86ECAE3726CFEF80005DE1DD /* WeeklyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyViewModel.swift; sourceTree = "<group>"; };
+		86ECAE3926CFF5B3005DE1DD /* WeeklySceneryBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklySceneryBackground.swift; sourceTree = "<group>"; };
+		86ECAE3C26D00262005DE1DD /* WeeklyCheckinStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCheckinStep.swift; sourceTree = "<group>"; };
 		E82F1F7C26CE867A006F1A65 /* WeeklyCheckin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCheckin.swift; sourceTree = "<group>"; };
 		E858BC0226CCBB310092E325 /* GoalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTextView.swift; sourceTree = "<group>"; };
 		E858BC0426CCBB400092E325 /* WeeklyPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyPrompt.swift; sourceTree = "<group>"; };
@@ -338,24 +354,6 @@
 			isa = PBXGroup;
 			children = (
 				4E59224326C56A8400FD565D /* SeederStaticGoal.swift */,
-			);
-			path = DataSource;
-			sourceTree = "<group>";
-		};
-		4E59223F26C4DEF300FD565D /* Goal */ = {
-			isa = PBXGroup;
-			children = (
-				4E59224226C56A6E00FD565D /* DataSource */,
-				4E59224026C4DF0200FD565D /* Goal.swift */,
-				4E59224526C56AED00FD565D /* GoalRepository.swift */,
-			);
-			path = Goal;
-			sourceTree = "<group>";
-		};
-		4E59224226C56A6E00FD565D /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				4E59224326C56A8400FD565D /* SeederStaticGoal.swift */,
 				4E789F7E26C6A6CE003D11F8 /* SeederNetworkingGoal.swift */,
 			);
 			path = DataSource;
@@ -382,12 +380,13 @@
 			path = GoalsView;
 			sourceTree = "<group>";
 		};
-		8641940226CC084500898CFC /* CheckinStep */ = {
+		8641940226CC084500898CFC /* Steps */ = {
 			isa = PBXGroup;
 			children = (
 				8641940326CC086600898CFC /* CheckinStep.swift */,
+				86ECAE3C26D00262005DE1DD /* WeeklyCheckinStep.swift */,
 			);
-			path = CheckinStep;
+			path = Steps;
 			sourceTree = "<group>";
 		};
 		866BC52726B6CD49008AA685 /* ReflectionDetail */ = {
@@ -424,7 +423,6 @@
 			isa = PBXGroup;
 			children = (
 				0C3976B126CCB9DA0063CF55 /* Onboarding */,
-				0C9F2D3C26CB9CD200CAC775 /* LaunchScreen */,
 				4E67392D26B28A710037583E /* TabBar */,
 				0C08BA5826B7C0CE003399BE /* MainView */,
 			);
@@ -662,7 +660,7 @@
 		86DA0AC526AF0F3500FA2C53 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8641940226CC084500898CFC /* CheckinStep */,
+				8641940226CC084500898CFC /* Steps */,
 				4E59223F26C4DEF300FD565D /* Goal */,
 				8696D0DE26BB9C2E00F80E0B /* Quotes */,
 				8696D0DD26BB9C2400F80E0B /* Question */,
@@ -726,13 +724,36 @@
 			path = History;
 			sourceTree = "<group>";
 		};
-		E858BC0126CCBB200092E325 /* Weekly */ = {
+		86ECAE2F26CFE909005DE1DD /* Pages */ = {
 			isa = PBXGroup;
 			children = (
 				E82F1F7C26CE867A006F1A65 /* WeeklyCheckin.swift */,
+				E858BC0826CCBB5D0092E325 /* WeeklyConfirmation.swift */,
 				E858BC0426CCBB400092E325 /* WeeklyPrompt.swift */,
 				E858BC0626CCBB4C0092E325 /* WeeklyLastGoal.swift */,
-				E858BC0826CCBB5D0092E325 /* WeeklyConfirmation.swift */,
+				860029D326D0EE8C004329BE /* WeeklyCheckinCategory.swift */,
+				8649E27326D297620035E8E5 /* WeeklyForm.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		86ECAE3026CFEC1F005DE1DD /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				86ECAE3126CFEC39005DE1DD /* WeeklyBubbleBackground.swift */,
+				86ECAE3926CFF5B3005DE1DD /* WeeklySceneryBackground.swift */,
+				86DF434C26D15536005353A8 /* WeeklySkyBackground.swift */,
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
+		E858BC0126CCBB200092E325 /* Weekly */ = {
+			isa = PBXGroup;
+			children = (
+				86ECAE3026CFEC1F005DE1DD /* Background */,
+				86ECAE2F26CFE909005DE1DD /* Pages */,
+				86ECAE3526CFEF76005DE1DD /* WeeklyView.swift */,
+				86ECAE3726CFEF80005DE1DD /* WeeklyViewModel.swift */,
 			);
 			path = Weekly;
 			sourceTree = "<group>";
@@ -1000,11 +1021,13 @@
 				8696D0E126BB9C5000F80E0B /* SeederStaticCategory.swift in Sources */,
 				E82F1F7D26CE867A006F1A65 /* WeeklyCheckin.swift in Sources */,
 				4E59224626C56AED00FD565D /* GoalRepository.swift in Sources */,
+				86DF434D26D15536005353A8 /* WeeklySkyBackground.swift in Sources */,
 				8696D11026BB9E0800F80E0B /* NetworkDispatcher.swift in Sources */,
 				E8E9D5A726B2EFB000D331EF /* TextField.swift in Sources */,
 				8696D10326BB9D7B00F80E0B /* QuestionRepository.swift in Sources */,
 				E858BC0326CCBB310092E325 /* GoalTextView.swift in Sources */,
 				8696D11A26BB9ED000F80E0B /* Constant.swift in Sources */,
+				86ECAE3826CFEF80005DE1DD /* WeeklyViewModel.swift in Sources */,
 				0CBD70C926B850DE00B6E59E /* ChartDescriptionView.swift in Sources */,
 				0CDE373426B06D440006FE66 /* PrimaryButton.swift in Sources */,
 				8696D0FF26BB9D5B00F80E0B /* SeederStaticQuestion.swift in Sources */,
@@ -1016,12 +1039,14 @@
 				4EF4222526B84F2400EA7341 /* Category.swift in Sources */,
 				8696D11726BB9EB300F80E0B /* Repository.swift in Sources */,
 				8655E97926BC071600DC9CFF /* CheckinView.swift in Sources */,
+				860029D426D0EE8C004329BE /* WeeklyCheckinCategory.swift in Sources */,
 				8696D10126BB9D6600F80E0B /* SeederNetworkingQuestion.swift in Sources */,
 				4EF4222726B84F6800EA7341 /* Question.swift in Sources */,
 				E858BC0926CCBB5D0092E325 /* WeeklyConfirmation.swift in Sources */,
 				8696D10826BB9D9F00F80E0B /* SeederStaticQuotes.swift in Sources */,
 				4E59224426C56A8400FD565D /* SeederStaticGoal.swift in Sources */,
 				0C6DE87226C65A3E0087D166 /* NotificationHelper.swift in Sources */,
+				8649E27426D297620035E8E5 /* WeeklyForm.swift in Sources */,
 				4E580EFA26B7E34E00229D9A /* CheckinSuccessView.swift in Sources */,
 				0C979CDE26C531260057C879 /* GoalFormViewModel.swift in Sources */,
 				0C0A88AB26B9A69500D80AEE /* WhiteButton.swift in Sources */,
@@ -1029,6 +1054,7 @@
 				E8EC034F26B7BBBC00318CA7 /* BackgroundView.swift in Sources */,
 				EFDC625E26A7E4A200E4D068 /* ContentView.swift in Sources */,
 				4E91CA2226B1BA9100387EE4 /* GoalCell.swift in Sources */,
+				86ECAE3226CFEC39005DE1DD /* WeeklyBubbleBackground.swift in Sources */,
 				86A6D7F626B04E13001C19E1 /* dummy4.swift in Sources */,
 				0C08BA5F26B83200003399BE /* ReflectButton.swift in Sources */,
 				4E789F7F26C6A6CE003D11F8 /* SeederNetworkingGoal.swift in Sources */,
@@ -1056,11 +1082,13 @@
 				4EF4222D26B8516E00EA7341 /* Checkin.swift in Sources */,
 				0C62284626B1AEB800672AEA /* ProgressBubble.swift in Sources */,
 				8696D0F826BB9D2A00F80E0B /* SeederStaticMood.swift in Sources */,
+				86ECAE3D26D00262005DE1DD /* WeeklyCheckinStep.swift in Sources */,
 				E8B336EE26B9AA98001A62A9 /* SliderView.swift in Sources */,
 				8696D0FA26BB9D3900F80E0B /* SeederNetworkingMood.swift in Sources */,
 				4EF4222326B84EC700EA7341 /* Mood.swift in Sources */,
 				4E29B9FE26C14EB70089F3FA /* SoundManager.swift in Sources */,
 				8696D0F126BB9CFB00F80E0B /* SeederStaticFeedback.swift in Sources */,
+				86ECAE3A26CFF5B3005DE1DD /* WeeklySceneryBackground.swift in Sources */,
 				8696D0F326BB9D0900F80E0B /* SeederNetworkingFeedback.swift in Sources */,
 				8689DE4026B6F8710084403B /* EMCalendar.swift in Sources */,
 				8655E97B26BC072E00DC9CFF /* CheckinViewModel.swift in Sources */,
@@ -1069,6 +1097,7 @@
 				8696D0E326BB9C5B00F80E0B /* SeederNetworkingCategory.swift in Sources */,
 				8696D0EE26BB9CD100F80E0B /* CheckinRepository.swift in Sources */,
 				868B0C2B26B26C7E0019A2B0 /* ThemeExtension.swift in Sources */,
+				86ECAE3626CFEF76005DE1DD /* WeeklyView.swift in Sources */,
 				0C0A88A526B9545B00D80AEE /* TimeHelper.swift in Sources */,
 				0CBD70C726B848FC00B6E59E /* MainHeaderView.swift in Sources */,
 				8696D10A26BB9DAB00F80E0B /* SeederNetworkingQuotes.swift in Sources */,

@@ -11,7 +11,8 @@ import SwiftUI
 struct EmoceanApp: App {
     var body: some Scene {
         WindowGroup {
-            TabBarView()
+//            TabBarView()
+            WeeklyView()
         }
     }
 }

@@ -10,13 +10,14 @@ import SwiftUI
 struct GoalTextView: View {
     var description = "test asasdas adsmdowamdoawm oawmda moamswdoamwmadowa mdawodmaow maowmdoa damdowmaodawmodmwa damwodmaowmd awwodmaowwdmawodmaw"
     var body: some View {
-        VStack(alignment: .center){
-            ScrollView{
+        VStack(alignment: .center) {
+            ScrollView {
                 Text(description)
                     .padding(.init(top: 30, leading: 30, bottom: 20, trailing: 30))
                     .font(.body)
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .multilineTextAlignment(.center)
+                    .foregroundColor(.primary)
 
             }
         }.frame(minHeight: 200, maxHeight: 250)
