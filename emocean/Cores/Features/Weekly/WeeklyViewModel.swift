@@ -34,6 +34,7 @@ class WeeklyViewModel: ObservableObject {
 }
 
 // MARK: - NETWORKING METHODS
+
 extension WeeklyViewModel {
     /// Get all categories from server
     func getAllCategories() {
@@ -59,7 +60,8 @@ extension WeeklyViewModel {
     }
 }
 
-// MARK: - VIEW METHODS
+// MARK: - UI METHODS
+
 // MARK: NAVIGATION
 extension WeeklyViewModel {
     /// Get the background type of current step
@@ -76,7 +78,9 @@ extension WeeklyViewModel {
     /// - Parameter id: Int id of the next step
     func goToNextStep(id: Int) {
         guard let step = steps.first(where: { $0.id == id }) else {return}
-        currentStep = step
+        withAnimation(.easeInOut(duration: 0.5)) {
+            currentStep = step
+        }
     }
 }
 

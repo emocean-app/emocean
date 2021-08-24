@@ -30,15 +30,12 @@ extension WeeklyView {
             case .bubble:
                 WeeklyBubbleBackground(isBubble: viewModel.selectedTabIndex != 2)
                     .transition(.move(edge: .bottom))
-                    .animation(.easeInOut)
             case .sky:
                 WeeklySkyBackground()
                     .transition(.move(edge: .top))
-                    .animation(.easeInOut)
             case .scenery:
                 WeeklySceneryBackground()
                     .transition(.move(edge: .bottom))
-                    .animation(.easeInOut)
             }
         } // END: GROUP
     }
@@ -51,6 +48,7 @@ extension WeeklyView {
                     selected: $viewModel.selectedTabIndex,
                     model: viewModel.currentStep
                 )
+                .transition(.opacity)
             case .secondary:
                 WeeklyForm(
                     model: viewModel.currentStep
@@ -59,10 +57,13 @@ extension WeeklyView {
                 WeeklyConfirmation(model: viewModel.currentStep)
             case .fourth:
                 WeeklyCheckinCategory()
+                    .transition(.opacity)
             case .fifth:
                 WeeklyLastGoal(model: viewModel.currentStep)
+                    .transition(.opacity)
             case .sixth:
                 WeeklyPrompt()
+                    .transition(.opacity)
             }
         }
     }
