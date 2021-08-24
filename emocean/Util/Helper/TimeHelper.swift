@@ -18,11 +18,29 @@ enum TimeRange: String, CaseIterable {
 struct Time {
     var timeRange: TimeRange
 
-    init() {
+    init(_ currentTime: Date = Date()) {
         let calendar = Calendar(identifier: .gregorian)
-        let currentTime = Date()
 
         let hour = calendar.component(.hour, from: currentTime)
+        if hour >= 19 || hour < 5 {
+            self.timeRange = .night
+        } else if hour < 11 {
+            self.timeRange = .morning
+
+        } else if hour < 15 {
+            self.timeRange = .noon
+
+        } else {
+            self.timeRange = .sunset
+        }
+    }
+    
+    init(_ currentTime: DateComponents) {
+        guard let hour = currentTime.hour else {
+            self.timeRange = .night
+            return
+        }
+        
         if hour >= 19 || hour < 5 {
             self.timeRange = .night
         } else if hour < 11 {

@@ -24,7 +24,8 @@ class CheckinViewModel: ObservableObject {
         deviceId: "\(UIDevice.current.identifierForVendor?.uuidString ?? "simulator")",
         moodId: 0,
         categoryId: 0,
-        stories: []
+        stories: [],
+        period: .daily
     )
     @Published var moods: [Mood] = []
     @Published var categories: [Category] = []

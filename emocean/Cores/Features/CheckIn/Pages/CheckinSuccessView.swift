@@ -30,7 +30,6 @@ struct CheckinSuccessView: View {
                     PrimaryButton(content: {
                         Text("Thanks!")
                     }, maxWidth: 100, action: {
-                        print(env.checkin.asDictionary)
                         env.addCheckin()
                         if UserDefaults.standard.object(forKey: "isFirstNotification") == nil,
                            !settingsEnv.reminder {
