@@ -63,7 +63,8 @@ struct Constant {
         SecondaryWeeklyCheckinStep(
             id: 2,
             next: 3,
-            question: "Why do you think this pattern occur in your week?"
+            question: "Why do you think this pattern occur in your week?",
+            questionId: 1
         ), // 2
         ThirdWeeklyCheckinStep(
             id: 3,
@@ -83,7 +84,8 @@ struct Constant {
         SecondaryWeeklyCheckinStep(
             id: 6,
             next: 7,
-            question: "What change do you want to make?"
+            question: "What change do you want to make?",
+            questionId: 2
         ), // 6
         FifthWeeklyCheckinStep(id: 7, next: 8, nextSecondary: 9), // 7
         ThirdWeeklyCheckinStep(
@@ -104,7 +106,8 @@ struct Constant {
         SecondaryWeeklyCheckinStep(
             id: 10,
             next: 7,
-            question: "What do you want to do to keep this pattern?"
+            question: "What do you want to do to keep this pattern?",
+            questionId: 3
         ), // 10
         SixthWeeklyCheckinStep(id: 11, next: 0)
     ]

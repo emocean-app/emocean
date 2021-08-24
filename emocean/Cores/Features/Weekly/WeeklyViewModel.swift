@@ -20,6 +20,8 @@ class WeeklyViewModel: ObservableObject {
     @Published var categorySelected: Int = 0
     @Published var categories: [Category] = []
     @Published var selectedTabIndex: Int = 0
+    // STORED VALUE
+    private var answers: [WeeklyAnswer] = []
     // REPOS
     private var categoryRepo = CategoryRepository()
     private var checkinRepo = CheckinRepository()
@@ -62,7 +64,7 @@ extension WeeklyViewModel {
 
 // MARK: - UI METHODS
 
-// MARK: NAVIGATION
+// MARK: NAVIGATION LOGIC
 extension WeeklyViewModel {
     /// Get the background type of current step
     /// - Returns: Enum of WeeklyBackgroundState
@@ -81,10 +83,11 @@ extension WeeklyViewModel {
         withAnimation(.easeInOut(duration: 0.5)) {
             currentStep = step
         }
+        selectedTabIndex = 0
     }
 }
 
-// MARK: CATEGORIES
+// MARK: CATEGORIES LOGIC
 extension WeeklyViewModel {
     // MARK: CATEGORY
     /// Get category item status curently selected or not
@@ -103,5 +106,26 @@ extension WeeklyViewModel {
         } else {
             categorySelected = id
         }
+    }
+}
+
+// MARK: ANSWERS LOGIC
+extension WeeklyViewModel {
+    /// Save answer from user input to stored value
+    /// - Parameters:
+    ///   - id: Int of questionID
+    ///   - text: String of user input
+    func saveAnswer(id: Int, text: String) {
+        let answer = WeeklyAnswer(questionId: id, answer: text)
+        self.answers.append(answer)
+    }
+}
+
+// MARK: - STRUCT
+
+extension WeeklyViewModel {
+    struct WeeklyAnswer {
+        let questionId: Int
+        let answer: String
     }
 }

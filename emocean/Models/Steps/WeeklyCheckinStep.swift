@@ -29,6 +29,7 @@ struct SecondaryWeeklyCheckinStep: WeeklyCheckinStep {
     var backgroundType: WeeklyBackgroundState = .sky
     var next: Int
     var question: String
+    var questionId: Int
 }
 
 // Model for Third Screen Type

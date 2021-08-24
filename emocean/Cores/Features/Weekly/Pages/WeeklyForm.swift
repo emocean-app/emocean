@@ -20,7 +20,7 @@ struct WeeklyForm: View {
     // MARK: INIT
     init(model: WeeklyCheckinStep) {
         guard let model = model as? SecondaryWeeklyCheckinStep else {
-            self.model = SecondaryWeeklyCheckinStep(id: 0, next: 0, question: "")
+            self.model = SecondaryWeeklyCheckinStep(id: 0, next: 0, question: "", questionId: 0)
             return
         }
         self.model = model
@@ -43,6 +43,7 @@ struct WeeklyForm: View {
                 // Show TextField or not
                 if showTextField {
                     MultilineTextField(text: $text, onCommit: {
+                        env.saveAnswer(id: model.questionId, text: text)
                         env.goToNextStep(id: model.next)
                     })
                     .padding(.horizontal)
