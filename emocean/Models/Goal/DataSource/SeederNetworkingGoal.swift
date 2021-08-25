@@ -14,7 +14,7 @@ struct SeederNetworkingGoal {
     func postGoal(body: [String: Any]) ->
     AnyPublisher<PostResponse, NetworkRequestError> {
         let apiService = APIService(baseURL: baseUrl)
-        var header: [String:String] = [
+        let header: [String:String] = [
             "content-type": "application/json"
         ]
         return apiService
@@ -26,10 +26,10 @@ struct SeederNetworkingGoal {
     func getAllGoal(status: Bool) -> AnyPublisher<GetResponse, NetworkRequestError> {
         let apiService = APIService(baseURL: baseUrl)
 
-        var header: [String:String] = [
+        let header: [String:String] = [
             "content-type": "application/json"
         ]
-        var queryparams: [String:String]? = [
+        let queryparams: [String:String]? = [
             "deviceId": "\(UIDevice.current.identifierForVendor?.uuidString ?? "")"
         ]
 
@@ -42,7 +42,7 @@ struct SeederNetworkingGoal {
     func deleteGoal(id: Int) -> AnyPublisher<DeleteResponse, NetworkRequestError> {
         let apiService = APIService(baseURL: baseUrl)
 
-        var header: [String:String] = [
+        let header: [String:String] = [
             "content-type": "application/json"
         ]
         

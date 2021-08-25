@@ -24,4 +24,12 @@ struct Goalpost: Codable {
     var categoryId: Int
 }
 
+struct CurrentGoal: Codable {
+    var id: Int
+    var content: String?
+    var status: Bool?
+    var categoryName: String
+}
+
+
 

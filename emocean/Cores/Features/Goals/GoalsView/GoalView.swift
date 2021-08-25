@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GoalView: View {
-    @StateObject private var goalViewModel = GoalViewModel()
+    @State private var goalViewModel = GoalViewModel()
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     @State var selection: Bool = false
     @State var isModalShown = false
@@ -51,23 +51,29 @@ struct GoalView: View {
                 .padding()
                 List {
                     ForEach(goalViewModel.goals) { item in
-                        if selection == item.completed {
+                        if item.completed == selection  {
                             GoalCell(category: item.category.name ?? "", goal: item.content, date: item.createdAt, isCompleted: item.completed)
                                 .onTapGesture {
                                     goalViewModel.getGoal =  item
+                                    goalViewModel.currentGoal.id = item.id
+                                    goalViewModel.currentGoal.categoryName = item.category.name
+                                    print(item)
                                     self.viewControllerHolder?.present(style: .overCurrentContext, transitionStyle: .crossDissolve) {
                                         GoalDetailView(goal: item).padding()
                                     }
                                 }
                         }
                     }
-                    .onDelete(perform: goalViewModel.delete)
+                    .onDelete(perform: goalViewModel.deleteData)
                     .listRowBackground(Color.clear)
+                }
+                .onAppear {
+                    goalViewModel.fetchData()
                 }
             }
         }
         .sheet(isPresented: $isModalShown, content: {
-            GoalFormView(showModal: $isModalShown)
+            GoalFormView(showModal: $isModalShown, title: "New Goal")
         })
     }
 }

@@ -14,9 +14,10 @@ class GoalViewModel: ObservableObject {
     @Published var goals: [Goal] = []
     private var cancellable = Set<AnyCancellable>()
     private var goalRepo = GoalRepository()
+    var getId: Int = 0
     var getGoal: Goal = Goal(id: 0, deviceId: "",content: "", completed: false, createdAt: "", category: Category(id: 1, name: "Work"))
+    var currentGoal: CurrentGoal = CurrentGoal(id: 0,content: "", status: false, categoryName: "")
     init() {
-        //goals = goalRepo.getAllDummy()
         print("\(UIDevice.current.identifierForVendor?.uuidString)")
         fetchData()
     }
@@ -44,19 +45,62 @@ extension GoalViewModel {
                 self?.goals = data
             }
             .store(in: &cancellable)
-
+        
     }
     
-    func deleteData(id: Int){
-        goalRepo.delData(id: id)
-            .sink { [weak self] completion in
-                switch completion {
-                case .failure(let err):
-                    print(err.errorDescription)
-                case .finished:
-                    print("Success Del")
+    func deleteData(at index: IndexSet?){
+        var deletedGoal: Int = 0
+        if (index != nil) {
+            getId = index?.first ?? 0
+            deletedGoal = goals[getId].id
+        } else {
+            deletedGoal = getId
+        }
+        
+        guard let url = URL(string: "https://emocean.me/api/goals/\(deletedGoal)") else {
+            print("Error: cannot create URL")
+            return
+        }
+        // Create the request
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil else {
+                print("Error: error calling DELETE")
+                print(error!)
+                return
+            }
+            guard let data = data else {
+                print("Error: Did not receive data")
+                return
+            }
+            guard let response = response as? HTTPURLResponse, (200 ..< 299) ~= response.statusCode else {
+                print("Error: HTTP request failed")
+                return
+            }
+            do {
+                guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+                    print("Error: Cannot convert data to JSON")
+                    return
                 }
-            } receiveValue: {_ in }
-            .store(in: &cancellable)
+                guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
+                    print("Error: Cannot convert JSON object to Pretty JSON data")
+                    return
+                }
+                guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
+                    print("Error: Could print JSON in String")
+                    return
+                }
+                
+                print(prettyPrintedJson)
+                self.fetchData()
+            } catch {
+                print("Error: Trying to convert JSON data to string")
+                return
+            }
+        }.resume()
+        
     }
+    
+ 
 }

@@ -29,7 +29,9 @@ struct GoalDetailView: View {
     @State var value = 0.0
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     private let clearColor = Color.clear
-    @StateObject private var goalViewModel = GoalViewModel()
+    @ObservedObject private var goalViewModel = GoalViewModel()
+    @ObservedObject private var viewModel = GoalFormViewModel()
+    @State var isModalShown = false
     var body: some View {
         VStack (alignment: .leading){ // START: VSTACK
                 HStack { // START: HSTACK
@@ -58,9 +60,27 @@ struct GoalDetailView: View {
                 Spacer()
                 HStack { // START: HSTACK
                     if !goal.completed {
-                        CompleteButton(action: {})
-                        EditButton(action: {})
+                        
+                        CompleteButton(action: {
+                            viewModel.putMethod(currentGoal: CurrentGoal(id: goal.id, content: goal.content, status: true, categoryName: goal.category.name))
+                            self.viewControllerHolder?.dismiss(animated: true, completion: nil)
+                        })
+                        .onDisappear {
+                            goalViewModel.fetchData()
+                        }
+                        
+                        EditButton(action: {
+                            //goalViewModel.getGoal.content = goal.content
+                            goalViewModel.currentGoal.content = goal.content
+                            goalViewModel.currentGoal.id = goal.id
+                            print(goalViewModel.currentGoal)
+                            isModalShown = true
+                        })
+                        .onDisappear {
+                            goalViewModel.fetchData()
+                        }
                     }
+                    
                     Spacer()
                     Image("Trash")
                         .resizable()
@@ -68,7 +88,13 @@ struct GoalDetailView: View {
                         .frame(width: 50, height: 50)
                         .onTapGesture {
                             // DEL FUNCTION
-                            goalViewModel.deleteData(id: goal.id)
+                            goalViewModel.getId = goal.id
+                            goalViewModel.deleteData(at: nil)
+                            self.viewControllerHolder?.dismiss(animated: true, completion: nil)
+                            //goalViewModel.fetchData()
+                        }
+                        .onDisappear {
+                            goalViewModel.fetchData()
                         }
                 } // END: HSTACK
                 .padding(.horizontal,25)
@@ -77,6 +103,9 @@ struct GoalDetailView: View {
         .frame(minHeight: 200, maxHeight: 400)
         .background(Color.white)
         .cornerRadius(25)
+        .sheet(isPresented: $isModalShown, content: {
+            GoalFormView(showModal: $isModalShown, title: "Edit Goal", currentGoal: CurrentGoal(id: goal.id, content: goal.content, status: goal.completed, categoryName: goal.category.name))
+        })
     }
 }
 
