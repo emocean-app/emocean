@@ -8,39 +8,31 @@
 import SwiftUI
 
 struct HistoryView: View {
-    
-    @State private var selectedDate: DateComponents = {
-        return Calendar.current.dateComponents([.day,.month,.year], from: Date())
-    }()
-    
-    private var selectedDateString: String {
-        let date = Calendar.current.date(from: selectedDate)
-        
-        guard let dateUnwrap = date else { return "" }
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE, MMM d yyyy"
-        
-        return formatter.string(from: dateUnwrap)
-    }
-    
-    init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        UINavigationBar.appearance().backgroundColor = UIColor(named: "Primary")
-    }
-    
+
+    @StateObject var viewModel = HistoryViewModel()
+    @State var shouldShowModal = false
+    @State var history: History?
+
     var body: some View {
-        ZStack { // START: ZSTACK
+        VStack { // START: ZSTACK
             ScrollView { // START: SCROLL VIEW
                 VStack(spacing: 25) { // START: VSTACK
-                    
                     VStack(spacing: 0) { // START: VSTACK
-                        EMCalendar(date: $selectedDate)
+                        HStack {
+                            Text("History")
+                                .font(.largeTitle)
+                                .bold()
+                                .foregroundColor(Color.theme.grayPrimary)
+                                .padding(.horizontal, 20)
+                                .padding(.bottom)
+                            Spacer()
+                        }
+                        EMCalendar(date: $viewModel.selectedDate)
                             .frame(minHeight: 300)
                             .padding(.horizontal, 8)
                             .padding(.bottom, -10)
                         
-                        Text(selectedDateString)
+                        Text(viewModel.selectedDateString)
                             .foregroundColor(.white)
                             .font(.subheadline)
                             .padding()
@@ -54,7 +46,7 @@ struct HistoryView: View {
                     .background(
                         Color.theme.primary
                     )
-                    
+
                     VStack { // START: VSTACK
                         Text("Daily Refelections")
                             .foregroundColor(.white)
@@ -62,66 +54,53 @@ struct HistoryView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding()
                             .padding(.horizontal)
-                        
+
                         VStack(spacing: 20) {// START: VSTACK
-                            ForEach(0..<2) { _ in // START: FOREACH
-                                ReflectionCell(
-                                    time: "Morning",
-                                    mood: "Disgusted",
-                                    image: "Bawal",
-                                    bgColor: .blue,
-                                    categories: ["Work", "Relationship"]
-                                )
-                            } // END: FOREACH
+                            if !viewModel.histories.isEmpty {
+                                ForEach(0..<viewModel.histories.count, id: \.self) { idx in
+                                    Button(action: {
+                                        self.history = viewModel.histories[idx]
+                                        self.shouldShowModal = true
+                                    }, label: {
+                                        ReflectionCell(
+                                            time: Time(viewModel.histories[idx].createdDate).getRawValue(),
+                                            mood: viewModel.histories[idx].mood.name,
+                                            image: viewModel.histories[idx].mood.imageUrl,
+                                            bgColor: .blue,
+                                            categories: [viewModel.histories[idx].category.name])
+                                    })
+                                    .padding(.bottom, idx == viewModel.histories.count - 1 ? 60 : 0)
+                                }
+                            } else {
+                                Text("No data for this date")
+                                    .foregroundColor(.white)
+                                    .padding(.bottom)
+                            }
                         } // END: VSTACK
-                        .padding(.horizontal)
-                        .padding(.horizontal)
-                        
-                        Text("Weekly Refelections")
-                            .foregroundColor(.white)
-                            .fontWeight(.semibold)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding()
-                            .padding(.horizontal)
-                        
-                        VStack(spacing: 20) { // START: VSTACK
-                            ForEach(0..<2) { _ in // START: FOREACH
-                                ReflectionCell(
-                                    time: "Morning",
-                                    mood: "Disgusted",
-                                    image: "Bawal",
-                                    bgColor: .blue,
-                                    categories: ["Work", "Relationship"]
-                                )
-                            } // END: FOREACH
-                        } // START: VSTACK
                         .padding(.horizontal)
                         .padding(.horizontal)
                     } // END: VSTACK
                 } // END: VSTACK
             } // END: SCROLL VIEW
-            .background(
-                GeometryReader { reader in
-                    VStack(spacing: 0) {
-                        Color.theme.primary
-                            .frame(height: reader.safeAreaInsets.top)
-                        EMTheme.shared.sea
-                    }
-                    .ignoresSafeArea()
-                }
-            )
         } // END: ZSTACK
+        .sheet(isPresented: $shouldShowModal, content: {
+            ReflectionDetailView(history: $history)
+        })
+        .background(
+            GeometryReader { reader in
+                VStack(spacing: 0) {
+                    Color.theme.primary
+                        .frame(height: reader.safeAreaInsets.top)
+                    EMTheme.shared.sea
+                }
+                .ignoresSafeArea()
+            }
+        )
     }
 }
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            HistoryView()
-                .navigationBarTitle(
-                    Text("History")
-                        .foregroundColor(.white)
-                )
-        }
+        HistoryView()
     }
 }

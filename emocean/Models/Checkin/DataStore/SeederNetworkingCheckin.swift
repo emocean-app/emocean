@@ -14,8 +14,10 @@ struct SeederNetworkingCheckin {
     // METHODS
     func postCheckin(body: [String: Any]) -> AnyPublisher<PostResponse, NetworkRequestError> {
         let apiService = APIService(baseURL: baseUrl)
+        let postCheckin = PostCheckin(body: body)
+        print(postCheckin)
         return apiService
-            .dispatch(request: PostCheckin(body: body))
+            .dispatch(request: postCheckin)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
