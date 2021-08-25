@@ -11,6 +11,7 @@ import Combine
 
 class GoalFormViewModel: ObservableObject {
     private var categoryRepo = CategoryRepository()
+    @ObservedObject private var goalViewModel = GoalViewModel()
     private var goalRepo = GoalRepository()
     var getGoal: Goal = Goal(id: 0, deviceId: "",content: "", completed: false, createdAt: "", category: Category(id: 1, name: "Work"))
     var updateGoal: CurrentGoal = CurrentGoal(id: 0, content: "", status: false, categoryName: "")
@@ -119,6 +120,7 @@ class GoalFormViewModel: ObservableObject {
                 }
                 
                 print(prettyPrintedJson)
+
             } catch {
                 print("Error: Trying to convert JSON data to string")
                 return

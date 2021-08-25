@@ -48,9 +48,11 @@ struct GoalFormView: View {
                         viewModel.goalpost.content = goal
                         viewModel.goalpost.categoryId = category
                         viewModel.addGoal()
+                        mainviewModel.fetchData()
                     } else {
                         print(currentGoal)
                         viewModel.putMethod(currentGoal: CurrentGoal(id: currentGoal?.id ?? 0, content: goal, status: currentGoal?.status, categoryName: currentGoal?.categoryName ?? ""))
+                        mainviewModel.fetchData()
                     }
                     
                     mainviewModel.fetchData()

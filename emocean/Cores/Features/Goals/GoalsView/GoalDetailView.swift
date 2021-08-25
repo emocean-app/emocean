@@ -29,7 +29,7 @@ struct GoalDetailView: View {
     @State var value = 0.0
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     private let clearColor = Color.clear
-    @ObservedObject private var goalViewModel = GoalViewModel()
+    @StateObject private var goalViewModel = GoalViewModel()
     @ObservedObject private var viewModel = GoalFormViewModel()
     @State var isModalShown = false
     var body: some View {

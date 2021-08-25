@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct GoalView: View {
-    @State private var goalViewModel = GoalViewModel()
+    @StateObject private var goalViewModel = GoalViewModel()
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     @State var selection: Bool = false
     @State var isModalShown = false
+    @State var now = Date()
+
+    let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
+
     init() {
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
@@ -44,7 +48,7 @@ struct GoalView: View {
                 }
                 .padding(.horizontal,20)
                 Picker("Status", selection: $selection) {
-                    Text("On-Going").tag(false)
+                    Text("On-Going \(goalViewModel.goals.count)").tag(false)
                     Text("Completed").tag(true)
                 }
                 .pickerStyle(SegmentedPickerStyle())
@@ -52,7 +56,7 @@ struct GoalView: View {
                 List {
                     ForEach(goalViewModel.goals) { item in
                         if item.completed == selection  {
-                            GoalCell(category: item.category.name ?? "", goal: item.content, date: item.createdAt, isCompleted: item.completed)
+                            GoalCell(goal: item)
                                 .onTapGesture {
                                     goalViewModel.getGoal =  item
                                     goalViewModel.currentGoal.id = item.id
