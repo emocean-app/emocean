@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var settingsEnv: SettingsViewModel
+    @StateObject var viewModel = MainViewModel()
     @State var shouldShowCheckin = false
     @State var showSettings = false
     let dayOfWeek: Int
@@ -42,28 +43,38 @@ struct MainView: View {
                 ReflectButton()
                     .padding(.vertical, 30)
 
-                Text("Recent Goals")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                if !viewModel.goals.isEmpty {
+                    Text("Recent Goals")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, alignment: .leading)
 
-                Text("I want to focusing on myself rather than focusing on other people on social"
-                     + "media. Therefore I can achieve more things that matter to me. I want to start"
-                     + "focusing on myself"
-                )
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(.white)
-                    .padding(.top, 1)
+                    Text(viewModel.goals[viewModel.goals.count - 1].content)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(.white)
+                        .padding(.top, 1)
+                }
 
-                EmotionChart(red: 10, blue: 20, green: 15, yellow: 30)
-                    .padding(.vertical)
+                if let progress = viewModel.progress {
+                    EmotionChart(
+                        red: viewModel.progressCount["red"] ?? 0,
+                        blue: viewModel.progressCount["blue"] ?? 0,
+                        green: viewModel.progressCount["green"] ?? 0,
+                        yellow: viewModel.progressCount["yellow"] ?? 0,
+                        image: progress.mood.imageUrl
+                    )
+                        .padding(.vertical)
+                }
 
                 Text("Emotional Pattern")
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                ChartDescriptionView()
+                if let progress = viewModel.progress,
+                   !progress.progress.isEmpty {
+                    ChartDescriptionView(quadrants: progress.progress)
+                }
 
                 Spacer()
                     .frame(height: 50)
