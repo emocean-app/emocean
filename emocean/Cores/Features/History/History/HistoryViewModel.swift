@@ -74,6 +74,5 @@ extension HistoryViewModel {
                 self?.histories = data
             }
             .store(in: &cancellable)
-
     }
 }

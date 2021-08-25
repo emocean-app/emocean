@@ -14,6 +14,7 @@ struct Mood: Identifiable, Codable {
     let imageUrl: String
     let energy: Int
     let pleasent: Int
+    let quadrant: String
     var moodType: String {
         return pleasent <= 5 ? "NEGATIVE" : "POSITIVE"
     }
@@ -24,6 +25,7 @@ struct Mood: Identifiable, Codable {
         case imageUrl = "image_url"
         case energy
         case pleasent
+        case quadrant
     }
 }
 /*

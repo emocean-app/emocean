@@ -12,6 +12,13 @@ struct HistoryView: View {
     @StateObject var viewModel = HistoryViewModel()
     @State var shouldShowModal = false
     @State var history: History?
+    
+    let quadrantColor = [
+        "red": Color.theme.redQuadrant,
+        "blue": Color.theme.blueQuadrant,
+        "green": Color.theme.greenQuadrant,
+        "yellow": Color.theme.yellowQuadrant
+    ]
 
     var body: some View {
         VStack { // START: ZSTACK
@@ -60,13 +67,14 @@ struct HistoryView: View {
                                 ForEach(0..<viewModel.histories.count, id: \.self) { idx in
                                     Button(action: {
                                         self.history = viewModel.histories[idx]
+                                        self.history?.stories.reverse()
                                         self.shouldShowModal = true
                                     }, label: {
                                         ReflectionCell(
                                             time: Time(viewModel.histories[idx].createdDate).getRawValue(),
                                             mood: viewModel.histories[idx].mood.name,
                                             image: viewModel.histories[idx].mood.imageUrl,
-                                            bgColor: .blue,
+                                            bgColor: quadrantColor[viewModel.histories[idx].mood.quadrant]!,
                                             categories: [viewModel.histories[idx].category.name])
                                     })
                                     .padding(.bottom, idx == viewModel.histories.count - 1 ? 60 : 0)

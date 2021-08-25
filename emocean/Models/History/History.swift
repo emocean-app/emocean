@@ -15,7 +15,7 @@ struct History: Codable, Identifiable {
     let id: Int
     let mood: Mood
     let category: Category
-    let stories: [Story]
+    var stories: [Story]
     let createdAt: DateComponents
     let createdDate: Date
     
