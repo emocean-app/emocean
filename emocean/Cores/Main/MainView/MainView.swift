@@ -11,6 +11,7 @@ struct MainView: View {
     @EnvironmentObject var settingsEnv: SettingsViewModel
     @StateObject var viewModel = MainViewModel()
     @State var shouldShowCheckin = false
+    @State var shouldShowReflection = false
     @State var showSettings = false
     let dayOfWeek: Int
     let time = Time()
@@ -41,6 +42,9 @@ struct MainView: View {
                 }
 
                 ReflectButton()
+                    .onTapGesture {
+                        shouldShowReflection = true
+                    }
                     .padding(.vertical, 30)
 
                 if !viewModel.goals.isEmpty {
@@ -100,6 +104,9 @@ struct MainView: View {
         })
         .fullScreenCover(isPresented: $showSettings, content: {
             SettingsView()
+        })
+        .fullScreenCover(isPresented: $shouldShowReflection, content: {
+            WeeklyView()
         })
         .environmentObject(settingsEnv)
     }
