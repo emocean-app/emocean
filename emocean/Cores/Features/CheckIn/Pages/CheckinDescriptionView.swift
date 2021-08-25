@@ -34,10 +34,10 @@ struct CheckinDescriptionView: View {
                             if env.nextStepType() == .description {
                                 timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
                             }
+                            env.saveFeedback(answer: text)
                             withAnimation(.easeInOut) {
                                 env.goToNextStep()
                             }
-                            env.saveFeedback(answer: text)
                             showTextField = false
                             text = ""
                         }

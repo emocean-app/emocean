@@ -12,7 +12,6 @@ struct HistoryView: View {
     @StateObject var viewModel = HistoryViewModel()
     @State var shouldShowModal = false
     @State var history: History?
-    
     let quadrantColor = [
         "red": Color.theme.redQuadrant,
         "blue": Color.theme.blueQuadrant,

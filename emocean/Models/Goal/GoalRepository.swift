@@ -16,14 +16,12 @@ struct GoalRepository {
     private var cancellables = Set<AnyCancellable>()
     
     func getAllData() -> AnyPublisher<[Entity], NetworkRequestError> {
-        
         return networkStore
             .getAllGoal(status: false)
             .map({ data -> [Entity] in
                 return data.goals
             })
             .eraseToAnyPublisher()
-        
     }
     
     func getAllDummy() -> [Entity] {
@@ -35,6 +33,15 @@ struct GoalRepository {
             .postGoal(body: body.asDictionary)
             .map({ data in
                 return data.deviceId
+            })
+            .eraseToAnyPublisher()
+    }
+    
+    func delData(id: Int) -> AnyPublisher<Int,NetworkRequestError> {
+        return networkStore
+            .deleteGoal(id: id)
+            .map({ data in
+                return data.id
             })
             .eraseToAnyPublisher()
     }
