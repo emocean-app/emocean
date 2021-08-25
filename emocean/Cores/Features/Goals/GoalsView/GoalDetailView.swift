@@ -29,10 +29,13 @@ struct GoalDetailView: View {
     @State var value = 0.0
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     private let clearColor = Color.clear
+    @StateObject private var goalViewModel = GoalViewModel()
+    @ObservedObject private var viewModel = GoalFormViewModel()
+    @State var isModalShown = false
     var body: some View {
         VStack (alignment: .leading){ // START: VSTACK
                 HStack { // START: HSTACK
-                    Text("sdasda")
+                    Text(goal.createdAt)
                         .font(.footnote)
                     Spacer()
                     Image(systemName: "xmark")
@@ -46,20 +49,38 @@ struct GoalDetailView: View {
                 } // END: HSTACK
                 .padding(.horizontal,25)
                 .padding(.top,25)
-                ScrollView{
+            ScrollView(){
                     Text(goal.content)
-                        .padding(.horizontal,25)
+                        .padding(.leading,20)
                         .padding(.vertical)
                         .font(.body)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(.vertical,10)
                 Spacer()
                 HStack { // START: HSTACK
                     if !goal.completed {
-                        CompleteButton(action: {})
-                        EditButton(action: {})
+                        
+                        CompleteButton(action: {
+                            viewModel.putMethod(currentGoal: CurrentGoal(id: goal.id, content: goal.content, status: true, categoryName: goal.category.name))
+                            self.viewControllerHolder?.dismiss(animated: true, completion: nil)
+                        })
+                        .onDisappear {
+                            goalViewModel.fetchData()
+                        }
+                        
+                        EditButton(action: {
+                            //goalViewModel.getGoal.content = goal.content
+                            goalViewModel.currentGoal.content = goal.content
+                            goalViewModel.currentGoal.id = goal.id
+                            print(goalViewModel.currentGoal)
+                            isModalShown = true
+                        })
+                        .onDisappear {
+                            goalViewModel.fetchData()
+                        }
                     }
+                    
                     Spacer()
                     Image("Trash")
                         .resizable()
@@ -67,6 +88,13 @@ struct GoalDetailView: View {
                         .frame(width: 50, height: 50)
                         .onTapGesture {
                             // DEL FUNCTION
+                            goalViewModel.getId = goal.id
+                            goalViewModel.deleteData(at: nil)
+                            self.viewControllerHolder?.dismiss(animated: true, completion: nil)
+                            //goalViewModel.fetchData()
+                        }
+                        .onDisappear {
+                            goalViewModel.fetchData()
                         }
                 } // END: HSTACK
                 .padding(.horizontal,25)
@@ -75,12 +103,15 @@ struct GoalDetailView: View {
         .frame(minHeight: 200, maxHeight: 400)
         .background(Color.white)
         .cornerRadius(25)
+        .sheet(isPresented: $isModalShown, content: {
+            GoalFormView(showModal: $isModalShown, title: "Edit Goal", currentGoal: CurrentGoal(id: goal.id, content: goal.content, status: goal.completed, categoryName: goal.category.name))
+        })
     }
 }
 
 struct GoalDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalDetailView(goal: Goal(id: 0,content: "Work", completed: false , createdAt: "25 January 2021", categoryId: 2))
+        GoalDetailView(goal: Goal(id: 0, deviceId: "",content: "Work", completed: false , createdAt: "25 January 2021", category: Category(id: 1, name: "Work")))
             .previewLayout(.sizeThatFits)
             .padding(.horizontal,10)
             .background(Color.black)

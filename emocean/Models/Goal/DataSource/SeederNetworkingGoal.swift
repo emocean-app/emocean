@@ -7,16 +7,18 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 struct SeederNetworkingGoal {
     private var baseUrl = Constant.baseUrl
-    
-    
     func postGoal(body: [String: Any]) ->
     AnyPublisher<PostResponse, NetworkRequestError> {
         let apiService = APIService(baseURL: baseUrl)
+        let header: [String:String] = [
+            "content-type": "application/json"
+        ]
         return apiService
-            .dispatch(request: PostGoal(body: body))
+            .dispatch(request: PostGoal(headers: header,body: body))
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
@@ -24,19 +26,33 @@ struct SeederNetworkingGoal {
     func getAllGoal(status: Bool) -> AnyPublisher<GetResponse, NetworkRequestError> {
         let apiService = APIService(baseURL: baseUrl)
 
-        var header: [String:String] = [
-            "Content-Type": "application/json"
+        let header: [String:String] = [
+            "content-type": "application/json"
         ]
-        var body: [String:Any] = [
-            "deviceId": "80BE2160-E98C-4C9A-B77F-66ECEB04EBAC",
-            "status": status
+        let queryparams: [String:String]? = [
+            "deviceId": "\(UIDevice.current.identifierForVendor?.uuidString ?? "")"
         ]
 
         return apiService
-            .dispatch(request: GetAllGoals(headers: header, body: body))
+            .dispatch(request: GetAllGoals(headers: header, queryParams: queryparams))
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+    
+    func deleteGoal(id: Int) -> AnyPublisher<DeleteResponse, NetworkRequestError> {
+        let apiService = APIService(baseURL: baseUrl)
+
+        let header: [String:String] = [
+            "content-type": "application/json"
+        ]
+        
+        var deletedId =  id
+        return apiService
+            .dispatch(request: DeleteGoal(path: "api/goals/\(deletedId)", headers: header))
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
 }
 
 //MARK: - REQUEST
@@ -46,14 +62,21 @@ extension SeederNetworkingGoal {
         typealias ReturnType = GetResponse
         var path: String = "api/goals"
         var headers: [String : String]?
-        var body: [String : Any]?
+        var queryParams: [String : String]?
     }
     
     struct PostGoal: Request {
         typealias ReturnType = PostResponse
         var method: HTTPMethod = .POST
+        var headers: [String : String]?
         var path: String = "api/goals"
         var body: [String: Any]?
+    }
+    
+    struct DeleteGoal: Request {
+        typealias ReturnType = DeleteResponse
+        var path: String = ""
+        var headers: [String : String]?
     }
 }
 
@@ -65,5 +88,9 @@ extension SeederNetworkingGoal {
     
     struct PostResponse: Codable {
         let deviceId: String
+    }
+    
+    struct DeleteResponse: Codable {
+        let id: Int
     }
 }

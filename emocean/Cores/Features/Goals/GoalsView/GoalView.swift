@@ -12,6 +12,10 @@ struct GoalView: View {
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     @State var selection: Bool = false
     @State var isModalShown = false
+    @State var now = Date()
+
+    let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
+
     init() {
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
@@ -44,31 +48,36 @@ struct GoalView: View {
                 }
                 .padding(.horizontal,20)
                 Picker("Status", selection: $selection) {
-                    Text("On-Going").tag(false)
+                    Text("On-Going \(goalViewModel.goals.count)").tag(false)
                     Text("Completed").tag(true)
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                 List {
                     ForEach(goalViewModel.goals) { item in
-                        if selection == item.completed {
-                            GoalCell(category: "item.category" ?? "", goal: item.content, date: item.createdAt, isCompleted: item.completed)
+                        if item.completed == selection  {
+                            GoalCell(goal: item)
                                 .onTapGesture {
                                     goalViewModel.getGoal =  item
+                                    goalViewModel.currentGoal.id = item.id
+                                    goalViewModel.currentGoal.categoryName = item.category.name
+                                    print(item)
                                     self.viewControllerHolder?.present(style: .overCurrentContext, transitionStyle: .crossDissolve) {
                                         GoalDetailView(goal: item).padding()
                                     }
-                                    
                                 }
                         }
                     }
-                    .onDelete(perform: goalViewModel.delete)
+                    .onDelete(perform: goalViewModel.deleteData)
                     .listRowBackground(Color.clear)
+                }
+                .onAppear {
+                    goalViewModel.fetchData()
                 }
             }
         }
         .sheet(isPresented: $isModalShown, content: {
-            GoalFormView(showModal: $isModalShown)
+            GoalFormView(showModal: $isModalShown, title: "New Goal")
         })
     }
 }
