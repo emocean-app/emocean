@@ -13,14 +13,14 @@ struct CheckinView: View {
     // View Model
     @StateObject var viewModel = CheckinViewModel()
     // UI
+    @State private var sec = 0.0
     private var imageFullWidth = UIScreen.main.bounds.width * 2
     private let screenHeight = UIScreen.main.bounds.height
-    @State private var sec = 0.0
     let time = Time()
     // MARK: BODY
     var body: some View {
         ZStack {
-            // background theme
+            // Background Theme
             if viewModel.currentStep.viewType == .category ||
                 viewModel.currentStep.viewType == .feelings ||
                 viewModel.currentStep.viewType == .observation {
@@ -93,7 +93,6 @@ struct CheckinView: View {
 }
 
 // MARK: - Components
-
 extension CheckinView {
     // Views Selection
     var viewsSelection: some View {
@@ -115,8 +114,6 @@ extension CheckinView {
                     .onAppear(perform: {
                         viewModel.startTimer()
                     })
-            case .prompt:
-               CheckinPromptView()
             }
         }
     }
@@ -153,7 +150,6 @@ extension CheckinView {
 }
 
 // MARK: - PREVIEW
-
 struct CheckinView_Previews: PreviewProvider {
     static var previews: some View {
         CheckinView()

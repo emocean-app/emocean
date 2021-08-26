@@ -23,22 +23,23 @@
 import SwiftUI
 
 struct GoalCell: View {
-    @State var category: String
-    @State var goal: String
-    @State var date: String
-    @State var isCompleted: Bool
+    @State var goal: Goal = Goal(id: 0, deviceId: "", content: "", completed: false, createdAt: "", category: Category(id: 0, name: ""))
     var body: some View {
         Button(action: {}, label: {
          
                 HStack {
                     VStack(alignment: .leading) {
                         HStack {
-                            CategoryLabel(labelCategory: category)
-                            Text(date)
+                            CategoryLabel(labelCategory: goal.category.name)
+                            Text(Time.formatter(
+                                    dateFormat: "EEEE, MMM d yyyy",
+                                    from: Time.parseFromIso8601(from: goal.createdAt
+                                    ))
+                            )
                                 .foregroundColor(.gray)
                                 .font(.footnote)
                         }
-                        Text(goal)
+                        Text(goal.content)
                             .frame(minHeight: 50)
                             .foregroundColor(Color.theme.primary)
                             .lineLimit(2)
@@ -60,7 +61,7 @@ struct GoalCell: View {
 
 struct GoalCell_Previews: PreviewProvider {
     static var previews: some View {
-        GoalCell(category: "Relationship",goal: "Hello Mr Crab adaasda daskdadmak adksadka adsnkd",date: "January 30th 2021", isCompleted: true)
+        GoalCell(goal: Goal(id: 1, deviceId: "", content: "", completed: false, createdAt: "", category: Category(id: 1, name: "work")))
             .previewLayout(.sizeThatFits)
             .padding()
             .background(Color.black)

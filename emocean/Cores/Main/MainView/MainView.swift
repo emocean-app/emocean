@@ -9,7 +9,9 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var settingsEnv: SettingsViewModel
+    @StateObject var viewModel = MainViewModel()
     @State var shouldShowCheckin = false
+    @State var shouldShowReflection = false
     @State var showSettings = false
     let dayOfWeek: Int
     let time = Time()
@@ -40,30 +42,42 @@ struct MainView: View {
                 }
 
                 ReflectButton()
+                    .onTapGesture {
+                        shouldShowReflection = true
+                    }
                     .padding(.vertical, 30)
 
-                Text("Recent Goals")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                Text("I want to focusing on myself rather than focusing on other people on social"
-                     + "media. Therefore I can achieve more things that matter to me. I want to start"
-                     + "focusing on myself"
-                )
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(.white)
-                    .padding(.top, 1)
-
-                EmotionChart(red: 10, blue: 20, green: 15, yellow: 30)
-                    .padding(.vertical)
-
-                Text("Emotional Pattern")
+                if !viewModel.goals.isEmpty {
+                    Text("Recent Goals")
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                ChartDescriptionView()
+                    Text(viewModel.goals[viewModel.goals.count - 1].content)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(.white)
+                        .padding(.top, 1)
+                }
+
+                if let progress = viewModel.progress {
+                    EmotionChart(
+                        red: viewModel.progressCount["red"] ?? 0,
+                        blue: viewModel.progressCount["blue"] ?? 0,
+                        green: viewModel.progressCount["green"] ?? 0,
+                        yellow: viewModel.progressCount["yellow"] ?? 0,
+                        image: progress.mood.imageUrl
+                    )
+                        .padding(.vertical)
+                }
+
+                if let progress = viewModel.progress,
+                   !progress.progress.isEmpty {
+                    Text("Emotional Pattern")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    ChartDescriptionView(quadrants: progress.progress)
+                }
 
                 Spacer()
                     .frame(height: 50)
@@ -89,6 +103,9 @@ struct MainView: View {
         })
         .fullScreenCover(isPresented: $showSettings, content: {
             SettingsView()
+        })
+        .fullScreenCover(isPresented: $shouldShowReflection, content: {
+            WeeklyView()
         })
         .environmentObject(settingsEnv)
     }

@@ -12,6 +12,10 @@ struct GoalView: View {
     @Environment(\.viewController) private var viewControllerHolder: UIViewController?
     @State var selection: Bool = false
     @State var isModalShown = false
+    @State var now = Date()
+
+    let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
+
     init() {
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
@@ -51,24 +55,29 @@ struct GoalView: View {
                 .padding()
                 List {
                     ForEach(goalViewModel.goals) { item in
-                        if selection == item.status {
-                            GoalCell(category: item.category, goal: item.goal, date: item.date, isCompleted: item.status)
+                        if item.completed == selection  {
+                            GoalCell(goal: item)
                                 .onTapGesture {
                                     goalViewModel.getGoal =  item
+                                    goalViewModel.currentGoal.id = item.id
+                                    goalViewModel.currentGoal.categoryName = item.category.name
+                                    print(item)
                                     self.viewControllerHolder?.present(style: .overCurrentContext, transitionStyle: .crossDissolve) {
                                         GoalDetailView(goal: item).padding()
                                     }
-                                    
                                 }
                         }
                     }
-                    .onDelete(perform: goalViewModel.delete)
+                    .onDelete(perform: goalViewModel.deleteData)
                     .listRowBackground(Color.clear)
+                }
+                .onAppear {
+                    goalViewModel.fetchData()
                 }
             }
         }
         .sheet(isPresented: $isModalShown, content: {
-            GoalFormView(showModal: $isModalShown)
+            GoalFormView(showModal: $isModalShown, title: "New Goal")
         })
     }
 }

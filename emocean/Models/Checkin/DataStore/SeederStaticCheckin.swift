@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct SeederStaticCheckin {
+    /// Get the response after add a checkin
+    /// - Returns: a String of device ID
+    func postCheckin() -> String {
+        return "dummy-device"
+    }
+}

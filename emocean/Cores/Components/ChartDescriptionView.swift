@@ -8,44 +8,47 @@
 import SwiftUI
 
 struct ChartDescriptionView: View {
+    let patternTime = [
+        "Most of the time you feel",
+        "Often you feel",
+        "Sometimes you feel",
+        "You rarely feel"
+    ]
+    
+    let pattern = [
+        "red": "unpleasant and high on energy",
+        "blue": "unpleasant and low on energy",
+        "green": "pleasant and low on energy",
+        "yellow": "pleasant and high on energy"
+    ]
+    
+    let quadrantColor = [
+        "red": Color.theme.redQuadrant,
+        "blue": Color.theme.blueQuadrant,
+        "green": Color.theme.greenQuadrant,
+        "yellow": Color.theme.yellowQuadrant
+    ]
+    
+    let quadrants: [Quadrant]
+    
     var body: some View {
         VStack(alignment: .leading) {
             Spacer()
-
-            HStack {
-                Circle()
-                    .frame(width: 20, height: 20)
-                    .foregroundColor(Color.theme.redQuadrant)
-                Text("Most of the time you don't feel pleasant and high on energy")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(Color.theme.primary)
-            }
-
-            Spacer()
                 .frame(height: 20)
 
-            HStack(alignment: .center) {
-                Circle()
-                    .frame(width: 20, height: 20)
-                    .foregroundColor(Color.theme.yellowQuadrant)
-                Text("Often you feel pleasant and high on energy")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(Color.theme.primary)
+            ForEach(0..<quadrants.count, id: \.self) { idx in
+                HStack {
+                    Circle()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(quadrantColor[quadrants[idx].quadrant])
+                    Text("\(patternTime[idx]) \(pattern[quadrants[idx].quadrant]!)")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundColor(Color.theme.primary)
+                }
+
+                Spacer()
+                    .frame(height: 20)
             }
-
-            Spacer()
-                .frame(height: 20)
-
-            HStack(alignment: .center) {
-                Circle()
-                    .frame(width: 20, height: 20)
-                    .foregroundColor(Color.theme.blueQuadrant)
-                Text("You rarely feel unpleasant with low energy level")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(Color.theme.primary)
-            }
-
-            Spacer()
         }
         .padding()
         .background(Color.white)
@@ -55,7 +58,9 @@ struct ChartDescriptionView: View {
 
 struct ChartDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartDescriptionView()
+        ChartDescriptionView(quadrants: [
+            Quadrant(quadrant: "yellow", count: 1)
+        ])
             .previewLayout(.sizeThatFits)
             .background(Color.theme.seaBottomGradient)
     }
