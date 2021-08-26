@@ -33,85 +33,118 @@ struct GoalDetailView: View {
     @ObservedObject private var viewModel = GoalFormViewModel()
     @State var isModalShown = false
     var body: some View {
-        VStack (alignment: .leading){ // START: VSTACK
-                HStack { // START: HSTACK
-                    Text(Time.formatter(dateFormat: "EEEE, MMM d yyyy", from: Time.parseFromIso8601(from: goal.createdAt)))
-                        .font(.footnote)
-                    Spacer()
-                    Image(systemName: "xmark")
-                        .resizable()
-                        .frame(width:20, height: 20)
-                        .foregroundColor(.gray)
-                        .onTapGesture {
-                            //isShow = false
-                            self.viewControllerHolder?.dismiss(animated: true, completion: nil)
-                        }
-                } // END: HSTACK
-                .padding(.horizontal,25)
-                .padding(.top,25)
-            ScrollView(){
-                    Text(goal.content)
-                        .padding(.leading,20)
-                        .padding(.vertical)
-                        .font(.body)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .padding(.vertical,10)
+        VStack(alignment: .leading) { // START: VSTACK
+            HStack { // START: HSTACK
+                Text(
+                    Time.formatter(
+                        dateFormat: "EEEE, MMM d yyyy",
+                        from: Time.parseFromIso8601(
+                            from: goal.createdAt
+                        )
+                    )
+                )
+                .font(.footnote)
+                .foregroundColor(Color.theme.primary)
                 Spacer()
-                HStack { // START: HSTACK
-                    if !goal.completed {
-                        
-                        CompleteButton(action: {
-                            viewModel.putMethod(currentGoal: CurrentGoal(id: goal.id, content: goal.content, status: true, categoryName: goal.category.name))
+                Image(systemName: "xmark")
+                    .resizable()
+                    .frame(width:20, height: 20)
+                    .foregroundColor(.gray)
+                    .onTapGesture {
+                        self.viewControllerHolder?.dismiss(animated: true, completion: nil)
+                    }
+            } // END: HSTACK
+            .padding(.horizontal,25)
+            .padding(.top,25)
+            ScrollView {
+                Text(goal.content)
+                    .padding(.leading,20)
+                    .padding(.vertical)
+                    .font(.body)
+                    .foregroundColor(Color.theme.primary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding(.vertical,10)
+            Spacer()
+            HStack { // START: HSTACK
+                if !goal.completed {
+                    CompleteButton(
+                        action: {
+                            viewModel.putMethod(
+                                currentGoal: CurrentGoal(
+                                    id: goal.id,
+                                    content: goal.content,
+                                    status: true,
+                                    categoryName: goal.category.name
+                                )
+                            )
                             self.viewControllerHolder?.dismiss(animated: true, completion: nil)
                         })
                         .onDisappear {
                             goalViewModel.fetchData()
                         }
-                        
-                        EditButton(action: {
-                            //goalViewModel.getGoal.content = goal.content
+
+                    EditButton(
+                        action: {
                             goalViewModel.currentGoal.content = goal.content
                             goalViewModel.currentGoal.id = goal.id
                             print(goalViewModel.currentGoal)
                             isModalShown = true
-                        })
-                        .onDisappear {
-                            goalViewModel.fetchData()
                         }
+                    )
+                    .onDisappear {
+                        goalViewModel.fetchData()
                     }
-                    
-                    Spacer()
-                    Image("Trash")
-                        .resizable()
-                        .foregroundColor(Color.theme.primary)
-                        .frame(width: 50, height: 50)
-                        .onTapGesture {
-                            // DEL FUNCTION
-                            goalViewModel.getId = goal.id
-                            goalViewModel.deleteData(at: nil)
-                            self.viewControllerHolder?.dismiss(animated: true, completion: nil)
-                            //goalViewModel.fetchData()
-                        }
-                        .onDisappear {
-                            goalViewModel.fetchData()
-                        }
-                } // END: HSTACK
-                .padding(.horizontal,25)
-                .padding(.bottom)
+                }
+
+                Spacer()
+                Image("Trash")
+                    .resizable()
+                    .foregroundColor(Color.theme.primary)
+                    .frame(width: 50, height: 50)
+                    .onTapGesture {
+                        // DEL FUNCTION
+                        goalViewModel.getId = goal.id
+                        goalViewModel.deleteData(at: nil)
+                        self.viewControllerHolder?.dismiss(animated: true, completion: nil)
+                    }
+                    .onDisappear {
+                        goalViewModel.fetchData()
+                    }
+            } // END: HSTACK
+            .padding(.horizontal,25)
+            .padding(.bottom)
         } // END: VSTACK
         .frame(minHeight: 200, maxHeight: 400)
         .background(Color.white)
         .cornerRadius(25)
         .sheet(isPresented: $isModalShown, content: {
-            GoalFormView(showModal: $isModalShown, title: "Edit Goal", currentGoal: CurrentGoal(id: goal.id, content: goal.content, status: goal.completed, categoryName: goal.category.name))
+            GoalFormView(
+                showModal: $isModalShown,
+                title: "Edit Goal",
+                currentGoal: CurrentGoal(
+                    id: goal.id,
+                    content: goal.content,
+                    status: goal.completed,
+                    categoryName: goal.category.name
+                )
+            )
         })
     }
 }
 
 struct GoalDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalDetailView(goal: Goal(id: 0, deviceId: "",content: "Work", completed: false , createdAt: "25 January 2021", category: Category(id: 1, name: "Work")))
+        GoalDetailView(
+            goal: Goal(
+                id: 0,
+                deviceId: "",
+                content: "Work",
+                completed: false ,
+                createdAt: "25 January 2021",
+                category: Category(id: 1, name: "Work")
+            )
+        )
             .previewLayout(.sizeThatFits)
             .padding(.horizontal,10)
             .background(Color.black)
