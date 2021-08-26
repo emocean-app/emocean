@@ -31,7 +31,11 @@ struct GoalCell: View {
                     VStack(alignment: .leading) {
                         HStack {
                             CategoryLabel(labelCategory: goal.category.name)
-                            Text(goal.createdAt)
+                            Text(Time.formatter(
+                                    dateFormat: "EEEE, MMM d yyyy",
+                                    from: Time.parseFromIso8601(from: goal.createdAt
+                                    ))
+                            )
                                 .foregroundColor(.gray)
                                 .font(.footnote)
                         }

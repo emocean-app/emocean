@@ -35,7 +35,7 @@ struct GoalDetailView: View {
     var body: some View {
         VStack (alignment: .leading){ // START: VSTACK
                 HStack { // START: HSTACK
-                    Text(goal.createdAt)
+                    Text(Time.formatter(dateFormat: "EEEE, MMM d yyyy", from: Time.parseFromIso8601(from: goal.createdAt)))
                         .font(.footnote)
                     Spacer()
                     Image(systemName: "xmark")

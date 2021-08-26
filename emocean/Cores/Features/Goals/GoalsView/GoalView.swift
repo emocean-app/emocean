@@ -48,7 +48,7 @@ struct GoalView: View {
                 }
                 .padding(.horizontal,20)
                 Picker("Status", selection: $selection) {
-                    Text("On-Going \(goalViewModel.goals.count)").tag(false)
+                    Text("On-Going").tag(false)
                     Text("Completed").tag(true)
                 }
                 .pickerStyle(SegmentedPickerStyle())
