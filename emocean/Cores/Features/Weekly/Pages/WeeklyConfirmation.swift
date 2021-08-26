@@ -70,6 +70,7 @@ extension WeeklyConfirmation {
             Text("Okay")
         }, maxWidth: 100, action: {
             print("Selesai")
+            presentationMode.wrappedValue.dismiss()
         })
         .animation(.easeInOut(duration: 4))
         .transition(.move(edge: .bottom))

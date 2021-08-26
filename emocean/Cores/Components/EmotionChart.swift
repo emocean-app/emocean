@@ -29,35 +29,38 @@ import SwiftUI
 
 struct EmotionChart: View {
     var emotionArray: [ChartData]
+    var image: String
 
     // MARK: INITIALIZER
-    init(red: CGFloat, blue: CGFloat, green: CGFloat, yellow: CGFloat) {
+    init(red: Int, blue: Int, green: Int, yellow: Int, image: String) {
+        let red = CGFloat(red)
+        let blue = CGFloat(blue)
+        let green = CGFloat(green)
+        let yellow = CGFloat(yellow)
+        
         let total: CGFloat = red + blue + green + yellow
 
+        self.image = image
         self.emotionArray = [
             ChartData(
                 emotion: .blue,
                 value: blue/total,
-                color: Color.theme.blueQuadrant,
-                image: ["ArwanaDua", "BuntelDua"]
+                color: Color.theme.blueQuadrant
             ),
             ChartData(
                 emotion: .green,
                 value: green/total,
-                color: Color.theme.greenQuadrant,
-                image: ["GuritaDua", "CupangDua"]
+                color: Color.theme.greenQuadrant
             ),
             ChartData(
                 emotion: .yellow,
                 value: yellow/total,
-                color: Color.theme.yellowQuadrant,
-                image: ["KudaDua", "NemoDua"]
+                color: Color.theme.yellowQuadrant
             ),
             ChartData(
                 emotion: .red,
                 value: red/total,
-                color: Color.theme.redQuadrant,
-                image: ["KepitingDua", "GuritaDua"]
+                color: Color.theme.redQuadrant
             )
         ]
 
@@ -87,7 +90,7 @@ struct EmotionChart: View {
                     .foregroundColor(emotion.color)
             } // END: FOREACH
 
-            Image(emotionArray[0].image.randomElement()!)
+            Image(image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 150, height: 150)
@@ -110,13 +113,12 @@ struct ChartData: Hashable {
     let value: CGFloat
     let color: Color
     var startPoint: CGFloat?
-    var image: [String]
 }
 
 // MARK: - Preview
 struct EmotionChart_Previews: PreviewProvider {
     static var previews: some View {
-        EmotionChart(red: 15, blue: 10, green: 21, yellow: 40)
+        EmotionChart(red: 15, blue: 10, green: 21, yellow: 40, image: "NemoDua")
             .previewLayout(.sizeThatFits)
     }
 }
