@@ -49,7 +49,7 @@ class MainViewModel: ObservableObject {
                 case .failure(let err):
                     print(err.errorDescription ?? "")
                     guard let self = self else { return }
-                    self.progress = self.progressRepo.getDummy()
+                    self.progress = nil
                 case .finished:
                     print("Finish get progress")
                 }

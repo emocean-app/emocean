@@ -70,13 +70,12 @@ struct MainView: View {
                         .padding(.vertical)
                 }
 
-                Text("Emotional Pattern")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-
                 if let progress = viewModel.progress,
                    !progress.progress.isEmpty {
+                    Text("Emotional Pattern")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     ChartDescriptionView(quadrants: progress.progress)
                 }
 
