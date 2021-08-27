@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct NotificationHelper {
-    init() {
+    static func setupNotification(title: String, body: String, time: Date) {
         UNUserNotificationCenter
             .current()
             .requestAuthorization(options: [.alert, .badge, .sound]) { authorized, error in
@@ -21,9 +21,7 @@ struct NotificationHelper {
                 print("Not authorized")
             }
         }
-    }
 
-    func setupNotification(title: String, body: String, time: Date) {
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
@@ -38,6 +36,8 @@ struct NotificationHelper {
         let request = UNNotificationRequest(identifier: "checkinNotification", content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        UserDefaults.standard.setValue(true, forKey: "reminder")
+        UserDefaults.standard.setValue(time, forKey: "reminderTime")
         print("created")
     }
 

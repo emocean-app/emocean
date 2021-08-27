@@ -47,6 +47,8 @@ struct CheckinSuccessView: View {
     func getActionSheet() -> ActionSheet {
         
         let button1: ActionSheet.Button = .default(Text("Sure")){
+            settingsEnv.reminderTime = Date()
+            settingsEnv.reminder = true
             showAlert.toggle()
         }
         let button2: ActionSheet.Button = .destructive(Text("No thanks!")){
@@ -63,7 +65,7 @@ struct CheckinSuccessView: View {
     func getAllert() -> Alert {
         return Alert(
             title: Text("You’re all set!"),
-            message: Text("you will be reminded every night!"),
+            message: Text("You will be reminded everyday"),
             dismissButton: .default(Text("Okay"), action: {
             self.isfirst = false
             presentationMode.wrappedValue.dismiss()})

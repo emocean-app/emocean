@@ -61,7 +61,7 @@ struct OnboardingView: View {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(
             Color.theme.primary
         )
-        
+
         UIPageControl.appearance().pageIndicatorTintColor = UIColor(
             Color.theme.grayPrimary
         )
