@@ -23,13 +23,19 @@ struct ReflectionDetailView: View {
             if let history = history {
                 ScrollView(.vertical) {
                     VStack {
-                        
                         // Top Section
                         HStack {
-                            Text(viewModel.getFormattedDate(format: "EEEE, MMM d yyyy", from: history.createdAt))
+                            Text(
+                                viewModel.getFormattedDate(
+                                    format: "EEEE, MMM d yyyy",
+                                    from: history.createdAt
+                                )
+                            )
+                            .foregroundColor(Color.theme.primary)
                             Text("| \(Time(history.createdDate).getRawValue())")
+                                .foregroundColor(Color.theme.primary)
                             Spacer()
-                            
+
                             Button(action: {
                                 presentationMode.wrappedValue.dismiss()
                             }, label: {
@@ -44,6 +50,7 @@ struct ReflectionDetailView: View {
                             .font(.title2)
                             .italic()
                             .bold()
+                            .foregroundColor(Color.theme.primary)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         HStack {
                             CategoryLabel(labelCategory: history.category.name)
@@ -60,6 +67,7 @@ struct ReflectionDetailView: View {
                                         .foregroundColor(Color.theme.grayThird)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                     Text(history.stories[item].story)
+                                        .foregroundColor(Color.theme.primary)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -68,7 +76,7 @@ struct ReflectionDetailView: View {
                         .padding(.vertical)
                     }
                 }
-                .padding(25)
+                .padding([.horizontal, .top], 25)
             } else {
                 Text("No data available")
             }
