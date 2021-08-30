@@ -43,6 +43,7 @@ struct SettingsView: View {
                     .foregroundColor(colorScheme == .light ? Color.theme.grayThird : Color.theme.grayPrimary)
             }))
             .navigationBarTitle(Text("Settings"))
+            .preferredColorScheme(Time().getMode())
         }
     }
 }

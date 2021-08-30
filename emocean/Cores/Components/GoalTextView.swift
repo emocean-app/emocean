@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GoalTextView: View {
-    var description = "test asasdas adsmdowamdoawm oawmda moamswdoamwmadowa mdawodmaow maowmdoa damdowmaodawmodmwa damwodmaowmd awwodmaowwdmawodmaw"
+    var description = "Tes"
     var body: some View {
         VStack(alignment: .center) {
             ScrollView {
@@ -23,7 +23,6 @@ struct GoalTextView: View {
         }.frame(minHeight: 200, maxHeight: 250)
         .background(Color.white.opacity(0.75))
         .cornerRadius(30)
-        
     }
 }
 

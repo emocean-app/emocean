@@ -103,7 +103,7 @@ struct TextViewPages: View {
             Text(title).font(.title2)
                 .fontWeight(.semibold)
             // - TEXTVIEW
-            GoalTextView()
+            GoalTextView(description: "This is my goal last week")
                 .padding(.horizontal,16)
             // - TEXT DATE
             Text(date)
