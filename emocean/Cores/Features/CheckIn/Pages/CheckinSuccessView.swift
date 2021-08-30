@@ -21,37 +21,36 @@ struct CheckinSuccessView: View {
         ZStack {
             LottieView(filename: "\(time.getRawValue())Ending", contentMode: .scaleAspectFit).ignoresSafeArea()
             Page1(theme: time.getRawValue()).ignoresSafeArea()
-                VStack {
-                    Spacer().frame(height: UIScreen.main.bounds.height * 0.8)
-                    PrimaryButton(content: {
-                        Text("Thanks!")
-                    }, maxWidth: 100, action: {
-                        env.addCheckin()
-                        if UserDefaults.standard.object(forKey: "isFirstNotification") == nil,
-                           !settingsEnv.reminder {
-                            showAction.toggle()
-                        } else {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    })
-                    .animation(.easeInOut(duration: 4))
-                    .actionSheet(isPresented: $showAction, content: getActionSheet)
-                    .alert(isPresented: $showAlert, content: {
-                        getAllert()
-                    })
-                    Spacer()
-                }
+            VStack {
+                Spacer().frame(height: UIScreen.main.bounds.height * 0.8)
+                PrimaryButton(content: {
+                    Text("Thanks!")
+                }, maxWidth: 100, action: {
+                    env.addCheckin()
+                    if UserDefaults.standard.object(forKey: "isFirstNotification") == nil,
+                       !settingsEnv.reminder {
+                        showAction.toggle()
+                    } else {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                })
+                .actionSheet(isPresented: $showAction, content: getActionSheet)
+                .alert(isPresented: $showAlert, content: {
+                    getAllert()
+                })
+                Spacer()
+            }
         }
     }
-    
+
     func getActionSheet() -> ActionSheet {
-        
-        let button1: ActionSheet.Button = .default(Text("Sure")){
+
+        let button1: ActionSheet.Button = .default(Text("Sure")) {
             settingsEnv.reminderTime = Date()
             settingsEnv.reminder = true
             showAlert.toggle()
         }
-        let button2: ActionSheet.Button = .destructive(Text("No thanks!")){
+        let button2: ActionSheet.Button = .destructive(Text("No thanks!")) {
             presentationMode.wrappedValue.dismiss()
         }
         let button3: ActionSheet.Button = .cancel()
@@ -82,11 +81,11 @@ struct CheckinSuccessView_Previews: PreviewProvider {
 struct Page1: View {
     let theme: String
     var body: some View {
-        ZStack{
+        ZStack {
             Image("Ending\(theme)")
                 .resizable()
                 .scaledToFill()
-            VStack(alignment: .leading){
+            VStack(alignment: .leading) {
                 Spacer()
                 Text("Thank you for sharing your thoughts with me!")
                     .font(.title2)
@@ -104,11 +103,11 @@ struct Page1: View {
 struct Page2: View {
     let theme: String
     var body: some View {
-        ZStack{
+        ZStack {
             Image("R\(theme)")
                 .resizable()
                 .scaledToFill()
-            VStack(alignment: .leading, spacing: 20){
+            VStack(alignment: .leading, spacing: 20) {
                 Spacer()
                 Text("“Do what you can, with what you’ve got, where you are.”")
                     .font(.title2)
