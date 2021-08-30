@@ -82,6 +82,7 @@ extension WeeklyConfirmation {
             PrimaryButton(content: {
                 Text("No")
             }, maxWidth: 100, action: {
+                // Check if the model is the last step
                 if model.isLast {
                     // Show sheet
                     showAction.toggle()
@@ -90,7 +91,7 @@ extension WeeklyConfirmation {
                     env.goToNextStep(id: model.nextSecondary)
                 }
             })
-            .animation(.easeInOut(duration: 4))
+            .animation(.easeInOut)
             .actionSheet(
                 isPresented: $showAction,
                 content: getActionSheet
@@ -99,6 +100,7 @@ extension WeeklyConfirmation {
             PrimaryButton(content: {
                 Text("Yes")
             }, maxWidth: 100, action: {
+                // Check if the model is the last step
                 if model.isLast {
                     // Show sheet
                     showAction.toggle()
@@ -107,6 +109,7 @@ extension WeeklyConfirmation {
                     env.goToNextStep(id: model.next)
                 }
             })
+            .animation(.easeInOut)
         }
     }
 }
@@ -118,6 +121,7 @@ extension WeeklyConfirmation {
         // Define Cancel button for alert
         let firstButton: ActionSheet.Button = .default(Text("Cancel")) {
             print("Cancel")
+            presentationMode.wrappedValue.dismiss()
         }
         // Define Confirm Button for alert
         let secondButton: ActionSheet.Button = .destructive(Text("Confirm")) {
