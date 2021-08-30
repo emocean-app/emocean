@@ -13,6 +13,7 @@ struct MainView: View {
     @State var shouldShowCheckin = false
     @State var shouldShowReflection = false
     @State var showSettings = false
+    @State var showOnboarding = UserDefaults.standard.object(forKey: "onboardingLaunched") == nil
     let dayOfWeek: Int
     let time = Time()
 
@@ -107,6 +108,9 @@ struct MainView: View {
         .fullScreenCover(isPresented: $shouldShowReflection, content: {
             WeeklyView()
         })
+        .fullScreenCover(isPresented: $showOnboarding, content: {
+                    OnboardingView()
+                })
         .environmentObject(settingsEnv)
     }
 }
